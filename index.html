@@ -24,7 +24,20 @@
 
 
 
-
+initJcrop();
+    
+    // The function is pretty simple
+    function initJcrop()//{{{
+    {
+      // Hide any interface elements that require Jcrop
+      // (This is for the local user interface portion.)
+      $('.requiresjcrop').hide();
+      // Invoke Jcrop in typical fashion
+      $('#can_model').Jcrop({
+        onRelease: releaseCheck
+      },function(){
+        jcrop_api = this;
+        
  function setCrop()
     {
         
@@ -40,7 +53,13 @@ jQuery(function($) {
     
    function release()
 {
-
+jQuery(function($) {
+      // Destroy Jcrop widget, restore original state
+      jcrop_api.destroy();
+      // Update the interface to reflect un-attached state
+         return false;
+    });
+}
 //jQuery(function($) {
   //    // Destroy Jcrop widget, restore original state
     //  jcrop_api.destroy();
@@ -51,7 +70,7 @@ jQuery(function($) {
    // });
 
 	
-}
+
      // $('#can_model').Jcrop({
        	
      // 	boxWidth: 450, boxHeight: 400 
