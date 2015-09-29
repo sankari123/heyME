@@ -5,8 +5,7 @@
 	
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="FileTransfer.js"></script>
-    <script type="text/javascript" charset="utf-8"></script>
-  <script src="jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
 
@@ -18,77 +17,7 @@
    var imgDataUrl;
    var c_width,c_height;
    
-//   $('#cropbox').Jcrop();
 
-
-
-initJcrop();
-    
-    // The function is pretty simple
-    function initJcrop()//{{{
-    {
-      // Hide any interface elements that require Jcrop
-      // (This is for the local user interface portion.)
-      $('.requiresjcrop').hide();
-      // Invoke Jcrop in typical fashion
-      $('#can_model').Jcrop({
-        onRelease: releaseCheck
-      },function(){
-        jcrop_api = this;
-        
- function setCrop()
-    {
-        
-
-jQuery(function($) {
- $('#can_model').Jcrop({
- bgColor:     '#CCC',
- onSelect: showCoords,
- onChange: showCoords
-  });
- });
- }
-    
-   function release()
-{
-jQuery(function($) {
-      // Destroy Jcrop widget, restore original state
-      jcrop_api.destroy();
-      // Update the interface to reflect un-attached state
-         return false;
-    });
-}
-//jQuery(function($) {
-  //    // Destroy Jcrop widget, restore original state
-    //  jcrop_api.destroy();
-      // Update the interface to reflect un-attached state
-    //  $('#unhook,#enable,.requiresjcrop').hide();
-     // $('#rehook').show();
-     // return false;
-   // });
-
-	
-
-     // $('#can_model').Jcrop({
-       	
-     // 	boxWidth: 450, boxHeight: 400 
-      //onSelect: showCoords,
-       //	onChange: showCoords
-       	
-    //   });
-    
-    function showCoords(c)
-  {
-      // variables can be accessed here as
-     // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     $('#w').val(c.w);
-    $('#h').val(c.h);
-  
-
-//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
-    
-  };
-  
    
       var start = function() {
        screen.orientation.lock('portrait');
@@ -181,70 +110,21 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
   // int
+  
   c_width=document.getElementById('w').value;
   c_height=document.getElementById('h').value;
- // c_height=img.height;
- // c_width=img.width;
-  
+ 
    ctx.drawImage(img,0,0,c_width,c_height);
-   //,canvas.width, canvas.height);
- // var result = ScaleImage(img.width, img.height, 300, 200, true);
+ 
+   	imgData2=ctx.getImageData(0,0,c_width,c_height);
 
- // ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height); 
- // You can replace result.targetleft and result.targettop with "0" if you don't want the image centered.
-  // resizes image to a target size of 300x200 using letterbox mode
-    	imgData2=ctx.getImageData(0,0,c_width,c_height);
-//ctx.putImageData(imgData,10,70);
-//window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
-//canvas.addEventListener('touchstart',mouseDown,false);  
- //   canvas.addEventListener('touchmove',mouseMove,false);   
-  //  document.addEventListener('touchend',mouseUp,false);  
+
  
  }
  
  
- function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
-
-    var result = { width: 0, height: 0, fScaleToTargetWidth: true };
-
-    if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
-        return result;
-    }
-
-    // scale to the target width
-    var scaleX1 = targetwidth;
-    var scaleY1 = (srcheight * targetwidth) / srcwidth;
-
-    // scale to the target height
-    var scaleX2 = (srcwidth * targetheight) / srcheight;
-    var scaleY2 = targetheight;
-
-    // now figure out which one we should use
-    var fScaleOnWidth = (scaleX2 > targetwidth);
-    if (fScaleOnWidth) {
-        fScaleOnWidth = fLetterBox;
-    }
-    else {
-       fScaleOnWidth = !fLetterBox;
-    }
-
-    if (fScaleOnWidth) {
-        result.width = Math.floor(scaleX1);
-        result.height = Math.floor(scaleY1);
-        result.fScaleToTargetWidth = true;
-    }
-    else {
-        result.width = Math.floor(scaleX2);
-        result.height = Math.floor(scaleY2);
-        result.fScaleToTargetWidth = false;
-    }
-    result.targetleft = Math.floor((targetwidth - result.width) / 2);
-    result.targettop = Math.floor((targetheight - result.height) / 2);
-
-    return result;
-}
-
+ 
 
  function onFail(message) {
       alert('Failed because: ' + message);
@@ -252,14 +132,6 @@ function onPhotoURISuccess(imageURI) {
 
 function overlay()
 {
-//		var canvas_model1=document.querySelector('can_model');
-
-// hide the canvas
-//canvas_model1.style.display="none";
-//var canvas_model2=document.getElementById('can_me');
-
-// hide the canvas
-//canvas_model2.style.display="none";
 
 	canvas_final = document.getElementById('can_final');
                context_final = canvas_final.getContext("2d");
@@ -269,12 +141,7 @@ function overlay()
                
                // context_final.scale(0.5, 0.5);
            context_final.putImageData(imgData2,120,25);
-       // var result_q = prompt("Is your face image not set. Enter a value to decrease");
-        
-                   //,60,40,imgData2.width,imgData2.height);
-// canvas_final.addEventListener('touchstart', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
-//canvas_final.addEventListener('touchend', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
-               
+            
 }
 
     
@@ -348,7 +215,7 @@ html, body {
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
-<tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
+<tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
 
 
 </table>
