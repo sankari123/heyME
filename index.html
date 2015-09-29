@@ -4,6 +4,10 @@
     <title>meMO</title>
 	
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.min.js"></script>
+<script src="jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
     
    <script>
     
@@ -12,9 +16,44 @@
    var context_final;
    var imgDataUrl;
    var c_width,c_height;
-   
+   var jcrop_api;
+$('#can_model').Jcrop(options,function(){
+  jcrop_api = this;
+});
 
-   
+function setCrop()
+    {
+        
+jQuery(function($) {
+ $('#can_model').Jcrop({
+ bgColor:     '#CCC',
+ onSelect: showCoords,
+ onChange: showCoords
+  });
+ });
+ }
+ 
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+     // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
+  
+//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
+    
+  };
+  
+   function release()
+{
+jQuery(function($) {
+      // Destroy Jcrop widget, restore original state
+      jcrop_api.destroy();
+      // Update the interface to reflect un-attached state
+         return false;
+    });
+}
+
       var start = function() {
        screen.orientation.lock('portrait');
         }
@@ -57,12 +96,12 @@ function drawImageScaled(img, ctx) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
-  // setCrop();
+  setCrop();
   
 }
 
 function getPhoto(source) {
-//	release();
+	release();
         
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
