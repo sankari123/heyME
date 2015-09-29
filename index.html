@@ -127,15 +127,62 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-               
+                x=200;
+               y=70;
                // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,300,80);
+           context_final.putImageData(imgData2,x,y);
             
 }
 
     
+function adjust_overlap()
+{
+	navigator.notification.prompt(
+            'Want to move',  onPrompt,  'Move Pic',  ['Left','Right','Up','Down'],      );
+}
 
-
+function onPrompt(results) {
+	var getActual='y';
+       // alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+        x=200;
+        y=70;
+       while(getActual=='y')
+       {
+       	if(results.buttonIndex==1)
+          {
+          	x=x-1;
+          }
+          if(results.buttonIndex==2)
+          {
+          	x=x+1;
+          }
+          if(results.buttonIndex==3)
+          {
+          	y=y-1;
+          }
+          if(results.buttonIndex==4)
+          {
+          	y=y+1;
+          }
+       
+     
+     	       canvas_final = document.getElementById('can_final');
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+               context_final.putImageData(imgData1,0,0);
+               
+              
+               // context_final.scale(0.5, 0.5);
+           context_final.putImageData(imgData2,x,y);     
+           var message = "Is the Picture Set...";
+ 		var return_value = confirm(message);
+	   if ( return_value === true ) {
+	   	getActual=='n';
+	   }
+       } 
+    }
+    
 </script>
 <style>
 
