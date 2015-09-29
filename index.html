@@ -16,11 +16,7 @@
    var context_final;
    var imgDataUrl;
    var c_width,c_height;
-   var jcrop_api;
-$('#can_model').Jcrop(options,function(){
-  jcrop_api = this;
-});
-
+  
 function setCrop()
     {
         
@@ -44,16 +40,7 @@ jQuery(function($) {
     
   };
   
-   function release()
-{
-jQuery(function($) {
-      // Destroy Jcrop widget, restore original state
-      jcrop_api.destroy();
-      // Update the interface to reflect un-attached state
-         return false;
-    });
-}
-
+   
       var start = function() {
        screen.orientation.lock('portrait');
         }
@@ -101,7 +88,7 @@ function drawImageScaled(img, ctx) {
 }
 
 function getPhoto(source) {
-	release();
+//	release();
         
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
@@ -194,9 +181,9 @@ html, body {
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
-<!--<tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
+<tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
 
--->
+
 </table>
 
 <div class="divStyle" id="div_main">
