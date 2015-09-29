@@ -16,17 +16,16 @@
    var context_final;
    var imgDataUrl;
    var c_width,c_height;
-  
+  var jcrop_api;
 function setCrop()
     {
         
-jQuery(function($) {
- $('#can_model').Jcrop({
- bgColor:     '#CCC',
- onSelect: showCoords,
- onChange: showCoords
-  });
- });
+ jcrop_api = $.Jcrop('#can_model', {
+    onChange: showCoords,
+    onSelect: showCoords,
+    bgColor: '#CCC',
+    
+});
  }
  
   function showCoords(c)
@@ -39,7 +38,10 @@ jQuery(function($) {
 //context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
   };
-  
+  function release()
+  {
+  	jcrop_api.destroy();
+  }
    
       var start = function() {
        screen.orientation.lock('portrait');
@@ -88,7 +90,7 @@ function drawImageScaled(img, ctx) {
 }
 
 function getPhoto(source) {
-//	release();
+	release();
         
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
@@ -103,9 +105,11 @@ function onPhotoURISuccess(imageURI) {
    
    function drawImageScaled_new(img, ctx) {
    var c = ctx.canvas ;
-   ctx.clearRect(0,0,c.width, c.height);
-   ctx.drawImage(img,0,0,img.width,img.height);
- imgData2=ctx.getImageData(0,0,img.width,img.height);
+   c_width=document.getElementById('w').value;
+  c_height=document.getElementById('h').value;
+   ctx.clearRect(0,0,c_width, c_height);
+   ctx.drawImage(img,0,0,c_width,c_height);
+ imgData2=ctx.getImageData(0,0,c_width,c_height);
  }
  
  
