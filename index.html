@@ -127,25 +127,24 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-                x=200;
-               y=70;
+              var  x1=val(200);
+              var  y1=val(70);
                // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,x,y);
+           context_final.putImageData(imgData2,x1,y1);
             
 }
 
     
 function adjust_overlap()
 {
-	navigator.notification.prompt(
-            'Want to move',  onPrompt,  'Move Pic',  ['Left','Right','Up','Down'],      );
+	navigator.notification.prompt( 'Want to move',  onPrompt,  'Move Pic',  ['Left','Right','Up','Down'],      );
 }
 
 function onPrompt(results) {
 	var getActual='y';
        // alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-        x=200;
-        y=70;
+        var x=val(200);
+        var y=val(70);
        while(getActual=='y')
        {
        	if(results.buttonIndex==1)
@@ -177,8 +176,8 @@ function onPrompt(results) {
            context_final.putImageData(imgData2,x,y);     
            var message = "Is the Picture Set...";
  		var return_value = confirm(message);
-	   if ( return_value === true ) {
-	   	getActual=='n';
+	   if ( return_value == true ) {
+	   	getActual='n';
 	   }
        } 
     }
@@ -231,7 +230,7 @@ html, body {
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
-<td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
+<td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>
 <tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
 
 
