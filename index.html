@@ -88,21 +88,10 @@ function onPhotoURISuccess(imageURI) {
    
    function drawImageScaled_new(img, ctx) {
 	var fileName   = "test.png";
-   var canvas = ctx.canvas ;
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
+   var c = ctx.canvas ;
+   ctx.clearRect(0,0,c.width, c.height);
    ctx.drawImage(img,0,0,img.width,img.height);
  imgData2=ctx.getImageData(0,0,img.width,img.height);
-
- ctx.restore();
-
- 
  }
  
  
@@ -136,21 +125,6 @@ html, body {
   height: 100%;
   overflow-y: scroll;
 }
-.vertical-scroll {
-    left:320px;
-    top:10px;
-    border: 1px solid green;
-    width: 20px;
-    height: 300px;
-}
-.vertical-scroll div.bar {
-    left:0px;
-    top:0px;
-    width: 20px;
-    background-color: blue;
-    height: 20px;
-}
-
 	h1 {
 	font: 15pt vivaldi;
 	text-align: center;
@@ -174,9 +148,7 @@ html, body {
 	{ 
      position: absolute; 
        }
-  body{
-    width: auto;
-  }
+  
   .divStyle{
    width: 600px;
    height: 600px;
@@ -196,14 +168,13 @@ html, body {
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
-<tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
+<!--<tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
 
-
+-->
 </table>
 
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:1px solid black;"></canvas>
-
 <canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:1px solid black;"></canvas>
 
