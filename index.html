@@ -18,7 +18,6 @@
       var start = function() {
        screen.orientation.lock('portrait');
         }
-     var canvas,ctx;
     var mouseX,mouseY,mouseDown=0;
     var touchX,touchY;
     var lastX,lastY=-1;
@@ -52,15 +51,9 @@ function onPhotoURISuccess_m(imageURI1) {
             
 function drawImageScaled(img, ctx) {
 	
-	var fileName   = "test.png";
-   var canvas = ctx.canvas ;
+ var canvas = ctx.canvas ;
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
@@ -83,7 +76,6 @@ function onPhotoURISuccess(imageURI) {
    }
    
    function drawImageScaled_new(img, ctx) {
-	var fileName   = "test.png";
    var c = ctx.canvas ;
    ctx.clearRect(0,0,c.width, c.height);
    ctx.drawImage(img,0,0,img.width,img.height);
