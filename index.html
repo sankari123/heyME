@@ -135,8 +135,9 @@ function overlay()
     
 function adjust_overlap()
 {
-	navigator.notification.confirm( 'Adjust Pic!',  onConfirm,  'Click a button to move the pic', 'Left,Right,Up,Down'          // buttonLabels
-    );
+	var result_style = document.getElementById('r_row').style;
+	result_style.display = '';
+	//navigator.notification.confirm( 'Adjust Pic!',  onConfirm,  'Click a button to move the pic', 'Left,Right,Up,Down'  );
 }
 
 function onConfirm(button) {
@@ -172,16 +173,8 @@ function onConfirm(button) {
                context_final.putImageData(imgData1,0,0);
               context_final.putImageData(imgData2,x,y);    
           
-           var message = "Is the Picture Set...";
- 		var return_value = confirm(message);
-	   if ( return_value === true ) {
-	   	getActual='n';
-	   }
-	   else
-	   {
-	   	 adjust_overlap();
-	   }
-       } 
+              	 adjust_overlap();
+          } 
     }
     
 </script>
@@ -220,6 +213,11 @@ html, body {
    overflow-y: scroll;
   
   }
+  .tbl_style
+  {
+  	
+  	
+  }
   </style>
   </head>
   <body onload="start();">
@@ -234,16 +232,19 @@ html, body {
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>
 <tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
+</table>
 
-
+<table border="0" cellspacing="0" cellpadding="0">
+<TR id="r_row" style="display: none;">
+<TD>Left</TD><TD>Right</TD><TD>Up</TD><TD>Down</TD>
+</TR>
 </table>
 
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:1px solid black;"></canvas>
 <canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:1px solid black;"></canvas>
-
-  </div>
+</div>
 
 
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
