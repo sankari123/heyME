@@ -50,6 +50,7 @@ function setCrop()
     var touchX,touchY;
     var lastX,lastY=-1;
 	  var tmp;
+	  var x_co,y_co;
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
@@ -126,56 +127,53 @@ function overlay()
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
+  		//context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
+              x_co=200;
+              y_co=70;
            context_final.putImageData(imgData2,200,70);
             
 }
 
-    
+    function ok()
+    {
+    	var result_style1 = document.getElementById('r_row').style;
+	result_style1.display = 'none';
+    }
 function adjust_overlap()
 {
+	
+	
 	var result_style = document.getElementById('r_row').style;
 	result_style.display = 'block';
+	
 	//navigator.notification.confirm( 'Adjust Pic!',  onConfirm,  'Click a button to move the pic', 'Left,Right,Up,Down'  );
 }
+function left()
+{
 
-function onConfirm(button) {
-	var getActual='y';
-       // alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-        var x=200;
-        var y=70;
-       while(getActual=='y')
-       {
-       	if(button==1)
-          {
-          	x=x-1;
-          }
-          if(button==2)
-          {
-          	x=x+1;
-          }
-          if(button==3)
-          {
-          	y=y-1;
-          }
-          if(button==4)
-          {
-          	y=y+1;
-          }
-       
-     
-     	       canvas_final = document.getElementById('can_final');
-               context_final = canvas_final.getContext("2d");
-               canvas_final.height = window.innerHeight;
-  		canvas_final.width = window.innerWidth;
-  	    context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-               context_final.putImageData(imgData1,0,0);
-              context_final.putImageData(imgData2,x,y);    
+	x_co=x_co-1;
+	overlay();
+}
+function right()
+{
+	x_co=x_co+1;
+	overlay();
+}
+function up()
+{
+	y_co=y_co-1;
+	overlay();
+}
+function down()
+{
+	y_co=y_co+1;
+	overlay();
+}
+              	 
           
-              	 adjust_overlap();
-          } 
-    }
+   
     
 </script>
 <style>
@@ -234,9 +232,14 @@ html, body {
 <tr><td colspan=2><input type=hidden id='w' value=25></td><td colspan=2><input type=hidden id='h' value=25></td></tr>
 </table>
 
-<table border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <TR id="r_row" style="display: none;">
-<TD>Left</TD><TD>Right</TD><TD>Up</TD><TD>Down</TD>
+<TD width="20%"><button onclick="left();" class="btncss">Left</button></TD>
+<TD width="20%"><button onclick="right();" class="btncss">Right</button></td>
+<TD width="20%"><button onclick="up();" class="btncss">Up</button></TD>
+<TD width="20%"><button onclick="down();" class="btncss">Down</button></TD>
+<TD width="20%"><button onclick="ok();" class="btncss">OK</button></TD>
+
 </TR>
 </table>
 
