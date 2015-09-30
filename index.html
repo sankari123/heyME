@@ -127,10 +127,8 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-              var  x1=val(200);
-              var  y1=val(70);
-               // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,x1,y1);
+              // context_final.scale(0.5, 0.5);
+           context_final.putImageData(imgData2,200,70);
             
 }
 
@@ -143,8 +141,8 @@ function adjust_overlap()
 function onPrompt(results) {
 	var getActual='y';
        // alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-        var x=val(200);
-        var y=val(70);
+        var x=200;
+        var y=70;
        while(getActual=='y')
        {
        	if(results.buttonIndex==1)
@@ -169,6 +167,7 @@ function onPrompt(results) {
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
+  	    context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
                
               
@@ -176,7 +175,7 @@ function onPrompt(results) {
            context_final.putImageData(imgData2,x,y);     
            var message = "Is the Picture Set...";
  		var return_value = confirm(message);
-	   if ( return_value == true ) {
+	   if ( return_value === true ) {
 	   	getActual='n';
 	   }
        } 
