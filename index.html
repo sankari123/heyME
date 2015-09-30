@@ -119,8 +119,8 @@ function onPhotoURISuccess(imageURI) {
  function onFail(message) {
       alert('Failed because: ' + message);
     }
- x_co=200;
- y_co=70;
+ x_co=100;
+ y_co=40;
 function overlay()
 {
 
@@ -153,22 +153,22 @@ function adjust_overlap()
 function left()
 {
 
-	x_co=x_co-1;
+	x_co=x_co-2;
 	overlay();
 }
 function right()
 {
-	x_co=x_co+1;
+	x_co=x_co+2;
 	overlay();
 }
 function up()
 {
-	y_co=y_co-1;
+	y_co=y_co-2;
 	overlay();
 }
 function down()
 {
-	y_co=y_co+1;
+	y_co=y_co+2;
 	overlay();
 }
               	 
@@ -216,7 +216,7 @@ html, body {
   </head>
   <body onload="start();">
   <header>
-  <h1>MeMO</h1>
+  <h1>meMO</h1>
   </header>
  <section>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -229,20 +229,20 @@ html, body {
 </table>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-<TR id="r_row" style="display: none; height:30px;">
-<TD ><button onclick="left();" class="btncss">Left&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
-<TD><button onclick="right();" class="btncss">Right&nbsp;&nbsp;&nbsp;&nbsp;</button></td>
-<TD ><button onclick="up();" class="btncss">Up&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
-<TD ><button onclick="down();" class="btncss">Down&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
+<TR id="r_row" style="display: none; height:40px;">
+<TD ><button onclick="left();" class="btncss">Left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
+<TD><button onclick="right();" class="btncss">Right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></td>
+<TD ><button onclick="up();" class="btncss">Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
+<TD ><button onclick="down();" class="btncss">Down&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></TD>
 <TD><button onclick="ok();" class="btncss">OK&nbsp;&nbsp;</button></TD>
 
 </TR>
 </table>
 
 <div class="divStyle" id="div_main">
-<canvas id="can_model" style="border:1px solid black;"></canvas>
-<canvas id="can_me" style="border:1px solid black;"></canvas>
-<canvas id="can_final" style="border:1px solid black;"></canvas>
+<canvas id="can_model" style="border:0px solid black;"></canvas>
+<canvas id="can_me" style="border:0px solid black;"></canvas>
+<canvas id="can_final" style="border:0px solid black;"></canvas>
 </div>
 
 
