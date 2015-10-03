@@ -45,6 +45,8 @@ function setCrop()
    
       var start = function() {
        screen.orientation.lock('portrait');
+       var sample = document.getElementById("foobar");
+	sample.play();
         }
     var mouseX,mouseY,mouseDown=0;
     var touchX,touchY;
@@ -212,6 +214,7 @@ html, body {
    overflow-y: scroll;
   
   }
+  #foobar { display: none }
   
   </style>
   </head>
@@ -220,6 +223,7 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
+ 	<audio id="foobar" src="htttp://www.writeacademy.in/digigraph/memo_demo.wav" preload="auto"> 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
