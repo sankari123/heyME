@@ -47,10 +47,34 @@ function setCrop()
        screen.orientation.lock('portrait');
        //var sample = document.getElementById("foobar");
 	//
-	playAudio('http://www.writeacademy.in/digigraph/memo_demo.mp3');
-//	sample.play();
+	//	sample.play();
         }
         
+       
+    var mouseX,mouseY,mouseDown=0;
+    var touchX,touchY;
+    var lastX,lastY=-1;
+	  var tmp;
+	  var x_co,y_co;
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = false; 
+    var image111;
+    document.addEventListener("deviceready",onDeviceReady,false);
+
+    
+    function onDeviceReady() {
+    	//console.log(FileTransfer);
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
+    }
+
+var my_media = null;
+        var mediaTimer = null;
+
+        // Play audio
+        //
         function playAudio(src) {
             // Create Media object from src
             my_media = new Media(src, onSuccess, onError);
@@ -79,24 +103,6 @@ function setCrop()
             }
         }
 
-    var mouseX,mouseY,mouseDown=0;
-    var touchX,touchY;
-    var lastX,lastY=-1;
-	  var tmp;
-	  var x_co,y_co;
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
-   var rotating = false; 
-    var image111;
-    document.addEventListener("deviceready",onDeviceReady,false);
-
-    
-    function onDeviceReady() {
-    	//console.log(FileTransfer);
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-	
-    }
 
     function m_getPhoto(source) {
       
