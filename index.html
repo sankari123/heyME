@@ -103,7 +103,22 @@ var my_media = null;
             }
         }
 
+function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+        
+        
+        function onSuccess() {
+            console.log("playAudio():Audio Success");
+        }
 
+        // onError Callback
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+        
     function m_getPhoto(source) {
       
 navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
@@ -260,7 +275,7 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- 	
+ 	<p id="audio_position"></p>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
