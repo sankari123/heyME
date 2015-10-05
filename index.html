@@ -45,9 +45,40 @@ function setCrop()
    
       var start = function() {
        screen.orientation.lock('portrait');
-       var sample = document.getElementById("foobar");
-	sample.play();
+       //var sample = document.getElementById("foobar");
+	//
+	playAudio('http://www.writeacademy.in/digigraph/memo_demo.wav');
+//	sample.play();
         }
+        
+        function playAudio(src) {
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+
+            // Play audio
+            my_media.play();
+
+            // Update my_media position every second
+            if (mediaTimer == null) {
+                mediaTimer = setInterval(function() {
+                    // get my_media position
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                    );
+                }, 1000);
+            }
+        }
+
     var mouseX,mouseY,mouseDown=0;
     var touchX,touchY;
     var lastX,lastY=-1;
@@ -223,9 +254,7 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- 	<audio controls="controls autoplay" id="foobar" source src="http://www.writeacademy.in/digigraph/memo_demo.wav" type="audio/wav" /> </audio>
  	
-</audio>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
