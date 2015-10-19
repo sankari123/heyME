@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>meMO</title>
+	
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.min.js"></script>
+<script src="jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
+    
+   <script>
+    
+   var imgData1, imgData2;
+   var canvas_final;
+   var context_final;
+   var imgDataUrl;
+   var c_width,c_height;
+  var jcrop_api;
+function setCrop()
+    {
+        
+ jcrop_api = $.Jcrop('#can_model', {
+    onChange: showCoords,
+    onSelect: showCoords,
+    bgColor: '#CCC',
+    
+});
+ }
+ 
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+     // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
+  
+//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, 
+
+canvas.height);
+    
+  };
+  function release()
+  {
+  	jcrop_api.destroy();
+  }
+   
+      var start = function() {
+       screen.orientation.lock('portrait');
+       //var sample = document.getElementById("foobar");
+	//
+	//	sample.play();
+        }
+        
+       
+    var mouseX,mouseY,mouseDown=0;
+    var touchX,touchY;
+    var lastX,lastY=-1;
+	  var tmp;
+	  var x_co,y_co;
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = false; 
+    var image111;
+    document.addEventListener("deviceready",onDeviceReady,false);
+    
+    function onDeviceReady() {
+    	//console.log(FileTransfer);
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+//	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
+    }
+var my_media = null;
+        var mediaTimer = null;
+        // Play audio
+        //
+        function playAudio(src) {
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+            // Play audio
+            my_media.play();
+            // Update my_media position every second
+            if (mediaTimer == null) {
+                mediaTimer = setInterval(function() {
+                    // get my_media position
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                    );
+                }, 1000);
+            }
+        }
+function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+        
+        
+        function onSuccess() {
+            console.log("playAudio():Audio Success");
+        }
+        // onError Callback
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+        
+    function m_getPhoto(source) {
+      
+navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,  
+
+destinationType: destinationType.FILE_URI, sourceType: source });
+    }
+function onPhotoURISuccess_m(imageURI1) {
+	    var c = document.getElementById("can_model");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI1;
+   }
+            
+function drawImageScaled(img, ctx) {
+	
+ var canvas = ctx.canvas ;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+  setCrop();
+  
+}
+function getPhoto(source) {
+	release();
+        
+      
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  
+
+destinationType: destinationType.FILE_URI, sourceType: source });
+    }
+function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled_new.bind(null, img, ctx);
+		img.src = imageURI;
+   }
+   
+   function drawImageScaled_new(img, ctx) {
+   var c = ctx.canvas ;
+   c_width=document.getElementById('w').value;
+  c_height=document.getElementById('h').value;
+   ctx.clearRect(0,0,c_width, c_height);
+   ctx.drawImage(img,0,0,c_width,c_height);
+ imgData2=ctx.getImageData(0,0,c_width,c_height);
+ }
+ 
+ 
+ 
+ function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+ x_co=170;
+ y_co=30;
+function overlay()
+{
+	canvas_final = document.getElementById('can_final');
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+  		//context_final.clearRect(0,0,canvas_final.height, 
+
+canvas_final.height);
+               context_final.putImageData(imgData1,0,0);
+              // context_final.scale(0.5, 0.5);
+             
+           context_final.putImageData(imgData2,x_co,y_co);
+            
+}
+    function ok()
+    {
+    	var result_style1 = document.getElementById('r_row').style;
+	result_style1.display = 'none';
+	alert(x_co+','+y_co);
+    }
+function adjust_overlap()
+{
+	
+	
+	var result_style = document.getElementById('r_row').style;
+	result_style.display = 'block';
+	
+	//navigator.notification.confirm( 'Adjust Pic!',  onConfirm,  'Click a 
+
+button to move the pic', 'Left,Right,Up,Down'  );
+}
+function left()
+{
+	x_co=x_co-2;
+	overlay();
+}
+function right()
+{
+	x_co=x_co+2;
+	overlay();
+}
+function up()
+{
+	y_co=y_co-2;
+	overlay();
+}
+function down()
+{
+	y_co=y_co+2;
+	overlay();
+}
+              	 
+          
+   
+    
+</script>
+<style>
+html, body {
+  height: 100%;
+  overflow-y: scroll;
+}
+	h1 {
+	font: 15pt vivaldi;
+	text-align: center;
+	color: #e5b7ad;
+	padding-top: 1px ;
+	width:100%;
+	}
+	
+ 	.btncss
+	{
+	background:none;
+	border:none;
+	padding:0;
+	cursor:pointer;
+	font: 8pt arial;
+	font-family:Oswald, sans-serif; /*Oswald is available from 
+
+http://www.google.com/webfonts/specimen/Oswald*/
+	color: #b32d5f;
+	}
+	.canvasStyle
+	{ 
+     position: absolute; 
+       }
+  
+  .divStyle{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+  
+  }
+  #foobar { display: none }
+  
+  </style>
+  </head>
+  <body onload="start();">
+  <header>
+  <h1>meMO</h1>
+  </header>
+ <section>
+ 	<p id="audio_position" type="hidden"></p>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  
+
+class="btncss">Upload Model Photo</button></td>
+<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" 
+
+class="btncss">Upload Your Photo</button></td>
+<td><button onclick="overlay();" class="btncss">Overlap</button></td>
+<td><button onclick="adjust_overlap();" 
+
+class="btncss">Adjust</button></td></tr>
+<tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input 
+
+type=hidden id='h'></td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<TR><td colspan=5>&nbsp;&nbsp;</TD></TR>	
+<TR id="r_row" style="display: none; height:40px;">
+<TD width="20%" align="center"><button onclick="left();" 
+
+class="btncss">Left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</bu
+
+tton></TD>
+<TD width="20%" align="center"><button onclick="right();" 
+
+class="btncss">Right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</
+
+button></td>
+<TD width="20%" align="center"><button onclick="up();" 
+
+class="btncss">Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</but
+
+ton></TD>
+<TD width="20%" align="center"><button onclick="down();" 
+
+class="btncss">Down&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</
+
+button></TD>
+<TD width="20%" align="center"><button onclick="ok();" 
+
+class="btncss">OK&nbsp;&nbsp;</button></TD>
+
+</TR>
+</table>
+
+<div class="divStyle" id="div_main">
+<canvas id="can_model" style="border:0px solid black;"></canvas>
+<canvas id="can_me" style="border:0px solid black;"></canvas>
+<canvas id="can_final" style="border:0px solid black;"></canvas>
+</div>
+
+
+<!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
+
+  
+</section>
+  </body>
+</html>
