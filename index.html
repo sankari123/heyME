@@ -173,8 +173,8 @@ function onPhotoURISuccess(imageURI) {
  function onFail(message) {
       alert('Failed because: ' + message);
     }
- x_co=170;
- y_co=30;
+ x_co=0;
+ y_co=0;
 function overlay()
 {
 
@@ -182,7 +182,7 @@ function overlay()
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
-  		//context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
+  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
              
@@ -216,13 +216,7 @@ function drawDot(ctx,x1,y1){
 }
 
 
-    function ok()
-    {
-    	var result_style1 = document.getElementById('r_row').style;
-	result_style1.display = 'none';
-	alert(x_co+','+y_co);
-    }
-    function sketchpad_mouseDown() {
+     function sketchpad_mouseDown() {
         mouseDown=1;
         drawDot(ctx,mouseX,mouseY);
     }
@@ -275,40 +269,6 @@ function drawDot(ctx,x1,y1){
             }
         }
     }
-    
-function adjust_overlap()
-{
-	
-	
-	var result_style = document.getElementById('r_row').style;
-	result_style.display = 'block';
-	
-	//navigator.notification.confirm( 'Adjust Pic!',  onConfirm,  'Click a button to move the pic', 'Left,Right,Up,Down'  );
-}
-function left()
-{
-
-	x_co=x_co-2;
-	overlay();
-}
-function right()
-{
-	x_co=x_co+2;
-	overlay();
-}
-function up()
-{
-	y_co=y_co-2;
-	overlay();
-}
-function down()
-{
-	y_co=y_co+2;
-	overlay();
-}
-              	 
-          
-   
     
 </script>
 <style>
