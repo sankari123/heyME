@@ -39,6 +39,8 @@
   <gap:plugin name="org.apache.cordova.vibration"/>
   <gap:plugin name="org.apache.cordova.geolocation"  />
   <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
+  <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
+
 
   <icon src="memo_logo.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
