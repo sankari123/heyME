@@ -167,13 +167,14 @@ function onPhotoURISuccess(imageURI) {
    function drawImageScaled_new(img, ctx) {
    var c = ctx.canvas ;
    
-   c_width=document.getElementById('w').value;
-  c_height=document.getElementById('h').value;
+   c_width=document.getElementById("w").value;
+  c_height=document.getElementById("h").value;
  //alert("me w"+c_width);
 //  alert("me h"+c_height);
   ctx.clearRect(0,0,c_width,c_height);
    ctx.drawImage(img,0,0,c_width,c_height);
-    imgData2=ctx.getImageData(0,0,c_width,c_height);
+ //   imgData2=ctx.getImageData(0,0,c_width,c_height);
+    imgData2=ctx.getImageData(0,0);
  }
  
  
