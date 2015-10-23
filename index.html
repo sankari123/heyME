@@ -211,10 +211,10 @@ canvas = document.getElementById("can_final");
 }
 function drawDot(ctx,x1,y1){
          var img=new Image(); 
-        img.src="logo.png";
+       // img.src="logo.png";
       ctx.clearRect(0,0,canvas.width, canvas.height);
-      context_final.putImageData(imgData1,0,0);
-     context_final.putImageData(imgData2,x1,y1);
+      ctx.putImageData(imgData1,0,0);
+     ctx.putImageData(imgData2,x1,y1);
 }
 
 
@@ -340,7 +340,7 @@ html, body {
 -->
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:0px solid black;"></canvas>
-<canvas id="can_me" style="border:0px solid black;"></canvas>
+<canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:0px solid black;"></canvas>
 </div>
 
