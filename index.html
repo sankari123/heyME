@@ -183,6 +183,14 @@ function onPhotoURISuccess(imageURI) {
 function overlay()
 {
 
+
+    canvas1=document.getElementById('can_model');
+    ctx11=canvas1.getContext("2d");
+    ctx11.clearRect(0,0,canvas1.height, canvas1.height);
+    canvas2=document.getElementById('can_me');
+    ctx12=canvas2.getContext("2d");
+    ctx12.clearRect(0,0,canvas2.height, canvas2.height);
+
 	canvas_final = document.getElementById('can_final');
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
