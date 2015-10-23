@@ -41,8 +41,8 @@ function setCrop()
   function release()
   {
     	jcrop_api.destroy();
-  	alert("crop"+document.getElementById('w').value);
-  	alert("crop h"+document.getElementById('h').value);
+  //	alert("crop"+document.getElementById('w').value);
+  //	alert("crop h"+document.getElementById('h').value);
   }
    
       var start = function() {
@@ -165,8 +165,8 @@ function onPhotoURISuccess(imageURI) {
    
    c_width=document.getElementById('w').value;
   c_height=document.getElementById('h').value;
- alert("me w"+c_width);
-  alert("me h"+c_height);
+ //alert("me w"+c_width);
+//  alert("me h"+c_height);
   ctx.clearRect(0,0,c_width,c_height);
    ctx.drawImage(img,0,0,c_width,c_height);
     imgData2=ctx.getImageData(0,0,c_width,c_height);
