@@ -36,6 +36,8 @@ function setCrop()
    //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
      $('#w').val(c.w);
     $('#h').val(c.h);
+     $('#x_coor').val(c.x);
+    $('#y_coor').val(c.y);
     
 //context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
@@ -193,8 +195,9 @@ function overlay()
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
-             
-           context_final.putImageData(imgData2,0,0);
+             x_co=document.getElementById('x_coor').value+document.getElementById('w').value;
+             y_co=document.getElementById('y_coor').value+document.getElementById('h').value;
+           context_final.putImageData(imgData2,x_co,y_co);
            overlay_action();
 }
 function overlay_action()
@@ -354,7 +357,7 @@ html, body {
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="saveMO();" class="btncss">Save Share</button></td>
 <!--<td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>-->
-<tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
+<tr><td><input type=hidden id='w'></td><td><input type=hidden id='h'></td><td><input type=hidden id='x_coor'></td><td><input type=hidden id='y_coor'></td></tr>
 </table>
 
 <!--<table width="100%" border="0" cellspacing="0" cellpadding="0">
