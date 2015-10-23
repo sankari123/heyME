@@ -280,7 +280,7 @@ function drawDot(ctx,x1,y1){
     
     function saveMO()
 {
-   window.canvas2ImagePlugin.saveImageDataToLibrary(
+    window.canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
             console.log(msg);
         },
@@ -288,6 +288,7 @@ function drawDot(ctx,x1,y1){
             console.log(err);
         },
         document.getElementById("can_final")  );
+ 	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
      //   canvas = document.getElementById("can_final");
 // 	ctx = canvas.getContext("2d");
 //	imgDataUrl = canvas.toDataURL();
