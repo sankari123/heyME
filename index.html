@@ -173,7 +173,7 @@ function onPhotoURISuccess(imageURI) {
  //alert("me w"+c_width);
 //  alert("me h"+c_height);
   ctx.clearRect(0,0,c_width,c_height);
-   ctx.drawImage(img,0,0,c_width,c_height);
+   ctx.drawImage(img,0,0);
   imgData2=ctx.getImageData(0,0,c_width,c_height);
 //    imgData2=ctx.getImageData(0,0);
  }
