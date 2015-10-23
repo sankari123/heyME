@@ -31,10 +31,10 @@ function setCrop()
   function showCoords(c)
   {
       // variables can be accessed here as
-     // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
      $('#w').val(c.w);
     $('#h').val(c.h);
-  
+    
 //context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
   };
@@ -162,9 +162,11 @@ function onPhotoURISuccess(imageURI) {
    var c = ctx.canvas ;
    c_width=document.getElementById('w').value;
   c_height=document.getElementById('h').value;
-   ctx.clearRect(0,0,c_width, c_height);
+  alert(c_width);
+  alert(c_height);
+  ctx.clearRect(0,0,c_width, c_height);
    ctx.drawImage(img,0,0,c_width,c_height);
- imgData2=ctx.getImageData(0,0,c_width,c_height);
+    imgData2=ctx.getImageData(0,0,c_width,c_height);
  }
  
  
