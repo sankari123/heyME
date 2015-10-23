@@ -182,11 +182,15 @@ function onPhotoURISuccess(imageURI) {
  function onFail(message) {
       alert('Failed because: ' + message);
     }
- x_co=0;
- y_co=0;
+var wt=document.getElementById('w').value;
+ var ht=document.getElementById('h').value;
 function overlay()
 {
-
+	
+canvas = document.getElementById('can_me');
+               ctx = canvas.getContext("2d");
+               ctx.clearRect(0,0,wt,ht);
+//canvas.style.display="none";
 
 	canvas_final = document.getElementById('can_final');
                context_final = canvas_final.getContext("2d");
