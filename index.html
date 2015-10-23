@@ -166,6 +166,7 @@ function onPhotoURISuccess(imageURI) {
    
    function drawImageScaled_new(img, ctx) {
    var c = ctx.canvas ;
+   document.getElementById("div_main").style.display = 'none';
    
    c_width=document.getElementById("w").value;
   c_height=document.getElementById("h").value;
@@ -188,6 +189,7 @@ var wt=document.getElementById("w").value;
 function overlay()
 {
 	document.getElementById("div_main").style.display = 'none';
+		document.getElementById("div_main2").style.display = 'none';
 	canvas_final = document.getElementById("can_final");
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
@@ -382,6 +384,9 @@ html, body {
 -->
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:0px solid black;"></canvas>
+</div>
+<div class="divStyle2" id="div_main2">
+
 <canvas id="can_me" style="border:0px solid black;"></canvas>
 </div>
 <div class="divStyle1" id="div_main1">
