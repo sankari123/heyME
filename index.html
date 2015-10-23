@@ -160,11 +160,12 @@ function onPhotoURISuccess(imageURI) {
    
    function drawImageScaled_new(img, ctx) {
    var c = ctx.canvas ;
+   
    c_width=document.getElementById('w').value;
   c_height=document.getElementById('h').value;
  //alert(c_width);
  // alert(c_height);
-  ctx.clearRect(0,0,c_width, c_height);
+  ctx.clearRect(0,0,c_width,c_height);
    ctx.drawImage(img,0,0,c_width,c_height);
     imgData2=ctx.getImageData(0,0,c_width,c_height);
  }
@@ -188,7 +189,7 @@ function overlay()
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
              
-           context_final.putImageData(imgData2,x_co,y_co);
+           context_final.putImageData(imgData2,0,0);
            overlay_action();
 }
 function overlay_action()
@@ -340,7 +341,7 @@ html, body {
 -->
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:0px solid black;"></canvas>
-<canvas id="can_me" style="border:1px solid black;"></canvas>
+<canvas id="can_me" style="border:0px solid black;"></canvas>
 <canvas id="can_final" style="border:0px solid black;"></canvas>
 </div>
 
