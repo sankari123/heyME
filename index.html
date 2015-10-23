@@ -7,7 +7,9 @@
     <script type="text/javascript" charset="utf-8"></script>
   <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
+
     
    <script>
     
@@ -276,6 +278,24 @@ function drawDot(ctx,x1,y1){
         }
     }
     
+    function saveMO()
+{
+    window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        document.getElementById("can_final")  );
+        canvas = document.getElementById('can_final');
+ 	ctx = canvas.getContext('2d');
+	imgDataUrl = canvas.toDataURL();
+	var imageObj = new Image();
+	  imageObj.src = imgDataUrl;
+        window.plugins.socialsharing.share('meMO Share','Share',imageObj.src,null);
+
+}
 </script>
 <style>
 
@@ -326,6 +346,7 @@ html, body {
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
+<td><button onclick="saveMO();" class="btncss">Save & Share</button></td>
 <!--<td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>-->
 <tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
 </table>
