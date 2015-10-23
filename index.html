@@ -195,10 +195,10 @@ function overlay()
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
-             x_co=document.getElementById('x_coor').value+document.getElementById('w').value;
-             y_co=document.getElementById('y_coor').value+document.getElementById('h').value;
-             alert(x_co);
-             alert(y_co);
+             x_co=document.getElementById('x_coor').value;
+             y_co=document.getElementById('y_coor').value;
+         //    alert(x_co);
+           //  alert(y_co);
            context_final.putImageData(imgData2,0,0);
            overlay_action();
 }
