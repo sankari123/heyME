@@ -170,14 +170,14 @@ function onPhotoURISuccess(imageURI) {
    
  c_width=document.getElementById("w").value;
  c_height=document.getElementById("h").value;
-  c.width=window.innerWidth;
-  c.height=window.innerHeight;
+  c.width=c_width;
+  c.height=c_height;
  //alert("me w"+c_width);
 //  alert("me h"+c_height);
-  ctx.clearRect(0,0,c_width,c_height);
+  ctx.clearRect(0,0,c.width,c.height);
    ctx.drawImage(img,0,0,img.width,img.height,0,0,c.width,c.height);
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
-  imgData2=ctx.getImageData(0,0,c_width,c_height);
+  imgData2=ctx.getImageData(0,0,c.width,c.height);
 //    imgData2=ctx.getImageData(0,0);
  }
  
