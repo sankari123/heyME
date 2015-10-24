@@ -16,6 +16,7 @@
    var imgData1, imgData2,imgData3;
    var canvas_final;
    var context_final;
+   var ctx1;
    var imgDataUrl;
    var c_width,c_height;
   var jcrop_api;
@@ -65,7 +66,6 @@ function setCrop()
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
-    var image111;
     document.addEventListener("deviceready",onDeviceReady,false);
 
     
@@ -299,34 +299,37 @@ function drawDot(ctx,x1,y1){
         },
         document.getElementById("can_final")  );
        
- 	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
-        canvas = document.getElementById("can_final");
-	ctx = canvas.getContext("2d")
-        imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+ //	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
+        
         navigator.notification.confirm('Would you like to touch up certain area!',  onConfirm, 'meMO', ['Yes','No'] );
-  	imgDataUrl = canvas.toDataURL();
-	var imageObj = new Image();
-	imageObj.src = imgDataUrl;
+   //     canvas = document.getElementById("can_final");
+//	ctx = canvas.getContext("2d")
+  //      imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+  //	imgDataUrl = canvas.toDataURL();
+//	var imageObj = new Image();
+//	imageObj.src = imgDataUrl;
     //    window.plugins.socialsharing.share('meMO Share','Share',imageObj.src,null);
 
 }
 function onConfirm(buttonIndex) {
-	alert('You selected button ' + buttonIndex);
-	touch_up();
     if(buttonIndex=='1')
 {
-    touch_up();
+    	canvas = document.getElementById("can_final");
+	ctx = canvas.getContext("2d")
+        imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+	touch_up(ctx);
 }
 }
-function touch_up()
+function touch_up(ctx1)
 {
 //	alert("in");
-canvas_final = document.getElementById("can_final");
+canvas = document.getElementById("can_final");
+var c = ctx1.canvas ;
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-  		alert("cleared");
+  	//	alert("cleared");
                context_final.putImageData(imgData3,0,0);
                  if (context_final) {
             // React to mouse events on the canvas, and mouseup on the entire document
