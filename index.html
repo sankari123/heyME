@@ -13,7 +13,7 @@
     
    <script>
     
-   var imgData1, imgData2;
+   var imgData1, imgData2,imgData3;
    var canvas_final;
    var context_final;
    var imgDataUrl;
@@ -298,15 +298,115 @@ function drawDot(ctx,x1,y1){
             console.log(err);
         },
         document.getElementById("can_final")  );
+       
  	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
-     //   canvas = document.getElementById("can_final");
-// 	ctx = canvas.getContext("2d");
-//	imgDataUrl = canvas.toDataURL();
-//	var imageObj = new Image();
-//	  imageObj.src = imgDataUrl;
-  //      window.plugins.socialsharing.share('meMO Share','Share',imageObj.src,null);
+        canvas = document.getElementById("can_final");
+	ctx = canvas.getContext("2d")
+        imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+        navigator.notification.confirm(
+        'Would you like to touch up certain area!', // message
+         onConfirm,            // callback to invoke with index of button pressed
+        'meMO',           // title
+        ['Yes','No']         // buttonLabels
+    );
+  	imgDataUrl = canvas.toDataURL();
+	var imageObj = new Image();
+	imageObj.src = imgDataUrl;
+    //    window.plugins.socialsharing.share('meMO Share','Share',imageObj.src,null);
 
 }
+function onConfirm(buttonIndex) {
+    if(buttonIndex=='1')
+{
+    touch_up();
+}
+}
+function touch_up()
+{
+	
+canvas_final = document.getElementById("can_final");
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
+               context_final.putImageData(imgData3,0,0);
+                 if (ctx) {
+            // React to mouse events on the canvas, and mouseup on the entire document
+            canvas_final.addEventListener('mousedown', touchup_mouseDown, false);
+            canvas_final.addEventListener('mousemove', touchup_mouseMove, false);
+            window.addEventListener('mouseup', touch_mouseUp, false);
+            // React to touch events on the canvas
+            canvas_final.addEventListener('touchstart', touchup_touchStart, false);
+            canvas_final.addEventListener('touchmove', touchup_touchMove, false);
+        }		
+}
+
+function drawDot1(ctx,x1,y1){
+       
+          ctx.fillStyle="#FF0000";
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+      ctx.putImageData(imgData3,0,0);
+	 ctx.beginPath();
+        ctx.arc(x1, y1, 1, 0, Math.PI*2, true); 
+        ctx.closePath();
+        ctx.fill();
+}
+
+
+     function touchup_mouseDown() {
+        mouseDown=1;
+        drawDot1(ctx,mouseX,mouseY);
+    }
+       function touchup_mouseUp() {
+        mouseDown=0;
+    }
+    function touchup_mouseMove(e) { 
+        // Update the mouse co-ordinates when moved
+        getMousePos1(e);
+        // Draw a dot if the mouse button is currently being pressed
+        if (mouseDown==1) {
+            drawDot1(ctx,mouseX,mouseY);
+        }
+    }
+    function getMousePos1(e) {
+        if (!e)
+            var e = event;
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+     function touchup_touchStart() {
+        // Update the touch co-ordinates
+        getTouchPos();
+        drawDot1(ctx,touchX,touchY);
+        // Prevents an additional mousedown event being triggered
+        event.preventDefault();
+    }
+    function touchup_touchMove(e) { 
+        // Update the touch co-ordinates
+        getTouchPos1(e);
+        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
+        drawDot1(ctx,touchX,touchY); 
+        // Prevent a scrolling action as a result of this touchmove triggering.
+        event.preventDefault();
+    }
+    function getTouchPos1(e) {
+        if (!e)
+            var e = event;
+        if(e.touches) {
+            if (e.touches.length == 1) { // Only deal with one finger
+                var touch = e.touches[0]; // Get the information for finger #1
+                touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+            }
+        }
+    }
+    
 
 function alertDismissed() {
             // do something
