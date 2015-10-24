@@ -303,12 +303,7 @@ function drawDot(ctx,x1,y1){
         canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
         imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-        navigator.notification.confirm(
-        'Would you like to touch up certain area!', // message
-         onConfirm,            // callback to invoke with index of button pressed
-        'meMO',           // title
-        ['Yes','No']         // buttonLabels
-    );
+        navigator.notification.confirm('Would you like to touch up certain area!',  onConfirm, 'meMO', ['Yes','No'] );
   	imgDataUrl = canvas.toDataURL();
 	var imageObj = new Image();
 	imageObj.src = imgDataUrl;
@@ -316,6 +311,8 @@ function drawDot(ctx,x1,y1){
 
 }
 function onConfirm(buttonIndex) {
+	alert('You selected button ' + buttonIndex);
+	touch_up();
     if(buttonIndex=='1')
 {
     touch_up();
