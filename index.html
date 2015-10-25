@@ -338,9 +338,9 @@ var c1 = document.getElementById("can_touchup");
                 var img1=new Image();
                 img1.onload= function () {
     		ctx.drawImage(img1, 0,0);}
-img1.src = img;
+              img1.src = img;
               // ctx.putImageData(imgData3,0,0);
-                 if (ctx) {
+              
             // React to mouse events on the canvas, and mouseup on the entire document
             c1.addEventListener('mousedown', touchup_mouseDown, false);
             c1.addEventListener('mousemove', touchup_mouseMove, false);
@@ -348,7 +348,7 @@ img1.src = img;
             // React to touch events on the canvas
             c1.addEventListener('touchstart', touchup_touchStart, false);
             c1.addEventListener('touchmove', touchup_touchMove, false);
-        }		
+        		
 }
 
 function drawDot1(ctx,x1,y1){
@@ -394,7 +394,7 @@ function drawDot1(ctx,x1,y1){
      }
      function touchup_touchStart() {
         // Update the touch co-ordinates
-        getTouchPos();
+        getTouchPos1();
         drawDot1(ctx,touchX,touchY);
         // Prevents an additional mousedown event being triggered
         event.preventDefault();
