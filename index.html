@@ -396,12 +396,15 @@ function mouseUp() {
         function touchXY(e) {
                     if (!e)
                 e = event;
-            e.preventDefault();
-            len = e.targetTouches.length;
-           // for (i = 0; i < len; i++) {
-                canX= e.targetTouches[0].pageX - can.offsetLeft;
-                canY= e.targetTouches[0].pageY - can.offsetTop;
-           // }
+                  if(e.touches) {
+            if (e.touches.length == 1) {
+            	var touch = e.touches[0]; // Get the information for finger #1
+                canX=touch.pageX-touch.target.offsetLeft;
+                canY=touch.pageY-touch.target.offsetTop;
+              //  canX= e.targetTouches[0].pageX - can.offsetLeft;
+               // canY= e.targetTouches[0].pageY - can.offsetTop;
+           }
+                  }
            alert(canX);
            alert(canY);
         }
