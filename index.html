@@ -395,9 +395,10 @@ function drawDot1(ctx,x1,y1){
      }
      function touchup_touchStart(e) {
         // Update the touch co-ordinates
-        var clickedItem = e.target.id;
-    alert("Hello " + clickedItem);
-        alert("start");
+        e.preventDefault();
+        c_x=e.targetTouches[0].pageX;
+        c_y=e.targetTouches[0].pageY;
+        alert(c_x);
         getTouchPos1();
         drawDot1(ctx,touchX,touchY);
         // Prevents an additional mousedown event being triggered
@@ -412,7 +413,7 @@ function drawDot1(ctx,x1,y1){
         event.preventDefault();
     }
     function getTouchPos1(e) {
-    	alert("in");
+    //	alert("in");
         if (!e)
             var e = event;
         if(e.touches) {
