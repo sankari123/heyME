@@ -393,8 +393,10 @@ function drawDot1(ctx,x1,y1){
             mouseY = e.layerY;
         }
      }
-     function touchup_touchStart() {
+     function touchup_touchStart(e) {
         // Update the touch co-ordinates
+        var clickedItem = e.target.id;
+    alert("Hello " + clickedItem);
         alert("start");
         getTouchPos1();
         drawDot1(ctx,touchX,touchY);
