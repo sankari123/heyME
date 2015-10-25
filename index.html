@@ -322,13 +322,16 @@ function onConfirm(buttonIndex) {
 	imageObj.src = imgDataUrl;
 //	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	touch_up(ctx,imgDataUrl);
+	touch_up(imgDataUrl);
 }
 }
-function touch_up(ctx,img)
+function touch_up(img)
 {
 //	alert("in");
-var c1 = ctx.canvas ;
+var c1 = document.getElementById("can_touchup");
+	ctx = c1.getContext("2d")
+		c1.height = window.innerHeight;
+  		c1.width = window.innerWidth;
                //	alert("cleared");
                ctx.clearRect(0,0,c1.height,c1.height);
             //   alert(img);
