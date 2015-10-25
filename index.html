@@ -358,7 +358,7 @@ function drawDot1(ctx,x1,y1){
     //  ctx.putImageData(imgData3,0,0);
     alert(x1,y1);
 	 ctx.beginPath();
-        ctx.arc(x1, y1, 2, 0, Math.PI*2, true); 
+        ctx.arc(x1, y1, 9, 0, Math.PI*2, true); 
       //  ctx.closePath();
         ctx.fill();
     
@@ -381,6 +381,7 @@ function drawDot1(ctx,x1,y1){
         }
     }
     function getMousePos1(e) {
+    //	alert("2");
         if (!e)
             var e = event;
         if (e.offsetX) {
@@ -394,6 +395,7 @@ function drawDot1(ctx,x1,y1){
      }
      function touchup_touchStart() {
         // Update the touch co-ordinates
+        alert("start");
         getTouchPos1();
         drawDot1(ctx,touchX,touchY);
         // Prevents an additional mousedown event being triggered
@@ -408,6 +410,7 @@ function drawDot1(ctx,x1,y1){
         event.preventDefault();
     }
     function getTouchPos1(e) {
+    	alert("in");
         if (!e)
             var e = event;
         if(e.touches) {
