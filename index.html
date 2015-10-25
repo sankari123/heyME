@@ -327,12 +327,12 @@ function onConfirm(buttonIndex) {
 }
 function touch_up(img)
 {
-//	alert("in");
+alert("in");
 var c1 = document.getElementById("can_touchup");
 	ctx = c1.getContext("2d")
 		c1.height = window.innerHeight;
   		c1.width = window.innerWidth;
-               //	alert("cleared");
+               	alert("cleared");
                ctx.clearRect(0,0,c1.height,c1.height);
             //   alert(img);
                 var img1=new Image();
@@ -344,7 +344,7 @@ var c1 = document.getElementById("can_touchup");
             // React to mouse events on the canvas, and mouseup on the entire document
             c1.addEventListener('mousedown', touchup_mouseDown, false);
             c1.addEventListener('mousemove', touchup_mouseMove, false);
-            window.addEventListener('mouseup', touchup_mouseUp, false);
+          window.addEventListener('mouseup', touchup_mouseUp, false);
             // React to touch events on the canvas
             c1.addEventListener('touchstart', touchup_touchStart, false);
             c1.addEventListener('touchmove', touchup_touchMove, false);
@@ -356,7 +356,7 @@ function drawDot1(ctx,x1,y1){
           ctx.fillStyle="red";
       //      ctx.clearRect(0,0,canvas.width, canvas.height);
     //  ctx.putImageData(imgData3,0,0);
-    alert(x1,y1);
+    alert(x1);
 	 ctx.beginPath();
         ctx.arc(x1, y1, 9, 0, Math.PI*2, true); 
       //  ctx.closePath();
