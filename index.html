@@ -353,6 +353,8 @@ var can = document.getElementById("can_touchup");
 function drawDot1(ctx,x1,y1){
          var img=new Image(); 
        // img.src="logo.png";
+       alert(x1);
+       alert(y1);
        ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.arc(x1,y1,2,0,Math.PI*2,true);
