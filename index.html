@@ -319,9 +319,9 @@ function onConfirm(buttonIndex) {
 	imgDataUrl = canvas.toDataURL();
 	imageObj = new Image();
 	imageObj.src = imgDataUrl;
-	imageObj.onload= touch_up(imageObj, ctx);
+//	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-//	touch_up(ctx);
+	touch_up(imageObj, ctx);
 }
 }
 function touch_up(imageObj,ctx)
