@@ -316,29 +316,30 @@ function onConfirm(buttonIndex) {
 {
     	canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
+	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
 	imgDataUrl = canvas.toDataURL();
 	imageObj = new Image();
 	imageObj.src = imgDataUrl;
 //	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	touch_up(imageObj, ctx);
+	touch_up(ctx);
 }
 }
-function touch_up(imageObj,ctx)
+function touch_up(ctx)
 {
 //	alert("in");
-var c = ctx.canvas ;
+var c1 = ctx.canvas ;
                //	alert("cleared");
                ctx.clearRect(0,0,c.height,c.height);
-               ctx.drawImage(imageObj,0,0);
+               ctx.putImageData(imgData3,0,0);
                  if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
-            c.addEventListener('mousedown', touchup_mouseDown, false);
-            c.addEventListener('mousemove', touchup_mouseMove, false);
+            c1.addEventListener('mousedown', touchup_mouseDown, false);
+            c1.addEventListener('mousemove', touchup_mouseMove, false);
             window.addEventListener('mouseup', touch_mouseUp, false);
             // React to touch events on the canvas
-            c.addEventListener('touchstart', touchup_touchStart, false);
-            c.addEventListener('touchmove', touchup_touchMove, false);
+            c1.addEventListener('touchstart', touchup_touchStart, false);
+            c1.addEventListener('touchmove', touchup_touchMove, false);
         }		
 }
 
