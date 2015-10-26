@@ -206,30 +206,20 @@ function overlay()
          //    alert(x_co);
            //  alert(y_co);
            context_final.putImageData(imgData2,x_co,y_co);
-           overlay_action();
+           overlay_action(context_final);
 }
-function overlay_action()
+function overlay_action(ctx)
 {
-		if(ctr==0)
-		{
-		alert("first");
-		canvas = document.getElementById("can_final");
-	        ctx = canvas.getContext('2d');
-		}
-		else
-		{
-		alert("second");
-		canvas = document.getElementById("can_touchup");
-	        ctx = canvas.getContext('2d');
-		}
+		var can1=ctx.canvas;
+	      //  ctx = canvas.getContext('2d');
 		if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
-            canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
-            canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
+            can1.addEventListener('mousedown', sketchpad_mouseDown, false);
+            can1.addEventListener('mousemove', sketchpad_mouseMove, false);
             window.addEventListener('mouseup', sketchpad_mouseUp, false);
             // React to touch events on the canvas
-            canvas.addEventListener('touchstart', sketchpad_touchStart, false);
-            canvas.addEventListener('touchmove', sketchpad_touchMove, false);
+            can1.addEventListener('touchstart', sketchpad_touchStart, false);
+            can1.addEventListener('touchmove', sketchpad_touchMove, false);
         }	
 	
 	
@@ -356,7 +346,7 @@ var can = document.getElementById("can_touchup");
     		ctx.drawImage(img1, 0,0);}
               img1.src = img;
               ctr=1;
-             overlay_action();
+             overlay_action(ctx);
 	
 }
 
