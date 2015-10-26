@@ -333,7 +333,23 @@ function onConfirm(buttonIndex) {
 	ctx = canvas.getContext("2d")
 	var img = new Image();
         ctx.putImageData(imgData3,0,0); 
-		overlay_action();
+        imgDataUrl = canvas.toDataURL();
+        touch_up(imgDataUrl,canvas);
+}
+function touch_up(img,can_1)
+{
+var can = document.getElementById("can_touchup");
+	ctx = can.getContext("2d")
+		can.height = window.innerHeight;
+  		can.width = window.innerWidth;
+                 ctx.clearRect(0,0,can.width,can.height);
+                var img1=new Image();
+                img1.onload= function () {
+    		ctx.drawImage(img1, 0,0);}
+              img1.src = img;
+              ctr=1;
+              overlay_action();
+	
 }
 
 }
