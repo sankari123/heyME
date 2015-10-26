@@ -331,8 +331,8 @@ function onConfirm(buttonIndex) {
 {
     	canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
-	var img = new Image();
-        ctx.putImageData(imgData3,0,0); 
+//	var img = new Image();
+      //  ctx.putImageData(imgData3,0,0); 
         imgDataUrl = canvas.toDataURL();
         touch_up(imgDataUrl,canvas);
 }
@@ -356,10 +356,7 @@ var can = document.getElementById("can_touchup");
 function drawDot1(ctx,x1,y1){
 ctx.globalCompositeOperation = "destination-out";
 ctx.strokeStyle = 'rgba(0,0,0,1.0)';
-
-// And draw a thick line that removes what's already there
 ctx.lineWidth=20;
-
 ctx.beginPath();
   ctx.moveTo(x1,y1);
   ctx.lineTo(x1+15,y1+15);
