@@ -238,11 +238,14 @@ function drawDot(ctx,x1,y1){
 	if(ctr==1)
 	{
 		drawDot1(ctx,x1,y1);
-		return false;
+	//	break;
 	}
+	else
+	{
       ctx.clearRect(0,0,canvas.width, canvas.height);
       ctx.putImageData(imgData1,0,0);
       ctx.putImageData(imgData2,x1,y1);
+	}
 }
 
 
@@ -358,8 +361,9 @@ var can = document.getElementById("can_touchup");
 
 function drawDot1(ctx,x1,y1){
     ctx.globalCompositeOperation = 'destination-out';
-    ctx.clearRect(x1,y1,x1+1,y1+1);
-  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
+//    ctx.clearRect(x1,y1,x1+1,y1+1);
+//  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
+  ctx.fillStyle="red";// Your eraser color (not transparent)
 ctx.beginPath();
 ctx.arc(x1,y1,5,0,Math.PI*2);
 ctx.fill();
