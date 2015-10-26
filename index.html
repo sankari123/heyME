@@ -347,7 +347,7 @@ var can = document.getElementById("can_touchup");
 	ctx = can.getContext("2d")
 		can.height = window.innerHeight;
   		can.width = window.innerWidth;
-               	alert("cleared");
+               //	alert("cleared");
                ctx.clearRect(0,0,can.width,can.height);
             //   alert(img);
                 var img1=new Image();
@@ -363,10 +363,14 @@ function drawDot1(ctx,x1,y1){
  //   ctx.globalCompositeOperation = 'destination-out';
 //    ctx.clearRect(x1,y1,x1+1,y1+1);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
-  ctx.fillStyle="red";// Your eraser color (not transparent)
-ctx.beginPath();
-ctx.arc(x1,y1,5,0,Math.PI*2);
-ctx.fill();
+//  ctx.fillStyle="red";// Your eraser color (not transparent)
+//ctx.beginPath();
+//ctx.arc(x1,y1,5,0,Math.PI*2);
+//ctx.fill();
+ctx.strokeStyle="red";
+ctx.moveTo(x1,y1); 
+ctx.lineTo(x1+5, y1+8); 
+ctx.stroke();
 }
 
 
