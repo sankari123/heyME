@@ -356,6 +356,7 @@ var can = document.getElementById("can_touchup");
 }
 
 function drawDot1(ctx,x1,y1){
+    ctx.globalCompositeOperation = 'destination-atop';
      ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.arc(x1,y1,2,0,Math.PI*2,true);
