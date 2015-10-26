@@ -354,10 +354,16 @@ var can = document.getElementById("can_touchup");
 
 }
 function drawDot1(ctx,x1,y1){
-ctx.globalCompositeOperation="source-over";
-ctx.globalAlpha=1.0;
-//ctx.fillStyle="red";
-ctx.fillRect(200,50,50,50);
+ctx.globalCompositeOperation = "destination-out";
+ctx.strokeStyle = 'rgba(0,0,0,1.0)';
+
+// And draw a thick line that removes what's already there
+ctx.lineWidth=20;
+
+ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x1+15,y1+15);
+ctx.stroke();
 //ctx.fillRect(x1,y1,x+10,y1+10);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
 //  ctx.fillStyle="red";// Your eraser color (not transparent)
