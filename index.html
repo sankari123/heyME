@@ -17,6 +17,7 @@
    var canvas_final;
    var context_final;
    var ctx1;
+   var ctr=0;
    var imgDataUrl;
    var c_width,c_height;
   var jcrop_api;
@@ -211,10 +212,12 @@ function overlay_action()
 {
 	if(ctr==0)
 	{
+		 alert("first");
 		canvas = document.getElementById("can_final");
 	}
 	else
 	{
+		alert("second");
 		canvas = document.getElementById("can_touchup");
 	}
         
