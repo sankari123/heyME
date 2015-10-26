@@ -364,13 +364,28 @@ var can = document.getElementById("can_touchup");
 }
 
 function drawDot1(ctx,x1,y1){
+	
+	var img1 = new Image();
+
+    //drawing of the test image - img1
+    img1.onload = function () {
+        //draw background image
+        ctx.drawImage(img1, x1,y1);
+        //draw a box over the top
+      //  ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
+    //    ctx.fillRect(0, 0, 500, 500);
+
+    };
+
+    img1.src = 'circle.png';
+    
  //   ctx.globalCompositeOperation = 'destination-out';
- alert(x1);
- alert(y1);
- var img=new Image();
- img.src="circle.png";
- ctx.clearRect(x1,y1,x1+2,y1+2);
-  ctx.drawImage(img,x1,y1);
+// alert(x1);
+// alert(y1);
+// var img=new Image();
+// img.src="circle.png";
+// ctx.clearRect(x1,y1,x1+2,y1+2);
+ // ctx.drawImage(img,x1,y1);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
 //  ctx.fillStyle="red";// Your eraser color (not transparent)
 //ctx.beginPath();
