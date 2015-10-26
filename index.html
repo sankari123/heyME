@@ -206,12 +206,12 @@ function overlay()
          //    alert(x_co);
            //  alert(y_co);
            context_final.putImageData(imgData2,x_co,y_co);
-           overlay_action(context_final);
+           overlay_action();
 }
-function overlay_action(ctx)
+function overlay_action()
 {
-		var can1=ctx.canvas;
-	      //  ctx = canvas.getContext('2d');
+		var can1=document.getElementById("can_final");
+	      ctx = can1.getContext('2d');
 		if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
             can1.addEventListener('mousedown', sketchpad_mouseDown, false);
@@ -462,7 +462,7 @@ html, body {
 </div>
 
 <div class="divStyle3" id="div_main3">
-<canvas id="can_touchup" style="border:2px solid black;"></canvas>
+<canvas id="can_touchup" style="border:0px solid black;"></canvas>
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
 
