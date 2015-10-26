@@ -354,11 +354,15 @@ var can = document.getElementById("can_touchup");
 
 }
 function drawDot1(ctx,x1,y1){
+ctx.globalCompositeOperation='destination-out';
+ctx.globalAlpha=0.50;
+ctx.fillStyle="red";
+ctx.fillRect(x1,y1,x+10,y1+10);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
-  ctx.fillStyle="red";// Your eraser color (not transparent)
-ctx.beginPath();
-ctx.arc(x1,y1,15,0,Math.PI*2);
-ctx.fill();
+//  ctx.fillStyle="red";// Your eraser color (not transparent)
+//ctx.beginPath();
+//ctx.arc(x1,y1,15,0,Math.PI*2);
+//ctx.fill();
 }
 
 
