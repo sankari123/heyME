@@ -358,11 +358,12 @@ var can = document.getElementById("can_touchup");
 
 function drawDot1(ctx,x1,y1){
     ctx.globalCompositeOperation = 'destination-atop';
-     ctx.strokeStyle = "red";
-    ctx.beginPath();
-    ctx.moveTo(x1,y1);
-    ctx.lineTo(x1+1,y1+1);
-    ctx.stroke();
+    ctx.clearRect(x1,y1,x1+1,y1+1);
+  //   ctx.strokeStyle = "red";
+   // ctx.beginPath();
+   // ctx.moveTo(x1,y1);
+   // ctx.lineTo(x1+1,y1+1);
+   // ctx.stroke();
  //   ctx.arc(x1,y1,2,0,Math.PI*2,true);
  //   ctx.fill();
 }
