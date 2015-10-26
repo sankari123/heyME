@@ -210,8 +210,16 @@ function overlay()
 }
 function overlay_action()
 {
-	       canvas=document.getElementById("can_final");
-	      ctx = canvas.getContext('2d');	
+	      if(ctr==0)
+	      {
+	      	canvas=document.getElementById("can_final");
+	       ctx = canvas.getContext('2d');
+	      }
+	      else
+	       {
+	      	canvas=document.getElementById("can_touchup");
+	        ctx = canvas.getContext('2d');
+	      }
 		
 		if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
@@ -226,15 +234,11 @@ function overlay_action()
 	
 }
 function drawDot(ctx,x1,y1){
-//	if(ctr==1)
-//	{
-//		alert("2nd");
-//		drawDot1(ctx,x1,y1);
-//		break;
-//	}
-      //   var img=new Image(); 
-       // img.src="logo.png";
-    //   alert("1st");
+	if(ctr==1)
+	{
+		drawDot1(ctx,x1,y1);
+		return false;
+	}
       ctx.clearRect(0,0,canvas.width, canvas.height);
       ctx.putImageData(imgData1,0,0);
       ctx.putImageData(imgData2,x1,y1);
@@ -330,10 +334,10 @@ function onConfirm(buttonIndex) {
 	ctr=1;;
 //	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	touch_up(imgDataUrl);
+	touch_up(imgDataUrl,canvas);
 }
 }
-function touch_up(img)
+function touch_up(img,can_1)
 {
 var can = document.getElementById("can_touchup");
 	ctx = can.getContext("2d")
@@ -347,16 +351,12 @@ var can = document.getElementById("can_touchup");
     		ctx.drawImage(img1, 0,0);}
               img1.src = img;
               ctr=1;
-      //     overlay_action();
+              overlay_action();
 	
 }
 
 function drawDot1(ctx,x1,y1){
-         var img=new Image(); 
-       // img.src="logo.png";
-       alert(x1);
-       alert(y1);
-       ctx.fillStyle = "red";
+     ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.arc(x1,y1,2,0,Math.PI*2,true);
     ctx.fill();
