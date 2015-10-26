@@ -209,9 +209,16 @@ function overlay()
 }
 function overlay_action()
 {
-canvas = document.getElementById("can_final");
+	if(ctr==0)
+	{
+		canvas = document.getElementById("can_final");
+	}
+	else
+	{
+		canvas = document.getElementById("can_touchup");
+	}
         
-          ctx = canvas.getContext('2d');
+         ctx = canvas.getContext('2d');
            
               if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
@@ -226,6 +233,11 @@ canvas = document.getElementById("can_final");
 	
 }
 function drawDot(ctx,x1,y1){
+	if(ctr==1)
+	{
+		drawDot1(ctx,x1,y1);
+		break;
+	}
          var img=new Image(); 
        // img.src="logo.png";
       ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -320,6 +332,7 @@ function onConfirm(buttonIndex) {
 	imgDataUrl = canvas.toDataURL();
 	imageObj = new Image();
 	imageObj.src = imgDataUrl;
+	ctr=1;;
 //	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
 	touch_up(imgDataUrl);
@@ -338,15 +351,8 @@ var can = document.getElementById("can_touchup");
                 img1.onload= function () {
     		ctx.drawImage(img1, 0,0);}
               img1.src = img;
-             if (ctx) {
-            // React to mouse events on the canvas, and mouseup on the entire document
-            can.addEventListener('mousedown', s_mouseDown, false);
-            can.addEventListener('mousemove', s_mouseMove, false);
-            window.addEventListener('mouseup', s_mouseUp, false);
-            // React to touch events on the canvas
-            can.addEventListener('touchstart', s_touchStart, false);
-            can.addEventListener('touchmove', s_touchMove, false);
-        }	
+              ctr=1;
+             overlay_action();
 	
 }
 
@@ -361,62 +367,6 @@ function drawDot1(ctx,x1,y1){
     ctx.fill();
 }
 
-
-     function s_mouseDown() {
-        mouseDown=1;
-        drawDot1(ctx,mouseX1,mouseY1);
-    }
-       function s_mouseUp() {
-        mouseDown=0;
-    }
-    function s_mouseMove(e) { 
-        // Update the mouse co-ordinates when moved
-        getMousePos1(e);
-        // Draw a dot if the mouse button is currently being pressed
-        if (mouseDown==1) {
-            drawDot1(ctx,mouseX1,mouseY1);
-        }
-    }
-    function getMousePos1(e) {
-        if (!e)
-            var e = event;
-        if (e.offsetX) {
-            mouseX1 = e.offsetX;
-            mouseY1 = e.offsetY;
-        }
-        else if (e.layerX) {
-            mouseX1 = e.layerX;
-            mouseY1 = e.layerY;
-        }
-     }
-     function s_touchStart() {
-        // Update the touch co-ordinates
-        getTouchPos1();
-        drawDot1(ctx,touchX1,touchY1);
-        // Prevents an additional mousedown event being triggered
-        event.preventDefault();
-    }
-    function s_touchMove(e) { 
-        // Update the touch co-ordinates
-        getTouchPos(e);
-        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawDot1(ctx,touchX1,touchY1); 
-        // Prevent a scrolling action as a result of this touchmove triggering.
-        event.preventDefault();
-    }
-    function getTouchPos1(e) {
-        if (!e)
-            var e = event;
-        if(e.touches) {
-            if (e.touches.length == 1) { // Only deal with one finger
-                var touch1 = e.touches[0]; // Get the information for finger #1
-                touchX1=touch1.pageX-touch1.target.offsetLeft;
-                touchY1=touch1.pageY-touch1.target.offsetTop;
-            }
-        }
-    }
-
-     
 
 function alertDismissed() {
             // do something
