@@ -238,14 +238,16 @@ function overlay_action()
 function drawDot(ctx,x1,y1){
 	if(ctr==1)
 	{
+		alert("2nd");
 		drawDot1(ctx,x1,y1);
 		break;
 	}
-         var img=new Image(); 
+      //   var img=new Image(); 
        // img.src="logo.png";
+       alert("1st");
       ctx.clearRect(0,0,canvas.width, canvas.height);
       ctx.putImageData(imgData1,0,0);
-     ctx.putImageData(imgData2,x1,y1);
+      ctx.putImageData(imgData2,x1,y1);
 }
 
 
