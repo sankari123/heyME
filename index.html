@@ -317,9 +317,9 @@ function drawDot(ctx,x1,y1){
  //	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
         
         navigator.notification.confirm('Would you like to touch up certain area!',  onConfirm, 'meMO', ['Yes','No'] );
-      //  canvas = document.getElementById("can_final");
-//	ctx = canvas.getContext("2d")
-//	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+       canvas = document.getElementById("can_final");
+	ctx = canvas.getContext("2d")
+	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
    //     imgDataUrl = canvas.toDataURL();
 //	imageObj = new Image();
 //	imageObj.src = imgDataUrl;
@@ -331,15 +331,22 @@ function onConfirm(buttonIndex) {
 {
     	canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
-	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	imgDataUrl = canvas.toDataURL();
-	imageObj = new Image();
-	imageObj.src = imgDataUrl;
+	var img = new Image();
+        ctx.putImageData(imgData3,0,0); 
+        var newcanvas = document.getElementById("can_touchup");
+        var newcanvascontext = newcanvas.getContext("2d");
+        newcanvascontext.drawImage(canvas,0 ,0);
+        
+//	imgDataUrl = canvas.toDataURL();
+//	imageObj = new Image();
+//	imageObj.src = imgDataUrl;
 	ctr=1;;
 //	imageObj.onload= touch_up(imageObj, ctx);
        // imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	touch_up(imgDataUrl,canvas);
+//	touch_up(imgDataUrl,canvas);
+		overlay_action();
 }
+
 }
 function touch_up(img,can_1)
 {
