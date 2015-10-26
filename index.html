@@ -210,8 +210,16 @@ function overlay()
 }
 function overlay_action()
 {
+		if(ctr==0)
+		{
 		canvas=document.getElementById("can_final");
 	      ctx = canvas.getContext('2d');
+		}
+		else
+		{
+		canvas=document.getElementById("can_touchup");
+	      ctx = canvas.getContext('2d');	
+		}
 		if (ctx) {
             // React to mouse events on the canvas, and mouseup on the entire document
             canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
@@ -225,11 +233,11 @@ function overlay_action()
 	
 }
 function drawDot(ctx,x1,y1){
-//	if(ctr==1)
+	if(ctr==1)
 //	{
 //		alert("2nd");
-//		drawDot1(ctx,x1,y1);
-//		break;
+		drawDot1(ctx,x1,y1);
+		break;
 //	}
       //   var img=new Image(); 
        // img.src="logo.png";
@@ -346,7 +354,7 @@ var can = document.getElementById("can_touchup");
     		ctx.drawImage(img1, 0,0);}
               img1.src = img;
               ctr=1;
-           //  overlay_action(ctx);
+           overlay_action();
 	
 }
 
