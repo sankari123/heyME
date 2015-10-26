@@ -217,7 +217,7 @@ function overlay_action()
 	      }
 	      else
 	       {
-	      // 	alert("second");
+	      	alert("second");
 	      	canvas=document.getElementById("can_touchup");
 	        ctx = canvas.getContext('2d');
 	      }
@@ -333,10 +333,7 @@ function onConfirm(buttonIndex) {
 	ctx = canvas.getContext("2d")
 	var img = new Image();
         ctx.putImageData(imgData3,0,0); 
-        var newcanvas = document.getElementById("can_touchup");
-        var newcanvascontext = newcanvas.getContext("2d");
-        newcanvascontext.drawImage(canvas,0 ,0);
-        
+    
 //	imgDataUrl = canvas.toDataURL();
 //	imageObj = new Image();
 //	imageObj.src = imgDataUrl;
