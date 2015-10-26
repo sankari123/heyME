@@ -217,6 +217,7 @@ function overlay_action()
 	      }
 	      else
 	       {
+	      // 	alert("second");
 	      	canvas=document.getElementById("can_touchup");
 	        ctx = canvas.getContext('2d');
 	      }
@@ -357,10 +358,13 @@ var can = document.getElementById("can_touchup");
 
 function drawDot1(ctx,x1,y1){
     ctx.globalCompositeOperation = 'destination-atop';
-     ctx.fillStyle = "red";
+     ctx.strokeStyle = "red";
     ctx.beginPath();
-    ctx.arc(x1,y1,2,0,Math.PI*2,true);
-    ctx.fill();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x1+1,y1+1);
+    ctx.stroke();
+ //   ctx.arc(x1,y1,2,0,Math.PI*2,true);
+ //   ctx.fill();
 }
 
 
