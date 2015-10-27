@@ -224,10 +224,10 @@ function overlay_action()
 	
 	
 }
-function drawDot(ctx,x1,y1){
+function drawDot(x1,y1){
 	if(ctr==1)
 	{
-		drawDot1(ctx,x1,y1);
+		drawDot1(x1,y1);
 	//	break;
 	}
 	else
@@ -241,7 +241,7 @@ function drawDot(ctx,x1,y1){
 
      function sketchpad_mouseDown() {
         mouseDown=1;
-        drawDot(ctx,mouseX,mouseY);
+        drawDot(mouseX,mouseY);
     }
        function sketchpad_mouseUp() {
         mouseDown=0;
@@ -251,7 +251,7 @@ function drawDot(ctx,x1,y1){
         getMousePos(e);
         // Draw a dot if the mouse button is currently being pressed
         if (mouseDown==1) {
-            drawDot(ctx,mouseX,mouseY);
+            drawDot(mouseX,mouseY);
         }
     }
     function getMousePos(e) {
@@ -269,7 +269,7 @@ function drawDot(ctx,x1,y1){
      function sketchpad_touchStart() {
         // Update the touch co-ordinates
         getTouchPos();
-        drawDot(ctx,touchX,touchY);
+        drawDot(touchX,touchY);
         // Prevents an additional mousedown event being triggered
         event.preventDefault();
     }
@@ -277,7 +277,7 @@ function drawDot(ctx,x1,y1){
         // Update the touch co-ordinates
         getTouchPos(e);
         // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawDot(ctx,touchX,touchY); 
+        drawDot(touchX,touchY); 
         // Prevent a scrolling action as a result of this touchmove triggering.
         event.preventDefault();
     }
@@ -327,8 +327,8 @@ var can = document.getElementById("can_touchup");
 }
 
 
-function drawDot1(ctx,x1,y1){
-	 var imageData = ctx.getImageData(x1,y1,x1+10,y1+10);
+function drawDot1(x1,y1){
+	 var imageData = ctx.getImageData(x1,y1,50,50);
 var data = imageData.data;
 for (var i = 0; i < data.length; i+=4) {
     data[i] = 0; //red
