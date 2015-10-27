@@ -312,6 +312,8 @@ function drawDot(x1,y1){
 }
 function touch_up(img,can_1)
 {
+		document.getElementById("div_main1").style.display = 'none';
+			document.getElementById("div_main2").style.display = 'none';
 var can = document.getElementById("can_touchup");
 	ctx = can.getContext("2d")
 		can.height = window.innerHeight;
@@ -319,7 +321,7 @@ var can = document.getElementById("can_touchup");
                  ctx.clearRect(0,0,can.width,can.height);
                 var img1=new Image();
                 img1.onload= function () {
-    		ctx.drawImage(img1, 0,0);}
+    		ctx.drawImage(img1,0,0);}
               img1.src = img;
               ctr=1;
               overlay_action();
