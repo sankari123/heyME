@@ -74,6 +74,10 @@ function setCrop()
     	//console.log(FileTransfer);
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+    navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
+    }, false );
 //	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
     }
 
@@ -313,26 +317,10 @@ function drawDot(ctx,x1,y1){
             console.log(err);
         },
         document.getElementById("can_final")  );
-       
- //	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
-        
-        navigator.notification.confirm('Would you like to touch up certain area!',  onConfirm, 'meMO', ['Yes','No'] );
-       canvas = document.getElementById("can_final");
+  //	navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'meMO',   'OK'      );
+         canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
 	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-   //     imgDataUrl = canvas.toDataURL();
-//	imageObj = new Image();
-//	imageObj.src = imgDataUrl;
-       // window.plugins.socialsharing.share('meMO Share','Share',imageObj.src,null);
-
-}
-function onConfirm(buttonIndex) {
-    if(buttonIndex=='1')
-{
-    	canvas = document.getElementById("can_final");
-	ctx = canvas.getContext("2d")
-//	var img = new Image();
-      //  ctx.putImageData(imgData3,0,0); 
         imgDataUrl = canvas.toDataURL();
         touch_up(imgDataUrl,canvas);
 }
@@ -440,7 +428,7 @@ html, body {
 <td width="25%"><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td width="25%"><button onclick="overlay();" class="btncss">Overlap</button></td>
-<td width="25%"><button onclick="saveMO();" class="btncss">Save Share</button></td>
+<td width="25%"><button onclick="saveMO();" class="btncss">Adjust Image</button></td>
 <!--<td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>-->
 <tr><td><input type="hidden" id='w'></td><td><input type="hidden" id='h'></td><td><input type="hidden" id='x_coor'></td><td><input type="hidden" id='y_coor'></td></tr>
 </table>
