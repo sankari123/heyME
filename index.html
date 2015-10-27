@@ -328,18 +328,27 @@ var can = document.getElementById("can_touchup");
 
 
 function drawDot1(ctx,x1,y1){
+	 ctx.globalCompositeOperation = "copy";
+                ctx.strokeStyle = "rgba(0,0,0,0)";
+                ctx.beginPath();
+                ctx.moveTo(x1,y1);
+                ctx.lineTo(x1+10,y1+10);
+              //  ctx.lineTo(103,76);
+                //ctx.lineTo(170,15);
+                ctx.stroke();
+                
 //	alert("x="+x1);
-ctx.globalCompositeOperation = 'source-in';
+//ctx.globalCompositeOperation = 'source-in';
 
 /// draw the image to be clipped
 //ctx.drawImage(img,x1,y1);
 
 //tx.fillRect(x1,y1,x+10,y1+10);
 //ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
-  ctx.fillStyle="red";// Your eraser color (not transparent)
-ctx.beginPath();
-ctx.arc(x1,y1,15,0,Math.PI*2);
-ctx.fill();
+//  ctx.fillStyle="red";// Your eraser color (not transparent)
+//ctx.beginPath();
+//ctx.arc(x1,y1,15,0,Math.PI*2);
+//ctx.fill();
 }
 
 
