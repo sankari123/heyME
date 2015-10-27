@@ -329,24 +329,17 @@ var can = document.getElementById("can_touchup");
 
 function drawDot1(ctx,x1,y1){
 //	alert("x="+x1);
-var context1=document.getElementById("can_touchup").getContext("2d");
-var img=new Image();
-img.src="circle.png";
-context1.putImageData(imgData3,0,0);
-
-
-/// change composite mode to use that shape
-context1.globalCompositeOperation = 'source-in';
+ctx.globalCompositeOperation = 'source-in';
 
 /// draw the image to be clipped
-context1.drawImage(img,x1,y1);
+//ctx.drawImage(img,x1,y1);
 
-//ctx.fillRect(x1,y1,x+10,y1+10);
-//  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
-//  ctx.fillStyle="red";// Your eraser color (not transparent)
-//ctx.beginPath();
-//ctx.arc(x1,y1,15,0,Math.PI*2);
-//ctx.fill();
+//tx.fillRect(x1,y1,x+10,y1+10);
+//ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
+  ctx.fillStyle="red";// Your eraser color (not transparent)
+ctx.beginPath();
+ctx.arc(x1,y1,15,0,Math.PI*2);
+ctx.fill();
 }
 
 
