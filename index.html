@@ -71,10 +71,9 @@ function setCrop()
 
     
     function onDeviceReady() {
-    	//console.log(FileTransfer);
-        pictureSource=navigator.camera.PictureSourceType;
+    	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-        //document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
+        document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
 //	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
     }
 
@@ -174,18 +173,11 @@ function onPhotoURISuccess(imageURI) {
  c_height=document.getElementById("h").value;
   c.width=c_width;
   c.height=c_height;
- //alert("me w"+c_width);
-//  alert("me h"+c_height);
   ctx.clearRect(0,0,c.width,c.height);
    ctx.drawImage(img,0,0,img.width,img.height,0,0,c.width,c.height);
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
   imgData2=ctx.getImageData(0,0,c.width,c.height);
-//    imgData2=ctx.getImageData(0,0);
  }
- 
- 
- 
-
  function onFail(message) {
       alert('Failed because: ' + message);
     }
@@ -201,12 +193,9 @@ function overlay()
   		canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
-              // context_final.scale(0.5, 0.5);
-             x_co=document.getElementById('x_coor').value;
+               x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-         //    alert(x_co);
-           //  alert(y_co);
-           context_final.putImageData(imgData2,x_co,y_co);
+              context_final.putImageData(imgData2,x_co,y_co);
            overlay_action();
 }
 function overlay_action()
@@ -343,14 +332,14 @@ function drawDot1(ctx,x1,y1){
 var context1=document.getElementById("can_touchup").getContext("2d");
 var img=new Image();
 img.src="circle.png";
-ctx.putImageData(imgData3,0,0);
+context1.putImageData(imgData3,0,0);
 
 
 /// change composite mode to use that shape
-ctx.globalCompositeOperation = 'source-in';
+context1.globalCompositeOperation = 'source-in';
 
 /// draw the image to be clipped
-ctx.drawImage(img,x1,y1);
+context1.drawImage(img,x1,y1);
 
 //ctx.fillRect(x1,y1,x+10,y1+10);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
