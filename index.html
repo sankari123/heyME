@@ -74,10 +74,7 @@ function setCrop()
     	//console.log(FileTransfer);
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-        document.addEventListener("backbutton", function (e) {
-        e.preventDefault(); 
-    navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
-    }, false );
+        //document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
 //	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
     }
 
