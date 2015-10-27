@@ -339,10 +339,10 @@ var can = document.getElementById("can_touchup");
 
 
 function drawDot1(ctx,x1,y1){
-	alert("x="+x1);
+//	alert("x="+x1);
 var context1=document.getElementById("can_touchup").getContext("2d");
 context1.fillStyle = "red";
-context1.fillStyle = "blue";
+context1.strokeStyle = "blue";
  context1.beginPath();
  context1.arc(x1, y1, 10, 0, 2 * Math.PI, false);
  context1.fill();
