@@ -339,13 +339,9 @@ var can = document.getElementById("can_touchup");
 
 
 function drawDot1(ctx,x1,y1){
-ctx.globalCompositeOperation = "destination-out";
-ctx.strokeStyle = 'rgba(0,0,0,1.0)';
-ctx.lineWidth=20;
-ctx.beginPath();
-  ctx.moveTo(x1,y1);
-  ctx.lineTo(x1+15,y1+15);
-ctx.stroke();
+var context1=getElementById('can_touchup').getContext('2d');
+context1.fillStyle = 'red';
+fillCircle(context1,x1,y1,10);
 //ctx.fillRect(x1,y1,x+10,y1+10);
 //  ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
 //  ctx.fillStyle="red";// Your eraser color (not transparent)
@@ -354,6 +350,12 @@ ctx.stroke();
 //ctx.fill();
 }
 
+var fillCircle = function(context1, x, y, radius)
+{
+    context1.beginPath();
+    context1.arc(x, y, radius, 0, 2 * Math.PI, false);
+    context1.fill();
+};
 
 function alertDismissed() {
             // do something
