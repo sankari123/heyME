@@ -61,3 +61,12 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 }
+.jcrop-holder div
+{
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+.profile-image {
+  border-radius: 50%;
+}
