@@ -7,8 +7,6 @@
     <script type="text/javascript" charset="utf-8"></script>
   <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
-  <script src="videoplayer.js"></script>
-
 	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
 
@@ -335,11 +333,6 @@ function alertDismissed() {
             // do something
         }
         
-		function demo()
-{
-VideoPlayer.play("file:///android_asset/www/sample1.mp4",
- { volume: 1.0,  scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING }, function () { console.log("video completed"); }, function (err) { console.log(err); } );
-}
 </script>
 <style>
 html, body {
@@ -400,8 +393,6 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- <p align=right><button onclick="demo();" class="btncss">Demo</button></p>
-
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="25%"><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
