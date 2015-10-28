@@ -85,10 +85,8 @@ var my_media = null;
         function playAudio(src) {
             // Create Media object from src
             my_media = new Media(src, onSuccess, onError);
-
             // Play audio
             my_media.play();
-
             // Update my_media position every second
             if (mediaTimer == null) {
                 mediaTimer = setInterval(function() {
@@ -112,10 +110,7 @@ var my_media = null;
 
 function setAudioPosition(position) {
             document.getElementById('audio_position').innerHTML = position;
-        }
-        
-        
-        function onSuccess() {
+        }        function onSuccess() {
             console.log("playAudio():Audio Success");
         }
 
@@ -221,8 +216,7 @@ function overlay_action()
             canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
         }	
-	
-	
+
 }
 function drawDot(x1,y1){
 	if(ctr==1)
@@ -327,7 +321,6 @@ function touch_up(img,can_1)
               	overlay_action();
 }
 
-
 function drawDot1(x1,y1){
 //	 var imageData = ctx.getImageData(x1,y1,50,50);
 //var data = imageData.data;
@@ -339,18 +332,15 @@ function drawDot1(x1,y1){
                 
 //	alert("x="+x1);
 ctx.globalCompositeOperation = 'destination-out';
-
 /// draw the image to be clipped
 //ctx.drawImage(img,x1,y1);
-
 //tx.fillRect(x1,y1,x+10,y1+10);
 ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
- // ctx.fillStyle="red";// Your eraser color (not transparent)
+// ctx.fillStyle="red";// Your eraser color (not transparent)
 ctx.beginPath();
 ctx.arc(x1,y1,3,0,Math.PI*2);
 ctx.fill();
 }
-
 
 
 function alertDismissed() {
