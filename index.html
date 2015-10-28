@@ -313,31 +313,25 @@ function drawDot(x1,y1){
 function touch_up(img,can_1)
 {
 		document.getElementById("div_main1").style.display = 'none';
-			document.getElementById("div_main2").style.display = 'none';
-var can = document.getElementById("can_touchup");
-	ctx = can.getContext("2d")
+		document.getElementById("div_main2").style.display = 'none';
+		var can = document.getElementById("can_touchup");
+		ctx = can.getContext("2d")
 		can.height = window.innerHeight;
   		can.width = window.innerWidth;
                  ctx.clearRect(0,0,can.width,can.height);
                 var img1=new Image();
                 img1.onload= function () {
     		ctx.drawImage(img1,0,0);}
-              img1.src = img;
-              ctr=1;
-              overlay_action();
-	
+        	img1.src = img;
+              	ctr=1;
+              	overlay_action();
 }
 
 
 function drawDot1(x1,y1){
 //	 var imageData = ctx.getImageData(x1,y1,50,50);
 //var data = imageData.data;
-for (var i = 0; i < data.length; i+=4) {
-   data[i] = 0; //red
-  data[i+1] = 0; //green
- data[i+2] = 0; //blue
- data[i+3] = 0; //alpha
-//}
+
 //ctx.putImageData(imageData, x1, y1);
               //  ctx.lineTo(103,76);
                 //ctx.lineTo(170,15);
@@ -350,8 +344,8 @@ ctx.globalCompositeOperation = 'destination-out';
 //ctx.drawImage(img,x1,y1);
 
 //tx.fillRect(x1,y1,x+10,y1+10);
-//ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
-  ctx.fillStyle="red";// Your eraser color (not transparent)
+ctx.fillStyle="#ffffff";// Your eraser color (not transparent)
+ // ctx.fillStyle="red";// Your eraser color (not transparent)
 ctx.beginPath();
 ctx.arc(x1,y1,3,0,Math.PI*2);
 ctx.fill();
@@ -430,7 +424,8 @@ html, body {
 <td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td width="25%"><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td width="25%"><button onclick="saveMO();" class="btncss">Adjust Image</button></td>
-<!--<td><button onclick="adjust_overlap();" class="btncss">Adjust</button></td></tr>-->
+<!--<td><button onclick="copy-color();" class="btncss">Copy Color</button></td></tr>-->
+
 <tr><td><input type="hidden" id='w'></td><td><input type="hidden" id='h'></td><td><input type="hidden" id='x_coor'></td><td><input type="hidden" id='y_coor'></td></tr>
 </table>
 
