@@ -26,12 +26,7 @@
 function setCrop()
     {
         
- jcrop_api = $.Jcrop('#can_model', {
-    onChange: showCoords,
-    onSelect: showCoords,
-    bgColor: '#CCC',
-    
-});
+ jcrop_api = $.Jcrop('#can_model', { aspectRatio: 1,    onChange: showCoords,    onSelect: showCoords });
  }
  
   function showCoords(c)
