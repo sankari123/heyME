@@ -41,6 +41,8 @@
   <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
   <!--<gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />-->
   <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
+  <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
+
 
 
   <icon src="memo_logo.png"/>
