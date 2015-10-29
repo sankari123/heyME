@@ -5,11 +5,8 @@
 		versionCode=""
 		version   = "1.0.0">
 		<name>meMO</name>
-		<description>
-meMO		</description>
-		<author href="http://www.appcorridor.com" email="write2sankari@gmail.com">
-Sivasankari
-		</author>
+		<description>meMO </description>
+		<author href="http://www.appcorridor.com" email="write2sankari@gmail.com">Sivasankari	</author>
 		<preference name="phonegap-version" value="cli-5.2.0" />
 		<preference name="orientation" value="default" />
 		<preference name="fullscreen" value="true" />
