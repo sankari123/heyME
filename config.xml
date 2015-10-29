@@ -72,24 +72,24 @@ Sivasankari
 		<gap:plugin name="org.apache.cordova.network-information"  />
 		<gap:plugin name="org.apache.cordova.splashscreen"  />
 		<gap:plugin name="org.apache.cordova.vibration"  />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="57" height="57" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="72" height="72" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="114" height="114" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="144" height="144" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="76" height="76" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="120" height="120" />
-		<icon src="PG/Test/www/icon.png" gap:platform="ios" width="152" height="152" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="ldpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="mdpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="hdpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="xhdpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="xxhdpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="android" gap:density="xxxhdpi" />
-		<icon src="PG/Test/www/icon.png" gap:platform="winphone" />
-		<icon src="PG/Test/www/icon.png" gap:platform="winphone" gap:role="background" />
+		<icon src="icon.png" gap:platform="ios" width="57" height="57" />
+		<icon src="icon.png" gap:platform="ios" width="72" height="72" />
+		<icon src="icon.png" gap:platform="ios" width="114" height="114" />
+		<icon src="icon.png" gap:platform="ios" width="144" height="144" />
+		<icon src="icon.png" gap:platform="ios" width="76" height="76" />
+		<icon src="icon.png" gap:platform="ios" width="120" height="120" />
+		<icon src="icon.png" gap:platform="ios" width="152" height="152" />
+		<icon src="icon.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="xhdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="xxhdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="xxxhdpi" />
+		<icon src="icon.png" gap:platform="winphone" />
+		<icon src="icon.png" gap:platform="winphone" gap:role="background" />
 		<icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry" />
 		<icon src="www/res/icon/webos/icon-64.png" gap:platform="webos" />
-		<icon src="PG/Test/www/icon.png" />
+		<icon src="icon.png" />
 		<gap:splash src="splash.png" gap:platform="ios" width="320" height="480" />
 		<gap:splash src="splash.png" gap:platform="ios" width="480" height="320" />
 		<gap:splash src="splash.png" gap:platform="ios" width="640" height="960" />
