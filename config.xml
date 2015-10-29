@@ -65,7 +65,7 @@
     <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
 </platform>
 <preference name="SplashScreenDelay" value="10000" />
-
+<gap:splash src="splash.png" />
 
   <icon src="memo_logo.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
