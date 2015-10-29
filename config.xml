@@ -8,11 +8,6 @@
   </feature>
   <preference name="phonegap-version" value="cli-5.2.0" />
   <preference name="AutoHideSplashScreen" value="true" />
-  <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="3000" />
-  <preference name="SplashMaintainAspectRatio" value="true|false" />
-
-
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
@@ -49,7 +44,7 @@
   <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
 <!--  <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />-->
   <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" />
-
+<preference name="SplashScreen" value="screen"/>
 
 <platform name="android">
     <!-- you can use any density that exists in the Android project -->
@@ -96,6 +91,7 @@
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
   <gap:splash src="splash.png" />
+  <preference name="SplashScreenDelay" value="10000" />
   <plugin name="cordova-plugin-whitelist" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
