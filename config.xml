@@ -90,9 +90,10 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
-  <preference name="SplashScreen" value="screen"/>
+  <preference name="SplashScreen" value="splash"/>
+  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="SplashScreenDelay" value="10000" />
-  <gap:splash src="screen.png" />
+  <gap:splash src="splash.png" />
 
   <plugin name="cordova-plugin-whitelist" />
   <allow-intent href="http://*/*"/>
