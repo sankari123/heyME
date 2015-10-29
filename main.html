@@ -66,7 +66,8 @@ function setCrop()
     document.addEventListener("deviceready",onDeviceReady,false);
     
     function onDeviceReady() {
-    	navigator.splashscreen.show();
+    //	navigator.splashscreen.show();
+  //  alert('index.html: device ready');
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
