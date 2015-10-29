@@ -93,6 +93,9 @@
   <preference name="SplashScreen" value="splash"/>
   <preference name="AutoHideSplashScreen" value="false" />
   <preference name="SplashScreenDelay" value="10000" />
+  <feature name="SplashScreen">
+    <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+</feature>
   <gap:splash src="splash.png" />
 
   <plugin name="cordova-plugin-whitelist" />
