@@ -8,8 +8,7 @@
   </feature>
   <preference name="phonegap-version" value="cli-5.2.0" />
   <preference name="AutoHideSplashScreen" value="true" />
-  <preference name="SplashScreen" value="resourcename" />
-  <preference name="SplashScreen" value="foo" />
+  <preference name="SplashScreen" value="screen" />
   <preference name="SplashScreenDelay" value="3000" />
   <preference name="SplashMaintainAspectRatio" value="true|false" />
 
@@ -64,8 +63,7 @@
     <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
     <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
 </platform>
-<preference name="SplashScreenDelay" value="10000" />
-<gap:splash src="splash.png" />
+
 
   <icon src="memo_logo.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
@@ -87,7 +85,9 @@
   <gap:splash src="www/res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi"/>
   <gap:splash src="www/res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi"/>
   <gap:splash src="www/res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
+  
   <gap:splash src="www/res/screen/blackberry/screen-225.png" gap:platform="blackberry"/>
+  
   <gap:splash src="www/res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480"/>
   <gap:splash src="www/res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960"/>
   <gap:splash src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640" height="1136"/>
@@ -95,6 +95,7 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
+  <gap:splash src="splash.png" />
   <plugin name="cordova-plugin-whitelist" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
