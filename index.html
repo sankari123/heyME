@@ -68,12 +68,29 @@ function setCrop()
     
     function onDeviceReady() {
   //  navigator.splashscreen.show();
-  //  alert('index.html: device ready');
+  loadPage("welcome.html");
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
 //	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
     }
+    
+    
+    function loadPage(url) {
+    var xmlhttp = new XMLHttpRequest();
+
+    // Callback function when XMLHttpRequest is ready
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState === 4){
+            if (xmlhttp.status === 200) {
+                document.getElementById('container').innerHTML = xmlhttp.responseText;
+            }
+        }
+    };
+    xmlhttp.open("GET", url , true);
+    xmlhttp.send();
+}
+
 var my_media = null;
         var mediaTimer = null;
         // Play audio
@@ -399,6 +416,7 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
+ 	<div id='container'></div>
  <p align=right><button onclick="demo();" class="btncss">Demo</button></p>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -423,7 +441,7 @@ html, body {
 </TR>
 </table>
 -->
-
+ 
 <div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:0px solid black;"></canvas>
 </div>
