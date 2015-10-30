@@ -68,7 +68,7 @@ function setCrop()
     
     function onDeviceReady() {
   //  navigator.splashscreen.show();
-  loadPage("welcome.html");
+  
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
@@ -76,21 +76,7 @@ function setCrop()
     }
     
     
-    function loadPage(url) {
-    var xmlhttp = new XMLHttpRequest();
-
-    // Callback function when XMLHttpRequest is ready
-    xmlhttp.onreadystatechange=function(){
-        if (xmlhttp.readyState === 4){
-            if (xmlhttp.status === 200) {
-                document.getElementById('container').innerHTML = xmlhttp.responseText;
-            }
-        }
-    };
-    xmlhttp.open("GET", url , true);
-    xmlhttp.send();
-}
-
+    
 var my_media = null;
         var mediaTimer = null;
         // Play audio
