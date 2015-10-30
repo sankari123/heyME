@@ -350,16 +350,22 @@ VideoPlayer.play("file:///android_asset/www/sample1.mp4");
 function show_image(src, alt) {
     var img2 = document.createElement("img");
     img2.src = src;
-    height=window.innerHeight;
-    width=window.innerWidth;
-   img2.height = height;
-   img2.width=width;
+  //  height=window.innerHeight;
+   // width=window.innerWidth;
+  // img2.height = height;
+  // img2.width=width;
     img2.alt = alt;
     document.body.innerHTML = "";
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img2);
-    setTimeout(function(){ alert("Proceed to DigiGraph"); }, 3);
+    navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
+    
+}
+function onConfirm1(buttonIndex) {
+    if(buttonIndex=='1')
+{
+window.location="index.html";
 }
 </script>
 <style>
