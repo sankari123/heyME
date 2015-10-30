@@ -347,18 +347,19 @@ function alertDismissed() {
 {
 VideoPlayer.play("file:///android_asset/www/sample1.mp4");
 }
-function show_image(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
+function show_image(src, alt) {
+    var img2 = document.createElement("img");
+    img2.src = src;
     height=window.innerHeight;
     width=window.innerWidth;
-   // img.height = height;
-    img.alt = alt;
+   img2.height = height;
+   img2.width=width;
+    img2.alt = alt;
     document.body.innerHTML = "";
 
     // This next line will just add it to the <body> tag
-    document.body.appendChild(img);
-    setTimeout(function(){ alert("Proceed to DigiGraph"); }, 3000);
+    document.body.appendChild(img2);
+    setTimeout(function(){ alert("Proceed to DigiGraph"); }, 3);
 }
 </script>
 <style>
@@ -422,7 +423,7 @@ html, body {
   </header>
  <section>
  	<div id='container'></div>
- <p align=right><button onclick="show_image('splash.png', 276, 110, 'DigiGraph');" class="btncss">Demo</button></p>
+ <p align=right><button onclick="show_image('splash.png','DigiGraph');" class="btncss">Demo</button></p>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
