@@ -99,6 +99,8 @@ if(i==3)
 }
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        document.getElementById("container").style.display = 'none';
+        
         document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
     navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
@@ -137,6 +139,13 @@ var my_media = null;
                 }, 1000);
             }
         }
+        function onConfirmExit(button) {
+    if(button==2){ //If User select a No, then return back;
+        return;
+    }else{
+        navigator.app.exitApp(); // If user select a Yes, quit from the app.
+    }
+}
 function setAudioPosition(position) {
             document.getElementById('audio_position').innerHTML = position;
         }        function onSuccess() {
