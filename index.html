@@ -67,6 +67,7 @@ function setCrop()
     document.addEventListener("deviceready",onDeviceReady,false);
     
     function onDeviceReady() {
+ //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
   var i = 0;
 var path = new Array();
  
@@ -100,7 +101,6 @@ if(i==3)
         document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
 //	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
     }
-    
     
     
 var my_media = null;
