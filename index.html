@@ -67,7 +67,25 @@ function setCrop()
     document.addEventListener("deviceready",onDeviceReady,false);
     
     function onDeviceReady() {
-  navigator.splashscreen.show();
+  var i = 0;
+var path = new Array();
+ 
+// LIST OF IMAGES
+path[0] = "main_inst.png";
+path[1] = "sign_inst.png";
+path[2] = "save_inst.png";
+path[2] = "share_inst.png";
+
+
+function swapImage()
+{
+   
+   var img2 = document.createElement("img");
+   img2.src = path[i];
+   if(i < path.length - 1) i++; else i = 0;
+   setTimeout("swapImage()",3000);
+}
+window.onload=swapImage;
   
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
