@@ -93,6 +93,7 @@ window.onload=swapImage;
 if(i==3)
 {
   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'DigiGraph', ['Yes','No'] );
+ 
 }
     	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
@@ -390,6 +391,7 @@ function show_image(src, alt) {
 function onConfirm1(buttonIndex) {
     if(buttonIndex=='1')
 {
+document.getElementById("container").style.display = 'none';
 window.location="index.html";
 }
 }
