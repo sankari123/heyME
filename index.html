@@ -80,7 +80,12 @@ path[3] = "share_inst.png";
 function swapImage()
 {
    
-   document.slide.src = path[i];
+   var height=window.innerHeight;
+   var width=window.innerWidth;
+    path[i].height = height;
+     path[i].width=width;
+     document.body.innerHTML = "";
+    document.slide.src = path[i];
    if(i < path.length - 1) i++; else i = 0;
   setTimeout("swapImage()",1000);
 }
