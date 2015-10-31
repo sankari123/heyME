@@ -83,10 +83,7 @@ function swapImage()
    var img2 = document.createElement("img");
    img2.src = path[i];
    if(i < path.length - 1) i++; else i = 0;
-   document.body.innerHTML = "";
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img2);
-   setTimeout("swapImage()",1000);
+  setTimeout("swapImage()",1000);
 }
 window.onload=swapImage;
 if(i==3)
@@ -453,7 +450,7 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- 	<div id='container'></div>
+ 	<div id='container'><img height="200" name="slide" src="main_inst.gif" width="400" /></div>
  <p align=right><button onclick="show_image('splash.png','DigiGraph');" class="btncss">Demo</button></p>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
