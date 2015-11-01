@@ -354,8 +354,8 @@ ctx.globalCompositeOperation = 'destination-out';
 //ctx.beginPath();
 //ctx.arc(x1,y1,4,0,Math.PI*2);
 //ctx.fill();
-var x2=x1+1;
-var y2=y1+1;
+var x2=x1+3;
+var y2=y1+3;
 ctx.beginPath();
 ctx.strokeStyle="ffffff";
 ctx.moveTo(x1,y1); 
@@ -414,7 +414,15 @@ function swapImage()
    window.location="index.html";
    }
 }
-
+function echoColor(){
+  //  var imgData = ctx.getImageData(e.pageX, e.pageX, 1, 1);
+    red = imgData3.data[0];
+    green = imgData3.data[1];
+    blue = imgData3.data[2];
+    alpha = imgData3.data[3];
+    console.log(red + " " + green + " " + blue + " " + alpha); 
+    alert(alpha);
+}
 
 </script>
 <style>
@@ -489,7 +497,7 @@ html, body {
 <td width="20%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td width="20%"><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td width="20%"><button onclick="saveMO();" class="btncss">Erase</button></td>
-<td width="20%"><button class="btncss">Copy Color</button></td></tr>
+<td width="20%"><button onclick="echoColor()" class="btncss">Copy Color</button></td></tr>
 
 <tr><td colspan=2><input type="hidden" id='w'></td>
 <td><input type="hidden" id='h'></td>
