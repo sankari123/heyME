@@ -395,8 +395,9 @@ function swapImage()
     slide.style.height = window.InnerHeight;
     slide.style.width = window.Innerwidth;
    document.slide.src = path[ik];
+   alert(ik);
    if(ik < path.length - 1) ik++; else ik = 0;
-   setTimeout("swapImage()",1000);
+   setTimeout("swapImage()",10);
    if(ik==4)
    {
    document.getElementById("slide").style.display = 'none';	
