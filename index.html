@@ -50,6 +50,7 @@ function setCrop()
       var start = function() {
        screen.orientation.lock('portrait');
        navigator.splashscreen.show();
+       document.getElementById("slide").style.display = 'none';
       // window.location="welcome.html";
        //var sample = document.getElementById("foobar");
 	//
@@ -466,8 +467,8 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
- <img height="200" id="slide" src="main_inst.png" width="400" />
+ <p align=right><button onclick="document.getElementById("slide").style.display = 'block'; swapImage();" class="btncss">Demo</button></p>
+ <img id="slide" src="main_inst.png" />
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
