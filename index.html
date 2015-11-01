@@ -243,10 +243,6 @@ function drawDot(x1,y1){
 		drawDot1(x1,y1);
 	//	break;
 	}
-	else if(ctr==2)
-	{
-		getColor(event);
-	}
 	else
 	{
       ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -418,20 +414,6 @@ function swapImage()
    window.location="index.html";
    }
 }
-function echoColor(){
-	 ctr=2;
-	alert("Point a color to copy");
-}
-functin getColor(e)
-{
-    var imgData3 = ctx.getImageData(e.pageX, e.pageX, 1, 1);
-    red = imgData3.data[0];
-    green = imgData3.data[1];
-    blue = imgData3.data[2];
-    alpha = imgData3.data[3];
-    console.log(red + " " + green + " " + blue + " " + alpha);  
-    //alert(red);
-}
 
 
 </script>
@@ -507,7 +489,7 @@ html, body {
 <td width="20%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td width="20%"><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td width="20%"><button onclick="saveMO();" class="btncss">Erase</button></td>
-<td width="20%"><button onclick="echoColor();" class="btncss">Copy Color</button></td></tr>
+<td width="20%"><button class="btncss">Copy Color</button></td></tr>
 
 <tr><td colspan=2><input type="hidden" id='w'></td>
 <td><input type="hidden" id='h'></td>
