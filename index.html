@@ -393,7 +393,11 @@ path[3] = "share_inst.png";
 
 function swapImage()
 {
+    if(ik==0)
+    {
     document.body.innerHTML = "";
+    document.getElementById("slide").style.display = 'block';
+    }
     slide.style.height = window.InnerHeight;
     slide.style.width = window.Innerwidth;
    document.slide.src = path[ik];
@@ -402,7 +406,8 @@ function swapImage()
    setTimeout("swapImage()",10);
    if(ik==4)
    {
-   document.getElementById("slide").style.display = 'none';	
+   document.getElementById("slide").style.display = 'none';
+   window.location="index.html";
    }
 }
 
@@ -468,8 +473,8 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- <p align=right><button onclick="document.getElementById("slide").style.display = 'block'; swapImage();" class="btncss">Demo</button></p>
- <img id="slide" src="main_inst.png" />
+ <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
+ <img id="slide" />
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
