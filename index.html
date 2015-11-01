@@ -51,7 +51,7 @@ function setCrop()
        screen.orientation.lock('portrait');
        navigator.splashscreen.show();
    //    document.body.innerHTML = "";
-       document.getElementById("slide").style.display = 'none';
+       img.style.visibility = 'hidden';
       // window.location="welcome.html";
        //var sample = document.getElementById("foobar");
 	//
@@ -400,17 +400,17 @@ function swapImage()
     if(ik==0)
     {
     document.body.innerHTML = "";
-    document.getElementById("slide").style.display = 'block';
+    slide.style.visibility = 'visible';
     }
-    slide.style.height = window.InnerHeight;
-    slide.style.width = window.Innerwidth;
+  slide.style.height = window.InnerHeight;
+  slide.style.width = window.InnerWidth;
    document.slide.src = path[ik];
    alert(ik);
    if(ik < path.length - 1) ik++; else ik = 0;
    setTimeout("swapImage()",10);
    if(ik==4)
    {
-   document.getElementById("slide").style.display = 'none';
+   slide.style.visibility = 'hidden';
    window.location="index.html";
    }
 }
@@ -478,7 +478,7 @@ html, body {
   </header>
  <section>
  <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
- <img id="slide" src="main_inst.png"/>
+ <img id="slide" src="main_inst.png" type="hidden"/>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
