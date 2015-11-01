@@ -397,15 +397,17 @@ path[3] = "share_inst.png";
 
 function swapImage()
 {
+    alert(ik);
     if(ik==0)
     {
     document.body.innerHTML = "";
     slide.style.visibility = 'visible';
-    }
+    
   slide.style.height = window.InnerHeight;
   slide.style.width = window.InnerWidth;
+    }
    document.slide.src = path[ik];
-   alert(ik);
+   
    if(ik < path.length - 1) ik++; else ik = 0;
    setTimeout("swapImage()",10);
    if(ik==4)
@@ -478,7 +480,7 @@ html, body {
   </header>
  <section>
  <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
- <img id="slide" src="main_inst.png" type="hidden"/>
+ <img id="slide" src="main_inst.png"/>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
