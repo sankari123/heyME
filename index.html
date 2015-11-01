@@ -13,7 +13,18 @@
 
     
    <script>
-    
+    var ik = 0;
+var path = new Array();
+ 
+// LIST OF IMAGES
+path[0] = new Image();
+path[0] = "main_inst.png";
+path[1] = new Image();
+path[1] = "sign_inst.png";
+path[2] = new Image();
+path[2] = "save_inst.png";
+path[3] = new Image();
+path[3] = "share_inst.png";
    var imgData1, imgData2,imgData3;
    var canvas_final;
    var context_final;
@@ -51,7 +62,7 @@ function setCrop()
        screen.orientation.lock('portrait');
        navigator.splashscreen.show();
    //    document.body.innerHTML = "";
-       img.style.visibility = 'hidden';
+     //  img.style.visibility = 'hidden';
       // window.location="welcome.html";
        //var sample = document.getElementById("foobar");
 	//
@@ -382,26 +393,12 @@ window.location="index.html";
 }
 }
 
-var ik = 0;
-var path = new Array();
- 
-// LIST OF IMAGES
-path[0] = new Image();
-path[0] = "main_inst.png";
-path[1] = new Image();
-path[1] = "sign_inst.png";
-path[2] = new Image();
-path[2] = "save_inst.png";
-path[3] = new Image();
-path[3] = "share_inst.png";
-
 function swapImage()
 {
-    alert(ik);
     if(ik==0)
     {
     document.body.innerHTML = "";
-    slide.style.visibility = 'visible';
+    container.style.visibility = 'true';
     
   slide.style.height = window.InnerHeight;
   slide.style.width = window.InnerWidth;
@@ -412,7 +409,7 @@ function swapImage()
    setTimeout("swapImage()",10);
    if(ik==4)
    {
-   slide.style.visibility = 'hidden';
+   container.style.visibility = 'false';
    window.location="index.html";
    }
 }
@@ -471,6 +468,7 @@ html, body {
    overflow-y: scroll;
   
   }
+  
    
    </style>
   </head>
@@ -480,7 +478,9 @@ html, body {
   </header>
  <section>
  <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
+ <div id="container" style="display:none;">
  <img id="slide" src="main_inst.png"/>
+ </div>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
