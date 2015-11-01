@@ -379,6 +379,28 @@ document.getElementById("container").style.display = 'none';
 window.location="index.html";
 }
 }
+
+var ik = 0;
+var path = new Array();
+ 
+// LIST OF IMAGES
+path[0] = "main_inst.png";
+path[1] = "sign_inst.png";
+path[2] = "save_inst.png";
+path[3] = "share_inst.png";
+
+function swapImage()
+{
+   document.slide.src = path[ik];
+   if(ik < path.length - 1) ik++; else ik = 0;
+   setTimeout("swapImage()",1000);
+   if(ik==4)
+   {
+   document.getElementById("img").style.display = 'none';	
+   }
+}
+
+
 </script>
 <style>
 html, body {
@@ -440,7 +462,8 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
- <!--<p align=right><button onclick="show_image('splash.png','DigiGraph');" class="btncss">Demo</button></p>-->
+ <p align=right><button onclick="swapImage();" class="btncss">Demo</button></p>
+ <img height="200" id="slide" src="main_inst.png" width="400" />
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
