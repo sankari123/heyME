@@ -243,6 +243,10 @@ function drawDot(x1,y1){
 		drawDot1(x1,y1);
 	//	break;
 	}
+	else if(ctr==2)
+	{
+		echoColor();
+	}
 	else
 	{
       ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -415,13 +419,14 @@ function swapImage()
    }
 }
 function echoColor(){
+	ctr=2;
   //  var imgData = ctx.getImageData(e.pageX, e.pageX, 1, 1);
     red = imgData3.data[0];
     green = imgData3.data[1];
     blue = imgData3.data[2];
     alpha = imgData3.data[3];
     console.log(red + " " + green + " " + blue + " " + alpha); 
-    alert(alpha);
+    alert(alpha,green,red,blue);
 }
 
 </script>
