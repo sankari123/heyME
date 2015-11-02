@@ -425,8 +425,18 @@ function echoColor(){
     green = imgData3.data[1];
     blue = imgData3.data[2];
     alpha = imgData3.data[3];
+  //  alert(Pixel.data[12], Pixel.data[13], Pixel.data[14], and Pixel.data[15].
     console.log(red + " " + green + " " + blue + " " + alpha); 
-    alert(alpha,green,red,blue);
+    var index = (Math.floor(y) * canvasWidth + Math.floor(x)) * 4
+var r = data[index]
+var g = data[index + 1]
+var b = data[index + 2]
+var a = data[index + 3]
+    alert(r);
+    alert(g);
+    alert(b);
+    alert(a);
+    
 }
 
 </script>
@@ -493,7 +503,7 @@ html, body {
  <section>
  <p align=right><button onclick="demo();" class="btncss">Demo</button></p>
  <div id="container" style="display:none;">
- <img id="slide" src="main_inst.png"/>
+ <img id="slide" src="save_bar.png"/>
  </div>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -501,7 +511,7 @@ html, body {
 <td width="20%"><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td width="20%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td width="20%"><button onclick="overlay();" class="btncss">Overlap</button></td>
-<td width="20%"><button onclick="saveMO();" class="btncss">Erase</button></td>
+<td width="20%"><button onclick="saveMO();" class="btncss">Save & Touchup</button></td>
 <td width="20%"><button onclick="echoColor()" class="btncss">Copy Color</button></td></tr>
 
 <tr><td colspan=2><input type="hidden" id='w'></td>
