@@ -126,7 +126,13 @@ var my_media = null;
     if(button==2){ //If User select a No, then return back;
         return;
     }else{
-        navigator.app.exitApp(); // If user select a Yes, quit from the app.
+    	if (navigator.app) {
+            navigator.app.exitApp();
+        }
+        else if (navigator.device) {
+            navigator.device.exitApp();
+        }
+       // navigator.app.exitApp(); // If user select a Yes, quit from the app.
     }
 }
 function setAudioPosition(position) {
