@@ -72,6 +72,7 @@ function setCrop()
     
     function onDeviceReady() {
  //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
+ show_image("animation.gif", 20,30, "Demo");
       	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {
