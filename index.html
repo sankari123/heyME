@@ -50,6 +50,7 @@ function setCrop()
       var start = function() {
        screen.orientation.lock('portrait');
        navigator.splashscreen.show();
+       show_image("animation.gif", 20,30, "Demo");
    //    document.body.innerHTML = "";
      //  img.style.visibility = 'hidden';
       // window.location="welcome.html";
@@ -370,19 +371,16 @@ function alertDismissed() {
 {
 VideoPlayer.play("file:///android_asset/www/new folder.swf");
 }
-function show_image(src, alt) {
-    var img2 = document.createElement("img");
-    img2.src = src;
-  //  height=window.innerHeight;
-   // width=window.innerWidth;
-  // img2.height = height;
-  // img2.width=width;
-    img2.alt = alt;
-    document.body.innerHTML = "";
-
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img2);
-    navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
+function show_image(src, width, height, alt){
+                    var img = document.createElement("img");
+                        img.src = src;
+                        img.width = width;
+                        img.height = height;
+                        img.alt = alt;
+                        document.body.appendChild(img);
+      // This next line will just add it to the <body> tag
+  //  document.body.appendChild(img2);
+   // navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
     
 }
 function onConfirm1(buttonIndex) {
