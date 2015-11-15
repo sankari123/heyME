@@ -375,8 +375,8 @@ VideoPlayer.play("file:///android_asset/www/new folder.swf");
 function show_image(src, width, height, alt){
                     var img = document.createElement("img");
                         img.src = src;
-                        img.width = width;
-                        img.height = height;
+                     //   img.width = width;
+                      //  img.height = height;
                         img.alt = alt;
                         document.body.appendChild(img);
       // This next line will just add it to the <body> tag
@@ -392,26 +392,7 @@ window.location="index.html";
 }
 }
 
-function swapImage()
-{
-    if(ik==0)
-    {
-    document.body.innerHTML = "";
-    container.style.visibility = 'true';
-    
-  slide.style.height = window.InnerHeight;
-  slide.style.width = window.InnerWidth;
-    }
-   document.slide.src = path[ik];
-   
-   if(ik < path.length - 1) ik++; else ik = 0;
-   setTimeout("swapImage()",10);
-   if(ik==4)
-   {
-   container.style.visibility = 'false';
-   window.location="index.html";
-   }
-}
+
 function echoColor(){
 	ctr=2;
   //  var imgData = ctx.getImageData(e.pageX, e.pageX, 1, 1);
