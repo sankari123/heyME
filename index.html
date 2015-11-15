@@ -72,7 +72,7 @@ function setCrop()
     
     function onDeviceReady() {
  //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
- show_image("animation.gif", 20,30, "Demo");
+   setTimeout(function(){show_image("animation.gif", 20,30, "Demo");},1500);
       	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {
@@ -381,7 +381,8 @@ function show_image(src, width, height, alt){
                     //    document.body.appendChild(img);
       // This next line will just add it to the <body> tag
   //  document.body.appendChild(img2);
-  setTimeout(function(){document.body.appendChild(img);},1500);
+  document.body.appendChild(img);
+
 //  var myVar = setInterval(myTimer, 1000);
    document.body.removeChild(img);
 //   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
