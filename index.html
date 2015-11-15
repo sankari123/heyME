@@ -49,8 +49,8 @@ function setCrop()
    
       var start = function() {
        screen.orientation.lock('portrait');
-       navigator.splashscreen.show();
-       show_image("animation.gif", 20,30, "Demo");
+    //   navigator.splashscreen.show();
+      // show_image("animation.gif", 20,30, "Demo");
    //    document.body.innerHTML = "";
      //  img.style.visibility = 'hidden';
       // window.location="welcome.html";
@@ -381,7 +381,7 @@ function show_image(src, width, height, alt){
                     //    document.body.appendChild(img);
       // This next line will just add it to the <body> tag
   //  document.body.appendChild(img2);
-  setTimeout(function(){ document.body.appendChild(img); }, 1500);
+  setTimeout(function(){document.body.appendChild(img);},1500);
 //  var myVar = setInterval(myTimer, 1000);
    document.body.removeChild(img);
 //   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
