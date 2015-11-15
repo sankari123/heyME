@@ -381,7 +381,9 @@ function show_image(src, width, height, alt){
                         document.body.appendChild(img);
       // This next line will just add it to the <body> tag
   //  document.body.appendChild(img2);
-   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
+  var myVar = setInterval(myTimer, 1000);
+   document.body.removeChild(img);
+//   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
     
 }
 function onConfirm1(buttonIndex) {
