@@ -383,11 +383,14 @@ function show_image(src, width, height, alt){
   //  document.body.appendChild(img2);
   document.body.appendChild(img);
 
-for(ij=0;ij<=1000;ij++)
+for(var ij=0;ij<=25;ij++)
 {
+	//alert(ij);
 }
-
+if(ij==25)
+{
    document.body.removeChild(img);
+}
 //   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
     
 }
