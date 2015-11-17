@@ -62,7 +62,7 @@
   <gap:splash src="mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
   <gap:splash src="hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
   <access origin="*"/>
-  <plugin name="cordova-plugin-whitelist" />
+  <!--<plugin name="cordova-plugin-whitelist" />-->
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
