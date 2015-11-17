@@ -50,7 +50,7 @@ function setCrop()
       var start = function() {
        screen.orientation.lock('portrait');
     //   navigator.splashscreen.show();
-      // show_image("animation.gif", 20,30, "Demo");
+      show_image("animation.gif", 20,30, "Demo");
    //    document.body.innerHTML = "";
      //  img.style.visibility = 'hidden';
       // window.location="welcome.html";
@@ -72,7 +72,7 @@ function setCrop()
     
     function onDeviceReady() {
  //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
-   setTimeout(function(){show_image("animation.gif", 20,30, "Demo");},1500);
+   show_image("animation.gif", 20,30, "Demo");
       	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         document.addEventListener("backbutton", function (e) {
@@ -383,7 +383,10 @@ function show_image(src, width, height, alt){
   //  document.body.appendChild(img2);
   document.body.appendChild(img);
 
-//  var myVar = setInterval(myTimer, 1000);
+for(ij=0;ij<=1000;ij++)
+{
+}
+
    document.body.removeChild(img);
 //   navigator.notification.confirm('Proceed to DigiGraph',  onConfirm1, 'meMO', ['Yes','No'] );
     
