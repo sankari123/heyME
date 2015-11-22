@@ -423,8 +423,10 @@ function demo1()
 function newPopup(url) {
     popupWindow = window.open(
         url,'popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes,directories=no,status=yes')
+        setTimeout(wait, 800);
 }
-function closeWin() {
+
+function wait() {
     popupWindow.close();   // Closes the new window
 }
 
