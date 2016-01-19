@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ale<!DOCTYPE html>
 <html>
   <head>
     <title>meMO</title>
@@ -25,7 +25,11 @@
 function setCrop()
     {
         
- jcrop_api = $.Jcrop('#can_model', { onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+ jcrop_api = $.Jcrop('#can_model', { aspectRatio: 1,
+              minSize: 50,
+              onChange: showCoords,    
+              onSelect: showCoords, 
+              bgColor: '#CCC' });
  }
  
   function showCoords(c)
@@ -36,7 +40,7 @@ function setCrop()
     $('#h').val(c.h);
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
-    
+     $("#coords").val("X : " + c.x + ", Y : " + c.y + ", X2 : " + c.x2+ ", Y2 : " + c.y2+ ", W : " + c.w+ ", H : " + c.h)
 //context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
   };
@@ -134,8 +138,7 @@ function setAudioPosition(position) {
         // onError Callback
         //
         function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
+            //alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
         }
         
     function m_getPhoto(source) {
@@ -483,7 +486,12 @@ html, body {
    overflow-y: scroll;
   
   }
-  
+  .jcrop-holder div
+        {
+          -webkit-border-radius: 50% !important;
+          -moz-border-radius: 50% !important;
+          border-radius: 50% !important;
+        }
    
    </style>
   </head>
@@ -492,11 +500,12 @@ html, body {
   <h1>meMO</h1>
   </header>
  <section>
+ 	<input type="text" id="coords" style="width:500px;" />
 <!-- <p align=right><button onclick="show_image("animation.gif","demo");" class="btncss">Demo</button></p>-->
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20%"><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Model Photo</button></td>
-<td width="20%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
+<td width="20%"><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Model Photo</button></td>
+<td width="20%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Your Photo</button></td>
 <td width="20%" align="center"><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td width="20%"><button onclick="saveMO();" class="btncss">Touchup</button></td>
 <td width="20%"><button onclick="echoColor()" class="btncss">Copy Color</button></td></tr>
@@ -520,19 +529,19 @@ html, body {
 -->
  
 <div class="divStyle" id="div_main">
-<canvas id="can_model" style="border:0px solid black;"></canvas>
+<canvas id="can_model" style="border:0px solid white;"></canvas>
 </div>
 
 <div class="divStyle2" id="div_main2">
-<canvas id="can_me" style="border:0px solid black;"></canvas>
+<canvas id="can_me" style="border:0px solid white;"></canvas>
 </div>
 
 <div class="divStyle1" id="div_main1">
-<canvas id="can_final" style="border:0px solid black;"></canvas>
+<canvas id="can_final" style="border:0px solid white;"></canvas>
 </div>
 
 <div class="divStyle3" id="div_main3">
-<canvas id="can_touchup" style="border:0px solid black;"></canvas>
+<canvas id="can_touchup" style="border:0px solid white;"></canvas>
 </div>
 
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
