@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
-  <name>meMO</name>
-  <description>meMO</description>
+  <name>heyME</name>
+  <description>heyME</description>
   <author href="http://phonegap.com" email="support@phonegap.com">Sivasankari</author>
   <content src="index.html"/>
   <feature name="Notification">
@@ -20,7 +20,7 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-build-tool" value="ant" />
   <preference name="android-installLocation" value="auto"/>
-  <preference name="SplashScreenDelay" value="10000" />
+  <preference name="SplashScreenDelay" value="2000" />
   
   <gap:plugin name="org.apache.cordova.battery-status"/>
   <gap:plugin name="org.apache.cordova.camera"/>
