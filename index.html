@@ -9,6 +9,24 @@
 <script src="jquery.Jcrop.min.js"></script>
 
 <script type="text/javascript">
+var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = false; 
+    document.addEventListener("deviceready",onDeviceReady,false);
+    
+    function onDeviceReady() {
+ //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
+  // show_image("animation.gif", 20,30, "Demo");
+      	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+    navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
+    }, false );
+        //document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
+//	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
+    }
+    
  var jcrop_api;
 function setCrop()
     {
@@ -91,6 +109,18 @@ function onPhotoURISuccess(imageURI) {
           -moz-border-radius: 50% !important;
           border-radius: 50% !important;
         }
+        .divStyle{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+  
+  }
+  .divStyle2{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+  
+  }
       </style>
   </head>
   <body style="margin:30px;" onload="start();">
