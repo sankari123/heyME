@@ -9,23 +9,7 @@
 <script src="jquery.Jcrop.min.js"></script>
 
 <script type="text/javascript">
-var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
-   var rotating = false; 
-    document.addEventListener("deviceready",onDeviceReady,false);
-    
-    function onDeviceReady() {
- //   	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
-  // show_image("animation.gif", 20,30, "Demo");
-      	pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-        document.addEventListener("backbutton", function (e) {
-        e.preventDefault(); 
-    navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
-    }, false );
-        //document.addEventListener("backbutton", function (e) {e.preventDefault();  navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");    }, false );
-//	playAudio("http://writeacademy.in/digigraph/memo_demo.mp3");
-    }
+
     
  var jcrop_api;
 function setCrop()
@@ -47,28 +31,28 @@ function setCrop()
 //context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
   };
+  var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = false; 
+    document.addEventListener("deviceready",onDeviceReady,false);
+     function onDeviceReady() {
+       	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+    navigator.notification.confirm("Do you want to exit meMO?", onConfirmExit, "meMO", "Yes,No");
+    }, false );
+    
+    }
+    
   function release()
   {
     	jcrop_api.destroy();
-  //	alert("crop"+document.getElementById('w').value);
-  //	alert("crop h"+document.getElementById('h').value);
-  }
+   }
   
      function start()
       {
-      	
-      
-    //dynamically add an image and set its attribute
-    var img1=document.createElement("img");
-    //img1.src="https://cloud.githubusercontent.com/assets/14199766/12421213/1df0cff8-bee7-11e5-8c16-4e4931c027f4.JPG"
-   // img.id="picture"
-  //  var foo = document.getElementById("target");
-   // foo.appendChild(img);
-   // var image = document.querySelectorAll("img");
-    var source = img1.getAttribute("src").replace("splash.png", "https://cloud.githubusercontent.com/assets/14199766/12421213/1df0cff8-bee7-11e5-8c16-4e4931c027f4.JPG");
-    img1.setAttribute("src", source);
-
-      }
+         }
       function getPhoto(source) {
 	release();
         	document.getElementById("div_main").style.display = 'none';
@@ -123,15 +107,15 @@ function onPhotoURISuccess(imageURI) {
   }
       </style>
   </head>
-  <body style="margin:30px;" onload="start();">
+  <body>
       <div class="container">
         <div>
-<table><tr><td colspan=2><input type="hidden" id='w'></td>
-<td><input type="hidden" id='h'></td>
-<td><input type="hidden" id='x_coor'></td>
-<td><input type="hidden" id='y_coor'></td></tr>
+<table><tr><td colspan=2><input type="text" id='w'></td>
+<td><input type="text" id='h'></td>
+<td><input type="text" id='x_coor'></td>
+<td><input type="text" id='y_coor'></td></tr>
 </table>
-
+        	<button onclick="setCrop();">Crop</button>
         	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button>
           <input type="text" id="coords" style="width:500px;">
           </div>
