@@ -9,18 +9,34 @@
 <script src="jquery.Jcrop.min.js"></script>
 
 <script type="text/javascript">
-      jQuery(function($) {
-          $('#target').Jcrop({
-              aspectRatio: 1,
-              minSize: 50,
-              onSelect: applyCoords,
-              onChange: applyCoords
-          });
-      });
-      function applyCoords(c){
-        $("#coords").val("X : " + c.x + ", Y : " + c.y + ", X2 : " + c.x2+ ", Y2 : " + c.y2+ ", W : " + c.w+ ", H : " + c.h)
-      }
-      function start()
+ var jcrop_api;
+function setCrop()
+    {
+        
+ jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+ }
+ 
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
+     $('#x_coor').val(c.x);
+    $('#y_coor').val(c.y);
+    
+//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
+    
+  };
+  function release()
+  {
+    	jcrop_api.destroy();
+  //	alert("crop"+document.getElementById('w').value);
+  //	alert("crop h"+document.getElementById('h').value);
+  }
+  
+     function start()
       {
       	
       
@@ -35,6 +51,37 @@
     img1.setAttribute("src", source);
 
       }
+      function getPhoto(source) {
+	release();
+        	document.getElementById("div_main").style.display = 'none';
+      
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
+    }
+function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled_new.bind(null, img, ctx);
+		img.src = imageURI;
+   }
+   
+   function drawImageScaled_new(img, ctx) {
+   var c = ctx.canvas ;
+   document.getElementById("div_main").style.display = 'none';
+   
+ c_width=document.getElementById("w").value;
+ c_height=document.getElementById("h").value;
+  c.width=c_width;
+  c.height=c_height;
+  ctx.clearRect(0,0,c.width,c.height);
+   ctx.drawImage(img,0,0,img.width,img.height,0,0,c.width,c.height);
+   //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
+  imgData2=ctx.getImageData(0,0,c.width,c.height);
+ }
+ function onFail(message) {
+  //    alert('Failed because: ' + message);
+    }
+    
       </script>
       <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
       <style type="text/css">
@@ -49,9 +96,24 @@
   <body style="margin:30px;" onload="start();">
       <div class="container">
         <div>
+<table><tr><td colspan=2><input type="hidden" id='w'></td>
+<td><input type="hidden" id='h'></td>
+<td><input type="hidden" id='x_coor'></td>
+<td><input type="hidden" id='y_coor'></td></tr>
+</table>
+
+        	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button>
           <input type="text" id="coords" style="width:500px;">
+          </div>
+          
+          <div class="divStyle" id="div_main">
+
           <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle" />
         </div>
+        <div class="divStyle2" id="div_main2">
+<canvas id="can_me" style="border:0px solid white;"></canvas>
+</div>
+
       </div>
       
   </body>
