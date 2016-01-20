@@ -20,6 +20,18 @@
       function applyCoords(c){
         $("#coords").val("X : " + c.x + ", Y : " + c.y + ", X2 : " + c.x2+ ", Y2 : " + c.y2+ ", W : " + c.w+ ", H : " + c.h)
       }
+      function start()
+      {
+      	
+      {
+    //dynamically add an image and set its attribute
+    var img=document.createElement("img");
+    img.src="https://cloud.githubusercontent.com/assets/14199766/12421213/1df0cff8-bee7-11e5-8c16-4e4931c027f4.JPG"
+   // img.id="picture"
+    var foo = document.getElementById("target");
+    foo.appendChild(img);
+}
+      }
       </script>
       <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
       <style type="text/css">
@@ -31,10 +43,10 @@
         }
       </style>
   </head>
-  <body style="margin:30px;">
+  <body style="margin:30px;" onload="start();">
       <div class="container">
         <div>
-          <input type="text" id="coords" style="width:500px;" />
+          <input type="text" id="coords" style="width:0;height:0px;" />
           <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
         </div>
       </div>
