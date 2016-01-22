@@ -15,7 +15,7 @@
 function setCrop()
     {
         
- jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
+ jcrop_api = $.Jcrop('#can_model', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
  
@@ -210,8 +210,45 @@ function drawDot(x1,y1){
         }
     }
 
+function loadModelPhoto()
+{
+	
+	 var canvas = document.getElementById('can_model');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
 
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 69, 50);
+      };
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+}
     
+    function m_getPhoto(source) {
+
+      navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+    }
+   
+    function onFail(message) {
+ //     alert('Failed because: ' + message);
+    }
+    function onPhotoURISuccess_m(imageURI1) {
+	    var c = document.getElementById("can_model");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI1;
+   }
+   function drawImageScaled(img, ctx) {
+	
+ var canvas = ctx.canvas ;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+ // setCrop();
+  
+}
       </script>
       <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
       <style type="text/css">
@@ -263,6 +300,7 @@ function drawDot(x1,y1){
 <td><input type="text" id='x_coor'></td>
 <td><input type="text" id='y_coor'></td></tr>
 </table>
+<button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button>
         	<button onclick="setCrop();">Crop</button>
         	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button>
         	<button onclick="overlay();" class="btncss">Overlap</button>
@@ -270,8 +308,8 @@ function drawDot(x1,y1){
           </div>
           
           <div class="divStyle" id="div_main">
-
-          <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle" />
+<canvas id="can_model" style="border:0px solid white;"></canvas>
+        
         </div>
         <div class="divStyle2" id="div_main2">
 <canvas id="can_me" style="border:0px solid white;"></canvas>
