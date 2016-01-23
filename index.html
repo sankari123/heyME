@@ -54,6 +54,8 @@ function setCrop()
 
     
     function m_getPhoto(source) {
+    	document.getElementById("img_main").style.visibility = 'visible';
+		document.getElementById("img_main").style.display = 'block';
       navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -63,8 +65,7 @@ function setCrop()
     function onPhotoURISuccess_m(imageURI1) {
 	 //   var c = document.getElementById("can_model");
 	   // var ctx = c.getContext('2d');
-	   document.getElementById("img_main").style.visibility = 'visible';
-		document.getElementById("img_main").style.display = 'block';
+	   
 		
 	    var img = new Image();
 	//	img.onload= drawImageScaled.bind(null, img, ctx);
