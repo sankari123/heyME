@@ -85,7 +85,8 @@ function loadModelPhoto()
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
-		
+		var w = img.width;
+		var h = img.height;
 		}
    function drawImageScaled(img, ctx) {
 	
@@ -114,7 +115,7 @@ function loadModelPhoto()
    width: 100%;
    height: 100%;
    overflow-y: scroll;
-  
+  position:fixed;
   }
   
   .divStyle1{
