@@ -62,7 +62,7 @@ function setCrop()
 	    var c = document.getElementById("can_model");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
-		img.onload= drawImageScaled.bind(null, img, ctx);
+	//	img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
@@ -84,8 +84,8 @@ function setCrop()
  {
  	document.getElementById("target").style.visibility = 'hidden';
 	document.getElementById("img_main").style.display = 'none';
-	document.getElementById("div_main1").style.visibility = 'visible';
-	document.getElementById("div_main1").style.display = 'block';
+//	document.getElementById("div_main1").style.visibility = 'visible';
+//	document.getElementById("div_main1").style.display = 'block';
  }
  
  
