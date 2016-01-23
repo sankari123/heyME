@@ -46,9 +46,9 @@ function setCrop()
   
      function start()
       {
-        document.getElementById("target").style.visibility = 'hidden';
+    //    document.getElementById("target").style.visibility = 'hidden';
 	document.getElementById("img_main").style.display = 'none';
-	document.getElementById("div_main1").style.display = 'none';
+//	document.getElementById("div_main1").style.display = 'none';
 //	document.getElementById("div_main2").style.display = 'none';
 //	document.getElementById("div_main3").style.display = 'none';
 	  }
@@ -88,11 +88,7 @@ function setCrop()
 	document.getElementById("div_main1").style.display = 'block';
  }
  
- function getPhoto(source) {
- 	document.getElementById("target").style.visibility = 'hidden';
-	document.getElementById("img_main").style.display = 'none';
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source, correctOrientation: true});
-    }
+ 
     
       </script>
 
@@ -111,7 +107,6 @@ function setCrop()
         .divStyle{
    width: 100%;
    height: 100%;
-   
    visibility: hidden;
   }
   
