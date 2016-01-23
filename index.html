@@ -93,25 +93,7 @@ function setCrop()
 	document.getElementById("img_main").style.display = 'none';
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source, correctOrientation: true});
     }
-    function onPhotoURISuccess(imageURI2) {
-    //	document.getElementById("div_main2").style.visibility = 'visible';
-	    var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	    var img = new Image();
-		img.onload= drawImageScaled_new.bind(null, img, ctx);
-		img.src = imageURI2;
-		}
-		function drawImageScaled_new(img, ctx) {
-   var c = ctx.canvas ;
-  c_width=document.getElementById("w").value;
- c_height=document.getElementById("h").value;
-  c.width=c_width;
-  c.height=c_height;
-  ctx.clearRect(0,0,c.width,c.height);
-   ctx.drawImage(img,0,0,img.width,img.height,0,0,c.width,c.height);
-   
-  imgData2=ctx.getImageData(0,0,c.width,c.height);
- }
+    
       </script>
 
       <style type="text/css">
@@ -154,7 +136,7 @@ function setCrop()
 <button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button>
         	<button onclick="setCrop();">Crop</button>
         	<button onclick="ook();">Set</button>
-        	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button>
+        
         
                  </div>
           
