@@ -63,10 +63,10 @@ function setCrop()
  //     alert('Failed because: ' + message);
     }
     function onPhotoURISuccess_m(imageURI1) {
-	    var c = document.getElementById("can_model");
-	    var ctx = c.getContext('2d');
+	 //   var c = document.getElementById("can_model");
+	   // var ctx = c.getContext('2d');
 	    var img = new Image();
-		img.onload= drawImageScaled.bind(null, img, ctx);
+	//	img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		
 		document.getElementById("target").src=imageURI1;
@@ -96,13 +96,7 @@ function setCrop()
 	{ 
      position: absolute; 
        }
-        .divStyle1{
-   width: 100%;
-   height: 100%;
-   overflow-y: scroll;
-   visibility:hidden;
-  
-  }
+      
   .imgStyle{
    width: 100%;
    height: 100%;
