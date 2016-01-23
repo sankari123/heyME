@@ -46,35 +46,17 @@ function setCrop()
   
      function start()
       {
-        
-		
-		document.getElementById("target").style.visibility = 'hidden';
-		document.getElementById("img_main").style.display = 'none';
-	document.getElementById("div_main").style.display = 'none';
+        document.getElementById("target").style.visibility = 'hidden';
+	document.getElementById("img_main").style.display = 'none';
+	document.getElementById("div_main1").style.display = 'none';
+	document.getElementById("div_main2").style.display = 'none';
+	document.getElementById("div_main3").style.display = 'none';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
     }
-    
-    
-function loadModelPhoto()
-{
-	
-	 var canvas = document.getElementById('can_model');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-      imageObj.onload = function() {
-        context.drawImage(imageObj, 69, 50);
-      };
-      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
-}
-    
     function m_getPhoto(source) {
-      navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
-    }
-   
-    function onFail(message) {
- //     alert('Failed because: ' + message);
+      navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source, correctOrientation: true});
     }
     function onPhotoURISuccess_m(imageURI1) {
 	    var c = document.getElementById("can_model");
@@ -82,8 +64,8 @@ function loadModelPhoto()
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
-		img.height = window.innerHeight;
-                img.width = window.innerWidth;
+		document.getElementById("target").style.width=window.innerHeight;
+  		document.getElementById("target").style.height=window.innerWidth;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
@@ -98,6 +80,37 @@ function loadModelPhoto()
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+ }
+ 
+ function getPhoto(source) {
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source, correctOrientation: true});
+    }
+    function onPhotoURISuccess(imageURI2) {
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled_new.bind(null, img, ctx);
+		img.src = imageURI1;
+		img.height = window.innerHeight;
+                img.width = window.innerWidth;
+		document.getElementById("target").src=imageURI2;
+		document.getElementById("target").style.visibility = 'visible';
+		document.getElementById("img_main").style.display = 'block';
+	
+		
+		}
+		function drawImageScaled_new(img, ctx) {
+   var c = ctx.canvas ;
+   document.getElementById("div_main").style.display = 'none';
+   
+ c_width=document.getElementById("w").value;
+ c_height=document.getElementById("h").value;
+  c.width=c_width;
+  c.height=c_height;
+  ctx.clearRect(0,0,c.width,c.height);
+   ctx.drawImage(img,0,0,img.width,img.height,0,0,c.width,c.height);
+   
+  imgData2=ctx.getImageData(0,0,c.width,c.height);
  }
       </script>
 
@@ -116,14 +129,29 @@ function loadModelPhoto()
         .divStyle{
    width: 100%;
    height: 100%;
-   overflow-y: scroll;
-  position:fixed;
+   position:fixed;
+   visibility: hidden;
   }
   
   .divStyle1{
    width: 100%;
    height: 100%;
    overflow-y: scroll;
+   visibility: hidden;
+  
+  }
+   .divStyle2{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   visibility: hidden;
+  
+  }
+  .divStyle3{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   visibility: hidden;
   
   }
       </style>
@@ -138,7 +166,7 @@ function loadModelPhoto()
 </table>
 <button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button>
         	<button onclick="setCrop();">Crop</button>
-        	
+        	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button>
                  </div>
           
           <div class="divStyle" id="img_main">
@@ -146,11 +174,16 @@ function loadModelPhoto()
 <!--<canvas id="can_model" class="cropImage" ></canvas>-->
         
         </div>
-        <div class="divStyle1" id="div_main">
+        <div class="divStyle1" id="div_main1">
 <canvas id="can_model" class="cropImage" ></canvas>
         
         </div>
-
+ <div class="divStyle2" id="div_main2">
+<canvas id="can_me" style="border:0px solid white;"></canvas>
+</div>
+<div class="divStyle3" id="div_main3">
+<canvas id="can_final" style="border:0px solid white;"></canvas>
+</div>
       </div>
       
   </body>
