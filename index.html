@@ -54,8 +54,7 @@ function setCrop()
 
     
     function m_getPhoto(source) {
-    	document.getElementById("img_main").style.visibility = 'visible';
-		document.getElementById("img_main").style.display = 'block';
+    	
       navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -71,7 +70,12 @@ function setCrop()
 	//	img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
+		document.getElementById("target").src.height=window.innerHeight;
+		document.getElementById("target").src.width=window.innerWidth;
+		
+		document.getElementById("img_main").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
+		
 		}
    
       </script>
@@ -92,7 +96,7 @@ function setCrop()
   .imgStyle{
    width: 100%;
    height: 100%;
-   
+   position:fixed;
    }
   
         </style>
