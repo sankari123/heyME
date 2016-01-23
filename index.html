@@ -15,7 +15,7 @@
 function setCrop()
     {
         
- jcrop_api = $.Jcrop('#can_model', { aspectRatio: 1,
+ jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
  
@@ -35,9 +35,7 @@ function setCrop()
      function onDeviceReady() {
        	pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-        
-    
-    }
+  }
     
   function release()
   {
@@ -48,24 +46,14 @@ function setCrop()
       {
         
 		 document.getElementById("img_main").style.display = 'none';
-	//	document.getElementById("div_main").style.display = 'none';
+		 document.getElementById("img_main").style.visibility = 'hidden';
+	//document.getElementById("div_main").style.display = 'none';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
     }
-    
-    
-function loadModelPhoto()
-{
-	
-	 var canvas = document.getElementById('can_model');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-      imageObj.onload = function() {
-        context.drawImage(imageObj, 69, 50);
-      };
-      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
-}
+ 
+
     
     function m_getPhoto(source) {
       navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
@@ -80,7 +68,9 @@ function loadModelPhoto()
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
+		
 		document.getElementById("target").src=imageURI1;
+		document.getElementById("img_main").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
 		}
    function drawImageScaled(img, ctx) {
@@ -106,20 +96,22 @@ function loadModelPhoto()
 	{ 
      position: absolute; 
        }
-        .divStyle{
+        .divStyle1{
    width: 100%;
    height: 100%;
    overflow-y: scroll;
+   visibility:hidden;
   
   }
-  
-  .divStyle1{
+  .imgStyle{
    width: 100%;
    height: 100%;
    overflow-y: scroll;
+   visibility:hidden;
   
   }
-      </style>
+  
+        </style>
   </head>
   <body>
       <div class="container">
@@ -130,19 +122,20 @@ function loadModelPhoto()
 <td><input type="text" id='y_coor'></td></tr>
 </table>
 <button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button>
-        	<button onclick="setCrop();">Crop</button>
-        	
-                 </div>
+        	<button onclick="setCrop();">Crop</button> </div>
           
-          <div class="divStyle" id="img_main">
-          	<img src="splash.png" class="cropImage" id="target" alt="jCrop Circle" />
-<!--<canvas id="can_model" class="cropImage" ></canvas>-->
+          <div class="imgStyle" id="img_main">
+          	<img src="splash.png" class="imgStyle" id="target" alt="jCrop Circle" />
+        </div>
+        <div class="divStyle1" id="div_main1">
+<canvas id="can_model" ></canvas>
         
         </div>
-        <div class="divStyle1" id="div_main">
-<canvas id="can_model" class="cropImage" ></canvas>
-        
-        </div>
+
+      </div>
+      
+  </body>
+</html>
 
       </div>
       
