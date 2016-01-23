@@ -47,8 +47,10 @@ function setCrop()
      function start()
       {
         
-		 document.getElementById("img_main").style.display = 'none';
-	//	document.getElementById("div_main").style.display = 'none';
+		
+		document.getElementById("target").style.display = "none";
+		document.getElementById("img_main").style.display = 'none';
+	document.getElementById("div_main").style.display = 'none';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
@@ -81,7 +83,7 @@ function loadModelPhoto()
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
-		document.getElementById("img_main").style.display = 'block';
+		document.getElementById("target").style.display = "block";
 		}
    function drawImageScaled(img, ctx) {
 	
