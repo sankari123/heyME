@@ -82,11 +82,13 @@ function loadModelPhoto()
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
+		img.height = window.innerHeight;
+                img.width = window.innerWidth;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		document.getElementById("img_main").style.display = 'block';
-		var w = img.width;
-		var h = img.height;
+	
+		
 		}
    function drawImageScaled(img, ctx) {
 	
