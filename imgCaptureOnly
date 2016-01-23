@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>heyME</title>
+	
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.min.js"></script>
+<script src="jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
+
+<script type="text/javascript">
+    
+ var jcrop_api;
+function setCrop()
+    {
+        
+ jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+ }
+ 
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
+     $('#x_coor').val(c.x);
+    $('#y_coor').val(c.y);
+  };
+  var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = false; 
+    document.addEventListener("deviceready",onDeviceReady,false);
+     function onDeviceReady() {
+       	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+  }
+    
+  function release()
+  {
+    //	jcrop_api.destroy();
+   }
+  
+     function start()
+      {
+        	 document.getElementById("img_main").style.display = 'none';
+		 document.getElementById("img_main").style.visibility = 'hidden';
+	  }
+       function onFail(message) {
+  //    alert('Failed because: ' + message);
+    }
+ 
+    
+    function m_getPhoto(source) {
+    	
+      navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+    }
+   
+    function onFail(message) {
+ //     alert('Failed because: ' + message);
+    }
+    function onPhotoURISuccess_m(imageURI1) {
+	 //   var c = document.getElementById("can_model");
+	   // var ctx = c.getContext('2d');
+	   
+		
+	    var img = new Image();
+	//	img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI1;
+		document.getElementById("target").src=imageURI1;
+		document.getElementById("target").src.height=window.innerHeight;
+		document.getElementById("target").src.width=window.innerWidth;
+		
+		document.getElementById("img_main").style.visibility = 'visible';
+		document.getElementById("img_main").style.display = 'block';
+		
+		}
+   
+      </script>
+
+      <style type="text/css">
+        .jcrop-holder div
+        {
+          -webkit-border-radius: 50% !important;
+          -moz-border-radius: 50% !important;
+          border-radius: 50% !important;
+        }
+      
+	.canvasStyle
+	{ 
+     position: absolute; 
+       }
+      
+  .imgStyle{
+   width: 100%;
+   height: 100%;
+   position:fixed;
+   }
+  
+        </style>
+  </head>
+  <body onload="start();">
+      
+        
+<table><tr><td colspan=2><input type="text" id='w'></td>
+<td><input type="text" id='h'></td>
+<td><input type="text" id='x_coor'></td>
+<td><input type="text" id='y_coor'></td></tr>
+</table>
+<button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button><button onclick="setCrop();">Crop</button> 
+  <div class="container">
+    <div class="imgStyle" id="img_main"><img src="splash.png" class="imgStyle" id="target" alt="jCrop Circle" />       </div>
+  </div>
+      
+  </body>
+</html>
