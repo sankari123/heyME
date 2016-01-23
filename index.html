@@ -86,7 +86,7 @@ function setCrop()
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source, correctOrientation: true});
     }
     function onPhotoURISuccess(imageURI2) {
-    	document.getElementById("divStyle2").style.visibility = 'visible';
+    	document.getElementById("div_main2").style.visibility = 'visible';
 	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
