@@ -53,13 +53,13 @@ function setCrop()
     
     function m_getPhoto(source) {
     	
-      navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+      navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
     function onFail(message) {
  //     alert('Failed because: ' + message);
     }
-    function onPhotoURISuccess_m(imageURI1) {
+    function m_onPhotoURISuccess(imageURI1) {
     	document.getElementById("img_main").style.visibility = 'visible';
 	 //   var c = document.getElementById("can_model");
 	   // var ctx = c.getContext('2d');
@@ -84,7 +84,7 @@ function setCrop()
           border-radius: 50% !important;
         }
       
-  .imgStyle{
+  .cropImage{
   visibility:hidden;
   }
   .btncss
@@ -97,6 +97,7 @@ function setCrop()
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
+
         </style>
   </head>
   
@@ -105,10 +106,9 @@ function setCrop()
 <body onload="start();">
       <div class="container">
         <div>
-          <input type="text" id="coords" style="width:500px;">
-          <button id="cc" onclick="setCrop();" class="btncss">Crop</buttton><br><BR>
-          
-          <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
+          <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
+                        <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
         </div>
       </div>
       
