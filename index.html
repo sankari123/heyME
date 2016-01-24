@@ -44,7 +44,7 @@ function setCrop()
   
      function start()
       {
-        	 // document.getElementById("img_main").style.visibility = 'hidden';
+        	 document.getElementById("img_main").style.visibility = 'hidden';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
@@ -61,6 +61,7 @@ function setCrop()
  //     alert('Failed because: ' + message);
     }
     function onPhotoURISuccess_m(imageURI1) {
+    	document.getElementById("img_main").style.visibility = 'visible';
 	 //   var c = document.getElementById("can_model");
 	   // var ctx = c.getContext('2d');
 	   
@@ -69,9 +70,9 @@ function setCrop()
 	//	img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
-		document.getElementById("target").src.height=window.innerHeight;
-		document.getElementById("target").src.width=window.innerWidth;
-		document.getElementById("img_main").style.visibility = 'visible';
+	//	document.getElementById("target").src.height=window.innerHeight;
+	//	document.getElementById("target").src.width=window.innerWidth;
+	
 		}
    
       </script>
@@ -93,7 +94,7 @@ function setCrop()
    width: 100%;
    height: 100%;
    position:fixed;
-   visibility:hidden;
+   
    }
   
         </style>
