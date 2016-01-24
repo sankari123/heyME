@@ -56,24 +56,45 @@ function setCrop()
       navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
-    function onFail(message) {
- //     alert('Failed because: ' + message);
-    }
+    
     function m_onPhotoURISuccess(imageURI1) {
     	document.getElementById("target").style.visibility = 'visible';
-	 //   var c = document.getElementById("can_model");
-	   // var ctx = c.getContext('2d');
-	   
-		
-	    var img = new Image();
-	//	img.onload= drawImageScaled.bind(null, img, ctx);
+	 
+	 var img = new Image();
+	img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
-	//	document.getElementById("target").src.height=window.innerHeight;
+//	document.getElementById("target").src.height=window.innerHeight;
 	//	document.getElementById("target").src.width=window.innerWidth;
-	
 		}
    
+   function getPhoto(source) {
+    	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	document.getElementById("div_main1").style.display = 'block';
+    	document.getElementById("div_main1").style.visibility = 'visible';
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+    }
+    function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    var img1 = new Image();
+		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
+		img1.src = imageURI;
+   }
+   
+   function drawImageScaled_new(img2, ctx) {
+   var c = ctx.canvas ;
+  c_width=document.getElementById("w").value;
+ c_height=document.getElementById("h").value;
+  c.width=c_width;
+  c.height=c_height;
+  ctx.clearRect(0,0,c.width,c.height);
+   ctx.drawImage(img,0,0,img2.width,img2.height,0,0,c.width,c.height);
+   //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
+  imgData2=ctx.getImageData(0,0,c.width,c.height);
+  alert(imgData2);
+ }
       </script>
 
       <style type="text/css">
@@ -97,7 +118,12 @@ function setCrop()
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
-
+.divStyle1{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   visibility:hidden;
+  }
         </style>
   </head>
   
@@ -108,7 +134,8 @@ function setCrop()
         <div>
           <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
-                        <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
+            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
+            <div class="divStyle1" id="div_main1"><canvas id="can_me" style="border:0px solid white;"></canvas></div>
         </div>
       </div>
       
