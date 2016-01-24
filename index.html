@@ -44,8 +44,7 @@ function setCrop()
   
      function start()
       {
-        	 document.getElementById("img_main").style.display = 'none';
-		 document.getElementById("img_main").style.visibility = 'hidden';
+        	 // document.getElementById("img_main").style.visibility = 'hidden';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
@@ -72,10 +71,7 @@ function setCrop()
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").src.height=window.innerHeight;
 		document.getElementById("target").src.width=window.innerWidth;
-		
 		document.getElementById("img_main").style.visibility = 'visible';
-		document.getElementById("img_main").style.display = 'block';
-		
 		}
    
       </script>
@@ -97,6 +93,7 @@ function setCrop()
    width: 100%;
    height: 100%;
    position:fixed;
+   visibility:hidden;
    }
   
         </style>
