@@ -89,7 +89,16 @@ function setCrop()
   .imgStyle{
   visibility:hidden;
   }
-  
+  .btncss
+	{
+	background:none;
+	border:none;
+	padding:0;
+	cursor:pointer;
+	font: 8pt arial;
+	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
+	color: #b32d5f;
+	}
         </style>
   </head>
   
@@ -99,7 +108,7 @@ function setCrop()
       <div class="container">
         <div>
           <input type="text" id="coords" style="width:500px
-          <button id="cc" onclick="setCrop();">Crop</buttton><br>
+          <button id="cc" onclick="setCrop();" class="btncss">Crop</buttton><br><BR>
           
           <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
         </div>
