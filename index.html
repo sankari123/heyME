@@ -43,7 +43,7 @@ function setCrop()
   
      function start()
       {
-        	 document.getElementById("img_main").style.visibility = 'hidden';
+        	 document.getElementById("target").style.visibility = 'hidden';
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
@@ -60,7 +60,7 @@ function setCrop()
  //     alert('Failed because: ' + message);
     }
     function m_onPhotoURISuccess(imageURI1) {
-    	document.getElementById("img_main").style.visibility = 'visible';
+    	document.getElementById("target").style.visibility = 'visible';
 	 //   var c = document.getElementById("can_model");
 	   // var ctx = c.getContext('2d');
 	   
@@ -107,7 +107,7 @@ function setCrop()
       <div class="container">
         <div>
           <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
                         <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
         </div>
       </div>
