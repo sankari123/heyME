@@ -91,20 +91,16 @@ function setCrop()
   
         </style>
   </head>
-  <body onload="start();">
+  
       
         
-<table><tr><td colspan=2><input type="text" id='w'></td>
-<td><input type="text" id='h'></td>
-<td><input type="text" id='x_coor'></td>
-<td><input type="text" id='y_coor'></td></tr>
-</table>
-<button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo</button><button onclick="setCrop();">Crop</button> 
-  <div class="container">
-    <div class="imgStyle" id="img_main"><img src="icon.png" id="target" alt="jCrop Circle" />       </div>
-  </div>
+<body style="margin:30px;">
+      <div class="container">
+        <div>
+          <input type="text" id="coords" style="width:500px;" />
+          <img src="splash.jpg" class="cropImage" id="target" alt="jCrop Circle Area Example" />
+        </div>
+      </div>
       
   </body>
 </html>
-
-     
