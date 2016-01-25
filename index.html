@@ -278,16 +278,21 @@ function touchUp()
         canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d");
 	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+	imgDataUrl = canvas.toDataURL();
        // imgDataUrl = canvas.toDataURL();
 	//alert(mouseX);
-	chek(ctx);
+	chek(imgDataUrl,canvas);
 	
 	
 }
-function chek(ctx1)
+function chek(imgg,can_1)
 {
-	var c1 = ctx1.canvas ;
-	ctx1.putImageData(imgData3,0,0);
+	var can_1 = ctx.canvas ;
+	var img_new=new Image();
+                img_new.onload= function () {
+    		ctx.drawImage(img_new,0,0);}
+        	img_new.src = imgg;
+//	ctx1.putImageData(imgData3,0,0);
 }
       </script>
 
