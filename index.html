@@ -76,8 +76,13 @@ function setCrop()
 		//img1.src = imageURI;
 //	document.getElementById("target").src.height=window.innerHeight;
 	//	document.getElementById("target").src.width=window.innerWidth;
-		
-		}
+		navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+function onConfirm(buttonIndex) {
+  if(buttonIndex==1)
+  {
+    setCrop();
+	}
+}		
    function drawImageScaled(img, ctx) {
 	
  var canvas = ctx.canvas ;
@@ -149,8 +154,109 @@ document.getElementById("div_main1").style.display = 'none';
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
               context_final.putImageData(imgData2,x_co,y_co);
+           //   overlay_action(context_final);
            
 }
+function overlay_action()
+{
+   
+    canvas = document.getElementById('canavs_final');
+        
+        if (canvas.getContext)
+            ctx = canvas1.getContext('2d');
+        
+        if (ctx) {
+		
+            
+            canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
+            canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
+            window.addEventListener('mouseup', theCanvas_mouseUp, false);
+            
+            canvas.addEventListener('touchstart', theCanvas_touchStart, false);
+            canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+            canvas.addEventListener('touchmove', theCanvas_touchMove, false);
+        }
+		imgDataUrl = canvas.toDataURL();  
+	
+		
+		
+}
+  
+	function drawLine(ctx,x1,y1) {
+        
+     
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+      ctx.putImageData(imgData1,0,0);
+      ctx.putImageData(imgData2,x1,y1);
+    } 
+    
+    function theCanvas_mouseDown() {
+        mouseDown=1;
+        drawLine(ctx,mouseX,mouseY);
+    }
+    
+    function theCanvas_mouseUp() {
+        mouseDown=0;
+        
+        lastX=-1;
+        lastY=-1;
+    }
+    
+    function theCanvas_mouseMove(e) { 
+    
+        getMousePos(e);
+    
+        if (mouseDown==1) {
+            drawLine(ctx,mouseX,mouseY);
+        }
+    }
+    
+    function getMousePos(e) {
+        if (!e)
+            var e = event;
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+    
+    function theCanvas_touchStart() {
+    
+        getTouchPos();
+        drawLine(ctx,touchX,touchY);
+    
+        event.preventDefault();
+    }
+    function theCanvas_touchEnd() {
+        lastX=-1;
+        lastY=-1;
+    
+    }
+    
+    function theCanvas_touchMove(e) { 
+    
+        getTouchPos(e);
+    
+        drawLine(ctx,touchX,touchY); 
+    
+        event.preventDefault();
+    }
+    function getTouchPos(e) {
+        if (!e)
+            var e = event;
+        if(e.touches) {
+            if (e.touches.length == 1) { // Only deal with one finger
+                var touch = e.touches[0]; // Get the information for finger #1
+                touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+            }
+        }
+    }
+
       </script>
 
       <style type="text/css">
@@ -200,11 +306,13 @@ document.getElementById("div_main1").style.display = 'none';
 <body onload="start();">
       <div class="container">
         <div>
-          <table id="tbl" cellspacing="0" cellpadding="0"><tr><td><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
+          <table id="tbl" cellspacing="0" cellpadding="0">
+       	<tr><td><input size='3' type="hidden" id='w'></td><td><input type="hidden" size='3' id='h'></td><td><input type="hidden" size='3' id='x_coor'></td><td><input type="hidden" size='3' id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
-         <td><button id="crop" onclick="setCrop();">Crop</button></td>
          <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
-         <td><button onclick="overlap();">Overlap</button></td></tr></table>
+         <td><button onclick="overlap();">Overlap</button></td>
+         <td><button onclick="overlay_action();">Position</button></td>
+         </tr></table>
          </div>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
