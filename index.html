@@ -11,6 +11,8 @@
 <script type="text/javascript">
     
  var jcrop_api;
+ var c_width;
+ var c_height;
 function setCrop()
     {
         
@@ -98,7 +100,7 @@ function setCrop()
    ctx.drawImage(img,0,0,img2.width,img2.height,0,0,c.width,c.height);
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
   imgData2=ctx.getImageData(0,0,c.width,c.height);
-  alert(imgData2);
+ // alert(imgData2);
  }
       </script>
 
