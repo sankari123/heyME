@@ -88,12 +88,12 @@ function onConfirm(buttonIndex) {
    function drawImageScaled(img, ctx) {
 	
  var canvas = ctx.canvas ;
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
+//  canvas.height = window.innerHeight;
+ // canvas.width = window.innerWidth;
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
-setCrop();
+navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
   
 }
 function release()
