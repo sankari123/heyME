@@ -83,7 +83,7 @@ function setCrop()
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
     function onPhotoURISuccess(imageURI) {
-    	alert("in1");
+    //	alert("in1");
 	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img1 = new Image();
@@ -92,15 +92,15 @@ function setCrop()
    }
    
    function drawImageScaled_new(img2, ctx) {
-   	alert("in2");
+   //	alert("in2");
    var c = ctx.canvas ;
   c_width=document.getElementById("w").value;
  c_height=document.getElementById("h").value;
   c.width=c_width;
   c.height=c_height;
-  alert(c_height);
+ // alert(c_height);
   ctx.clearRect(0,0,c.width,c.height);
-   ctx.drawImage(img,0,0,img2.width,img2.height,0,0,c.width,c.height);
+   ctx.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
   imgData2=ctx.getImageData(0,0,c.width,c.height);
  // alert(imgData2);
