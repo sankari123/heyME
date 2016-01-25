@@ -13,7 +13,7 @@
  var jcrop_api;
  var c_width;
  var c_height;
- var imgData1,imgData2;
+ var imgData1,imgData2,imgData3;
  var x_co,y_co;
 function setCrop()
     {
@@ -161,11 +161,19 @@ document.getElementById("div_main1").style.display = 'none';
 }
 function overlay_action()
 {
-       	    canvas = document.getElementById('can_final');
+	    canvas = document.getElementById('can_final');
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0,canvas.height, canvas.height);
+       	    if(ctr!==100)
+       	    {
+       	    
             ctx.putImageData(imgData1,0,0);
             ctx.putImageData(imgData2,x_co,y_co);
+       	    }
+       	    else
+       	    {
+       	    	ctx.putImageData(imgData3,0,0);
+       	    }
            if (ctx) {
             canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
             canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
@@ -265,11 +273,19 @@ function overlay_action()
 function touchUp()
 {
 	ctr=100;
-	x_co=mouseX;
-	y_co=mouseY;
+        canvas = document.getElementById("can_final");
+	ctx = canvas.getContext("2d")
+	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+       // imgDataUrl = canvas.toDataURL();
 	//alert(mouseX);
-	overlay_action();
+	chek(ctx);
 	
+	
+}
+function chek(ctx1)
+{
+	var c1 = ctx1.canvas ;
+	ctx1.putImageData(imgData3,0,0);
 }
       </script>
 
