@@ -57,7 +57,7 @@ function setCrop()
 
     
     function m_getPhoto(source) {
-    	
+    	document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -94,10 +94,13 @@ function release()
    
    
    function getPhoto(source) {
+   	document.getElementById("crop").disabled = true; 
    	release();
    	
     	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
+    	document.getElementById("can_model").style.visibility = 'hidden';
+    	document.getElementById("div_main1").style.display = 'none';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
@@ -169,7 +172,7 @@ function release()
       <div class="container">
         <div>
           <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button id="crop" onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
             <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
