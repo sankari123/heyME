@@ -98,8 +98,8 @@ function release()
    	
     	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
-    	document.getElementById("div_main1").style.display = 'block';
-    	document.getElementById("div_main1").style.visibility = 'visible';
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
     function onPhotoURISuccess(imageURI) {
@@ -172,7 +172,7 @@ function release()
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
             <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid black;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
         </div>
       </div>
       
