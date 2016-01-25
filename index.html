@@ -162,9 +162,9 @@ document.getElementById("div_main1").style.display = 'none';
 function overlay_action()
 {
    
-    	    canvas = document.getElementById('canavs_final');
-            ctx = canvas1.getContext('2d');
-            ctx.clearRect(0,0,canvas_final.height, canvas_final.height);
+    	    canvas = document.getElementById('can_final');
+            ctx = canvas.getContext('2d');
+            ctx.clearRect(0,0,canvas.height, canvas.height);
             ctx.putImageData(imgData1,0,0);
             ctx.putImageData(imgData2,x_co,y_co);
             
@@ -180,7 +180,7 @@ function overlay_action()
             canvas.addEventListener('touchend', theCanvas_touchEnd, false);
             canvas.addEventListener('touchmove', theCanvas_touchMove, false);
         }
-		imgDataUrl = canvas.toDataURL();  
+	
 	
 		
 		
