@@ -15,6 +15,7 @@
  var c_height;
  var imgData1,imgData2,imgData3;
  var x_co,y_co;
+ var ctr=0;
 function setCrop()
     {
         
@@ -166,12 +167,13 @@ function overlay_action()
             ctx.clearRect(0,0,canvas.height, canvas.height);
        	    if(ctr!==100)
        	    {
-       	    
+       	    alert("position");
             ctx.putImageData(imgData1,0,0);
             ctx.putImageData(imgData2,x_co,y_co);
        	    }
        	    else
        	    {
+       	      alert("touchup");
        	    	ctx.putImageData(imgData3,0,0);
        	    }
            if (ctx) {
