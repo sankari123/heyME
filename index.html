@@ -161,18 +161,12 @@ document.getElementById("div_main1").style.display = 'none';
 }
 function overlay_action()
 {
-   
-    	    
-    	    canvas = document.getElementById('can_final');
+       	    canvas = document.getElementById('can_final');
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0,canvas.height, canvas.height);
             ctx.putImageData(imgData1,0,0);
             ctx.putImageData(imgData2,x_co,y_co);
-    	    
-             
-        if (ctx) {
-		
-            
+           if (ctx) {
             canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
             canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
             window.addEventListener('mouseup', theCanvas_mouseUp, false);
@@ -181,10 +175,6 @@ function overlay_action()
             canvas.addEventListener('touchend', theCanvas_touchEnd, false);
             canvas.addEventListener('touchmove', theCanvas_touchMove, false);
         }
-	
-	
-		
-		
 }
   
 	function drawLine(ctx,x1,y1) {
@@ -198,6 +188,7 @@ function overlay_action()
      
      if(ctr==100)
      {
+     	alert("in2");
      	ctx.fillStyle="#ffffff";
      	ctx.beginPath();
 	ctx.arc(x1,y1,2,0,Math.PI*2);
@@ -276,6 +267,7 @@ function touchUp()
 	ctr=100;
 	x_co=mouseX;
 	y_co=mouseY;
+	alert(mouseX);
 	overlay_action();
 	
 }
