@@ -46,8 +46,10 @@ function setCrop()
   
      function start()
       {
+        	 document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
+        	 document.getElementById("div_main2").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
         	 
 	  }
@@ -198,7 +200,7 @@ document.getElementById("div_main1").style.display = 'none';
 <body onload="start();">
       <div class="container">
         <div>
-          <table width="100%" cellspacing="0" cellpadding="0"><tr><td><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
+          <table id="tbl" cellspacing="0" cellpadding="0"><tr><td><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <td><button id="crop" onclick="setCrop();">Crop</button></td>
          <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
