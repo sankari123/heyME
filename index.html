@@ -13,6 +13,7 @@
  var jcrop_api;
  var c_width;
  var c_height;
+ var imgData1,imgData2;
 function setCrop()
     {
         
@@ -128,6 +129,25 @@ function release()
   imgData2=ctx.getImageData(0,0,c.width,c.height);
  // alert(imgData2);
  }
+ function overlay()
+{
+	document.getElementById("div_main1").style.display = 'none';
+	document.getElementById("can_model").style.visibility = 'hidden';
+		document.getElementById("div_main2").style.display = 'none';
+		document.getElementById("can_me").style.visibility = 'hidden';
+		document.getElementById("div_main3").style.display = 'block';
+		document.getElementById("can_final").style.visibility = 'visible';
+	canvas_final = document.getElementById("can_final");
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
+               context_final.putImageData(imgData1,0,0);
+               x_co=document.getElementById('x_coor').value;
+             y_co=document.getElementById('y_coor').value;
+              context_final.putImageData(imgData2,x_co,y_co);
+           
+}
       </script>
 
       <style type="text/css">
@@ -163,6 +183,12 @@ function release()
    overflow-y: scroll;
    visibility:hidden;
   }
+  .divStyle3{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   visibility:hidden;
+  }
         </style>
   </head>
   
@@ -174,8 +200,9 @@ function release()
           <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button id="crop" onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
             <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
-            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
+            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:0px solid white;"></canvas></div>
+            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;"></canvas></div>
         </div>
       </div>
       
