@@ -273,6 +273,7 @@ function overlay_action()
       
   .cropImage{
   visibility:hidden;
+  position:fixed;
   }
   .btncss
 	{
@@ -311,7 +312,7 @@ function overlay_action()
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-       	<tr><td><input type="text" size="3" id='w'></td><td><input type="text" id='h' size="3" ></td><td><input type="text"  size="3" id='x_coor'></td><td><input type="text"  size="3" id='y_coor'></td></tr>
+       	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
@@ -321,7 +322,7 @@ function overlay_action()
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:0px solid white;"></canvas></div>
-            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:2px solid red;"></canvas></div>
+            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;"></canvas></div>
         
       </div>
       
