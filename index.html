@@ -46,6 +46,9 @@ function setCrop()
      function start()
       {
         	 document.getElementById("target").style.visibility = 'hidden';
+        	 document.getElementById("div_main1").style.visibility = 'hidden';
+        	 document.getElementById("div_main2").style.visibility = 'hidden';
+        	 
 	  }
        function onFail(message) {
   //    alert('Failed because: ' + message);
@@ -60,22 +63,39 @@ function setCrop()
    
     
     function m_onPhotoURISuccess(imageURI1) {
-    	
-	 
+    	var c = document.getElementById("can_model");
+	    var ctx = c.getContext('2d');
 	 var img = new Image();
-
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		//img1.src = imageURI;
 //	document.getElementById("target").src.height=window.innerHeight;
 	//	document.getElementById("target").src.width=window.innerWidth;
+		
 		}
-   function release()
+   function drawImageScaled(img, ctx) {
+	
+ var canvas = ctx.canvas ;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+ // setCrop();
+  
+}
+function release()
   {
     	jcrop_api.destroy();
+    
    }
+   
+   
    function getPhoto(source) {
    	release();
+   	
     	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("div_main1").style.display = 'block';
@@ -134,6 +154,12 @@ function setCrop()
    overflow-y: scroll;
    visibility:hidden;
   }
+  .divStyle2{
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+   visibility:hidden;
+  }
         </style>
   </head>
   
@@ -145,7 +171,8 @@ function setCrop()
           <table cellspacing="0" cellpadding="0"><tr><td colspan=2><input type="text" id='w'></td><td><input type="text" id='h'></td><td><input type="text" id='x_coor'></td><td><input type="text" id='y_coor'></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Upload Model Photo</button></td><td><button onclick="setCrop();">Crop</button></td><td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Your Photo</button></td><td><button onclick="overlap();">overlap</button></td></tr></table>
             <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" />
-            <div class="divStyle1" id="div_main1"><canvas id="can_me" style="border:2px solid black;"></canvas></div>
+            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid black;"></canvas></div>
         </div>
       </div>
       
