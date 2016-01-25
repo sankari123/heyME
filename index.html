@@ -60,7 +60,7 @@ function setCrop()
 
     
     function m_getPhoto(source) {
-    document.getElementById("crop").disabled = false; 
+   // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -76,7 +76,7 @@ function setCrop()
 		//img1.src = imageURI;
 //	document.getElementById("target").src.height=window.innerHeight;
 	//	document.getElementById("target").src.width=window.innerWidth;
-	navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+	//navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
     }
 function onConfirm(buttonIndex) {
   if(buttonIndex==1)
@@ -92,7 +92,7 @@ function onConfirm(buttonIndex) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
-// setCrop();
+setCrop();
   
 }
 function release()
