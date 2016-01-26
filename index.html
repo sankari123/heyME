@@ -164,30 +164,15 @@ function release()
 
 window.resolveLocalFileSystemURI(results[i], function(fileEntry){
         fileEntry.file(function(fileObj) { 
-            alert(fileEntry.name);
-            img_arr[i]=fileEntry.name;
-            alert('Image  ' + i+ '  '+img_arr[i]);
-            i=i+1;
-            alert(fileEntry.name);
-            img_arr[i]=fileEntry.name;
-            alert('Image  ' + i+ '  '+img_arr[i]);
-            i=i+1;
-            alert(fileEntry.name);
-            img_arr[i]=fileEntry.name;
-            alert('Image  ' + i+ '  '+img_arr[i]);
-            i=i+1;
-            alert(fileEntry.name);
-            img_arr[i]=fileEntry.name;
-            alert('Image  ' + i+ '  '+img_arr[i]);
-            
-           // alert(fileObj.size);
-          //  alert(fileObj.type);
-        }); 
+           // alert(fileEntry.name);
+            img_arr[i]=fileEntry.name; 
+            alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);        }); 
 
     }, function (error) {
             alert('Error: ' + error);
         });
                     }
+                    
                 }, function (error) {
                     alert('Error: ' + error);
                 }
