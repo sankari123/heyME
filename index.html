@@ -171,7 +171,10 @@ function release()
  
  function multi_load()
  {
-  	//alert('in ' + ip);
+  	release();
+  	xc=0;
+  	yc=0;
+  	
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -184,14 +187,15 @@ function release()
     	{
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
-	    
+	    xc=xc+20;
+	    yc=yc+20;
  	    c.width=c_width;
   	    c.height=c_height;
 	  //  var img111 = new Image();
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
- 	alert('img  ' + img_arr[counter]);
- 	//	ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
+ //	alert('img  ' + img_arr[counter]);
+ 		ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,xc,yc,c.width,c.height);
     	}
     	
  	
