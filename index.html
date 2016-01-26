@@ -129,7 +129,7 @@ function release()
 	    var img1 = new Image();
 		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
 		img1.src = imageURI;
-		navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
+	
    }
 var arr = [];
 var ik;
@@ -157,6 +157,7 @@ function onConfirm_me(buttonIndex) {
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
   imgData2=ctx.getImageData(0,0,c.width,c.height);
  // alert(imgData2);
+ navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
  }
  function overlap()
  {
