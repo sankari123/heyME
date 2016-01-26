@@ -200,21 +200,18 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
 	 var ctx = c.getContext('2d');
 	 c.width=c_width;
   	 c.height=c_height;
-	   
-	 for (var i = 0; i <3; i++)
+	 for ( i = 0; i <3; i++)
 	{
 	 thisWidth = 250;
 	 thisHeight = 0;
     	//imgSrc = "photo_"+i+".jpg";
-    	imgSrc=img_arr[i]);
+    	imgSrc=img_arr[i];
     	letterImg = new Image();
     	letterImg.onload = function() {
         ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,0,0,c.width,c.height);
  	 }
  	 letterImg.src = imgSrc;
          }
-
-  	
   }
  function overlap()
  {
