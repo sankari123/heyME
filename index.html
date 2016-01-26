@@ -94,6 +94,10 @@ canvas.height = img.height;
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+   for(i=0;i<=100;i++)
+   {
+   	//do something
+   }
 navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
   
 }
@@ -288,11 +292,12 @@ function touchUp()
 function chek(imgg,can_1)
 {
 	var can_1 = ctx.canvas ;
-	var img_new=new Image();
-                img_new.onload= function () {
-    		ctx.drawImage(img_new,0,0);}
-        	img_new.src = imgg;
-//	ctx1.putImageData(imgData3,0,0);
+	var img_n=new Image();
+                img_n.onload= function () {
+    		ctx.drawImage(img_n,0,0);
+                }
+        	img_n.src = imgg;
+//	ctx.putImageData(imgData3,0,0);
 }
       </script>
 
