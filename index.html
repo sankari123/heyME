@@ -187,15 +187,15 @@ function release()
     	{
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
-	    xc=xc+20;
-	    yc=yc+20;
+	    xc=xc+25;
+	    yc=yc+25;
  	    c.width=c_width;
   	    c.height=c_height;
 	  //  var img111 = new Image();
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
- //	alert('img  ' + img_arr[counter]);
- 		ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,xc,yc,c.width,c.height);
+// alert('img  ' + img_arr[counter]);
+ 		ctx.drawImage(img_arr[counter],0,0,img_arr[counter].width,img_arr[counter].height,xc,yc,c.width,c.height);
     	}
     	
  	
