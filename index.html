@@ -156,17 +156,27 @@ function release()
  function disp()
  {
  window.imagePicker.getPictures(
-    function(results) {
-        for (ip = 0; ip < results.length; ip++) {
-            console.log('Image URI: ' + results[ip]);
-           img_arr[ip]= results[ip];
-        }
-        
-    }, function (error) {
-        console.log('Error: ' + error);
-    }
-);
+                function(results) {
+                    for (var i = 0; i < results.length; i++) {
+                        alert('Image URI: ' + results[i]);
 
+// read file type and size and file name like below(in comment)
+
+window.resolveLocalFileSystemURI(results[i], function(fileEntry){
+        fileEntry.file(function(fileObj) { 
+            alert(fileEntry.name);
+            alert(fileObj.size);
+            alert(fileObj.type);
+        }); 
+
+    }, function (error) {
+            alert('Error: ' + error);
+        });
+                    }
+                }, function (error) {
+                    alert('Error: ' + error);
+                }
+            );
  }
  
  function multi_load()
