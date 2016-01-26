@@ -183,6 +183,11 @@ function release()
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
+ 	 c.width=c_width;
+  	 c.height=c_height;
+  	 var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+ 	ctx.drawImage(img_arr[1],0,0,img_arr[1].width,img_arr[1].height,xc,yc,c.width,c.height);
     	for(counter=0;counter<ip;counter++)
     	{
     	var c = document.getElementById("can_me");
@@ -195,7 +200,7 @@ function release()
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
 // alert('img  ' + img_arr[counter]);
- 		ctx.drawImage(img_arr[counter],0,0,img_arr[counter].width,img_arr[counter].height,xc,yc,c.width,c.height);
+ 	//	ctx.drawImage(img_arr[counter],0,0,img_arr[counter].width,img_arr[counter].height,xc,yc,c.width,c.height);
     	}
     	
  	
@@ -442,7 +447,7 @@ function chek(imgg,can_1)
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-       	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+       	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button onclick="multi_load();">Load Y</button></td>
@@ -455,7 +460,7 @@ function chek(imgg,can_1)
          <BR><BR>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:0px solid white;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;"></canvas></div>
         
       </div>
