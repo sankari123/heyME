@@ -159,9 +159,15 @@ function release()
  
  function disp()
  {
- for (var iq = 0; iq < 3; iq ++) {
-    alert(img_arr[iq].src);
-}	
+ window.imagePicker.getPictures(
+    function(results) {
+        for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+        }
+    }, function (error) {
+        console.log('Error: ' + error);
+    }
+);	
  }
  
  function overlap()
