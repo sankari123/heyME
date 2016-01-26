@@ -186,8 +186,35 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
   	release();
   	for(i=0;i<3;i++)
   	{
-  		alert('image '+ i+'- '+img_arr[i]);
+  	//	alert('image '+ i+'- '+img_arr[i]);
   	}
+  	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	document.getElementById("can_model").style.visibility = 'hidden';
+    	document.getElementById("div_main1").style.display = 'none';
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+   	 var c = document.getElementById("can_me");
+	 var ctx = c.getContext('2d');
+	 c.width=c_width;
+  	 c.height=c_height;
+	   
+	 for (var i = 0; i <3; i++)
+	{
+	 thisWidth = 250;
+	 thisHeight = 0;
+    	//imgSrc = "photo_"+i+".jpg";
+    	imgSrc=img_arr[i]);
+    	letterImg = new Image();
+    	letterImg.onload = function() {
+        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,0,0,c.width,c.height);
+ 	 }
+ 	 letterImg.src = imgSrc;
+         }
+
+  	
   }
  function overlap()
  {
