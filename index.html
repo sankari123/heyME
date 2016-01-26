@@ -188,25 +188,10 @@ function release()
 	    var ctx = c.getContext('2d');
 	     c.width=c_width;
   	 c.height=c_height;
-	    alert(' first image '+img_arr[1]);
- ctx.drawImage(img_arr[1],0,0,img_arr[1].width,img_arr[1].height,0,0,c.width,c.height);
-    	for(counter=0;counter<ip;counter++)
-    	{
-    	var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	    xc=xc+25;
-	    yc=yc+25;
- 	    c.width=c_width;
-  	    c.height=c_height;
-	  //  var img111 = new Image();
-	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
- 	//	img111.src = multiImg;
-alert('img  ' + img_arr[counter]);
- 	//	ctx.drawImage(img_arr[counter],0,0,img_arr[counter].width,img_arr[counter].height,xc,yc,c.width,c.height);
-    	}
+	    imgg2.src= img_arr[1];
+ ctx.drawImage(imgg2,0,0,imgg2.width,imgg2.height,0,0,c.width,c.height);
     	
- 	
- }
+  }
  function overlap()
  {
 //alert("in");
