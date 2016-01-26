@@ -42,6 +42,7 @@
   <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
   <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0"  />
   <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" />
+  <plugin name="com.synconset.imagepicker" spec="1.0.4" source="pgb" />
 
   <icon src="icon.png"/>
   <icon src="icon_ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
