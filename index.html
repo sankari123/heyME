@@ -36,7 +36,7 @@ function setCrop()
     $('#y_coor').val(c.y);
   };
   
-  var img_arr = new Array(9);
+  var img_arr = new Array(5);
 var ik=0;
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
@@ -159,13 +159,14 @@ function release()
     function(results) {
         for (ip = 0; ip < results.length; ip++) {
             console.log('Image URI: ' + results[ip]);
-           // alert('Image URI: ' + results[ip]);
+           img_arr[ip]= results[ip];
         }
         
     }, function (error) {
         console.log('Error: ' + error);
     }
 );
+
  }
  
  function multi_load()
@@ -189,7 +190,7 @@ function release()
 	  //  var img111 = new Image();
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
- 	alert('img  ' + results[counter]);
+ 	alert('img  ' + img_arr[counter]);
  	//	ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
     	}
     	
