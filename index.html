@@ -187,7 +187,8 @@ function release()
   	 c.height=c_height;
   	 var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
- 	ctx.drawImage(img_arr[1],0,0,img_arr[1].width,img_arr[1].height,xc,yc,c.width,c.height);
+	    alert(' first image '+img_arr[1]);
+ 	ctx.drawImage(img_arr[1],0,0,img_arr[1].width,img_arr[1].height,0,0,c.width,c.height);
     	for(counter=0;counter<ip;counter++)
     	{
     	var c = document.getElementById("can_me");
