@@ -171,7 +171,11 @@ function release()
  
  function multi_load(multiImg)
  {
- 	document.getElementById("div_main2").style.display = 'block';
+ 	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	document.getElementById("can_model").style.visibility = 'hidden';
+    	document.getElementById("div_main1").style.display = 'none';
+    	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
