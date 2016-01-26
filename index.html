@@ -129,28 +129,24 @@ function release()
 	    var img1 = new Image();
 		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
 		img1.src = imageURI;
-	
+	        arr[ik]=img1.src;
    }
 var arr = [];
 var ik;
 
 function onConfirm_me(buttonIndex) {
-  if(buttonIndex==1)
-  {
-  if(ik < 3)
-  {
-    arr[ik] = img1.src;
-    ik=ik+1;
-    document.getElementById("me_photo").click();
-  }
+  if(buttonIndex==1 && ik < 3)
+  	{
+	 arr[ik] = img1.src;
+    	 ik=ik+1;
+    	 document.getElementById("me_photo").click();
+        }
   else
-  {
-   for (var ij = 0, max = 3; ij < max; ij += 1) {
-    alert(arr[ij]);          }
-  }
+  	{
+	 for (var ij = 0, max = 3; ij < max; ij += 1) {
+	 alert(arr[ij]);          }
+  	}
   
-  
-}
 }
    
    function drawImageScaled_new(img2, ctx) {
