@@ -150,12 +150,7 @@ function release()
    ctx.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
  
   imgData2=ctx.getImageData(0,0,c.width,c.height);
-  img_arr[ik].src=img2.src;
-        ik=ik+1;
-       // alert(ik);
- 
-// navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
- }
+  }
  
  function disp()
  {
@@ -163,14 +158,34 @@ function release()
     function(results) {
         for (var i = 0; i < results.length; i++) {
             console.log('Image URI: ' + results[i]);
-            alert('Image URI: ' +results[i]);
+            multi_load(results[i]);
         }
+        
     }, function (error) {
         console.log('Error: ' + error);
     }
 );	
  }
  
+ 
+ 
+ function multi_load(multiImg)
+ {
+ 	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    c_width=document.getElementById("w").value;
+ 	    c_height=document.getElementById("h").value;
+ 	    c.width=c_width;
+  	    c.height=c_height;
+	  //  var img111 = new Image();
+	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
+ 	//	img111.src = multiImg;
+ 		ctx.drawImage(multiImg,0,0,multiImg.width,multiImg.height,0,0,c.width,c.height);
+ 		
+ 	
+ }
  function overlap()
  {
 //alert("in");
