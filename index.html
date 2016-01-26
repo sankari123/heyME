@@ -135,13 +135,22 @@ var arr = [];
 var ik;
 
 function onConfirm_me(buttonIndex) {
-  if(buttonIndex==1 && ik < 4)
+  if(buttonIndex==1)
+  {
+  if(ik < 3)
   {
     arr[ik] = img1.src;
     ik=ik+1;
-    document.get.elementById("me_photo").click();
+    document.getElementById("me_photo").click();
+  }
+  else
+  {
+   for (var ij = 0, max = 3; ij < max; ij += 1) {
+    alert(arr[ij]);          }
   }
   
+  
+}
 }
    
    function drawImageScaled_new(img2, ctx) {
