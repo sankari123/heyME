@@ -156,27 +156,31 @@ function release()
  {
  window.imagePicker.getPictures(
     function(results) {
-        for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-            multi_load(results[i]);
+        for (var ip = 0; ip < results.length; ip++) {
+            console.log('Image URI: ' + results[ip]);
+            
         }
         
     }, function (error) {
         console.log('Error: ' + error);
     }
-);	
+);
+multi_load();
  }
  
  
  
- function multi_load(multiImg)
+ function multi_load()
  {
+ 	
  	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
     	document.getElementById("div_main1").style.display = 'none';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	for(counter=0;counter<ip;counter++)
+    	{
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    c_width=document.getElementById("w").value;
@@ -186,8 +190,8 @@ function release()
 	  //  var img111 = new Image();
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
- 		ctx.drawImage(multiImg,0,0,multiImg.width,multiImg.height,0,0,c.width,c.height);
- 		
+ 		ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
+    	}
  	
  }
  function overlap()
