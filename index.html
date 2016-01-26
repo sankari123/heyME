@@ -170,13 +170,28 @@ function release()
  
  function multi_load()
  {
-  	alert('in ' + ip);
+  	//alert('in ' + ip);
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
     	document.getElementById("div_main1").style.display = 'none';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+    	for(counter=0;counter<ip;counter++)
+    	{
+    	var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    
+ 	    c.width=c_width;
+  	    c.height=c_height;
+	  //  var img111 = new Image();
+	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
+ 	//	img111.src = multiImg;
+ 	alert('img  ' + results[counter]);
+ 	//	ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
+    	}
     	
  	
  }
