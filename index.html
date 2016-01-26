@@ -129,7 +129,20 @@ function release()
 	    var img1 = new Image();
 		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
 		img1.src = imageURI;
+		navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
    }
+var arr = [];
+var ik;
+
+function onConfirm_me(buttonIndex) {
+  if(buttonIndex==1 && ik < 4)
+  {
+    arr[ik] = img1.src;
+    ik=ik+1;
+    document.get.elementById("me_photo").clicked=true;
+  }
+  
+}
    
    function drawImageScaled_new(img2, ctx) {
    //	alert("in2");
@@ -389,7 +402,7 @@ function chek(imgg,can_1)
           <table id="tbl" cellspacing="0" cellpadding="0">
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
-         <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
+         <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="touchUp();">Touchup</button></td>
