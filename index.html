@@ -165,15 +165,13 @@ function release()
         console.log('Error: ' + error);
     }
 );
-multi_load();
  }
  
  
  
  function multi_load()
  {
- 	
- 	document.getElementById("target").style.visibility = 'hidden';
+  	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
     	document.getElementById("div_main1").style.display = 'none';
@@ -190,7 +188,8 @@ multi_load();
 	  //  var img111 = new Image();
 	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
  	//	img111.src = multiImg;
- 		ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
+ 	alert("img"+results[counter]);
+ 	//	ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
     	}
  	
  }
