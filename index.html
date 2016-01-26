@@ -159,14 +159,15 @@ function release()
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
                        // alert('Image URI: ' + results[i]);
-
+				img_arr[i]= results[i]; 
+          
 // read file type and size and file name like below(in comment)
 
 window.resolveLocalFileSystemURI(results[i], function(fileEntry){
         fileEntry.file(function(fileObj) { 
            // alert(fileEntry.name);
-            img_arr[i]=fileEntry.name; 
-            alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+            
+           // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
@@ -183,25 +184,10 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
  function multi_load()
  {
   	release();
-  	xc=0;
-  	yc=0;
-  	
-  	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
-    	document.getElementById("can_model").style.visibility = 'hidden';
-    	document.getElementById("div_main1").style.display = 'none';
-    	document.getElementById("div_main2").style.display = 'block';
-    	document.getElementById("div_main2").style.visibility = 'visible';
-    	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
- 	
-  	 var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	     c.width=c_width;
-  	 c.height=c_height;
-	    imgg2.src= img_arr[1];
- ctx.drawImage(imgg2,0,0,imgg2.width,imgg2.height,0,0,c.width,c.height);
-    	
+  	for(i=0;i<3;i++)
+  	{
+  		alert('image '+ i+'- '+img_arr[i]);
+  	}
   }
  function overlap()
  {
