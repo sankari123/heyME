@@ -16,6 +16,7 @@
  var imgData1,imgData2,imgData3;
  var x_co,y_co;
  var ctr=0;
+ var canvas,ctx;
 function setCrop()
     {
         
@@ -171,7 +172,7 @@ function overlay_action()
             ctx.clearRect(0,0,canvas.height, canvas.height);
        	    if(ctr!==100)
        	    {
-       	    alert("position");
+       	  //  alert("position");
             ctx.putImageData(imgData1,0,0);
             ctx.putImageData(imgData2,x_co,y_co);
        	    }
@@ -278,14 +279,14 @@ function overlay_action()
     }
 function touchUp()
 {
+	
+	document.getElementById("Position").disabled="true";
 	ctr=100;
-        canvas = document.getElementById("can_final");
-	ctx = canvas.getContext("2d");
-	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-	imgDataUrl = canvas.toDataURL();
+       	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+//	imgDataUrl = canvas.toDataURL();
        // imgDataUrl = canvas.toDataURL();
-	//alert(mouseX);
-	chek(imgDataUrl,canvas);
+	overlay_action();
+//	chek(imgDataUrl,canvas);
 	
 	
 }
