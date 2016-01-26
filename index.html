@@ -17,6 +17,7 @@
  var x_co,y_co;
  var ctr=0;
  var canvas,ctx;
+ var touchup=false;
 function setCrop()
     {
         
@@ -170,16 +171,17 @@ function overlay_action()
 	    canvas = document.getElementById('can_final');
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0,canvas.height, canvas.height);
-       	    if(ctr!==100)
+       	    if(touchup)
        	    {
-       	  //  alert("position");
-            ctx.putImageData(imgData1,0,0);
-            ctx.putImageData(imgData2,x_co,y_co);
+       	       	  alert("touchup");
+       	    	ctx.putImageData(imgData3,0,0);
+            
        	    }
        	    else
        	    {
-       	      alert("touchup");
-       	    	ctx.putImageData(imgData3,0,0);
+       	    	//  alert("position");
+       	     ctx.putImageData(imgData1,0,0);
+            ctx.putImageData(imgData2,x_co,y_co);
        	    }
            if (ctx) {
             canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
@@ -280,8 +282,10 @@ function overlay_action()
 function touchUp()
 {
 	
-	document.getElementById("Position").disabled="true";
-	ctr=100;
+	//alert("in");
+	//document.getElementById("Position").disabled="true";
+	touchup=true;
+	//ctr=100;
        	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
 //	imgDataUrl = canvas.toDataURL();
        // imgDataUrl = canvas.toDataURL();
@@ -355,8 +359,8 @@ function chek(imgg,can_1)
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
-         <td><button onclick="overlay_action();">Position</button></td>
-         <td><button onclick="touchUp();">Touch-up</button></td>
+         <td><button id="Position" onclick="overlay_action();">Position</button></td>
+         <td><button onclick="touchUp();">Touchup</button></td>
          </tr></table>
          </div>
          <BR><BR>
