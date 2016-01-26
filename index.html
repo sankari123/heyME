@@ -158,15 +158,17 @@ function release()
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
-                        alert('Image URI: ' + results[i]);
+                       // alert('Image URI: ' + results[i]);
 
 // read file type and size and file name like below(in comment)
 
 window.resolveLocalFileSystemURI(results[i], function(fileEntry){
         fileEntry.file(function(fileObj) { 
             alert(fileEntry.name);
-            alert(fileObj.size);
-            alert(fileObj.type);
+            img_arr[i]=fileEntry.name;
+             alert('Image  ' + i+ img_arr[i]);
+           // alert(fileObj.size);
+          //  alert(fileObj.type);
         }); 
 
     }, function (error) {
