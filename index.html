@@ -156,6 +156,14 @@ function release()
  
 // navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
  }
+ 
+ function disp()
+ {
+ for (var iq = 0; iq < 3; iq ++) {
+    alert(img_arr[ik].src);
+}	
+ }
+ 
  function overlap()
  {
 //alert("in");
@@ -403,7 +411,8 @@ function chek(imgg,can_1)
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
-         <td><button onclick="touchUp();">Touchup</button></td>
+         <td><button onclick="disp();">Display</button></td>
+         <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
          </div>
          <BR><BR>
