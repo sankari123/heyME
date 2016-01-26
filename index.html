@@ -18,6 +18,7 @@
  var ctr=0;
  var canvas,ctx;
  var touchup=false;
+ var ip;
 function setCrop()
     {
         
@@ -156,9 +157,9 @@ function release()
  {
  window.imagePicker.getPictures(
     function(results) {
-        for (var ip = 0; ip < results.length; ip++) {
+        for (ip = 0; ip < results.length; ip++) {
             console.log('Image URI: ' + results[ip]);
-            alert('Image URI: ' + results[ip]);
+           // alert('Image URI: ' + results[ip]);
         }
         
     }, function (error) {
@@ -167,31 +168,16 @@ function release()
 );
  }
  
- 
- 
  function multi_load()
  {
-  	alert("in"+ip);
+  	alert('in ' + ip);
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
     	document.getElementById("div_main1").style.display = 'none';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
-    	for(counter=0;counter<ip;counter++)
-    	{
-    	var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	    c_width=document.getElementById("w").value;
- 	    c_height=document.getElementById("h").value;
- 	    c.width=c_width;
-  	    c.height=c_height;
-	  //  var img111 = new Image();
-	///	img111.onload= drawImageScaled_new.bind(null, multiImg, ctx);
- 	//	img111.src = multiImg;
- 	alert("img"+results[counter]);
- 	//	ctx.drawImage(results[counter],0,0,results[counter].width,results[counter].height,0,0,c.width,c.height);
-    	}
+    	
  	
  }
  function overlap()
@@ -439,7 +425,7 @@ function chek(imgg,can_1)
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button id="me_photo" onclick="multi_load();">Load Y</button></td>
+         <td><button onclick="multi_load();">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="disp();">Display</button></td>
