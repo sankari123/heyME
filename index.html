@@ -150,9 +150,9 @@ function release()
    ctx.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
  
   imgData2=ctx.getImageData(0,0,c.width,c.height);
-  img_arr[ik]=img2.src;
+  img_arr[ik].src=img2.src;
         ik=ik+1;
-        alert(ik);
+       // alert(ik);
  
 // navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
  }
