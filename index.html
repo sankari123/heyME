@@ -34,7 +34,10 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  var pictureSource;   // picture source
+  
+  var img_arr = new Array(9);
+var ik;
+var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
     document.addEventListener("deviceready",onDeviceReady,false);
@@ -129,25 +132,13 @@ function release()
 	    var img1 = new Image();
 		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
 		img1.src = imageURI;
-	        arr[ik]=img1.src;
+	        img_arr[ik].src=img1.src;
+	        ik=ik+1;
+	        alert(ik);
    }
-var arr = [];
-var ik;
 
-function onConfirm_me(buttonIndex) {
-  if(buttonIndex==1 && ik < 3)
-  	{
-	 arr[ik] = img1.src;
-    	 ik=ik+1;
-    	 document.getElementById("me_photo").click();
-        }
-  else
-  	{
-	 for (var ij = 0, max = 3; ij < max; ij += 1) {
-	 alert(ik);          }
-  	}
-  
-}
+
+
    
    function drawImageScaled_new(img2, ctx) {
    //	alert("in2");
@@ -162,7 +153,7 @@ function onConfirm_me(buttonIndex) {
    //context.drawImage(imageObj,0,0,imageObj.width,imageObj.height,0,0,canvas.width,canvas.height);
   imgData2=ctx.getImageData(0,0,c.width,c.height);
  // alert(imgData2);
- navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
+// navigator.notification.confirm('Want to load another photo of yours!',  onConfirm_me,  'Load My Photo', ['OK','Cancel'] );
  }
  function overlap()
  {
