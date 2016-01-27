@@ -162,12 +162,12 @@ function release()
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
-                       // alert('Image URI: ' + results[i]);
+                       alert('Image URI: ' + results[i]);
 				img_arr[i]= results[i]; 
           
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
-         alert(" image" + fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+         alert(fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
@@ -175,8 +175,8 @@ function release()
         });
         
                     }
-                    img_arr[i]=fileEntry.name;
-        		alert(" image " + i+" - "+fileEntry.name);
+                  //  img_arr[i]=fileEntry.name;
+        	//	alert(" image " + i+" - "+fileEntry.name);
                 }, function (error) {
                     alert('Error: ' + error);
                 }
