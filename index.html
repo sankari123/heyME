@@ -153,7 +153,7 @@ function release()
  
   imgData2=ctx.getImageData(0,0,c.width,c.height);
   }
- 
+ var file1,file2;
  function disp()
  {
  window.imagePicker.getPictures(
@@ -166,7 +166,15 @@ function release()
 
 window.resolveLocalFileSystemURI(results[i], function(fileEntry){
         fileEntry.file(function(fileObj) { 
-           // alert(fileEntry.name);
+           alert(" image" + fileEntry.name);
+            if (i==0)
+              {
+              	file1=fileEntry.name;
+              }
+              else if (i==1)
+              {
+              	file2=fileEntry.name;
+              }
             
            // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
@@ -208,10 +216,17 @@ thisHeight = 0;
   	//	imgSrc = "photo_" + i + ".jpg";
 
     images[i] = new Image();
-    images[i].src = img_arr[i];
-     alert('image '+ i+'- '+images[i].src); 
+    if(i==0)
+    {
+    images[i].src = file1;
+    }
+    else
+    {
+    	images[i].src = file2;
+    }
+    alert('image '+ i+'- '+images[i].src); 
      var lst=img_arr[i].lastIndexOf("/");
-     alert(substr(img_arr[i],lst+1,img_arr[i].length));
+    // alert(substr(img_arr[i],lst+1,img_arr[i].length));
     attach(images[i], thisWidth*i, thisHeight);
     //alert('image '+ i+'- '+img_arr[i]); 
   	}
