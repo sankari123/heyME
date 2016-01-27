@@ -199,18 +199,20 @@ function handleFiles() {
     img.y=i*50;
     
        fileNam=	img_arr[i];
-    //alert(fileNam);
+    alert("i= "+i+"-"+fileNam);
     img.onload=function(){
     	ctx.drawImage(img,img.x,img.y);
           }
     img.src=fileNam;
     if(i==0)
     {    alert(i); imgData_new1=ctx.getImageData(0,0,img.x,img.y);    }
-    else if(i==1)
-    {    	alert(i); imgData_new2=ctx.getImageData(0,0,img.x,img.y);    }
-    else if(i==2)
-    {    	alert(i); imgData_new3=ctx.getImageData(0,0,img.x,img.y);    }
-    
+    else 
+    {
+    	if(i==1)
+         {    	alert(i); imgData_new2=ctx.getImageData(0,0,img.x,img.y);            }
+         else
+         {     	alert(i); imgData_new3=ctx.getImageData(0,0,img.x,img.y);    }
+    }
   }
   ctx.clearRect(0,0,c.width,c.height);
   ctx.putImageData(imgData_new1,0,0);
