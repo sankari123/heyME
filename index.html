@@ -202,9 +202,20 @@ function handleFiles() {
     alert(fileNam);
     img.onload=function(){
     	ctx.drawImage(img,img.x,img.y);
-      }
+          }
     img.src=fileNam;
+    if(i==1)
+    {    imgData_new1=ctx.getImageData(0,0,img.x,img.y);    }
+    else if(i==2)
+    {    	imgData_new2=ctx.getImageData(0,0,img.x,img.y);    }
+    else if(i==3)
+    {    	imgData_new3=ctx.getImageData(0,0,img.x,img.y);    }
+    
   }
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.putImageData(imgData_new1,0,0);
+  ctx.putImageData(imgData_new2,0,100);
+  ctx.putImageData(imgData_new3,0,200);
   
 }
 
@@ -218,40 +229,9 @@ function testing()
 	       new_imgArr[p]=fil+"."+last1;
              //  alert(new_imgArr[p]);
 	}
-	multi_load();
+//	multi_load();
 }
- attach = function(img, x, y)
-{
-    img.onload = function()
-    {
-        ctx.drawImage(img, x, y);
-    }
-}
-
- function multi_load()
- {
-  	//release();
-  	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
-    	document.getElementById("can_model").style.visibility = 'hidden';
-    	document.getElementById("div_main1").style.display = 'none';
-    	document.getElementById("div_main2").style.display = 'block';
-    	document.getElementById("div_main2").style.visibility = 'visible';
-    	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
-   	 var c = document.getElementById("can_me");
-	 var ctx = c.getContext('2d');
-  	for (var i = 0; i < 3; i++)
-{
-    imgSrc = new_imgArr[i];
-//alert("imgsrc==="+imgSrc);
-    images[i] = new Image();
-    images[i].src = imgSrc;
-
-    attach(images[i], thisWidth*i, thisHeight);
-}
-    
-  	 }
+ 
   	 
   	 
   
