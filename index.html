@@ -182,7 +182,7 @@ function release()
 function testing()
 {
         
-	for(var p=0;p<2;p++)
+	for(var p=0;p<3;p++)
 	{
 		fil=img_arr[p].substring(img_arr[p].lastIndexOf("/") + 1, img_arr[p].lastIndexOf("."));
 		var last1 = img_arr[p].substr(-3);
@@ -212,10 +212,10 @@ function testing()
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-  	for (var i = 0; i <= 2; i++)
+  	for (var i = 0; i < 3; i++)
 {
     imgSrc = new_imgArr[i];
-alert("imgsrc==="+imgSrc);
+//alert("imgsrc==="+imgSrc);
     images[i] = new Image();
     images[i].src = imgSrc;
 
