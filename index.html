@@ -181,13 +181,19 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
                 }
             );
  }
- 
+ images = []; 
+ thisWidth = 250; //This doesn't need to be inside the for-loop.
+thisHeight = 0;
+ attach = function(img, x, y)
+{
+    img.onload = function()
+    {
+        ctx.drawImage(img, x, y);
+    }
+}
  function multi_load()
  {
   	release();
-  	for(i=0;i<2;i++) 	{ alert('image '+ i+'- '+img_arr[i]); 
-  	}
- 	sources = { darthVader: img_arr[i], yoda: img_arr[i+1]  };
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -198,36 +204,20 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-	 c.width=c_width;
-  	 c.height=c_height;
-  	 var xx=0;
-  	 var yy=0;
-  	 loadImages(sources, function(images) {
-        ctx.drawImage(images.darthVader, 100, 30, 200, 137);
-        ctx.drawImage(images.yoda, 350, 55, 93, 104);
-         });
+  	for(i=0;i<2;i++) 	{ 
+  	//	imgSrc = "photo_" + i + ".jpg";
+
+    images[i] = new Image();
+    images[i].src = img_arr[i];
+
+    attach(images[i], thisWidth*i, thisHeight);
+    //alert('image '+ i+'- '+img_arr[i]); 
+  	}
+ 	
   	 }
   	 
   	 
-  	 function loadImages(sources, callback) {
-        var images = {};
-        var loadedImages = 0;
-        var numImages = 0;
-        // get num of sources
-        for(var src in sources) {
-          numImages++;
-        }
-        for(var src in sources) {
-          images[src] = new Image();
-          images[src].onload = function() {
-            if(++loadedImages >= numImages) {
-              callback(images);
-            }
-          };
-          images[src].src = sources[src];
-          alert('img  '+images[src].src);
-        }
-      }
+  
  function overlap()
  {
 //alert("in");
