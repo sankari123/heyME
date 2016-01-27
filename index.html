@@ -210,8 +210,8 @@ thisHeight = 0;
     images[i] = new Image();
     images[i].src = img_arr[i];
      alert('image '+ i+'- '+images[i].src); 
-     var lst=images[i].src.lastIndexOf("/");
-     alert(substr(images[i].src,lst+1,images[i].src.length));
+     var lst=img_arr[i].lastIndexOf("/");
+     alert(substr(img_arr[i],lst+1,img_arr[i].length));
     attach(images[i], thisWidth*i, thisHeight);
     //alert('image '+ i+'- '+img_arr[i]); 
   	}
