@@ -37,6 +37,9 @@ function setCrop()
   };
   
   var img_arr = new Array(5);
+   images = []; 
+ thisWidth = 250; //This doesn't need to be inside the for-loop.
+thisHeight = 0;
 var ik=0;
 var sources;
 var pictureSource;   // picture source
@@ -170,12 +173,12 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
             if (i==0)
               {
               	file1=fileEntry.name;
-              	alert(file1);
+              	alert("file1"+file1);
               }
               else if (i==1)
               {
               	file2=fileEntry.name;
-              	alert(file2);
+              	alert("file2"+file2);
               }
             
            // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
@@ -191,9 +194,7 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
                 }
             );
  }
- images = []; 
- thisWidth = 250; //This doesn't need to be inside the for-loop.
-thisHeight = 0;
+
  attach = function(img, x, y)
 {
     img.onload = function()
