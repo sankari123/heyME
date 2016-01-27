@@ -179,6 +179,20 @@ function release()
             );
  }
 
+
+
+function handleFiles() {
+ 
+    for(var i=0;i<3;i++){
+    var img=new Image;
+    img.x=i*100;
+    img.onload=function(){
+      ctx.drawImage(img,img.x,0);
+    }
+    img.src=img_arr[i];
+  }
+}
+
 function testing()
 {
         
@@ -471,7 +485,7 @@ function chek(imgg,can_1)
        	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button onclick="testing();">Load Y</button></td>
+         <td><button onclick="handleFiles();">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="disp();">Display</button></td>
