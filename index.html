@@ -185,7 +185,7 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
  function multi_load()
  {
   	release();
-  	for(i=0;i<2;i++) 	{  alert('image '+ i+'- '+img_arr[i]);
+  	for(i=0;i<2;i++) 	{ // alert('image '+ i+'- '+img_arr[i]);
   	}
  	sources = { darthVader: img_arr[i], yoda: img_arr[i+1]  };
   	document.getElementById("target").style.visibility = 'hidden';
@@ -225,6 +225,7 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
             }
           };
           images[src].src = sources[src];
+          alert('img  '+images[src].src);
         }
       }
  function overlap()
