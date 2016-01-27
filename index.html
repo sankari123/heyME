@@ -195,27 +195,27 @@ function handleFiles() {
     for(var i=0;i<3;i++){
     //	alert("i=="+i);
     var img=new Image;
-    img.x=i*200;
-    img.y=i*100;
+    img.x=i*50;
+    img.y=i*50;
     
        fileNam=	img_arr[i];
-    alert(fileNam);
+    //alert(fileNam);
     img.onload=function(){
     	ctx.drawImage(img,img.x,img.y);
           }
     img.src=fileNam;
-    if(i==1)
-    {    imgData_new1=ctx.getImageData(0,0,img.x,img.y);    }
+    if(i==0)
+    {    alert(i); imgData_new1=ctx.getImageData(0,0,img.x,img.y);    }
+    else if(i==1)
+    {    	alert(i); imgData_new2=ctx.getImageData(0,0,img.x,img.y);    }
     else if(i==2)
-    {    	imgData_new2=ctx.getImageData(0,0,img.x,img.y);    }
-    else if(i==3)
-    {    	imgData_new3=ctx.getImageData(0,0,img.x,img.y);    }
+    {    	alert(i); imgData_new3=ctx.getImageData(0,0,img.x,img.y);    }
     
   }
   ctx.clearRect(0,0,c.width,c.height);
   ctx.putImageData(imgData_new1,0,0);
-  ctx.putImageData(imgData_new2,0,100);
-  ctx.putImageData(imgData_new3,0,200);
+  ctx.putImageData(imgData_new2,50,50);
+  ctx.putImageData(imgData_new3,100,100);
   
 }
 
