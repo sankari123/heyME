@@ -186,6 +186,9 @@ function testing()
 	for(var p=0;p<2;p++)
 	{
 		alert ("p= "+p+ "----"+	img_arr[p]);
+		String path=img_arr[p];//it contain your path of image..im using a temp string..
+               String filename=path.substring(path.lastIndexOf("/")+1);
+               alert(filename);
 	}
 }
  attach = function(img, x, y)
