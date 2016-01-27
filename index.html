@@ -167,16 +167,16 @@ function release()
           
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
-         //	alert(" image" + fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+         alert(" image" + fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
             alert('Error: ' + error);
         });
-        img_arr[i]=fileEntry.name;
-        alert(" image " + i+" - "+fileEntry.name);
+        
                     }
-                    
+                    img_arr[i]=fileEntry.name;
+        		alert(" image " + i+" - "+fileEntry.name);
                 }, function (error) {
                     alert('Error: ' + error);
                 }
