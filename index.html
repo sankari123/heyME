@@ -194,16 +194,9 @@ function handleFiles() {
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
     
-    //1st image
-    var img=new Image;
-    img.x=0*50;
-    img.y=0*50;
-        img.onload=function(){
-    	ctx.drawImage(img,img.x,img.y);
-          }
-    img.src=filNam1;
-    imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
-     ctx.clearRect(0,0,c.width,c.height);
+       ctx.drawImage(filNam1,filNam1.x,filNam1.y);
+          //    imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
+     //ctx.clearRect(0,0,c.width,c.height);
     //alert("1 over");
     // ctx.putImageData(imgData_new1,0,0);
   //ctx.putImageData(imgData_new2,50,50);
