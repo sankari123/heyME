@@ -153,7 +153,8 @@ function release()
                     			img_arr[i]= results[i]; 
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
-      //  alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+      //alert('i = '+i+'-'+fileEntry.name);      
+      // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
     }, function (error) {            alert('Error: ' + error);        });
                     }
@@ -161,59 +162,6 @@ function release()
                 }, function (error) {                    alert('Error: ' + error);                }
             );
  }
-
-function prep()
-{
-	filName=img_arr[0];
-	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
-    	document.getElementById("can_model").style.visibility = 'hidden';
-    	document.getElementById("div_main1").style.display = 'none';
-    	document.getElementById("div_main2").style.display = 'block';
-    	document.getElementById("div_main2").style.visibility = 'visible';
-    	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
-   	  c = document.getElementById("can_me");
-	  ctx = c.getContext('2d');
-	 handleFiles(ctx,filName);
-}
-
-function handleFiles(ctx1,fnam) {
-	     var img=new Image;
-     	     img.src=fnam;
-	     img.onload=multipleImage.bind(img,ctx1);
-}       
-  function multipleImage(imggg,ctx2);
-  {
-  	if (tmr<=2)
-  	{
-  	tmr=tmr+1;
-  	
-  	imggg.x=0*50;
-    	imggg.y=0*50;
-   ctx2.drawImage(imggg,imggg.x,imggg.y,imggg.width,imggg.height);
-   //mul_img1=ctx2.getImageData(0,0);
-   if(tmr==1)
-   {
-   	filName=img_arr[1];
-   }
-   else
-   {
-   	filName=img_arr[2];
-   }
-   handleFiles(ctx2,filName);
-  	}
-  }
- // imgData1=ctx.getImageData(0,0,c.width,c.height);
-  
-   
-          //    imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
-     //ctx.clearRect(0,0,c.width,c.height);
-    //alert("1 over");
-    // ctx.putImageData(imgData_new1,0,0);
-  //ctx.putImageData(imgData_new2,50,50);
-  //ctx.putImageData(imgData_new3,150,150);
-  
 
  function overlap()
  {
