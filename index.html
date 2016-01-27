@@ -206,14 +206,25 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
 	{
 	 thisWidth = 250;
 	 thisHeight = 0;
-	 xx=xx+100;
-	 yy=yy+100;
+	 
 	 
     	//imgSrc = "photo_"+i+".jpg";
     	imgSrc=img_arr[i];
     	letterImg = new Image();
     	letterImg.onload = function() {
-        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,xx,yy,c.width,c.height);
+    		if(i==0)
+    		{
+        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,0,0,c.width,c.height);
+    		}
+    		else if(i==1)
+    		{
+        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,100,100,c.width,c.height);
+    		}
+    		else if(i==2)
+    		{
+        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,200,200,c.width,c.height);
+    		}
+    		
  	 }
  	 letterImg.src = imgSrc;
          }
