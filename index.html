@@ -182,7 +182,16 @@ function release()
 
 
 function handleFiles() {
- 
+ document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	document.getElementById("can_model").style.visibility = 'hidden';
+    	document.getElementById("div_main1").style.display = 'none';
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+   	 var c = document.getElementById("can_me");
+	 var ctx = c.getContext('2d');
     for(var i=0;i<3;i++){
     var img=new Image;
     img.x=i*100;
