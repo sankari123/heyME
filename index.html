@@ -9,12 +9,14 @@
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
 
 <script type="text/javascript">
-    
+  var tmr=0; 
+  var filName;
  var maxImg = 4;
  var jcrop_api;
  var c_width;
  var c_height;
  var imgData1,imgData2,imgData3;
+ var mul_img1,mul_img2,mul_img3;
  var x_co,y_co;
  var ctr=0;
  var canvas,ctx;
@@ -179,10 +181,9 @@ function release()
             );
  }
 
-
-
-function handleFiles() {
-	filNam1=img_arr[0];
+function prep()
+{
+	filName=img_arr[0];
 	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -193,8 +194,38 @@ function handleFiles() {
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-    
-       ctx.drawImage(filNam1,filNam1.x,filNam1.y);
+	 handleFiles(ctx,filName)
+}
+
+function handleFiles(ctx1,fnam) {
+	     var img=new Image;
+     	     img.src=fnam;
+	     img.onload= multipleImage.bind(img, ctx1);
+}       
+  function multipleImage(imggg,ctx2);
+  {
+  	if (tmr<=2)
+  	{
+  	tmr=tmr+1;
+  	
+  	imggg.x=0*50;
+    	imggg.y=0*50;
+   ctx2.drawImage(imggg,imggg.x,imggg.y,imggg.width,imggg.height);
+   //mul_img1=ctx2.getImageData(0,0);
+   if(tmr==1)
+   {
+   	filName=img_arr[1];
+   }
+   else
+   {
+   	filName=img_arr[2];
+   }
+   handleFiles(ctx2,filName);
+  	}
+  }
+ // imgData1=ctx.getImageData(0,0,c.width,c.height);
+  
+   
           //    imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
      //ctx.clearRect(0,0,c.width,c.height);
     //alert("1 over");
@@ -202,7 +233,7 @@ function handleFiles() {
   //ctx.putImageData(imgData_new2,50,50);
   //ctx.putImageData(imgData_new3,150,150);
   
-}
+
 
 function testing()
 {
@@ -465,7 +496,7 @@ function chek(imgg,can_1)
        	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button onclick="handleFiles();">Load Y</button></td>
+         <td><button onclick="prep();">Load Y</button></td>
          <td><button onclick="overlap();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="disp();">Display</button></td>
