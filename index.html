@@ -165,28 +165,16 @@ function release()
                        // alert('Image URI: ' + results[i]);
 				img_arr[i]= results[i]; 
           
-// read file type and size and file name like below(in comment)
-
-window.resolveLocalFileSystemURI(results[i], function(fileEntry){
-        fileEntry.file(function(fileObj) { 
-         //  alert(" image" + fileEntry.name);
-            if (i==0)
-              {
-              	file1=fileEntry.name;
-              	alert("file1"+file1);
-              }
-              else if (i==1)
-              {
-              	file2=fileEntry.name;
-              	alert("file2"+file2);
-              }
-            
-           // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
+        	fileEntry.file(function(fileObj) { 
+         //	alert(" image" + fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
             alert('Error: ' + error);
         });
+        img_arr[i]=fileEntry.name;
+        alert(" image " + i+" - "+fileEntry.name);
                     }
                     
                 }, function (error) {
