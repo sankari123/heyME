@@ -182,14 +182,7 @@ function release()
 
 
 function handleFiles() {
-	
 	filNam1=img_arr[0];
-	filNam2=img_arr[1];
-	filNam3=img_arr[2];
-	alert("f1 "+filNam1);
-	alert("f2 "+filNam2);
-	alert("f3 "+filNam3);
-	
 	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -201,7 +194,7 @@ function handleFiles() {
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
     
-    //ist image
+    //1st image
     var img=new Image;
     img.x=0*50;
     img.y=0*50;
@@ -212,32 +205,9 @@ function handleFiles() {
     imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
     ctx.clearRect(0,0,c.width,c.height);
     alert("1 over");
-    //2nd image
-    var img1=new Image;
-    img1.x=1*50;
-    img1.y=1*50;
-        img1.onload=function(){
-    	ctx.drawImage(img1,img1.x,img1.y);
-          }
-    img1.src=filNam2;
-    imgData_new2=ctx.getImageData(0,0,img1.x,img1.y);    
-    ctx.clearRect(0,0,c.width,c.height);
-    alert("2 over");
-     //3rd image
-    var img2=new Image;
-    img2.x=2*50;
-    img2.y=2*50;
-        img2.onload=function(){
-    	ctx.drawImage(img2,img2.x,img2.y);
-          }
-    img2.src=filNam3;
-    imgData_new3=ctx.getImageData(0,0,img2.x,img2.y);    
-    ctx.clearRect(0,0,c.width,c.height);
-       alert("3 over");
-  
-  ctx.putImageData(imgData_new1,0,0);
-  ctx.putImageData(imgData_new2,50,50);
-  ctx.putImageData(imgData_new3,150,150);
+      ctx.putImageData(imgData_new1,0,0);
+  //ctx.putImageData(imgData_new2,50,50);
+  //ctx.putImageData(imgData_new3,150,150);
   
 }
 
