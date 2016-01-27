@@ -193,10 +193,11 @@ function handleFiles() {
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
     for(var i=0;i<3;i++){
+    	alert("i=="+i);
     var img=new Image;
     img.x=i*100;
     img.onload=function(){
-      ctx.drawImage(img,img.x,0);
+      ctx.drawImage(img,img.x,0,80,img.height*(80/img.width));
     }
     img.src=img_arr[i];
   }
