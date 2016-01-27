@@ -184,10 +184,9 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
  function multi_load()
  {
   	release();
-  	for(i=0;i<3;i++)
-  	{
-  	//	alert('image '+ i+'- '+img_arr[i]);
+  	for(i=0;i<3;i++) 	{  	//	alert('image '+ i+'- '+img_arr[i]);
   	}
+ 	var sources = { darthVader: img_arr[i], yoda: img_arr[i+1],yoda1:img_arr[i+2]  };
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -202,38 +201,32 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
   	 c.height=c_height;
   	 var xx=0;
   	 var yy=0;
-	 for (i = 0; i <3; i++)
-	{
-	 thisWidth = 250;
-	 thisHeight = 0;
-	 
-	 
-    	//imgSrc = "photo_"+i+".jpg";
-    	imgSrc=img_arr[i];
-    	letterImg = new Image();
-    	alert('i= '+i);
-    	letterImg.onload = function() {
-    		if(i==0)
-    		{
-    			alert('in1 = '+i);
-    			//alert(img_arr[i]);
-        ctx.drawImage(letterImg,0,0,c.width,c.height);
-    		}
-    		else if(i==1)
-    		{
-    			alert('in2 = '+i);
-        ctx.drawImage(letterImg,100,100,c.width,c.height);
-    		}
-    		else if(i==2)
-    		{
-    			alert('in3 = '+i);
-        ctx.drawImage(letterImg,200,200,c.width,c.height);
-    		}
-    		
- 	 }
- 	 letterImg.src = imgSrc;
-         }
-  }
+  	 loadImages(sources, function(images) {
+        ctx.drawImage(images.darthVader, 100, 30, 200, 137);
+        ctx1.drawImage(images.yoda, 350, 55, 93, 104);
+        ctx.drawImage(images.yoda1, 350, 55, 93, 104);
+      });
+  	 }
+  	 
+  	 
+  	 function loadImages(sources, callback) {
+        var images = {};
+        var loadedImages = 0;
+        var numImages = 0;
+        // get num of sources
+        for(var src in sources) {
+          numImages++;
+        }
+        for(var src in sources) {
+          images[src] = new Image();
+          images[src].onload = function() {
+            if(++loadedImages >= numImages) {
+              callback(images);
+            }
+          };
+          images[src].src = sources[src];
+        }
+      }
  function overlap()
  {
 //alert("in");
