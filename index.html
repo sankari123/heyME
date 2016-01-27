@@ -11,8 +11,7 @@
 <script type="text/javascript">
   var tmr=0; 
   var filName;
- var maxImg = 4;
- var jcrop_api;
+  var jcrop_api;
  var c_width;
  var c_height;
  var imgData1,imgData2,imgData3;
@@ -41,11 +40,9 @@ function setCrop()
   
   var img_arr = new Array(5);
   var new_imgArr=new Array(5);
-   images = []; 
- thisWidth = 250; //This doesn't need to be inside the for-loop.
-thisHeight = 0;
+   
 var ik=0;
-var sources;
+
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
@@ -89,11 +86,7 @@ var pictureSource;   // picture source
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
-		//img1.src = imageURI;
-//	document.getElementById("target").src.height=window.innerHeight;
-	//	document.getElementById("target").src.width=window.innerWidth;
-	//navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
-    }
+	    }
 function onConfirm(buttonIndex) {
   if(buttonIndex==1)
   {
@@ -135,26 +128,21 @@ function release()
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
     function onPhotoURISuccess(imageURI) {
-    //	alert("in1");
-	    var c = document.getElementById("can_me");
+    	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img1 = new Image();
 		img1.onload= drawImageScaled_new.bind(null, img1, ctx);
 		img1.src = imageURI;
-	        
    }
    function drawImageScaled_new(img2, ctx) {
-   //	alert("in2");
-   var c = ctx.canvas ;
+    var c = ctx.canvas ;
   c_width=document.getElementById("w").value;
  c_height=document.getElementById("h").value;
   c.width=c_width;
   c.height=c_height;
- 
-  ctx.clearRect(0,0,c.width,c.height);
+   ctx.clearRect(0,0,c.width,c.height);
    ctx.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
- 
-  imgData2=ctx.getImageData(0,0,c.width,c.height);
+   imgData2=ctx.getImageData(0,0,c.width,c.height);
   }
  
  function disp()
@@ -185,15 +173,15 @@ function prep()
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
-   	 var c = document.getElementById("can_me");
-	 var ctx = c.getContext('2d');
+   	  c = document.getElementById("can_me");
+	  ctx = c.getContext('2d');
 	 handleFiles(ctx,filName);
 }
 
 function handleFiles(ctx1,fnam) {
 	     var img=new Image;
      	     img.src=fnam;
-	     img.onload= multipleImage.bind(img, ctx1);
+	     img.onload=multipleImage.bind(img,ctx1);
 }       
   function multipleImage(imggg,ctx2);
   {
@@ -227,23 +215,6 @@ function handleFiles(ctx1,fnam) {
   //ctx.putImageData(imgData_new3,150,150);
   
 
-
-function testing()
-{
-        
-	for(var p=0;p<3;p++)
-	{
-		fil=img_arr[p].substring(img_arr[p].lastIndexOf("/") + 1, img_arr[p].lastIndexOf("."));
-		var last1 = img_arr[p].substr(-3);
-	       new_imgArr[p]=fil+"."+last1;
-             //  alert(new_imgArr[p]);
-	}
-//	multi_load();
-}
- 
-  	 
-  	 
-  
  function overlap()
  {
 //alert("in");
