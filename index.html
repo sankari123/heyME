@@ -184,15 +184,10 @@ function testing()
         
 	for(var p=0;p<2;p++)
 	{
-	//	alert ("p= "+p+ "----"+	img_arr[p]);
 		fil=img_arr[p].substring(img_arr[p].lastIndexOf("/") + 1, img_arr[p].lastIndexOf("."));
 		var last1 = img_arr[p].substr(-3);
-	//	f_ext=right(img_arr[p],3);
-	//	fil_nam=fil+"."+f_ext;
-              // alert(fil);
-              // alert(last1);
-               new_imgArr[p]=fil+"."+last1;
-               alert(new_imgArr[p]);
+	       new_imgArr[p]=fil+"."+last1;
+             //  alert(new_imgArr[p]);
 	}
 	multi_load();
 }
@@ -217,10 +212,10 @@ function testing()
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-  	for (var i = 0; i <= maxImg; i++)
+  	for (var i = 0; i <= 2; i++)
 {
     imgSrc = new_imgArr[i];
-alert(imgSrc);
+alert("imgsrc==="+imgSrc);
     images[i] = new Image();
     images[i].src = imgSrc;
 
