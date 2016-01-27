@@ -160,24 +160,21 @@ function release()
                     for (var i = 0; i < results.length; i++) {
                      //  alert('Image URI: ' + results[i]);
 				img_arr[i]= results[i]; 
-				alert('Image URI: ' + 	img_arr[i]);
+				//alert('Image URI: ' + 	img_arr[i]);
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
-                 
-       //  alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+      //  alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
             alert('Error: ' + error);
         });
                     }
-                  //  img_arr[i]=fileEntry.name;
-        	//	alert(" image " + i+" - "+fileEntry.name);
+                  
                 }, function (error) {
                     alert('Error: ' + error);
                 }
             );
-          
  }
 
 function testing()
@@ -187,8 +184,8 @@ function testing()
 	{
 		alert ("p= "+p+ "----"+	img_arr[p]);
 		String path=img_arr[p];//it contain your path of image..im using a temp string..
-               String filename=path.substring(path.lastIndexOf("/")+1);
-               alert(filename);
+               String fil=path.substring(path.lastIndexOf("/")+1);
+               alert(fil);
 	}
 }
  attach = function(img, x, y)
