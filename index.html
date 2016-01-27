@@ -216,17 +216,18 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
     		if(i==0)
     		{
     			alert('in1 = '+i);
-        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,0,0,c.width,c.height);
+    			//alert(img_arr[i]);
+        ctx.drawImage(letterImg,0,0,c.width,c.height);
     		}
     		else if(i==1)
     		{
     			alert('in2 = '+i);
-        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,100,100,c.width,c.height);
+        ctx.drawImage(letterImg,100,100,c.width,c.height);
     		}
     		else if(i==2)
     		{
     			alert('in3 = '+i);
-        ctx.drawImage(letterImg,0,0,letterImg.width,letterImg.height,200,200,c.width,c.height);
+        ctx.drawImage(letterImg,200,200,c.width,c.height);
     		}
     		
  	 }
