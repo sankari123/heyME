@@ -156,28 +156,21 @@ function release()
  
   imgData2=ctx.getImageData(0,0,c.width,c.height);
   }
- var file1,file2;
+ 
  function disp()
  {
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
-                     //  alert('Image URI: ' + results[i]);
-				img_arr[i]= results[i]; 
-				//alert('Image URI: ' + 	img_arr[i]);
-	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
+                    			img_arr[i]= results[i]; 
+		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
       //  alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
-
-    }, function (error) {
-            alert('Error: ' + error);
-        });
+    }, function (error) {            alert('Error: ' + error);        });
                     }
                   
-                }, function (error) {
-                    alert('Error: ' + error);
-                }
+                }, function (error) {                    alert('Error: ' + error);                }
             );
  }
 
@@ -194,7 +187,7 @@ function prep()
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-	 handleFiles(ctx,filName)
+	 handleFiles(ctx,filName);
 }
 
 function handleFiles(ctx1,fnam) {
