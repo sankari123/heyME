@@ -198,8 +198,8 @@ function handleFiles() {
     img.x=i*50;
     img.y=i*50;
     
-       fileNam=	img_arr[i];
-    alert("i= "+i+"-"+fileNam);
+       fileNam=img_arr[i];
+    alert(fileNam);
     img.onload=function(){
     	ctx.drawImage(img,img.x,img.y);
           }
