@@ -38,6 +38,7 @@ function setCrop()
   
   var img_arr = new Array(5);
 var ik=0;
+var sources;
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
@@ -184,9 +185,9 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
  function multi_load()
  {
   	release();
-  	for(i=0;i<3;i++) 	{  	//	alert('image '+ i+'- '+img_arr[i]);
+  	for(i=0;i<2;i++) 	{  alert('image '+ i+'- '+img_arr[i]);
   	}
- 	var sources = { darthVader: img_arr[i], yoda: img_arr[i+1],yoda1:img_arr[i+2]  };
+ 	sources = { darthVader: img_arr[i], yoda: img_arr[i+1]  };
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -203,9 +204,8 @@ window.resolveLocalFileSystemURI(results[i], function(fileEntry){
   	 var yy=0;
   	 loadImages(sources, function(images) {
         ctx.drawImage(images.darthVader, 100, 30, 200, 137);
-        ctx1.drawImage(images.yoda, 350, 55, 93, 104);
-        ctx.drawImage(images.yoda1, 350, 55, 93, 104);
-      });
+        ctx.drawImage(images.yoda, 350, 55, 93, 104);
+         });
   	 }
   	 
   	 
