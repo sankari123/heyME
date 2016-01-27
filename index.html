@@ -160,6 +160,7 @@ function release()
                     for (var i = 0; i < results.length; i++) {
                      //  alert('Image URI: ' + results[i]);
 				img_arr[i]= results[i]; 
+				alert('Image URI: ' + 	img_arr[i]);
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
                  
@@ -184,7 +185,7 @@ function testing()
 	alert("in");
 	for(var p=0;p<2;p++)
 	{
-		alert ("p= "+p+ "----"+results[p]);
+		alert ("p= "+p+ "----"+	img_arr[p]);
 	}
 }
  attach = function(img, x, y)
