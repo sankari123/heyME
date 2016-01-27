@@ -160,9 +160,11 @@ function release()
                     for (var i = 0; i < results.length; i++) {
                        alert('Image URI: ' + results[i]);
 				img_arr[i]= results[i]; 
+				
           
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
+                 
          alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
@@ -177,8 +179,16 @@ function release()
                     alert('Error: ' + error);
                 }
             );
+            testing();
  }
 
+function testing()
+{
+	for(p=0;p<2;+++)
+	{
+		alert ("p= "+p+ "----"+results[p]);
+	}
+}
  attach = function(img, x, y)
 {
     img.onload = function()
