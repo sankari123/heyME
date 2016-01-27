@@ -196,12 +196,13 @@ function handleFiles() {
     //	alert("i=="+i);
     var img=new Image;
     img.x=i*200;
+    img.y=i*100;
     for(tmr=0;tmr<=100000;tmr++)
     {
     	
     }
     img.onload=function(){
-    	ctx.drawImage(img,img.x,0);
+    	ctx.drawImage(img,img.x,img.y);
       }
     img.src=img_arr[i];
   }
