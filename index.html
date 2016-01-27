@@ -211,6 +211,7 @@ function handleFiles() {
     img.src=filNam1;
     imgData_new1=ctx.getImageData(0,0,img.x,img.y); 
     ctx.clearRect(0,0,c.width,c.height);
+    alert("1 over");
     //2nd image
     var img1=new Image;
     img1.x=1*50;
@@ -221,6 +222,7 @@ function handleFiles() {
     img1.src=filNam2;
     imgData_new2=ctx.getImageData(0,0,img1.x,img1.y);    
     ctx.clearRect(0,0,c.width,c.height);
+    alert("2 over");
      //3rd image
     var img2=new Image;
     img2.x=2*50;
@@ -231,11 +233,11 @@ function handleFiles() {
     img2.src=filNam3;
     imgData_new3=ctx.getImageData(0,0,img2.x,img2.y);    
     ctx.clearRect(0,0,c.width,c.height);
-       
+       alert("3 over");
   
   ctx.putImageData(imgData_new1,0,0);
   ctx.putImageData(imgData_new2,50,50);
-  ctx.putImageData(imgData_new3,100,100);
+  ctx.putImageData(imgData_new3,150,150);
   
 }
 
