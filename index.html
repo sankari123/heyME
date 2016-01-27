@@ -182,7 +182,7 @@ function release()
 
 
 function handleFiles() {
- document.getElementById("target").style.visibility = 'hidden';
+	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
     	document.getElementById("div_main1").style.display = 'none';
@@ -197,18 +197,15 @@ function handleFiles() {
     var img=new Image;
     img.x=i*200;
     img.y=i*100;
-    for(tmr=0;tmr<=100000;tmr++)
-    {
-    	
-    }
+    
+       fileNam=	img_arr[i];
+    
     img.onload=function(){
     	ctx.drawImage(img,img.x,img.y);
       }
-    img.src=img_arr[i];
+    img.src=fileNam;
   }
-  for(var i=0;i<3;i++){
-  	alert('img   '+i+' - '+img_arr[i]);
-  }
+  
 }
 
 function testing()
