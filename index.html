@@ -10,6 +10,7 @@
 
 <script type="text/javascript">
     
+ var maxImg = 4;
  var jcrop_api;
  var c_width;
  var c_height;
@@ -202,7 +203,7 @@ function testing()
         ctx.drawImage(img, x, y);
     }
 }
-maxImg = 4;
+
  function multi_load()
  {
   	//release();
@@ -219,7 +220,7 @@ maxImg = 4;
   	for (var i = 0; i <= maxImg; i++)
 {
     imgSrc = new_imgArr[i];
-
+alert(imgSrc);
     images[i] = new Image();
     images[i].src = imgSrc;
 
