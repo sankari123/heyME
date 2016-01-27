@@ -139,10 +139,6 @@ function release()
 		img1.src = imageURI;
 	        
    }
-
-
-
-   
    function drawImageScaled_new(img2, ctx) {
    //	alert("in2");
    var c = ctx.canvas ;
@@ -167,7 +163,7 @@ function release()
           
 	window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { 
-         alert(fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
+         alert('i = '+i+'-'+fileEntry.name);       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
 
     }, function (error) {
