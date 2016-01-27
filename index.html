@@ -197,11 +197,12 @@ function handleFiles() {
     var img=new Image;
     img.x=i*200;
     img.onload=function(){
-    	ctx.drawImage(img,img.x,0,80,img.height*(80/img.width));
-   //   ctx.drawImage(img,img.x,0,img.width,img.height,80,img.height*(80/img.width));
-    //   ctx.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
-    }
+    	ctx.drawImage(img,img.x,0);
+      }
     img.src=img_arr[i];
+  }
+  for(var i=0;i<3;i++){
+  	alert('img   '+i+' - '+img_arr[i]);
   }
 }
 
