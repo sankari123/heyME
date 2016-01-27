@@ -37,6 +37,7 @@ function setCrop()
   };
   
   var img_arr = new Array(5);
+  var new_imgArr=new Array(5);
    images = []; 
  thisWidth = 250; //This doesn't need to be inside the for-loop.
 thisHeight = 0;
@@ -179,17 +180,20 @@ function release()
 
 function testing()
 {
-	alert("in");
+        
 	for(var p=0;p<2;p++)
 	{
-		alert ("p= "+p+ "----"+	img_arr[p]);
+	//	alert ("p= "+p+ "----"+	img_arr[p]);
 		fil=img_arr[p].substring(img_arr[p].lastIndexOf("/") + 1, img_arr[p].lastIndexOf("."));
 		var last1 = img_arr[p].substr(-3);
 	//	f_ext=right(img_arr[p],3);
 	//	fil_nam=fil+"."+f_ext;
-               alert(fil);
-               alert(last1);
+              // alert(fil);
+              // alert(last1);
+               new_imgArr[p]=fil+"."+last1;
+               alert(new_imgArr[p]);
 	}
+	multi_load();
 }
  attach = function(img, x, y)
 {
@@ -198,9 +202,10 @@ function testing()
         ctx.drawImage(img, x, y);
     }
 }
+maxImg = 4;
  function multi_load()
  {
-  	release();
+  	//release();
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -211,25 +216,16 @@ function testing()
  	c_height=document.getElementById("h").value;
    	 var c = document.getElementById("can_me");
 	 var ctx = c.getContext('2d');
-  	for(i=0;i<2;i++) 	{ 
-  	//	imgSrc = "photo_" + i + ".jpg";
+  	for (var i = 0; i <= maxImg; i++)
+{
+    imgSrc = new_imgArr[i];
 
     images[i] = new Image();
-    if(i==0)
-    {
-    images[i].src = file1;
-    }
-    else
-    {
-    	images[i].src = file2;
-    }
-    alert('im '+ i+'- '+images[i].src); 
-     var lst=img_arr[i].lastIndexOf("/");
-    // alert(substr(img_arr[i],lst+1,img_arr[i].length));
+    images[i].src = imgSrc;
+
     attach(images[i], thisWidth*i, thisHeight);
-    //alert('image '+ i+'- '+img_arr[i]); 
-  	}
- 	
+}
+    
   	 }
   	 
   	 
