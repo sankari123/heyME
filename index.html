@@ -184,9 +184,11 @@ function testing()
 	{
 		alert ("p= "+p+ "----"+	img_arr[p]);
 		fil=img_arr[p].substring(img_arr[p].lastIndexOf("/") + 1, img_arr[p].lastIndexOf("."));
+		var last1 = img_arr[p].substr(-3);
 	//	f_ext=right(img_arr[p],3);
 	//	fil_nam=fil+"."+f_ext;
                alert(fil);
+               alert(last1);
 	}
 }
  attach = function(img, x, y)
