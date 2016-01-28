@@ -152,8 +152,8 @@ function release()
                     for (var i = 0; i < results.length; i++) {
                     			img_arr[i]= results[i]; 
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
-        	fileEntry.file(function(fileObj) { 
-      //alert('i = '+i+'-'+fileEntry.name);      
+        	fileEntry.file(function(fileObj) { document.getElementById('w').value=fileEntry.name;
+      alert('i = '+i+'-'+document.getElementById('w').value);      
       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
     }, function (error) {            alert('Error: ' + error);        });
