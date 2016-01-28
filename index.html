@@ -166,6 +166,7 @@ function release()
  function prep()
 {
 	filName=img_arr[0];
+	alert(filName);
 	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -173,23 +174,26 @@ function release()
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
- 	    c_height=document.getElementById("h").value;
-   	  c = document.getElementById("can_me");
-	  ctx = c.getContext('2d');
-	 handleFiles(ctx,filName);
+ 	c_height=document.getElementById("h").value;
+   	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	handleFiles(ctx,filName);
 }
 
 function handleFiles(ctx1,fnam) {
 	     var img=new Image;
      	     img.src=fnam;
+     	     alert("handle");
 	     img.onload=multipleImage.bind(null,img,ctx1);
 }       
   function multipleImage(img_1,ctx2)
   {
-
+     alert("multi");
 	do
 	{
+	
 		tmr=tmr+1;
+		alert(tmr);
   	  	img_1.x=0*50;
         	img_1.y=0*50;
 		cx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
@@ -204,7 +208,7 @@ function handleFiles(ctx1,fnam) {
 	}
 	while (tmr<=2)  	
   	
-	handleFiles(ctx2,filName);
+//	handleFiles(ctx2,filName);
   }
   
 
