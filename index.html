@@ -173,18 +173,18 @@ function release()
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
-   	 c = document.getElementById("can_me");
-	 ctx = c.getContext('2d');
-	 filName=document.getElementById("fnam").value;
+ 	filName=document.getElementById("fnam").value;
 	 img_arr = filName.split('#');
 	for(op=0;op<3;op++)
 	{
-	 var img_r=new Image;
-	 img_r.src=img_arr[op];
-	 img_r.x=op*50;
-         img_r.y=op*50;
+   	 //var img_r=new Image;
+	 //img_r.src=img_arr[op];
+	var img_r = document.createElement('img');
+	img_r.src = 'img_arr[op];
+	document.getElementById('loadImgDiv').appendChild(img_r);
+	
 	}
-	 ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);    
+	     
 }
 
 
@@ -442,6 +442,9 @@ function chek(imgg,can_1)
          </tr></table>
          </div>
          <BR><BR>
+         	<div id='loadImgDiv'>
+         		
+         	</div>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
