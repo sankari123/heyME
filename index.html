@@ -202,18 +202,19 @@ function release()
 
 function prep()
 {
-		document.getElementById("div_main2").style.display = 'block';
-    	document.getElementById("div_main2").style.visibility = 'visible';
     	
-    	for(op=0;op<3;op++)
-	{
    	var img_r = document.createElement('img');
-	img_r.src = img_arr[op];
-	img_r.x=op*20;
-    	img_r.y=op*10;
-	document.getElementById('loadImgDiv').appendChild(img_r);
+	img_r.src = img_arr[0];
+	document.getElementById('loadImgDiv1').appendChild(img_r);
 	
-	}
+	var img_r1 = document.createElement('img');
+	img_r1.src = img_arr[1];
+	document.getElementById('loadImgDiv2').appendChild(img_r1);
+	
+	var img_r2 = document.createElement('img');
+	img_r2.src = img_arr[2];
+	document.getElementById('loadImgDiv3').appendChild(img_r2);
+	
 }
  function overlap()
  {
@@ -448,6 +449,24 @@ function chek(imgg,can_1)
    visibility:hidden;
    position:fixed
   }
+  .red {
+    width:680px;
+    height:1000px;
+    background:red;
+}
+
+.blue {
+    width: 25%;
+    display:inline-block;
+    margin-right: -4px;
+    box-sizing: border-box;
+    padding: 1%;
+}
+
+.blue > div {
+    background:blue;
+    height:200px;
+}
         </style>
   </head>
   
@@ -469,8 +488,11 @@ function chek(imgg,can_1)
          </tr></table>
          </div>
          <BR><BR>
-         	<div id='loadImgDiv'>
-         		
+         	<div id='loadImgDiv' class="red">
+         	
+    			<div id='loadImgDiv1' class="blue"><div>content1</div></div>
+    			<div id='loadImgDiv2' class="blue"><div>content2</div></div>
+    			<div id='loadImgDiv3' class="blue"><div>content3</div></div>	
          	</div>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
