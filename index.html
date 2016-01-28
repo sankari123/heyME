@@ -180,17 +180,24 @@ function release()
 	
 	for(op=0;op<3;op++)
 	{
-   	 //var img_r=new Image;
-	 //img_r.src=img_arr[op];
-	 
-	var img_r = document.createElement('img');
+   	var img_r = document.createElement('img');
 	img_r.src = img_arr[op];
 	img_r.x=op*50;
     	img_r.y=op*50;
 //	document.getElementById('loadImgDiv').appendChild(img_r);
 	ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);
-	}
-	     
+	if(op==0)
+	{mul_img1=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
+	else if(op==1)
+	{mul_img2=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
+	else if(op==2)
+	{mul_img3=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
+}
+	 ctx.clearRect(0,0,c.width,c.height);
+	 ctx.putImageData(mul_img1,0,0);
+	 ctx.putImageData(mul_img2,0,40);
+	 ctx.putImageData(mul_img3,0,100);
+
 }
 
 
