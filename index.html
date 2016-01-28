@@ -152,7 +152,7 @@ function release()
                     for (var i = 0; i < results.length; i++) {
                     			img_arr[i]= results[i]; 
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
-        	fileEntry.file(function(fileObj) { document.getElementById('w').value=fileEntry.name;
+        	fileEntry.file(function(fileObj) { document.getElementById('w').value=document.getElementById('w').value+"_"+fileEntry.name;
       alert('i = '+i+'-'+document.getElementById('w').value);      
       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
@@ -463,7 +463,7 @@ function chek(imgg,can_1)
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-       	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+       	<tr><td><input type="text" size="100" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button onclick="prep();">Load Y</button></td>
