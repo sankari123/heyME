@@ -166,7 +166,7 @@ function release()
  function prep()
 {
 	filName=img_arr[0];
-	alert(filName);
+	
 	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -197,6 +197,7 @@ function handleFiles(ctx1,fnam) {
   	  	img_1.x=tmr*50;
         	img_1.y=tmr*50;
         	//img_N.src=img_1.src;
+        	alert(img_1);
 		ctx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
 	//ctx2.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
    	//	imgData2=ctx.getImageData(0,0,c.width,c.height);
