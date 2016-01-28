@@ -183,8 +183,9 @@ function handleFiles(ctx1,fnam) {
 	     ctx = c.getContext('2d');
 	     var img_r=new Image;
      	     img_r.src=fnam;
+     	     ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);
      	     //alert("handle");
-	     img_r.onload=multipleImage.bind(img_r,ctx);
+	   //  img_r.onload=multipleImage.bind(img_r,ctx);
 }       
   function multipleImage(img_1,ctx2)
   {
@@ -194,25 +195,25 @@ function handleFiles(ctx1,fnam) {
 	
 		tmr=tmr+1;
 	//	alert(tmr);
-  	  	img_1.x=tmr*50;
-        	img_1.y=tmr*50;
+  	  //	img_1.x=tmr*50;
+        //	img_1.y=tmr*50;
         	//img_N.src=img_1.src;
         	alert(img_1);
-		ctx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+	//	ctx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
 	//ctx2.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
    	//	imgData2=ctx.getImageData(0,0,c.width,c.height);
-		if(tmr==1)
-		{
-		filName=img_arr[1];
-		}
-		else
-		{
-		filName=img_arr[2];
-		}
+	//	if(tmr==1)
+	//	{
+	//	filName=img_arr[1];
+	//	}
+	//	else
+	//	{
+	//	filName=img_arr[2];
+	//	}
 	}
 	while (tmr<=2)  	
   	
-	handleFiles(ctx2,filName);
+	//handleFiles(ctx2,filName);
   }
   
 
