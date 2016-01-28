@@ -204,6 +204,7 @@ function prep()
 {
 		document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	var canvas1 = document.createElement("canvas");
     	for(op=0;op<3;op++)
 	{
    	var img_r = document.createElement('img');
@@ -211,15 +212,12 @@ function prep()
 	img_r.x=op*20;
     	img_r.y=op*10;
 	document.getElementById('loadImgDiv').appendChild(img_r);
+	canvas1.width = image.width;
+	canvas1.height = image.height;
+	canvas1.getContext("2d").drawImage(img_r, img_r.x, img_r.x);
+
+	return canvas1;
 	}
-	var s=0;
-$('#loadImgDiv').children('img').each(function(){
-    var c=document.getElementById("can_me");
-    var ctx=c.getContext("2d");
-    var img=document.getElementById($(this).attr('id'));
-    ctx.drawImage(img,s,10,$(this).width(),$(this).height());
-    s=s+$(this).width();
-});
 }
  function overlap()
  {
