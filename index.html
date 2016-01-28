@@ -182,7 +182,7 @@ function release()
 function handleFiles(ctx1,fnam) {
 	     var img=new Image;
      	     img.src=fnam;
-	     img.onload=multipleImage.bind(img,ctx1);
+	     img.onload=multipleImage.bind(null,img,ctx1);
 }       
   function multipleImage(img_1,ctx2)
   {
@@ -191,16 +191,16 @@ function handleFiles(ctx1,fnam) {
 	{
 		tmr=tmr+1;
   	  	img_1.x=0*50;
-    	img_1.y=0*50;
+        	img_1.y=0*50;
 		cx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
-		if(tmr==1)
-		{
-		filName=img_arr[1];
-		}
-		else
-		{
-		filName=img_arr[2];
-		}
+	//	if(tmr==1)
+	//	{
+	//	filName=img_arr[1];
+	//	}
+	//	else
+	//	{
+	//	filName=img_arr[2];
+	//	}
 	}
 	while (tmr<=2)  	
   	
