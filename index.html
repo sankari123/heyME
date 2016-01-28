@@ -150,10 +150,10 @@ function release()
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
-                    			img_arr[i]= results[i]; 
+                    		//	img_arr[i]= results[i]; 
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
-        	fileEntry.file(function(fileObj) { document.getElementById('w').value=document.getElementById('w').value+"_"+fileEntry.name;
-      alert('i = '+i+'-'+document.getElementById('w').value);      
+        	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
+      //alert(document.getElementById('fnam').value);      
       // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
     }, function (error) {            alert('Error: ' + error);        });
@@ -165,8 +165,6 @@ function release()
  
  function prep()
 {
-	filName=img_arr[0];
-	
 	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	document.getElementById("can_model").style.visibility = 'hidden';
@@ -177,49 +175,18 @@ function release()
  	c_height=document.getElementById("h").value;
    	 c = document.getElementById("can_me");
 	 ctx = c.getContext('2d');
+	 filName=document.getElementById("fnam").value;
+	 img_arr = filName.split('#');
+	for(op=0;op<3;op++)
+	{
 	 var img_r=new Image;
-     	 img_r.src=img_arr[0];
-     	 ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);    
+	 img_r=img_arr[op];
+	 img_r.x=op*50;
+         img_r.y=op*50;
+	}
+	 ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);    
 }
 
-function handleFiles(ctx1,fnam) {
-	      c = document.getElementById("can_me");
-	     ctx = c.getContext('2d');
-	     var img_r=new Image;
-     	     img_r.src=fnam;
-     	     ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);
-     	     //alert("handle");
-	   //  img_r.onload=multipleImage.bind(img_r,ctx);
-}       
-  function multipleImage(img_1,ctx2)
-  {
-    alert("multi");
-	do
-	{
-	
-		tmr=tmr+1;
-	//	alert(tmr);
-  	  //	img_1.x=tmr*50;
-        //	img_1.y=tmr*50;
-        	//img_N.src=img_1.src;
-        	alert(img_1);
-	//	ctx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
-	//ctx2.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
-   	//	imgData2=ctx.getImageData(0,0,c.width,c.height);
-	//	if(tmr==1)
-	//	{
-	//	filName=img_arr[1];
-	//	}
-	//	else
-	//	{
-	//	filName=img_arr[2];
-	//	}
-	}
-	while (tmr<=2)  	
-  	
-	//handleFiles(ctx2,filName);
-  }
-  
 
  function overlap()
  {
@@ -463,6 +430,7 @@ function chek(imgg,can_1)
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
+          	<tr><td colspan=5><input type="text" id='fnam'></td></tr>
        	<tr><td><input type="text" size="100" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
