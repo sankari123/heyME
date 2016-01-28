@@ -150,7 +150,7 @@ function release()
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
-                    		//	img_arr[i]= results[i]; 
+                    		img_arr[i]= results[i]; 
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
       //alert(document.getElementById('fnam').value);      
@@ -174,7 +174,7 @@ function release()
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
  	filName=document.getElementById("fnam").value;
-	 img_arr = filName.split('#');
+//	 img_arr = filName.split('#');
 	for(op=0;op<3;op++)
 	{
    	 //var img_r=new Image;
