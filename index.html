@@ -183,32 +183,35 @@ function release()
 function handleFiles(ctx1,fnam) {
 	     var img=new Image;
      	     img.src=fnam;
-     	     alert("handle");
+     	     //alert("handle");
 	     img.onload=multipleImage.bind(null,img,ctx1);
 }       
   function multipleImage(img_1,ctx2)
   {
-     alert("multi");
+    // alert("multi");
 	do
 	{
 	
 		tmr=tmr+1;
-		alert(tmr);
-  	  	img_1.x=0*50;
-        	img_1.y=0*50;
-		cx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
-	//	if(tmr==1)
-	//	{
-	//	filName=img_arr[1];
-	//	}
-	//	else
-	//	{
-	//	filName=img_arr[2];
-	//	}
+	//	alert(tmr);
+  	  	img_1.x=tmr*50;
+        	img_1.y=tmr*50;
+        	img_N.src=img_1.src;
+		cx2.drawImage(img_N,img_N.x,img_N.y,img_N.width,img_N.height);
+	//ctx2.drawImage(img2,0,0,img2.width,img2.height,0,0,c.width,c.height);
+   		imgData2=ctx.getImageData(0,0,c.width,c.height);
+		if(tmr==1)
+		{
+		filName=img_arr[1];
+		}
+		else
+		{
+		filName=img_arr[2];
+		}
 	}
 	while (tmr<=2)  	
   	
-//	handleFiles(ctx2,filName);
+	handleFiles(ctx2,filName);
   }
   
 
