@@ -182,7 +182,7 @@ function release()
 
 function handleFiles(ctx1,fnam) {
 	     var img_r=new Image;
-     	     img_r.src=fnam;
+     	     img_r.src=fnam.src;
      	     //alert("handle");
 	     img_r.onload=multipleImage.bind(img_r,ctx1);
 }       
