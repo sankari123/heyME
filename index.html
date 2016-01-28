@@ -175,7 +175,11 @@ function release()
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
-   	handleFiles(filName);
+   	 c = document.getElementById("can_me");
+	 ctx = c.getContext('2d');
+	 var img_r=new Image;
+     	 img_r.src=img_arr[0];
+     	 ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);    
 }
 
 function handleFiles(ctx1,fnam) {
