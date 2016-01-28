@@ -162,6 +162,51 @@ function release()
                 }, function (error) {                    alert('Error: ' + error);                }
             );
  }
+ 
+ function prep()
+{
+	filName=img_arr[0];
+	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	document.getElementById("can_model").style.visibility = 'hidden';
+    	document.getElementById("div_main1").style.display = 'none';
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	c_width=document.getElementById("w").value;
+ 	    c_height=document.getElementById("h").value;
+   	  c = document.getElementById("can_me");
+	  ctx = c.getContext('2d');
+	 handleFiles(ctx,filName);
+}
+
+function handleFiles(ctx1,fnam) {
+	     var img=new Image;
+     	     img.src=fnam;
+	     img.onload=multipleImage.bind(img,ctx1);
+}       
+  function multipleImage(img_1,ctx2)
+  {
+
+	do
+	{
+		tmr=tmr+1;
+  	  	img_1.x=0*50;
+    	img_1.y=0*50;
+		cx2.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+		if(tmr==1)
+		{
+		filName=img_arr[1];
+		}
+		else
+		{
+		filName=img_arr[2];
+		}
+	}
+	while (tmr<=2)  	
+  	
+	handleFiles(ctx2,filName);
+  }
+  
 
  function overlap()
  {
