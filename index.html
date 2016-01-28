@@ -202,7 +202,9 @@ function release()
 
 function prep()
 {
-		for(op=0;op<3;op++)
+		document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	for(op=0;op<3;op++)
 	{
    	var img_r = document.createElement('img');
 	img_r.src = img_arr[op];
