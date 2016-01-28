@@ -175,16 +175,16 @@ function release()
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
-   	c = document.getElementById("can_me");
-	ctx = c.getContext('2d');
-	handleFiles(ctx,filName);
+   	handleFiles(filName);
 }
 
 function handleFiles(ctx1,fnam) {
+	      c = document.getElementById("can_me");
+	     ctx = c.getContext('2d');
 	     var img_r=new Image;
      	     img_r.src=fnam;
      	     //alert("handle");
-	     img_r.onload=multipleImage.bind(img_r,ctx1);
+	     img_r.onload=multipleImage.bind(img_r,ctx);
 }       
   function multipleImage(img_1,ctx2)
   {
