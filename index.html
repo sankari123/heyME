@@ -6,9 +6,7 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-<script src="jquery.ui.touch-punch.min.js"></script>
+
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
 
 <script type="text/javascript">
@@ -24,6 +22,28 @@
  var canvas,ctx;
  var touchup=false;
  var ip;
+ function dragg()
+ {
+ 	
+ $("#loadImgDiv1, #loadImgDiv2, #loadImgDiv3").draggable({
+    revert:true // to reset item location.
+});
+$("#drop").droppable({
+    drop: function( event, ui ) {
+        $(ui.draggable).remove(); // Remove the div we were dragging.
+        $(this).css({'border':'#777 dashed 3px','background':'#eee'});
+        // resetting CSS styles for Drop area.
+    },
+    over: function(event, ui) {
+        $(this).css({'border':'#a33 dashed 3px','background':'#faa'});
+        // Creating an effect on dragging over the Drop area.
+    },
+    out: function (event, ui){
+        $(this).css({'border':'#777 dashed 3px','background':'#eee'});
+        // resetting CSS styles for Drop area.
+    }
+});
+ }
 function setCrop()
     {
         
@@ -40,17 +60,7 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  function dragDrop()
-  {
-  $('#m1').draggable();
-    $( "#loadImgDiv1").droppable({
-        drop: function( event, ui ) {
-          $(this)
-            .addClass( "isDropped" )
-            .html( "Dropped!" );
-        }
-      });
-    };
+
   var img_arr = new Array(5);
   var new_imgArr=new Array(5);
    
@@ -427,6 +437,39 @@ function chek(imgg,can_1)
         	img_n.src = imgg;
 //	ctx.putImageData(imgData3,0,0);
 }
+function touchHandler(event)
+{
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+ 
+    switch(event.type)
+    {
+        case "touchstart": type = "mousedown"; break;
+        case "touchmove":  type="mousemove"; break;
+        case "touchend":   type="mouseup"; break;
+        default: return;
+    }
+    var simulatedEvent = document.createEvent("MouseEvent");
+    simulatedEvent.initMouseEvent(type, true, true, window, 1,
+                              first.screenX, first.screenY,
+                              first.clientX, first.clientY, false,
+                              false, false, false, 0/*left*/, null);
+ 
+    first.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+}
+ 
+function initTouch()
+{
+   document.addEventListener("touchstart", touchHandler, true);
+   document.addEventListener("touchmove", touchHandler, true);
+   document.addEventListener("touchend", touchHandler, true);
+   document.addEventListener("touchcancel", touchHandler, true);
+   dragg();
+}
+
+
       </script>
 
       <style type="text/css">
@@ -526,10 +569,11 @@ function chek(imgg,can_1)
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue"><img id='m1' src="#"></div>
-    			<div id='loadImgDiv2' class="blue"><img id='m2' src="#"></div>
-    			<div id='loadImgDiv3' class="blue"><img id='m3' src="#"></div>	
+    			<div id='loadImgDiv1' class="blue">dd</div>
+    			<div id='loadImgDiv2' class="blue">dd</div>
+    			<div id='loadImgDiv3' class="blue">dd</div>	
          	</div>
+         	<div id="drop" class="dropArea"><b>Drop here</b></div>
          	
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
