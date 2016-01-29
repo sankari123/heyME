@@ -6,6 +6,9 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
 
 <script type="text/javascript">
@@ -38,7 +41,7 @@ function setCrop()
     $('#y_coor').val(c.y);
   };
   $('#m1').draggable();
-    $( "#div1" ).droppable({
+    $( "#loadImgDiv1" ).droppable({
         drop: function( event, ui ) {
           $( this )
             .addClass( "isDropped" )
