@@ -22,28 +22,7 @@
  var canvas,ctx;
  var touchup=false;
  var ip;
- function dragg()
- {
- 	
- $("#loadImgDiv1, #loadImgDiv2, #loadImgDiv3").draggable({
-    revert:true // to reset item location.
-});
-$("#drop").droppable({
-    drop: function( event, ui ) {
-        $(ui.draggable).remove(); // Remove the div we were dragging.
-        $(this).css({'border':'#777 dashed 3px','background':'#eee'});
-        // resetting CSS styles for Drop area.
-    },
-    over: function(event, ui) {
-        $(this).css({'border':'#a33 dashed 3px','background':'#faa'});
-        // Creating an effect on dragging over the Drop area.
-    },
-    out: function (event, ui){
-        $(this).css({'border':'#777 dashed 3px','background':'#eee'});
-        // resetting CSS styles for Drop area.
-    }
-});
- }
+ 
 function setCrop()
     {
         
@@ -437,36 +416,10 @@ function chek(imgg,can_1)
         	img_n.src = imgg;
 //	ctx.putImageData(imgData3,0,0);
 }
-function touchHandler(event)
+
+function testDiv()
 {
-    var touches = event.changedTouches,
-        first = touches[0],
-        type = "";
- 
-    switch(event.type)
-    {
-        case "touchstart": type = "mousedown"; break;
-        case "touchmove":  type="mousemove"; break;
-        case "touchend":   type="mouseup"; break;
-        default: return;
-    }
-    var simulatedEvent = document.createEvent("MouseEvent");
-    simulatedEvent.initMouseEvent(type, true, true, window, 1,
-                              first.screenX, first.screenY,
-                              first.clientX, first.clientY, false,
-                              false, false, false, 0/*left*/, null);
- 
-    first.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
-}
- 
-function initTouch()
-{
-   document.addEventListener("touchstart", touchHandler, true);
-   document.addEventListener("touchmove", touchHandler, true);
-   document.addEventListener("touchend", touchHandler, true);
-   document.addEventListener("touchcancel", touchHandler, true);
-   dragg();
+	alert("selected");
 }
 
 
@@ -569,7 +522,7 @@ function initTouch()
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue">dd</div>
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv();">dd</div>
     			<div id='loadImgDiv2' class="blue">dd</div>
     			<div id='loadImgDiv3' class="blue">dd</div>	
          	</div>
