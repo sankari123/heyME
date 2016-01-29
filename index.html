@@ -37,7 +37,15 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  
+  $('#m1').draggable();
+    $( "#div1" ).droppable({
+        drop: function( event, ui ) {
+          $( this )
+            .addClass( "isDropped" )
+            .html( "Dropped!" );
+        }
+      });
+    });
   var img_arr = new Array(5);
   var new_imgArr=new Array(5);
    
@@ -171,6 +179,16 @@ function release()
     	document.getElementById("div_main1").style.display = 'none';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	
+    	document.getElementById("loadImgDiv1").style.display = 'block';
+    	document.getElementById("loadImgDiv1").style.visibility = 'visible';
+    	
+    	document.getElementById("loadImgDiv2").style.display = 'block';
+    	document.getElementById("loadImgDiv2").style.visibility = 'visible';
+    	
+    	document.getElementById("loadImgDiv3").style.display = 'block';
+    	document.getElementById("loadImgDiv3").style.visibility = 'visible';
+    	
     	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
  	filName=document.getElementById("fnam").value;
@@ -467,6 +485,19 @@ function chek(imgg,can_1)
     background:blue;
     height:200px;
 }
+.loadImgDiv1
+{
+	visibility:hidden;
+}
+.loadImgDiv2
+{
+	visibility:hidden;
+}
+.loadImgDiv3
+{
+	visibility:hidden;
+}
+
         </style>
   </head>
   
@@ -490,10 +521,11 @@ function chek(imgg,can_1)
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue"></div>
-    			<div id='loadImgDiv2' class="blue"></div>
-    			<div id='loadImgDiv3' class="blue"></div>	
+    			<div id='loadImgDiv1' class="blue"><img id='m1' src="#"></div>
+    			<div id='loadImgDiv2' class="blue"><img id='m2' src="#"></div>
+    			<div id='loadImgDiv3' class="blue"><img id='m3' src="#"></div>	
          	</div>
+         	
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
