@@ -40,15 +40,17 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
+  function dragDrop()
+  {
   $('#m1').draggable();
-    $( "#loadImgDiv1" ).droppable({
+    $( "#loadImgDiv1").droppable({
         drop: function( event, ui ) {
-          $( this )
+          $(this)
             .addClass( "isDropped" )
             .html( "Dropped!" );
         }
       });
-    });
+    };
   var img_arr = new Array(5);
   var new_imgArr=new Array(5);
    
@@ -515,7 +517,7 @@ function chek(imgg,can_1)
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button onclick="prep();">Load Y</button></td>
-         <td><button onclick="overlap();">Overlap</button></td>
+         <td><button onclick="dragDrop();">Drag</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
