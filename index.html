@@ -145,6 +145,10 @@ function release()
  
  function disp()
  {
+ 	release();
+ 	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
+    	
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
@@ -220,7 +224,7 @@ function prep()
 	img_r2.src = img_arr[2];
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
-	alert("Select a pic");
+//	alert("Select a pic");
 }
  function overlap()
  {
@@ -480,31 +484,17 @@ function testDiv()
   .red {
     width:300px;
     height:100px;
-    background:white;
+    background:black;
 }
 .blue {
     width: 25%;
     display:inline-block;
-    margin-right: -4px;
+    margin-right: 0px;
     box-sizing: border-box;
-    padding: 1%;
+    padding: 0%;
 }
-.blue > div {
-    background:blue;
-    height:200px;
-}
-.loadImgDiv1
-{
-	visibility:hidden;
-}
-.loadImgDiv2
-{
-	visibility:hidden;
-}
-.loadImgDiv3
-{
-	visibility:hidden;
-}
+
+
         </style>
   </head>
   
@@ -528,11 +518,11 @@ function testDiv()
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue" onclick="testDiv();">dd</div>
-    			<div id='loadImgDiv2' class="blue">dd</div>
-    			<div id='loadImgDiv3' class="blue">dd</div>	
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv();">&nbsp;</div>
+    			<div id='loadImgDiv2' class="blue">&nbsp;</div>
+    			<div id='loadImgDiv3' class="blue">&nbsp;</div>	
          	</div>
-         	<div id="drop" class="dropArea"><b>Drop here</b></div>
+         	
          	
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
