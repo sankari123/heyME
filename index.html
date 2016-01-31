@@ -194,12 +194,7 @@ function prep()
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
 	alert("Select a pic");
-	loadImgDiv1.addEventListener('click', function (event) {
-     testDiv1(); });
-     	loadImgDiv2.addEventListener('click', function (event) {
-     testDiv2(); });
-     	loadImgDiv3.addEventListener('click', function (event) {
-     testDiv3(); });
+	
 	
 }
  function overlay()
@@ -582,7 +577,7 @@ background:blue;
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <td><button onclick="disp();">Load Y</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button onclick="overlay();">Overlay</button></td>
+         <td><button onclick="testDiv1();">Overlay</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
