@@ -149,6 +149,8 @@ function release()
  function disp()
  {
  	release();
+ 	
+    	
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
@@ -163,54 +165,17 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-            prep();
- }
- 
- function prep1()
-{
-	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
-    	document.getElementById("can_model").style.visibility = 'hidden';
-    	document.getElementById("div_main1").style.display = 'none';
-    	
-    	
-    	document.getElementById("loadImgDiv1").style.display = 'block';
+            document.getElementById("loadImgDiv1").style.display = 'block';
     	document.getElementById("loadImgDiv1").style.visibility = 'visible';
     	
     	document.getElementById("loadImgDiv2").style.display = 'block';
     	document.getElementById("loadImgDiv2").style.visibility = 'visible';
     	
     	document.getElementById("loadImgDiv3").style.display = 'block';
-    	document.getElementById("loadImgDiv3").style.visibility = 'visible';
-    	
-    	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
- 	filName=document.getElementById("fnam").value;
-//	 img_arr = filName.split('#');
-	c = document.getElementById("can_me");
-	 ctx = c.getContext('2d');
-	
-	for(op=0;op<3;op++)
-	{
-   	var img_r = document.createElement('img');
-	img_r.src = img_arr[op];
-	img_r.x=op*20;
-    	img_r.y=op*10;
-	document.getElementById('loadImgDiv').appendChild(img_r);
-	ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);
-	if(op==0)
-	{alert(op);mul_img1=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-	else if(op==1)
-	{alert(op);mul_img2=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-	else if(op==2)
-	{alert(op);mul_img3=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-}
-	 ctx.clearRect(0,0,c.width,c.height);
-	 ctx.putImageData(mul_img1,0,0);
-	 ctx.putImageData(mul_img2,0,40);
-	 ctx.putImageData(mul_img3,0,100);
-
-}
+    	document.getElementById("loadImgDiv3").style.visibility = visible';
+            prep();
+ }
+ 
 
 function prep()
 {
@@ -490,7 +455,17 @@ function testDiv1()
 {
 	alert("selected");
 //	alert(img_arr[0]);
+	
 	document.getElementById("loadImgDiv1").style.display = 'none';
+    	document.getElementById("loadImgDiv1").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv2").style.display = 'none';
+    	document.getElementById("loadImgDiv2").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv3").style.display = 'none';
+    	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv1").style.display = 'none';
     	document.getElementById("loadImgDiv1").style.visibility = 'hidden';
     	
     	document.getElementById("loadImgDiv2").style.display = 'none';
