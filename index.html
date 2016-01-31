@@ -545,34 +545,21 @@ function testDiv1()
     width:300px;
     height:100px;
     background:white;
+    border-color:black;
 }
 
 .blue {
-    width: 25%;
+    width: 100px;
     display:inline-block;
     margin-right: -4px;
     box-sizing: border-box;
-    padding: 1%;
+    padding: 0%;
+    border-color:black;
+    height:100px;
+	visibility:hidden;
 }
 
-.loadImgDiv1
-{
-	height:100px;
-	visibility:hidden;
-	border-color:black;
-}
-.loadImgDiv2
-{
-	height:100px;
-	visibility:hidden;
-	border-color:black;
-}
-.loadImgDiv3
-{
-	height:100px;
-	visibility:hidden;
-	border-color:black;
-}
+
 
         </style>
   </head>
@@ -596,9 +583,9 @@ function testDiv1()
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();">dd</div>
-    			<div id='loadImgDiv2' class="blue"  onclick="testDiv2();">dd<div>
-    			<div id='loadImgDiv3'  class="blue" onclick="testDiv3();">dd</div>	
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();">&nbsp;</div>
+    			<div id='loadImgDiv2' class="blue"  onclick="testDiv2();">&nbsp;<div>
+    			<div id='loadImgDiv3'  class="blue" onclick="testDiv3();"&nbsp;</div>	
          	</div>
          	<div id="drop" class="dropArea"><b>Drop here</b></div>
          	
