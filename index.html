@@ -163,6 +163,7 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
+            prep();
  }
  
  function prep1()
@@ -212,17 +213,29 @@ function release()
 function prep()
 {
     	
+   	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
    	var img_r = document.createElement('img');
 	img_r.src = img_arr[0];
-	img_r.h
+//	var elem = document.createElement("img");
+	//elem.setAttribute("src", "images/logo.jpg");
+//elem.setAttribute("height", "40");
+//elem.setAttribute("width", "120");
+//elem.setAttribute("alt", "GiantCo Logo");
+img_r.setAttribute("height", c_height);
+img_r.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv1').appendChild(img_r);
 	
 	var img_r1 = document.createElement('img');
 	img_r1.src = img_arr[1];
+	img_r1.setAttribute("height", c_height);
+img_r1.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv2').appendChild(img_r1);
 	
 	var img_r2 = document.createElement('img');
 	img_r2.src = img_arr[2];
+	img_r2.setAttribute("height", c_height);
+img_r2.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
 //	alert("Select a pic");
