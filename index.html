@@ -65,7 +65,7 @@ var pictureSource;   // picture source
         	 document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
-        	 document.getElementById("div_main2").style.visibility = 'hidden';
+        	 document.getElementById("div_main3").style.visibility = 'hidden';
         	 
 	  }
        function onFail(message) {
@@ -166,16 +166,22 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-            document.getElementById("loadImgDiv1").style.display = 'block';
-    	document.getElementById("loadImgDiv1").style.visibility = 'visible';
+            document.getElementById("main").style.display = 'block';
+    	document.getElementById("main").style.visibility = 'visible';
     	
-    	document.getElementById("loadImgDiv2").style.display = 'block';
-    	document.getElementById("loadImgDiv2").style.visibility = 'visible';
-    	
-    	document.getElementById("loadImgDiv3").style.display = 'block';
-    	document.getElementById("loadImgDiv3").style.visibility = 'visible';
-            prep();
- }
+    	var img_r = document.createElement('img');
+	img_r.src = img_arr[0];
+	document.getElementById('loadImgDiv1').appendChild(img_r);
+	
+	var img_r1 = document.createElement('img');
+	img_r1.src = img_arr[1];
+	document.getElementById('loadImgDiv2').appendChild(img_r1);
+	
+	var img_r2 = document.createElement('img');
+	img_r2.src = img_arr[2];
+	document.getElementById('loadImgDiv3').appendChild(img_r2);
+	
+     }
  
 
 function prep()
@@ -332,23 +338,25 @@ function testDiv1()
      visibility:hidden;
 }
 
-.loadImgDiv1
-{
-background:blue;
-    border-color:black;
-     visibility:hidden;	
+
+
+.main{
+   background-color: red;
+    height: 50px;
+    width: 150px;
+    visibility:hidden;	
 }
-.loadImgDiv2
-{
-background:blue;
-    border-color:black;
-     visibility:hidden;	
-}
-.loadImgDiv3
-{
-background:blue;
-    border-color:black;
-     visibility:hidden;	
+
+.bottom{
+    position: relative;
+    top:0px;
+    left:0px;
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    float: left;
+    margin-right: 0px;
 }
 
         </style>
@@ -370,13 +378,11 @@ background:blue;
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
          </div>
-         <BR><BR>
-         	<div id='loadImgDiv' class="red">
-         	
-    			<div id='loadImgDiv1'  onclick="testDiv1();">&nbsp;</div>
-    			<div id='loadImgDiv2'   onclick="testDiv2();">&nbsp;<div>
-    			<div id='loadImgDiv3'  onclick="testDiv3();">&nbsp;</div>	
-         	</div>
+         <div class="main"><div class="bottom" id='loadImgDiv1'  onclick="testDiv1();>#1   </div>    <div class="bottom" id='loadImgDiv2'  onclick="testDiv2();">#2  </div> <div class="bottom" id='loadImgDiv3'  onclick="testDiv3();">#3   </div></div>
+              	 <!--	<div id='loadImgDiv1'  onclick="testDiv1();">&nbsp;</div>
+    			<div id='loadImgDiv2'  onclick="testDiv2();">&nbsp;<div>
+    			<div id='loadImgDiv3'  onclick="testDiv3();">&nbsp;</div>-->	
+         
          	<Br><br>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
