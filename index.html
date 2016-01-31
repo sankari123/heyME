@@ -193,7 +193,7 @@ function prep()
 	img_r2.src = img_arr[2];
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
-	alert("Select a pic");
+//	alert("Select a pic");
 	
 	
 }
@@ -388,7 +388,7 @@ function chek(imgg,can_1)
 
 function testDiv1()
 {
-	alert("selected");
+//	alert("selected");
 //	alert(img_arr[0]);
 	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
@@ -403,9 +403,11 @@ function testDiv1()
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
-    	img_1.style.width=c_width;
-    	img_1.style.height=c_height;
-    	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
+   // 	img_1.style.width=c_width;
+    //	img_1.style.height=c_height;
+    	alert(c_width);
+    	
+    	ctx.drawImage(img_1,img_1.x,img_1.y);
  }
  function testDiv2()
 {
@@ -432,8 +434,8 @@ function testDiv1()
 	img_1.src = img_arr[1];
 	img_1.x=0;
     	img_1.y=0;
-    	img_1.style.width=c_width;
-    	img_1.style.height=c_height;
+    //	img_1.style.width=c_width;
+    //	img_1.style.height=c_height;
     	ctx.clearRect(0,0,c.width,c.height);
     	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
  }
@@ -474,8 +476,8 @@ function testDiv1()
 	img_1.src = img_arr[2];
 	img_1.x=0;
     	img_1.y=0;
-    	img_1.style.width=c_width;
-    	img_1.style.height=c_height;
+    //	img_1.style.width=c_width;
+    //	img_1.style.height=c_height;
     	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
  }
  
@@ -528,13 +530,13 @@ function testDiv1()
    position:fixed
   }
   .red {
-    width:300px;
+    width:3000px;
     background:red;
     border-color:black;
 }
 
 .blue {
-    width: 100px;
+    width: 1000px;
     display:inline-block;
     margin-right: -4px;
     box-sizing: border-box;
@@ -583,14 +585,13 @@ background:blue;
          </tr></table>
          </div>
          <BR><BR>
-         	<div id='loadImgDiv'>
+         	<div id='loadImgDiv' class="red">
          	
     			<div id='loadImgDiv1'  onclick="testDiv1();">&nbsp;</div>
     			<div id='loadImgDiv2'   onclick="testDiv2();">&nbsp;<div>
     			<div id='loadImgDiv3'  onclick="testDiv3();">&nbsp;</div>	
          	</div>
-         	<div id="drop" class="dropArea"><b>Drop here</b></div>
-         	
+         	<Br><br>
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
