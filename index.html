@@ -226,8 +226,15 @@ function prep()
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
 	alert("Select a pic");
+	loadImgDiv1.addEventListener('click', function (event) {
+     testDiv1(); });
+     	loadImgDiv2.addEventListener('click', function (event) {
+     testDiv2(); });
+     	loadImgDiv3.addEventListener('click', function (event) {
+     testDiv3(); });
+	
 }
- function overlap()
+ function overlay()
  {
 //alert("in");
 document.getElementById("div_main1").style.display = 'none';
@@ -416,7 +423,7 @@ function chek(imgg,can_1)
 //	ctx.putImageData(imgData3,0,0);
 }
 
-function testDiv()
+function testDiv1()
 {
 	alert("selected");
 //	alert(img_arr[0]);
@@ -428,16 +435,87 @@ function testDiv()
     	
     	document.getElementById("loadImgDiv3").style.display = 'none';
     	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
+    	
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+
     	c = document.getElementById("can_me");
 	ctx = c.getContext('2d');
+	ctx.clearRect(0,0,c.width,c.height);
 	var img_1 = document.createElement('img');
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+    	img_1.style.width=c_width;
+    	img_1.style.height=c_height;
+    	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
  }
+ function testDiv2()
+{
+	alert("selected");
+//	alert(img_arr[0]);
+	document.getElementById("loadImgDiv1").style.display = 'none';
+    	document.getElementById("loadImgDiv1").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv2").style.display = 'none';
+    	document.getElementById("loadImgDiv2").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv3").style.display = 'none';
+    	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
+    	
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+
+    	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	var img_1 = document.createElement('img');
+	img_1.src = img_arr[1];
+	img_1.x=0;
+    	img_1.y=0;
+    	img_1.style.width=c_width;
+    	img_1.style.height=c_height;
+    	ctx.clearRect(0,0,c.width,c.height);
+    	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
+ }
+ 
+ function testDiv3()
+{
+	alert("selected");
+//	alert(img_arr[0]);
+	document.getElementById("loadImgDiv1").style.display = 'none';
+    	document.getElementById("loadImgDiv1").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv2").style.display = 'none';
+    	document.getElementById("loadImgDiv2").style.visibility = 'hidden';
+    	
+    	document.getElementById("loadImgDiv3").style.display = 'none';
+    	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
+    	
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	
+    	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+
+    	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	ctx.clearRect(0,0,c.width,c.height);
+	var img_1 = document.createElement('img');
+	img_1.src = img_arr[2];
+	img_1.x=0;
+    	img_1.y=0;
+    	img_1.style.width=c_width;
+    	img_1.style.height=c_height;
+    	ctx.drawImage(img_1,img_1.x,img_1.y,c_width,c_height);
+ }
+ 
+
 
 
       </script>
@@ -528,11 +606,10 @@ function testDiv()
           	<tr><td colspan=5><input type="text" id='fnam'></td></tr>
        	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
+         <td><button onclick="disp();">Load Y</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button onclick="prep();">Load Y</button></td>
-         <td><button onclick="initTouch();">Drag</button></td>
+         <td><button onclick="overlay();">Overlay</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
-         <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
          </div>
