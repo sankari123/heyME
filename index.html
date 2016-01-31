@@ -149,7 +149,8 @@ function release()
  function disp()
  {
  	release();
- 	
+ 	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
     	
  window.imagePicker.getPictures(
                 function(results) {
