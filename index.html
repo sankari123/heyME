@@ -113,8 +113,7 @@ navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'F
 function release()
   {
     	jcrop_api.destroy();
-    
-   }
+  }
    
    
    function getPhoto(source) {
@@ -226,6 +225,7 @@ function prep()
 	img_r2.src = img_arr[2];
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
 	
+	alert("Select a pic");
 }
  function overlap()
  {
@@ -430,8 +430,14 @@ function testDiv()
     	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
-	
-}
+    	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	var img_1 = document.createElement('img');
+	img_1.src = img_arr[0];
+	img_1.x=0;
+    	img_1.y=0;
+    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+ }
 
 
       </script>
