@@ -148,11 +148,16 @@ function release()
 	release();
  	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
-    	
+    	var img_r = document.createElement('img');
+    	var img_r1 = document.createElement('img');
+    	var img_r2 = document.createElement('img');
  window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
                     		img_arr[i]= results[i]; 
+                    		img_r.src = img_arr[0];
+                    		img_r1.src = img_arr[1];
+                    		img_r2.src = img_arr[2];
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
       //alert(document.getElementById('fnam').value);      
@@ -177,20 +182,13 @@ dumProcess()
 function prep()
 {
     	
-      	alert("1");
+      //	alert("1");
       	release();
       	disp();
-      	alert("2");
+      	//alert("2");
        	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
-   	var img_r = document.createElement('img');
-	img_r.src = img_arr[0];
-//	var elem = document.createElement("img");
-	//elem.setAttribute("src", "images/logo.jpg");
-//elem.setAttribute("height", "40");
-//elem.setAttribute("width", "120");
-//elem.setAttribute("alt", "GiantCo Logo");
-document.getElementById('loadImgDiv').style.width=c_width;
+ 	document.getElementById('loadImgDiv').style.width=c_width;
 document.getElementById('loadImgDiv').style.height=c_height;
 
 document.getElementById('loadImgDiv1').style.width=c_width;
@@ -201,20 +199,28 @@ document.getElementById('loadImgDiv1').style.height=c_height;
 
 document.getElementById('loadImgDiv3').style.width=c_width;
 document.getElementById('loadImgDiv3').style.height=c_height;
+   //	var img_r = document.createElement('img');
+//	img_r.src = img_arr[0];
+//	var elem = document.createElement("img");
+	//elem.setAttribute("src", "images/logo.jpg");
+//elem.setAttribute("height", "40");
+//elem.setAttribute("width", "120");
+//elem.setAttribute("alt", "GiantCo Logo");
+
 
 img_r.setAttribute("height", c_height);
 img_r.setAttribute("width", c_width);
 
 	document.getElementById('loadImgDiv1').appendChild(img_r);
 	
-	var img_r1 = document.createElement('img');
-	img_r1.src = img_arr[1];
+//	var img_r1 = document.createElement('img');
+//	img_r1.src = img_arr[1];
 	img_r1.setAttribute("height", c_height);
 img_r1.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv2').appendChild(img_r1);
 	
-	var img_r2 = document.createElement('img');
-	img_r2.src = img_arr[2];
+//	var img_r2 = document.createElement('img');
+//	img_r2.src = img_arr[2];
 	img_r2.setAttribute("height", c_height);
 img_r2.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
