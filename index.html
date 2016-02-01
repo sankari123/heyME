@@ -163,7 +163,7 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-          document.getElementById('placeIt').click();
+       //   document.getElementById('placeIt').click();
      }
  
  function prep1()
@@ -220,6 +220,9 @@ dumProcess()
 function prep()
 {
     	
+      	release();
+      	disp();
+      	dumProcess();
       	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
    	var img_r = document.createElement('img');
