@@ -148,14 +148,11 @@ function release()
 	release();
  	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
-    	var img_r = document.createElement('img');
-    	var img_r1 = document.createElement('img');
-    	var img_r2 = document.createElement('img');
- window.imagePicker.getPictures(
+    	window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < results.length; i++) {
                     		img_arr[i]= results[i]; 
-                    		
+             		
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
       //alert(document.getElementById('fnam').value);      
@@ -169,14 +166,11 @@ function release()
        //   document.getElementById('placeIt').click();
      }
  
- 
-dumProcess()
-{
-	for(ij=0;ij<=10;ij++)
-	{
-	alert(ij);
-	}
-}
+ function prep1()
+ {
+ 	//document.getElementById('loadImgDiv').innerHTML="<img src='images/aftersurprise.png' />";
+ }
+
 function prep()
 {
     	
@@ -189,11 +183,16 @@ function prep()
  	document.getElementById('loadImgDiv').style.width=c_width;
 document.getElementById('loadImgDiv').style.height=c_height;
 
+document.getElementById("loadImgDiv1").style.cursor = "hand";
+document.getElementById("loadImgDiv2").style.cursor = "hand";
+document.getElementById("loadImgDiv3").style.cursor = "hand";
+
 document.getElementById('loadImgDiv1').style.width=c_width;
 document.getElementById('loadImgDiv1').style.height=c_height;
 
+
 document.getElementById('loadImgDiv2').style.width=c_width;
-document.getElementById('loadImgDiv1').style.height=c_height;
+document.getElementById('loadImgDiv2').style.height=c_height;
 
 document.getElementById('loadImgDiv3').style.width=c_width;
 document.getElementById('loadImgDiv3').style.height=c_height;
@@ -204,11 +203,8 @@ document.getElementById('loadImgDiv3').style.height=c_height;
 //elem.setAttribute("height", "40");
 //elem.setAttribute("width", "120");
 //elem.setAttribute("alt", "GiantCo Logo");
-
-
 img_r.setAttribute("height", c_height);
 img_r.setAttribute("width", c_width);
-
 	document.getElementById('loadImgDiv1').appendChild(img_r)
 		var img_r1 = document.createElement('img');
 	img_r1.src = img_arr[1];
