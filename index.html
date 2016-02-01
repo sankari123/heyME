@@ -45,7 +45,7 @@ function setCrop()
 var ik=0;
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
-   var rotating = false; 
+   var rotating = true; 
     document.addEventListener("deviceready",onDeviceReady,false);
      function onDeviceReady() {
        	pictureSource=navigator.camera.PictureSourceType;
@@ -166,50 +166,7 @@ function release()
        //   document.getElementById('placeIt').click();
      }
  
- function prep1()
-{
-	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
-    	document.getElementById("can_model").style.visibility = 'hidden';
-    	document.getElementById("div_main1").style.display = 'none';
-    	
-    	
-    	document.getElementById("loadImgDiv1").style.display = 'block';
-    	document.getElementById("loadImgDiv1").style.visibility = 'visible';
-    	
-    	document.getElementById("loadImgDiv2").style.display = 'block';
-    	document.getElementById("loadImgDiv2").style.visibility = 'visible';
-    	
-    	document.getElementById("loadImgDiv3").style.display = 'block';
-    	document.getElementById("loadImgDiv3").style.visibility = 'visible';
-    	
-    	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
- 	filName=document.getElementById("fnam").value;
-//	 img_arr = filName.split('#');
-	c = document.getElementById("can_me");
-	 ctx = c.getContext('2d');
-	
-	for(op=0;op<3;op++)
-	{
-   	var img_r = document.createElement('img');
-	img_r.src = img_arr[op];
-	img_r.x=op*20;
-    	img_r.y=op*10;
-	document.getElementById('loadImgDiv').appendChild(img_r);
-	ctx.drawImage(img_r,img_r.x,img_r.y,img_r.width,img_r.height);
-	if(op==0)
-	{alert(op);mul_img1=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-	else if(op==1)
-	{alert(op);mul_img2=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-	else if(op==2)
-	{alert(op);mul_img3=ctx.getImageData(0,0,img_r.x,img_r.y); 	}
-}
-	 ctx.clearRect(0,0,c.width,c.height);
-	 ctx.putImageData(mul_img1,0,0);
-	 ctx.putImageData(mul_img2,0,40);
-	 ctx.putImageData(mul_img3,0,100);
-}
+ 
 dumProcess()
 {
 	for(ij=0;ij<=10;ij++)
@@ -220,10 +177,11 @@ dumProcess()
 function prep()
 {
     	
+      	alert("1");
       	release();
       	disp();
-      	dumProcess();
-      	c_width=document.getElementById("w").value;
+      	alert("2");
+       	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
    	var img_r = document.createElement('img');
 	img_r.src = img_arr[0];
@@ -232,8 +190,21 @@ function prep()
 //elem.setAttribute("height", "40");
 //elem.setAttribute("width", "120");
 //elem.setAttribute("alt", "GiantCo Logo");
+document.getElementById('loadImgDiv').style.width=c_width;
+document.getElementById('loadImgDiv').style.height=c_height;
+
+document.getElementById('loadImgDiv1').style.width=c_width;
+document.getElementById('loadImgDiv1').style.height=c_height;
+
+document.getElementById('loadImgDiv2').style.width=c_width;
+document.getElementById('loadImgDiv1').style.height=c_height;
+
+document.getElementById('loadImgDiv3').style.width=c_width;
+document.getElementById('loadImgDiv3').style.height=c_height;
+
 img_r.setAttribute("height", c_height);
 img_r.setAttribute("width", c_width);
+
 	document.getElementById('loadImgDiv1').appendChild(img_r);
 	
 	var img_r1 = document.createElement('img');
@@ -438,18 +409,10 @@ function chek(imgg,can_1)
         	img_n.src = imgg;
 //	ctx.putImageData(imgData3,0,0);
 }
-function testDiv()
+function testDiv1()
 {
 	alert("selected");
 //	alert(img_arr[0]);
-	document.getElementById("loadImgDiv1").style.display = 'none';
-    	document.getElementById("loadImgDiv1").style.visibility = 'hidden';
-    	
-    	document.getElementById("loadImgDiv2").style.display = 'none';
-    	document.getElementById("loadImgDiv2").style.visibility = 'hidden';
-    	
-    	document.getElementById("loadImgDiv3").style.display = 'none';
-    	document.getElementById("loadImgDiv3").style.visibility = 'hidden';
     	document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
     	c = document.getElementById("can_me");
@@ -460,6 +423,35 @@ function testDiv()
     	img_1.y=0;
     	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
  }
+ function testDiv2()
+{
+	alert("selected");
+//	alert(img_arr[0]);
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	var img_1 = document.createElement('img');
+	img_1.src = img_arr[1];
+	img_1.x=0;
+    	img_1.y=0;
+    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+ }
+ function testDiv3()
+{
+	alert("selected");
+//	alert(img_arr[0]);
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	c = document.getElementById("can_me");
+	ctx = c.getContext('2d');
+	var img_1 = document.createElement('img');
+	img_1.src = img_arr[2];
+	img_1.x=0;
+    	img_1.y=0;
+    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+ }
+ 
       </script>
 
       <style type="text/css">
@@ -542,9 +534,9 @@ function testDiv()
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue" onclick="testDiv();">&nbsp;</div>
-    			<div id='loadImgDiv2' class="blue">&nbsp;</div>
-    			<div id='loadImgDiv3' class="blue">&nbsp;</div>	
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();"></div>
+    			<div id='loadImgDiv2' class="blue" onclick="testDiv1();"></div>
+    			<div id='loadImgDiv3' class="blue" onclick="testDiv1();"></div>	
          	</div>
          	
          	
