@@ -145,7 +145,7 @@ function release()
  
  function disp()
  {
- 	release();
+	release();
  	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
     	
@@ -163,7 +163,7 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-            
+          document.getelementById('placeIt').click();
      }
  
  function prep1()
@@ -220,12 +220,7 @@ dumProcess()
 function prep()
 {
     	
-   	release();
-   	disp();
-   	dumProcess();
-   //	alert(ij);
-   	
-   	c_width=document.getElementById("w").value;
+      	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
    	var img_r = document.createElement('img');
 	img_r.src = img_arr[0];
@@ -534,10 +529,10 @@ function testDiv()
        	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button onclick="prep();">Load Y</button></td>
+         <td><button id='placeIt' onclick="prep();">Load Y</button></td>
          <td><button onclick="initTouch();">Drag</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
-         <td><button onclick="prep();">Display</button></td>
+         <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
          </div>
