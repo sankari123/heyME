@@ -210,11 +210,21 @@ function release()
 	 ctx.putImageData(mul_img2,0,40);
 	 ctx.putImageData(mul_img3,0,100);
 }
+dumProcess()
+{
+	for(ij=0;ij<=100;ij++)
+	{
+		
+	}
+}
 function prep()
 {
     	
    	release();
    	disp();
+   	dumProcess();
+   	if(ij==101)
+   	{
    	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
    	var img_r = document.createElement('img');
@@ -239,7 +249,7 @@ img_r1.setAttribute("width", c_width);
 	img_r2.setAttribute("height", c_height);
 img_r2.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv3').appendChild(img_r2);
-	
+   	}
 //	alert("Select a pic");
 }
  function overlap()
