@@ -208,13 +208,7 @@ img_r.setAttribute("width", c_width);
 	document.getElementById('loadImgDiv1').appendChild(img_r)
 	
 	
-	var img_r1 = new Image();
-var div = document.getElementById('loadImgDiv2');
-
-img_r1.onload = function() {
-  div.appendChild(img_r1);
-};
-img_r1.src = img_arr[1];
+document.getElementById("loadImgDiv2").innerHTML="<img src="+img_arr[1]+"/>";
 
 //		var img_r1 = document.createElement('img');
 //	img_r1.src = img_arr[1];
