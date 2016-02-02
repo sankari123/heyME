@@ -22,6 +22,7 @@
  var canvas,ctx;
  var touchup=false;
  var ip;
+ var m_width,m_height;
  
 function setCrop()
     {
@@ -40,9 +41,7 @@ function setCrop()
     $('#y_coor').val(c.y);
   };
   var img_arr = new Array(5);
-  var new_imgArr=new Array(5);
-   
-var ik=0;
+ var ik=0;
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = true; 
@@ -82,6 +81,8 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 var img = new Image();
 		img.src = imageURI1;
+		m_height=img.height;
+		m_width=img.width;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
@@ -208,8 +209,8 @@ document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("can_final").style.visibility = 'visible';
 	canvas_final = document.getElementById("can_final");
                context_final = canvas_final.getContext("2d");
-               canvas_final.height = window.innerHeight;
-  		canvas_final.width = window.innerWidth;
+               canvas_final.height = m_height;
+  		canvas_final.width = m_width;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
@@ -441,7 +442,7 @@ function testDiv1()
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Y</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
-         <td><button id="Position" onclick="overlay_action();">Youchup</button></td>
+         <td><button id="Position" onclick="overlay_action();">Touchup</button></td>
          <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
@@ -458,7 +459,7 @@ function testDiv1()
          <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
-            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;"></canvas></div>
+            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:2px solid black;"></canvas></div>
         
       </div>
       
