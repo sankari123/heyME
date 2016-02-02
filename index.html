@@ -187,7 +187,9 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-       alert("Select a Photo");
+       setTimeout(function(){ navigator.notification.alert('Select a Photo.. ',  alertDismissed,   'meMO',   'OK'      ); },8000);
+//navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
+
      }
  
  
@@ -261,13 +263,9 @@ document.getElementById("div_main1").style.display = 'none';
                context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-              context_final.putImageData(tmp1,0,0);
+              context_final.putImageData(tmp1,20,20);
            //   overlay_action(context_final);
-           for(i=0;i<=3;i++)
-           {
-           	//do something
-           }
-         //  navigator.notification.confirm('Want to resize the face image!',  onConfirm_resize,  'Resize Face Image', ['75%','50%'] );
+           //  navigator.notification.confirm('Want to resize the face image!',  onConfirm_resize,  'Resize Face Image', ['75%','50%'] );
 }
 function onConfirm_resize()
 {
