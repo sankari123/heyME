@@ -197,59 +197,7 @@ function release()
  
  
 
-function prep()
-{
-    	
-      //	alert("1");
-      	release();
-      	disp();
-      	//alert("2");
-       	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
- 	document.getElementById('loadImgDiv').style.width=c_width;
-document.getElementById('loadImgDiv').style.height=c_height;
-
-document.getElementById("loadImgDiv1").style.cursor = "hand";
-document.getElementById("loadImgDiv2").style.cursor = "hand";
-document.getElementById("loadImgDiv3").style.cursor = "hand";
-
-document.getElementById('loadImgDiv1').style.width=c_width;
-document.getElementById('loadImgDiv1').style.height=c_height;
-
-
-document.getElementById('loadImgDiv2').style.width=c_width;
-document.getElementById('loadImgDiv2').style.height=c_height;
-
-document.getElementById('loadImgDiv3').style.width=c_width;
-document.getElementById('loadImgDiv3').style.height=c_height;
-   	var img_r = document.createElement('img');
-	img_r.src = img_arr[0];
-//	var elem = document.createElement("img");
-	//elem.setAttribute("src", "images/logo.jpg");
-//elem.setAttribute("height", "40");
-//elem.setAttribute("width", "120");
-//elem.setAttribute("alt", "GiantCo Logo");
-img_r.setAttribute("height", c_height);
-img_r.setAttribute("width", c_width);
-	document.getElementById('loadImgDiv1').appendChild(img_r);
-	
-	
-
-	var img_r1 = document.createElement('img');
-	img_r1.src = img_arr[1];
-	img_r1.setAttribute("height", c_height);
-	img_r1.setAttribute("width", c_width);
-	document.getElementById('loadImgDiv2').appendChild(img_r1);
-	
-	var img_r2 = document.createElement('img');
-	img_r2.src = img_arr[2];
-	img_r2.setAttribute("height", c_height);
-	img_r2.setAttribute("width", c_width);
-	document.getElementById('loadImgDiv3').appendChild(img_r2);
-   	
-//	alert("Select a pic");
-}
- function overlap()
+function overlap()
  {
 //alert("in");
 document.getElementById("div_main1").style.display = 'none';
@@ -266,29 +214,13 @@ document.getElementById("div_main1").style.display = 'none';
                context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-              context_final.putImageData(tmp1,20,20);
+             x_co=20;
+             y_co=20;
+              context_final.putImageData(tmp1,x_co,y_co);
            //   overlay_action(context_final);
            //  navigator.notification.confirm('Want to resize the face image!',  onConfirm_resize,  'Resize Face Image', ['75%','50%'] );
 }
-function onConfirm_resize()
-{
-	if(buttonIndex==1)
-	{
-	       context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-               context_final.putImageData(imgData1,0,0);
-               context_final.scale(0.75,0.75);
-               context_final.putImageData(imgData2,x_co,y_co);
-               
-	}
-	else
-	{
-	       context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-               context_final.putImageData(imgData1,0,0);
-               context_final.scale(0.5,0.5);
-               context_final.putImageData(imgData2,x_co,y_co);
-	}
-	
-}
+
 function overlay_action()
 {
 	    canvas = document.getElementById('can_final');
@@ -304,7 +236,7 @@ function overlay_action()
        	    {
        	    	//  alert("position");
        	     ctx.putImageData(imgData1,0,0);
-            ctx.putImageData(imgData2,x_co,y_co);
+            ctx.putImageData(tmp1,x_co,y_co);
        	    }
            if (ctx) {
             canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
@@ -338,7 +270,7 @@ function overlay_action()
      {
       ctx.putImageData(imgData1,0,0);
      // ctx.globalAlpha = 0.5;
-      ctx.putImageData(imgData2,x1,y1);
+      ctx.putImageData(tmp1,x1,y1);
      }
     } 
     
@@ -537,13 +469,13 @@ function testDiv1()
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-          	<tr><td colspan=5><input type="text" id='fnam'></td></tr>
+          	<tr><td colspan=4><input type="text" id='fnam'></td></tr>
        	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Y</button></td>
-         <td><button onclick="initTouch();">Overlap</button></td>
-         <td><button id="Position" onclick="overlay_action();">Position</button></td>
+         <td><button onclick="overlay_action();">Position</button></td>
+         <td><button id="Position" onclick="overlay_action();">Youchup</button></td>
          <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
