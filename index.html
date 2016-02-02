@@ -181,7 +181,7 @@ function release()
                     	img_r3.onload = function() {
     					img_r3.height = c_height;
 					img_r3.width = c_width; }
-             		
+             		setTimeout(function(){ navigator.notification.alert('Select a Photo.. ', alertDismissed, 'meMO', 'OK'); },3000);
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
       //alert(document.getElementById('fnam').value);      
@@ -192,7 +192,7 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-       setTimeout(function(){ navigator.notification.alert('Select a Photo.. ',  alertDismissed,   'meMO',   'OK'      ); },2000);
+       
 //navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
 
      }
@@ -343,7 +343,9 @@ function testDiv1()
 	img_1.src = img_arr[1];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0,c_width,c_height);
+       	overlap();
  }
  function testDiv3()
 {
@@ -357,7 +359,9 @@ function testDiv1()
 	img_1.src = img_arr[2];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0,c_width,c_height);
+       	overlap();
  }
  
       </script>
