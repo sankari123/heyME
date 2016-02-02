@@ -187,9 +187,7 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-       document.getElementById("loadImgDiv1").style.cursor = "hand";
-document.getElementById("loadImgDiv2").style.cursor = "hand";
-document.getElementById("loadImgDiv3").style.cursor = "hand";
+       alert("Select a Photo");
      }
  
  
@@ -263,7 +261,7 @@ document.getElementById("div_main1").style.display = 'none';
                context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-              context_final.putImageData(imgData2,x_co,y_co);
+              context_final.putImageData(tmp1,x_co,y_co);
            //   overlay_action(context_final);
            for(i=0;i<=3;i++)
            {
@@ -424,29 +422,21 @@ function touchUp()
 	
 	
 }
-function chek(imgg,can_1)
-{
-	var can_1 = ctx.canvas ;
-	var img_n=new Image();
-                img_n.onload= function () {
-    		ctx.drawImage(img_n,0,0);
-                }
-        	img_n.src = imgg;
-//	ctx.putImageData(imgData3,0,0);
-}
 function testDiv1()
 {
-	alert("selected");
+//	alert("selected");
 //	alert(img_arr[0]);
-    	document.getElementById("div_main2").style.display = 'block';
-    	document.getElementById("div_main2").style.visibility = 'visible';
+    //	document.getElementById("div_main2").style.display = 'block';
+    //	document.getElementById("div_main2").style.visibility = 'visible';
     	c = document.getElementById("can_me");
 	ctx = c.getContext('2d');
 	var img_1 = document.createElement('img');
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,img_1.x,img_1.y,img_1.width,img_1.height);
+    	ctx.drawImage(img_1,0,0);
+    	tmp1=ctx.getImageData(0,0,c_width,c_height);
+    	overlap();
  }
  function testDiv2()
 {
@@ -551,7 +541,7 @@ function testDiv1()
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Y</button></td>
-         <td><button onclick="initTouch();">Drag</button></td>
+         <td><button onclick="initTouch();">Overlap</button></td>
          <td><button id="Position" onclick="overlay_action();">Position</button></td>
          <td><button onclick="disp();">Display</button></td>
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
