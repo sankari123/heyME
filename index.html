@@ -226,18 +226,9 @@ function overlay_action()
 	    canvas = document.getElementById('can_final');
             ctx = canvas.getContext('2d');
             ctx.clearRect(0,0,canvas.height, canvas.height);
-       	    if(touchup)
-       	    {
-       	       	  alert("touchup");
-       	    	ctx.putImageData(imgData3,0,0);
-            
-       	    }
-       	    else
-       	    {
-       	    	//  alert("position");
-       	     ctx.putImageData(imgData1,0,0);
+       	    ctx.putImageData(imgData1,0,0);
             ctx.putImageData(tmp1,x_co,y_co);
-       	    }
+       	    
            if (ctx) {
             canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
             canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
@@ -250,28 +241,17 @@ function overlay_action()
 }
   
 	function drawLine(ctx,x1,y1) {
-        
-     
-    //  ctx.clearRect(0,0,canvas.width, canvas.height);
+     //  ctx.clearRect(0,0,canvas.width, canvas.height);
      // ctx.globalCompositeOperation = "destination-atop";
      // ctx.putImageData(imgData1,0,0);
      // ctx.globalAlpha = 0.5;
      // ctx.putImageData(imgData2,x1,y1);
      
-     if(touchup)
-     {
-     //	alert("in2");
-     ctx.fillStyle="#ffffff";
-     	ctx.beginPath();
-	ctx.arc(x1,y1,2,0,Math.PI*2);
-	ctx.fill();	
-     }
-     else
-     {
+     
       ctx.putImageData(imgData1,0,0);
      // ctx.globalAlpha = 0.5;
       ctx.putImageData(tmp1,x1,y1);
-     }
+     
     } 
     
     function theCanvas_mouseDown() {
@@ -340,21 +320,7 @@ function overlay_action()
             }
         }
     }
-function touchUp()
-{
-	
-	//alert("in");
-	//document.getElementById("Position").disabled="true";
-	touchup=true;
-	//ctr=100;
-       	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-//	imgDataUrl = canvas.toDataURL();
-       // imgDataUrl = canvas.toDataURL();
-	overlay_action();
-//	chek(imgDataUrl,canvas);
-	
-	
-}
+
 function testDiv1()
 {
 //	alert("selected");
