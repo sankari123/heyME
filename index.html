@@ -146,7 +146,7 @@ function release()
  function disp()
  {
 	release();
-	var img_r1 = document.createElement('img');
+	var img_r1 = document.getElementById('loadImgDiv1').firstChild;
 	var img_r2 = document.createElement('img');
 	var img_r3 = document.createElement('img');
 
@@ -158,9 +158,10 @@ function release()
                     for (var i = 0; i < 3; i++) {
                     		img_arr[i]= results[i]; 
                     			img_r1.src = results[0]; 
-                    			img_r1.setAttribute("height", c_height);
-			img_r1.setAttribute("width", c_width);
-			document.getElementById('loadImgDiv1').appendChild(img_r1);
+                    			img_r1.onload = function() {
+    					img_r1.height = c_height;
+					img_r1.width = c_width; }
+			
 			img_r2.src = results[1]; 
                     	img_r2.setAttribute("height", c_height);
 			img_r2.setAttribute("width", c_width);
@@ -554,9 +555,9 @@ function testDiv1()
          <BR><BR>
          	<div id='loadImgDiv' class="red">
          	
-    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();"></div>
-    			<div id='loadImgDiv2' class="blue" onclick="testDiv2();"></div>
-    			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"></div>	
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();"><img src="#"></div>
+    			<div id='loadImgDiv2' class="blue" onclick="testDiv2();"><img src="#"></div>
+    			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
          	</div>
          	
          	
