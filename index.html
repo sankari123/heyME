@@ -117,8 +117,7 @@ function release()
    //	document.getElementById("crop").disabled = true; 
    	release();
    	
-   	c_width=document.getElementById("w").value;
- 	c_height=document.getElementById("h").value;
+   	
  	
     	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
@@ -150,6 +149,8 @@ function release()
  {
 	release();
 	
+ 	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
  	document.getElementById('loadImgDiv').style.width=c_width;
 	document.getElementById('loadImgDiv').style.height=c_height;
 	
