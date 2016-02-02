@@ -237,21 +237,14 @@ function overlay_action()
             window.addEventListener('mouseup', theCanvas_mouseUp, false);
             
             canvas.addEventListener('touchstart', theCanvas_touchStart, false);
-            canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+         //   canvas.addEventListener('touchend', theCanvas_touchEnd, false);
             canvas.addEventListener('touchmove', theCanvas_touchMove, false);
         }
 }
   
 	function drawLine(x1,y1) {
-     //  ctx.clearRect(0,0,canvas.width, canvas.height);
-     // ctx.globalCompositeOperation = "destination-atop";
-     // ctx.putImageData(imgData1,0,0);
-     // ctx.globalAlpha = 0.5;
-     // ctx.putImageData(imgData2,x1,y1);
-     
       ctx.clearRect(0,0,canvas.width, canvas.height);
       ctx.putImageData(imgData1,0,0);
-     // ctx.globalAlpha = 0.5;
       ctx.putImageData(tmp1,x1,y1);
      
     } 
