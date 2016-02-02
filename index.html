@@ -150,7 +150,7 @@ function release()
  function disp()
  {
 	release();
-	
+	alert("Select 3 photos only...");
  	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
  	document.getElementById('loadImgDiv').style.width=c_width;
@@ -181,7 +181,7 @@ function release()
                     	img_r3.onload = function() {
     					img_r3.height = c_height;
 					img_r3.width = c_width; }
-             		setTimeout(function(){ navigator.notification.alert('Select a Photo.. ', alertDismissed, 'meMO', 'OK'); },3000);
+             		
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
       //alert(document.getElementById('fnam').value);      
@@ -192,12 +192,15 @@ function release()
                   
                 }, function (error) {                    alert('Error: ' + error);                }
             );
-       
+       setTimeout(function(){ navigator.notification.alert('Select a Photo.. ', alertDismissed, 'meMO', 'OK'); },5000);
 //navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
 
      }
  
- 
+ function alertDismissed()
+ {
+ 	//do something
+ }
 
 function overlap()
  {
@@ -241,16 +244,16 @@ function overlay_action()
         }
 }
   
-	function drawLine(x1,y1) {
+function drawLine(ctx,x1,y1) {
       ctx.clearRect(0,0,canvas.width, canvas.height);
-      ctx.putImageData(imgData1,0,0);
+     // ctx.putImageData(imgData1,0,0);
       ctx.putImageData(tmp1,x1,y1);
      
     } 
     
     function theCanvas_mouseDown() {
         mouseDown=1;
-        drawLine(mouseX,mouseY);
+        drawLine(ctx,mouseX,mouseY);
     }
     
     function theCanvas_mouseUp() {
@@ -265,7 +268,7 @@ function overlay_action()
         getMousePos(e);
     
         if (mouseDown==1) {
-            drawLine(mouseX,mouseY);
+            drawLine(ctx,mouseX,mouseY);
         }
     }
     
@@ -285,7 +288,7 @@ function overlay_action()
     function theCanvas_touchStart() {
     
         getTouchPos();
-        drawLine(touchX,touchY);
+        drawLine(ctx,touchX,touchY);
     
         event.preventDefault();
     }
@@ -299,7 +302,7 @@ function overlay_action()
     
         getTouchPos(e);
     
-        drawLine(touchX,touchY); 
+        drawLine(ctx,touchX,touchY); 
     
         event.preventDefault();
     }
@@ -433,14 +436,14 @@ function testDiv1()
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-          	<tr><td colspan=4><input type="text" id='fnam'></td></tr>
-       	<tr><td><input type="text" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load M </button></td>
+          <!--	<tr><td colspan=4><input type="text" id='fnam'></td></tr>-->
+       	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo </button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button id='placeIt' onclick="disp();">Load Y</button></td>
+         <td><button id='placeIt' onclick="disp();">Load Your Photos  (Only Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
-         <td><button id="Position" onclick="overlay_action();">Touchup</button></td>
-         <td><button onclick="disp();">Display</button></td>
+         <td><button onclick="touchUp();">Touchup</button></td>
+        <!-- <td><button onclick="disp();">Display</button></td>-->
          <!--<td><button onclick="touchUp();">Touchup</button></td>-->
          </tr></table>
          </div>
