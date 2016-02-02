@@ -146,7 +146,9 @@ function release()
  function disp()
  {
 	release();
-	var img_r = document.createElement('img');
+	var img_r1 = document.createElement('img');
+	var img_r2 = document.createElement('img');
+	var img_r3 = document.createElement('img');
 
 	
  	document.getElementById("target").style.visibility = 'hidden';
@@ -155,11 +157,19 @@ function release()
                 function(results) {
                     for (var i = 0; i < 3; i++) {
                     		img_arr[i]= results[i]; 
-                    			img_r.src = results[0]; 
-             		img_r.setAttribute("height", c_height);
-			img_r.setAttribute("width", c_width);
-			document.getElementById('loadImgDiv1').appendChild(img_r);
+                    			img_r1.src = results[0]; 
+                    			img_r1.setAttribute("height", c_height);
+			img_r1.setAttribute("width", c_width);
+			document.getElementById('loadImgDiv1').appendChild(img_r1);
+			img_r2.src = results[1]; 
+                    	img_r2.setAttribute("height", c_height);
+			img_r2.setAttribute("width", c_width);
+             		document.getElementById('loadImgDiv2').appendChild(img_r2);
              		
+             		img_r3.src = results[2]; 
+                    	img_r3.setAttribute("height", c_height);
+			img_r3.setAttribute("width", c_width);
+             		document.getElementById('loadImgDiv3').appendChild(img_r3);
              		
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
@@ -510,7 +520,7 @@ function testDiv1()
   .red {
     width:300px;
     height:100px;
-    background:black;
+    background:white;
 }
 .blue {
     width: 25%;
