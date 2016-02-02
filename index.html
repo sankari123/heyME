@@ -145,7 +145,11 @@ function release()
  
  function disp()
  {
-	release();
+	c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+ 	document.getElementById('loadImgDiv').style.width=c_width;
+	document.getElementById('loadImgDiv').style.height=c_height;
+	
 	var img_r1 = document.getElementById('loadImgDiv1').firstChild;
 	var img_r2 = document.getElementById('loadImgDiv2').firstChild;
 	var img_r3 = document.getElementById('loadImgDiv3').firstChild;
@@ -185,10 +189,7 @@ function release()
        //   document.getElementById('placeIt').click();
      }
  
- function prep1()
- {
- 	//document.getElementById('loadImgDiv').innerHTML="<img src='images/aftersurprise.png' />";
- }
+ 
 
 function prep()
 {
