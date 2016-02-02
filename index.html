@@ -242,14 +242,14 @@ function overlay_action()
         }
 }
   
-	function drawLine(ctx,x1,y1) {
+	function drawLine(x1,y1) {
      //  ctx.clearRect(0,0,canvas.width, canvas.height);
      // ctx.globalCompositeOperation = "destination-atop";
      // ctx.putImageData(imgData1,0,0);
      // ctx.globalAlpha = 0.5;
      // ctx.putImageData(imgData2,x1,y1);
      
-     
+      ctx.clearRect(0,0,canvas.width, canvas.height);
       ctx.putImageData(imgData1,0,0);
      // ctx.globalAlpha = 0.5;
       ctx.putImageData(tmp1,x1,y1);
@@ -258,7 +258,7 @@ function overlay_action()
     
     function theCanvas_mouseDown() {
         mouseDown=1;
-        drawLine(ctx,mouseX,mouseY);
+        drawLine(mouseX,mouseY);
     }
     
     function theCanvas_mouseUp() {
@@ -273,7 +273,7 @@ function overlay_action()
         getMousePos(e);
     
         if (mouseDown==1) {
-            drawLine(ctx,mouseX,mouseY);
+            drawLine(mouseX,mouseY);
         }
     }
     
@@ -293,7 +293,7 @@ function overlay_action()
     function theCanvas_touchStart() {
     
         getTouchPos();
-        drawLine(ctx,touchX,touchY);
+        drawLine(touchX,touchY);
     
         event.preventDefault();
     }
@@ -307,7 +307,7 @@ function overlay_action()
     
         getTouchPos(e);
     
-        drawLine(ctx,touchX,touchY); 
+        drawLine(touchX,touchY); 
     
         event.preventDefault();
     }
