@@ -99,8 +99,17 @@ canvas.height = img.height;
  canvas.width = img.width;
  m_height=canvas.height;
 m_width=canvas.width;
+var hRatio = canvas.width  / img.width    ;
+   var vRatio =  canvas.height / img.height  ;
+   var ratio  = Math.min ( hRatio, vRatio );
+   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
+  ctx.drawImage(img, 0,0, img.width, img.height, centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
+  
+ 
+ //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
    for(i=0;i<=400;i++)
    {
@@ -438,9 +447,9 @@ function testDiv1()
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--	<tr><td colspan=4><input type="text" id='fnam'></td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Model Photo </button></td>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button id='placeIt' onclick="disp();">Load Your Photos  (Only Face)</button></td>
+         <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
          <td><button onclick="touchUp();">Touchup</button></td>
         <!-- <td><button onclick="disp();">Display</button></td>-->
