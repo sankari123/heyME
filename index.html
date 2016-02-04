@@ -116,7 +116,7 @@ var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
  //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
 //}   setTimeout(function(){ navigator.notification.alert('Select the face area.. ', alertDismissed, 'meMO Face Dimension', 'OK'); },2000);
-setTimeout(function(){navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},2000);
+setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},1000);
   
 }
 function release()
@@ -217,7 +217,7 @@ function overlay_action()
             window.addEventListener('mouseup', theCanvas_mouseUp, false);
             
             canvas.addEventListener('touchstart', theCanvas_touchStart, false);
-         //   canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+         canvas.addEventListener('touchend', theCanvas_touchEnd, false);
             canvas.addEventListener('touchmove', theCanvas_touchMove, false);
         }
 }
