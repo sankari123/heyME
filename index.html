@@ -129,16 +129,18 @@ function release()
   	touchup=true;
   	canvas = document.getElementById("can_final");
 	ctx = canvas.getContext("2d")
-//	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
         imgDataUrl = canvas.toDataURL();
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-  //	canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+//        ctx.clearRect(0,0,canvas.width, canvas.height);
+  //	canvas.onmousemove = null;
   
-  image = new Image();
-        image.addEventListener('load', function(){
-            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-            callback(ctx.getImageData(0, 0, canvas.width, canvas.height));  }, false);
-        image.src = imgDataUrl;
+  	canvas.removeEventListener('mousedown', theCanvas_mouseDown, false);
+            canvas.removeEventListener('mousemove', theCanvas_mouseMove, false);
+            window.removeEventListener('mouseup', theCanvas_mouseUp, false);
+            
+            canvas.removeEventListener('touchstart', theCanvas_touchStart, false);
+         canvas.removeEventListener('touchend', theCanvas_touchEnd, false);
+            canvas.removeEventListener('touchmove', theCanvas_touchMove, false);
   }
    
  function disp()
