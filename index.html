@@ -79,7 +79,7 @@ var pictureSource;   // picture source
     function m_onPhotoURISuccess(imageURI1) {
     	var c = document.getElementById("can_model");
 	    var ctx = c.getContext('2d');
-	 var img = new Image();
+	 	var img = new Image();
 		img.src = imageURI1;
 		
 		document.getElementById("target").src=imageURI1;
@@ -91,12 +91,25 @@ function onConfirm(buttonIndex) {
   {
     setCrop();
 	}
-}		
+}
+function resize(img1)
+{
+	
+	var srcWidth=img1.width;
+	var srcHeight=img1.height;
+	var maxWidth=canvas.width;
+	var maxHeightcanvas.height;
+	var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+    img1.width= srcWidth*ratio;
+    img1.height= srcHeight*ratio;
+}
    function drawImageScaled(img, ctx) {
 	
  var canvas = ctx.canvas ;
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
+// resize(img);
  m_height=img.height;
 m_width=img.width;
 var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
@@ -413,8 +426,11 @@ function testDiv1()
     padding: 0%;
     background:white;
 }
-
-
+.half{
+-moz-transform:scale(0.5);
+    -webkit-transform:scale(0.5);
+    transform:scale(0.5);
+}
         </style>
   </head>
   
@@ -444,7 +460,7 @@ function testDiv1()
          	</div>
          	
          	
-         <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+         <div>            <img src="splash.png" class="cropImage" id="target" class="half" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:2px solid black;"></canvas></div>
