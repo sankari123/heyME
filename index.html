@@ -131,17 +131,10 @@ function release()
 	ctx = canvas.getContext("2d")
 	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
         imgDataUrl = canvas.toDataURL();
-//        ctx.clearRect(0,0,canvas.width, canvas.height);
+        ctx.clearRect(0,0,canvas.width, canvas.height);
+       	    ctx.putImageData(imgData3,0,0);
   //	canvas.onmousemove = null;
-  
-  	canvas.removeEventListener('mousedown', theCanvas_mouseDown, false);
-            canvas.removeEventListener('mousemove', theCanvas_mouseMove, false);
-            window.removeEventListener('mouseup', theCanvas_mouseUp, false);
-            
-            canvas.removeEventListener('touchstart', theCanvas_touchStart, false);
-         canvas.removeEventListener('touchend', theCanvas_touchEnd, false);
-            canvas.removeEventListener('touchmove', theCanvas_touchMove, false);
-  }
+    	  }
    
  function disp()
  {
