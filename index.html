@@ -333,6 +333,7 @@ function testDiv1()
     	img_1.y=0;
     	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
         tmp1=ctx.getImageData(0,0,c_width,c_height);
+        hideDiv();
        	overlap();
  }
  function testDiv2()
@@ -349,6 +350,7 @@ function testDiv1()
     	img_1.y=0;
     	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
         tmp1=ctx.getImageData(0,0,c_width,c_height);
+        hideDiv();
        	overlap();
  }
  function testDiv3()
@@ -365,9 +367,19 @@ function testDiv1()
     	img_1.y=0;
     	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
         tmp1=ctx.getImageData(0,0,c_width,c_height);
+        hideDiv();
        	overlap();
  }
  
+ hideDiv()
+ {
+ 	document.getElementById("div_main2").style.display = 'none';
+    	document.getElementById("div_main2").style.visibility = 'hidden';
+ }
+ showDiv(){
+ document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
+ }
       </script>
 
       <style type="text/css">
@@ -436,7 +448,7 @@ function testDiv1()
       <div class="container">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-          <!--	<tr><td colspan=4><input type="text" id='fnam'></td></tr>-->
+          <tr><td colspan=4><button onclick="showDiv();">Back</button></td></tr>
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
