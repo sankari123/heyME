@@ -92,18 +92,7 @@ function onConfirm(buttonIndex) {
     setCrop();
 	}
 }
-function resize(img1)
-{
-	
-	var srcWidth=img1.width;
-	var srcHeight=img1.height;
-	var maxWidth=canvas.width;
-	var maxHeightcanvas.height;
-	var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
-    img1.width= srcWidth*ratio;
-    img1.height= srcHeight*ratio;
-}
    function drawImageScaled(img, ctx) {
 	
  var canvas = ctx.canvas ;
@@ -129,7 +118,7 @@ var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
  //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
 //}   setTimeout(function(){ navigator.notification.alert('Select the face area.. ', alertDismissed, 'meMO Face Dimension', 'OK'); },2000);
-setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},1000);
+setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},500);
   
 }
 function release()
