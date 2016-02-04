@@ -107,7 +107,7 @@ var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    
-    ctx.drawImage(img,0,0,img.width,img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
+    ctx.drawImage(img,0,0,img.width,img.height);  
    imgData1 = ctx.getImageData(0,0,img.width,img.height);
    //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
  // ctx.drawImage(img, 0,0, i_width, i_height, centerShift_x,centerShift_y,i_width*ratio, i_height*ratio);  
