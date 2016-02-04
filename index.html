@@ -124,7 +124,22 @@ function release()
     	jcrop_api.destroy();
   }
    
-   
+  function  touchUp()
+  {
+  	touchup=true;
+  	canvas = document.getElementById("can_final");
+	ctx = canvas.getContext("2d")
+//	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
+        imgDataUrl = canvas.toDataURL();
+        ctx.clearRect(0,0,canvas.width, canvas.height);
+  //	canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+  
+  image = new Image();
+        image.addEventListener('load', function(){
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            callback(ctx.getImageData(0, 0, canvas.width, canvas.height));  }, false);
+        image.src = imgDataUrl;
+  }
    
  function disp()
  {
