@@ -20,7 +20,7 @@
  var x_co,y_co;
  var ctr=0;
  var canvas,ctx;
- var touchup=false;
+ 
  var ip;
  var m_width,m_height;
  
@@ -51,12 +51,7 @@ var pictureSource;   // picture source
         destinationType=navigator.camera.DestinationType;
   }
     
-  function release()
-  {
-    //	jcrop_api.destroy();
-   }
-  
-     function start()
+       function start()
       {
         	 document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
@@ -99,14 +94,6 @@ function onConfirm(buttonIndex) {
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
 // resize(img);
- m_height=img.height;
-m_width=img.width;
-var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
-
-    i_width= m_width*ratio;
-    i_height= m_height*ratio;
-  var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-  var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    
     ctx.drawImage(img,0,0,img.width,img.height);  
@@ -126,17 +113,7 @@ function release()
     	jcrop_api.destroy();
   }
    
-  function  touchUp()
-  {
-  	touchup=true;
-  	canvas = document.getElementById("can_final");
-	ctx = canvas.getContext("2d")
-	imgData3=ctx.getImageData(0,0,canvas.width,canvas.height);
-        imgDataUrl = canvas.toDataURL();
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-       	    ctx.putImageData(imgData3,0,0);
-  //	canvas.onmousemove = null;
-    	  }
+  
    
  function disp()
  {
@@ -444,9 +421,7 @@ function testDiv1()
          <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
          <td><button onclick="touchUp();">Touchup</button></td>
-        <!-- <td><button onclick="disp();">Display</button></td>-->
-         <!--<td><button onclick="touchUp();">Touchup</button></td>-->
-         </tr></table>
+        </tr></table>
          </div>
          <BR><BR>
          	<div id='loadImgDiv' class="red">
@@ -457,7 +432,7 @@ function testDiv1()
          	</div>
          	
          	
-         <div>            <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+         <div> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:2px solid black;"></canvas></div>
