@@ -6,7 +6,6 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
-
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
 
 <script type="text/javascript">
@@ -337,12 +336,12 @@ function testDiv1()
        	overlap();
  }
  
- hideDiv()
+ function hideDiv()
  {
  	document.getElementById("div_main2").style.display = 'none';
     	document.getElementById("div_main2").style.visibility = 'hidden';
  }
- showDiv(){
+ function showDiv(){
  document.getElementById("div_main2").style.display = 'block';
     	document.getElementById("div_main2").style.visibility = 'visible';
  }
