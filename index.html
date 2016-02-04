@@ -115,8 +115,8 @@ var ratio = Math.min(canvas.width / m_width, canvas.height / m_height);
  
  //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
-   setTimeout(function(){ navigator.notification.alert('Select the face area.. ', alertDismissed, 'meMO Face Dimension', 'OK'); },2000);
-//navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+//}   setTimeout(function(){ navigator.notification.alert('Select the face area.. ', alertDismissed, 'meMO Face Dimension', 'OK'); },2000);
+setTimeout(function(){navigator.notification.confirm('Ready to select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},2000);
   
 }
 function release()
