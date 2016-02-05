@@ -75,7 +75,7 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		
+		alert("up "+img.height);
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
@@ -96,7 +96,7 @@ canvas.height = window.innerHeight;
  m_height=img.height;
  m_width=img.width;
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   
+   alert("actual   "+img.height);
     ctx.drawImage(img,0,0,img.width,img.height);  
    imgData1 = ctx.getImageData(0,0,img.width,img.height);
    //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
