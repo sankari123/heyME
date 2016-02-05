@@ -93,14 +93,14 @@ function onConfirm(buttonIndex) {
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
 // resize(img);
-alert("up "+img.height);
+//alert("up "+img.height);
  m_height=img.height;
  m_width=img.width;
  m_height=document.getElementById("target").height;
  m_width=document.getElementById("target").width;
- alert("after "+m_height);
+ //alert("after "+m_height);
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   alert("actual   "+img.height);
+   //alert("actual   "+img.height);
     ctx.drawImage(img,0,0,m_width,m_height);  
    imgData1 = ctx.getImageData(0,0,m_width,m_height);
    //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
@@ -194,7 +194,7 @@ document.getElementById("div_main1").style.display = 'none';
               canvas_final.height = m_height;
   		canvas_final.width = m_width;
   		context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
-               context_final.putImageData(imgData1,0,0);
+              // context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
              context_final.putImageData(tmp1,x_co,y_co);
@@ -389,9 +389,10 @@ function testDiv1()
   }
   .divStyle3{
    width: 100%;
-   height: 250px !important;
    visibility:hidden;
-   position:fixed
+   position:fixed;
+   background:blue;
+   
   }
   .red {
     width: auto !important;
@@ -438,6 +439,7 @@ function testDiv1()
          <div> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:2px solid red;"></canvas></div>
+            <hr size='2'>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
         
       </div>
