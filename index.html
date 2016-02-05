@@ -298,10 +298,10 @@ function testDiv1()
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,0,0,m_width,m_height);
+    //	ctx.drawImage(img_1,0,0,c_width,m_height);
     	
-    	//ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
-        tmp1=ctx.getImageData(0,0,m_width,m_height);
+    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0,c_width,c_height);
        // hideDiv();
        	overlap();
  }
@@ -317,8 +317,8 @@ function testDiv1()
 	img_1.src = img_arr[1];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,0,0,m_width,m_height);
-        tmp1=ctx.getImageData(0,0,m_width,m_height);
+    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0,c_width,c_height);
         //hideDiv();
        	overlap();
  }
@@ -334,9 +334,8 @@ function testDiv1()
 	img_1.src = img_arr[2];
 	img_1.x=0;
     	img_1.y=0;
-    	ctx.drawImage(img_1,0,0,m_width,m_height);
-        tmp1=ctx.getImageData(0,0,m_width,m_height);
-       // hideDiv();
+    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0,c_width,c_height); // hideDiv();
        	overlap();
  }
  
