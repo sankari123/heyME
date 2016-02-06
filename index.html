@@ -27,7 +27,12 @@ function setCrop()
     {
         
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
-              minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+              minSize: 50, onChange: showCoords,    onSelect: SelectCropArea,
+            boxWidth: 60,
+            boxHeight: 60,
+            maxSize: [50, 50],
+            minSize: [10, 10],
+            aspectRatio: 2/2, bgColor: '#CCC' });
  }
  
   function showCoords(c)
@@ -411,7 +416,7 @@ function testDiv1()
     box-sizing: border-box;
     padding: 0%;
  /*   border-color:green;*/
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
         </style>
