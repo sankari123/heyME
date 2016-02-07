@@ -353,7 +353,7 @@ function testDiv1()
  function saveCanvas()
 {
 if (ctx)
-{
+//{
 
 
     window.canvas2ImagePlugin.saveImageDataToLibrary(
@@ -365,7 +365,7 @@ if (ctx)
         },
         document.getElementById("canvas_final")  );
  navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'DigiGraph',   'OK'      );
-   }     
+  // }     
 }
 
  function tstOp() {
