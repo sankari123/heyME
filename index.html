@@ -350,6 +350,24 @@ function testDiv1()
        	overlap();
  }
  
+ function saveCanvas()
+{
+if (ctx)
+{
+
+
+    window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        document.getElementById("canvas_final")  );
+ navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'DigiGraph',   'OK'      );
+   }     
+}
+
  function tstOp() {
 //var img1 = document.getElementById('img1');
 //var img2 = document.getElementById('img2');
@@ -451,7 +469,7 @@ context.putImageData(image1, 0, 0); };
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
-         <td><button onclick="tstOp();">Touchup</button></td>
+         <td><button onclick="saveCanvas();">Touchup</button></td>
         </tr></table>
          </div>
          <BR><BR>
