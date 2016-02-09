@@ -96,8 +96,8 @@ canvas.height = window.innerHeight;
 //alert("up "+img.height);
  m_height=img.height;
  m_width=img.width;
- m_height=document.getElementById("target").height;
- m_width=document.getElementById("target").width;
+// m_height=document.getElementById("target").height;
+// m_width=document.getElementById("target").width;
  //alert("after "+m_height);
    ctx.clearRect(0,0,canvas.width, canvas.height);
    //alert("actual   "+img.height);
@@ -423,10 +423,10 @@ context.putImageData(image1, 0, 0); };
 	color: #b32d5f;
 	}
 .divStyle1{
-   width: 100%;
-   height: 250px !important;
-  visibility:hidden;
+   visibility:hidden;
    position:fixed;
+   width: 100%;
+   text-align:center;
   }
   .divStyle2{
    width: 100%;
@@ -523,7 +523,7 @@ body {
 <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 
          <div class='trans'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;"></canvas></div>
+            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
         
