@@ -29,6 +29,12 @@ function setCrop()
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
+ function setCrop_me()
+    {
+        
+ jcrop_api = $.Jcrop('#can_me', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
+ }
  
   function showCoords(c)
   {
@@ -39,6 +45,17 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
+  
+  function showCoords1(c)
+  {
+      // variables can be accessed here as
+   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w_me').val(c.w);
+    $('#h_me').val(c.h);
+     $('#x_coor_me').val(c.x);
+    $('#y_coor_me').val(c.y);
+  };
+  
   var img_arr = new Array(5);
  var ik=0;
 var pictureSource;   // picture source
@@ -97,7 +114,7 @@ canvas.height = window.innerHeight;
    
     ctx.drawImage(img,0,0,m_width,m_height);  
    imgData1 = ctx.getImageData(0,0,m_width,m_height);
-   
+setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 }
 function release()
   {
@@ -106,21 +123,22 @@ function release()
    
   
   function getPhoto(source) {
+  	release();
    // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
     
     function onPhotoURISuccess(imageURI1) {
-    	var c = document.getElementById("can_model");
+    	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.onload= drawImageScaled_me.bind(null, img, ctx);
 	    }
    
-   function drawImageScaled(img, ctx) {
-	
+   function drawImageScaled_me(img, ctx) {
+	document.getElementById("div_main1").style.display = 'none';
  var canvas = ctx.canvas ;
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
@@ -130,7 +148,14 @@ canvas.height = window.innerHeight;
    
     ctx.drawImage(img,0,0,m_width,m_height);  
    imgData1 = ctx.getImageData(0,0,m_width,m_height);
+   setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
    
+}
+function onConfirm_me(buttonIndex) {
+  if(buttonIndex==1)
+  {
+    setCrop_me();
+	}
 }
       </script>
 
@@ -213,6 +238,7 @@ html {
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+       	<tr><td><input type="hidden" size="3" id='w_me'></td><td><input type="hidden" id='h_me' size="3" ></td><td><input type="hidden"  size="3" id='x_coor_me'></td><td><input type="hidden"  size="3" id='y_coor_me'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
