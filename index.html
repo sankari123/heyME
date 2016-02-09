@@ -459,6 +459,23 @@ context.putImageData(image1, 0, 0); };
  /*   border-color:green;*/
     background-color: rgba(255, 255, 255, 0.3);
 }
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+    background-color: #434343;
+    background-image:linear-gradient(#434343, #282828);
+}
+#content{
+    background-color: transparent;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height:100%;
+  background-size:50px 50px;
+}
+
 
         </style>
   </head>
@@ -466,7 +483,9 @@ context.putImageData(image1, 0, 0); };
       
         
 <body onload="start();">
+	
       <div class="container">
+      	<div id="content">
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
@@ -494,6 +513,6 @@ context.putImageData(image1, 0, 0); };
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
         
       </div>
-      
+      </div>
   </body>
 </html>
