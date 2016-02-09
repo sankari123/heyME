@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>heyME</title>
+	
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="jquery.min.js"></script>
+<script src="jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
+
+<script type="text/javascript">
+  var tmr=0; 
+  var filName;
+  var jcrop_api;
+ var c_width;
+ var c_height;
+ var imgData1,imgData2,imgData3;
+ var mul_img1,mul_img2,mul_img3;
+ var x_co,y_co;
+ var ctr=0;
+ var canvas,ctx;
+ 
+ var ip;
+ var m_width,m_height;
+ 
+function setCrop()
+    {
+        
+ jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+ }
+ 
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
+     $('#x_coor').val(c.x);
+    $('#y_coor').val(c.y);
+  };
+  var img_arr = new Array(5);
+ var ik=0;
+var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+   var rotating = true; 
+    document.addEventListener("deviceready",onDeviceReady,false);
+     function onDeviceReady() {
+       	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+  }
+    
+       function start()
+      {
+        	 document.getElementById("tbl").style.width=window.innerHeight;
+        	 document.getElementById("target").style.visibility = 'hidden';
+        	 document.getElementById("div_main1").style.visibility = 'hidden';
+        	 document.getElementById("div_main2").style.visibility = 'hidden';
+        	 document.getElementById("div_main2").style.visibility = 'hidden';
+        	 
+	  }
+       function onFail(message) {
+  //    alert('Failed because: ' + message);
+    }
+ 
+    
+    function m_getPhoto(source) {
+   // document.getElementById("crop").disabled = false; 
+      navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+    }
+   
+    
+    function m_onPhotoURISuccess(imageURI1) {
+    	var c = document.getElementById("can_model");
+	    var ctx = c.getContext('2d');
+	 	var img = new Image();
+		img.src = imageURI1;
+		
+		document.getElementById("target").src=imageURI1;
+		document.getElementById("target").style.visibility = 'visible';
+		img.onload= drawImageScaled.bind(null, img, ctx);
+	    }
+function onConfirm(buttonIndex) {
+  if(buttonIndex==1)
+  {
+    setCrop();
+	}
+}
+   function drawImageScaled(img, ctx) {
+	
+ var canvas = ctx.canvas ;
+canvas.height = window.innerHeight;
+ canvas.width = window.innerWidth;
+// resize(img);
+//alert("up "+img.height);
+ m_height=img.height;
+ m_width=img.width;
+// m_height=document.getElementById("target").height;
+// m_width=document.getElementById("target").width;
+ //alert("after "+m_height);
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   //alert("actual   "+img.height);
+    ctx.drawImage(img,0,0,m_width,m_height);  
+   imgData1 = ctx.getImageData(0,0,m_width,m_height);
+   //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
+ // ctx.drawImage(img, 0,0, i_width, i_height, centerShift_x,centerShift_y,i_width*ratio, i_height*ratio);  
+  
+ 
+ //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   //imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+//}   setTimeout(function(){ navigator.notification.alert('Select the face area.. ', alertDismissed, 'meMO Face Dimension', 'OK'); },2000);
+setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},500);
+  
+}
+function release()
+  {
+    	jcrop_api.destroy();
+  }
+   
+  
+   
+      </script>
+
+      <style type="text/css">
+        .jcrop-holder div
+        {
+          -webkit-border-radius: 50% !important;
+          -moz-border-radius: 50% !important;
+          border-radius: 50% !important;
+        }
+      
+  .cropImage{
+  visibility:hidden;
+  position:fixed;
+  height: 350px !important;
+  width:auto !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  .btncss
+	{
+	background:none;
+	border:none;
+	padding:0;
+	cursor:pointer;
+	font: 8pt arial;
+	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
+	color: #b32d5f;
+	}
+.divStyle1{
+   visibility:hidden;
+   position:fixed;
+   width: 100%;
+   text-align:center;
+  }
+  .divStyle2{
+   width: 100%;
+   height: 50px !important;
+  visibility:hidden;
+   overflow-x: scroll;
+   border-style: solid;
+   border-color: red;
+  }
+  .divStyle3{
+   width: 100%;
+   height:100%;
+   visibility:hidden;
+   position:fixed;
+   background:blue;
+   
+  }
+  .red {
+    width: auto !important;
+    height:50px !important;
+    background:white;
+}
+.blue {
+    width: auto !important;
+    height: 50px !important;
+    display:inline-block;
+    margin-right: 0px;
+    box-sizing: border-box;
+    padding: 0%;
+ /*   border-color:green;*/
+    background-color: rgba(255, 255, 255, 0.3);
+}
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+    background-color: #434343;
+    background-image:linear-gradient(#434343, #282828);
+}
+#content{
+    background-color: transparent;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height:100%;
+  background-size:50px 50px;
+}
+.trans {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: relative;
+}
+.trans:after {
+  content: "";
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+        </style>
+  </head>
+  
+      
+        
+<body onload="start();">
+	
+      <div class="container">
+      	
+        <div>
+          <table id="tbl" cellspacing="0" cellpadding="0">
+          <!--<tr><td colspan=4>&nbsp;</td></tr>-->
+       	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
+         <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
+         <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
+         <td><button onclick="overlay_action();">Position</button></td>
+         <td><button onclick="saveCanvas();">Touchup</button></td>
+        </tr></table>
+         </div>
+         <BR><BR>
+         	<div id='loadImgDiv' class="red">
+         	
+    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();"><img src="#"></div>
+    			<div id='loadImgDiv2' class="blue" onclick="testDiv2();"><img src="#"></div>
+    			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
+         	</div>
+         	
+<!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
+
+         <div class='trans'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+            <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
+            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
+        
+      </div>
+      
+  </body>
+</html>
