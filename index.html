@@ -141,15 +141,14 @@ function release()
                     for (var i = 0; i < 3; i++) {
                     	       		img_arr[i]= results[i]; 
                     	       		img_r1.src = results[0]; 
-                    	       		if(img_r1.height>50)
-                    	       		{
-                    	       			alert("Invalid height..Select a image to show Facial part only...")
-                    	       		}
-                    	       		else
-                    	       		{
+                    	       		
                     			img_r1.onload = function() {
+                    			 alert(this.width);
+        				alert(this.height);
     					img_r1.height = c_height;
-					img_r1.width = c_width; }
+					img_r1.width = c_width; 
+                    				
+                    			
                     	       		}
 			img_r2.src = results[1]; 
                     	img_r2.onload = function() {
