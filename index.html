@@ -30,15 +30,7 @@ function setCrop()
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
  
-  function setCrop_me()
-    {
-        jcrop_api.destroy();
-           
- jcrop_api = $.Jcrop('#target_me', { aspectRatio: 1,
-              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
- }
- 
-  function showCoords(c)
+   function showCoords(c)
   {
       // variables can be accessed here as
    //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
@@ -47,22 +39,11 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  
-  function showCoords1(c)
-  {
-      // variables can be accessed here as
-   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     $('#w_me').val(c.w);
-    $('#h_me').val(c.h);
-     $('#x_coor_me').val(c.x);
-    $('#y_coor_me').val(c.y);
-  };
-  
-  var img_arr = new Array(5);
- var ik=0;
+ 
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = true; 
+   var c_width,c_height;
     document.addEventListener("deviceready",onDeviceReady,false);
      function onDeviceReady() {
        	pictureSource=navigator.camera.PictureSourceType;
@@ -112,6 +93,10 @@ canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
  m_height=img.height;
  m_width=img.width;
+  c_width=document.getElementById("w").value;
+ c_height=document.getElementById("h").value;
+ x_co=document.getElementById("x_coor").value;
+ y_co=document.getElementById("y_coor").value;
    ctx.clearRect(0,0,canvas.width, canvas.height);
    
     ctx.drawImage(img,0,0,m_width,m_height);  
@@ -138,8 +123,8 @@ function release()
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		document.getElementById("target_me").src=imageURI1;
-		document.getElementById("target_me").style.visibility = 'visible';
+		document.getElementById("target").src=imageURI1;
+		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled_me.bind(null, img, ctx);
 	    }
    
@@ -148,11 +133,9 @@ function release()
  var canvas = ctx.canvas ;
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
- c_width=document.getElementById("w_me").value;
- c_height=document.getElementById("h_me").value;
-     ctx.clearRect(0,0,canvas.width, canvas.height);
+ctx.clearRect(0,0,canvas.width, canvas.height);
    
-    ctx.drawImage(img,0,0,img.width,img.height,0,0,c_width,c_height);
+    ctx.drawImage(img,0,0,c_width,c_height);
    imgData2 = ctx.getImageData(0,0,c_width,c_height);
    setTimeout(function(){navigator.notification.confirm('Crop the Face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
    
@@ -265,7 +248,7 @@ html {
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-       	<tr><td><input type="hidden" size="3" id='w_me'></td><td><input type="hidden" id='h_me' size="3" ></td><td><input type="hidden"  size="3" id='x_coor_me'></td><td><input type="hidden"  size="3" id='y_coor_me'></td><td>&nbsp;</td></tr>
+       
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
