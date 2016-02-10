@@ -116,7 +116,7 @@ canvas.height = window.innerHeight;
    
     ctx.drawImage(img,0,0,m_width,m_height);  
    imgData1 = ctx.getImageData(0,0,m_width,m_height);
-setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
+setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 }
 function release()
   {
@@ -149,13 +149,13 @@ function release()
  var canvas = ctx.canvas ;
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
- m_height=img.height;
- m_width=img.width;
-   ctx.clearRect(0,0,canvas.width, canvas.height);
+ c_width=document.getElementById("w").value;
+ c_height=document.getElementById("h").value;
+     ctx.clearRect(0,0,canvas.width, canvas.height);
    
-    ctx.drawImage(img,0,0,m_width,m_height);  
-   imgData2 = ctx.getImageData(0,0,m_width,m_height);
-   setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
+    ctx.drawImage(img,0,0,img.width,img.height,0,0,c_width,c_height);
+   imgData2 = ctx.getImageData(0,0,c_width,c_height);
+   setTimeout(function(){navigator.notification.confirm('Crop the Face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
    
 }
 function onConfirm_me(buttonIndex) {
@@ -164,6 +164,26 @@ function onConfirm_me(buttonIndex) {
     setCrop_me();
 	}
 }
+
+function overlay()
+{
+		document.getElementById("target").style.visibility = 'hidden';
+		document.getElementById("target_me").style.visibility = 'hidden';
+		document.getElementById("div_main1").style.display = 'none';
+		document.getElementById("div_main2").style.display = 'none';
+		document.getElementById("div_main3").style.display = 'block';
+	canvas_final = document.getElementById("can_final");
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
+               context_final.putImageData(imgData1,0,0);
+               x_co=document.getElementById('x_coor').value;
+             y_co=document.getElementById('y_coor').value;
+              context_final.putImageData(imgData2,x_co,y_co);
+           
+}
+
       </script>
 
       <style type="text/css">
@@ -249,7 +269,7 @@ html {
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
-         <td><button onclick="overlay_action();">Position</button></td>
+         <td><button onclick="overlay();">Overlay</button></td>
          <td><button onclick="saveCanvas();">Touchup</button></td>
         </tr></table>
          </div>
