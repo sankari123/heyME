@@ -93,15 +93,11 @@ canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
  m_height=img.height;
  m_width=img.width;
-  c_width=document.getElementById("w").value;
- c_height=document.getElementById("h").value;
- x_co=document.getElementById("x_coor").value;
- y_co=document.getElementById("y_coor").value;
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   
-    ctx.drawImage(img,0,0,m_width,m_height);  
-   imgData1 = ctx.getImageData(0,0,m_width,m_height);
+ 
+   // ctx.drawImage(img,0,0,m_width,m_height);  
+//   imgData1 = ctx.getImageData(0,0,c_width,c_height);
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
+	 
 }
 function release()
   {
@@ -110,6 +106,15 @@ function release()
    
   
   function getPhoto(source) {
+  	release();
+          c_width=document.getElementById("w").value;
+ 	c_height=document.getElementById("h").value;
+ 	x_co=document.getElementById("x_coor").value;
+ 	y_co=document.getElementById("y_coor").value;
+ 	ctx.drawImage(img,0,0,c_width,c_height);
+ 	imgData1=ctx.getImageData(0,0,c_width,c_height);
+ 	alert(c_width);
+ 	
     	document.getElementById("div_main1").style.display = 'none';
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
@@ -119,6 +124,7 @@ function release()
    
     
     function onPhotoURISuccess(imageURI1) {
+    	
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
@@ -135,23 +141,17 @@ canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
 ctx.clearRect(0,0,canvas.width, canvas.height);
    
-    ctx.drawImage(img,0,0,c_width,c_height);
-   imgData2 = ctx.getImageData(0,0,c_width,c_height);
-   setTimeout(function(){navigator.notification.confirm('Crop the Face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
+    ctx.drawImage(img,0,0);
+   imgData2 = ctx.getImageData(0,0,img.width,img.height);
    
-}
-function onConfirm_me(buttonIndex) {
-  if(buttonIndex==1)
-  {
-    setCrop_me();
-	}
+   
 }
 
 function overlay()
 {
 		release();
 		document.getElementById("target").style.visibility = 'hidden';
-		document.getElementById("target_me").style.visibility = 'hidden';
+		
 		document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("div_main2").style.display = 'none';
 		document.getElementById("div_main3").style.display = 'block';
@@ -249,8 +249,8 @@ html {
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
        
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
-         <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
+         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
+         <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load MakeOver Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
          <td><button onclick="overlay();">Overlay</button></td>
          <td><button onclick="saveCanvas();">Touchup</button></td>
