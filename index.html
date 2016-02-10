@@ -107,7 +107,7 @@ function release()
   
   function getPhoto(source) {
   	release();
-  //	document.getElementById("div_main1").style.display = 'none';
+  	document.getElementById("div_main1").style.display = 'none';
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
           c_width=document.getElementById("w").value;
@@ -120,12 +120,12 @@ function release()
    
     
     function onPhotoURISuccess(imageURI1) {
-    	
-    	var c = document.getElementById("can_model");
+    	document.getElementById("div_main2").style.visibility = 'visible';
+    	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-	      	 document.getElementById("div_main1").style.visibility = 'visible';
+	      	 
 		img.onload= drawImageScaled_me.bind(null, img, ctx);
 	    }
    
@@ -144,6 +144,7 @@ function overlay()
 {
 		document.getElementById("target").style.visibility = 'hidden';
 		document.getElementById("div_main1").style.display = 'none';
+		document.getElementById("div_main2").style.display = 'none';
 		document.getElementById("div_main2").style.display = 'block';
 		canvas_final = document.getElementById("can_final");
                 context_final = canvas_final.getContext("2d");
@@ -228,7 +229,8 @@ function overlay()
 <Br><Br>
          <div align='center'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_final" style="border:2px solid black;display: inline;"></canvas></div>
+            <div class="divStyle2" id="div_main1"><canvas id="can_me" style="border:0px solid white;display: inline;"></canvas></div>
+            <div class="divStyle3" id="div_main2"><canvas id="can_final" style="border:2px solid white;display: inline;"></canvas></div>
         
       </div>
       
