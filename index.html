@@ -139,7 +139,24 @@ function release()
    	ctx.drawImage(img,0,0);
    	imgData2=ctx.getImageData(0,0,img.width, img.height);
  	}
-
+function overlay()
+{
+		
+		document.getElementById("div_main2").style.display = 'none';
+		document.getElementById("div_main3").style.visibility = 'hidden';
+		document.getElementById("div_main3").style.display = 'block';
+		document.getElementById("div_main3").style.visibility = 'visible';
+		canvas_final = document.getElementById("can_final");
+                context_final = canvas_final.getContext("2d");
+                canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
+                context_final.putImageData(imgData1,0,0,0,0,c_width,c_height);
+                x_co=document.getElementById('x_coor').value;
+                y_co=document.getElementById('y_coor').value;
+                context_final.putImageData(imgData2,x_co,y_co);
+           
+}
 
 
       </script>
