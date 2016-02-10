@@ -29,13 +29,16 @@ function setCrop()
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
- function setCrop_me()
-    {
-        initJcrop();
-            function initJcrop()
+ 
+  function initJcrop()
             {
                 jcrop_api = $.Jcrop('#target_me');
-            };
+            }
+            
+   function setCrop_me()
+    {
+        initJcrop();
+           
  jcrop_api = $.Jcrop('#target_me', { aspectRatio: 1,
               minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
  }
