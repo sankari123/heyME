@@ -131,8 +131,7 @@ function release()
   	document.getElementById("div_main1").style.display = 'none';
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
-    	document.getElementById("div_main2").style.visibility = 'visible';
-   // document.getElementById("crop").disabled = false; 
+    	  // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -158,7 +157,7 @@ canvas.height = window.innerHeight;
    
     ctx.drawImage(img,0,0,m_width,m_height);  
    imgData1 = ctx.getImageData(0,0,m_width,m_height);
-   setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
+   setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
    
 }
 function onConfirm_me(buttonIndex) {
