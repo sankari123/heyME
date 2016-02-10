@@ -31,7 +31,11 @@ function setCrop()
  }
  function setCrop_me()
     {
-        
+        initJcrop();
+            function initJcrop()
+            {
+                jcrop_api = $.Jcrop('#can_me');
+            };
  jcrop_api = $.Jcrop('#can_me', { aspectRatio: 1,
               minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
  }
