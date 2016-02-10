@@ -145,13 +145,13 @@ function overlay()
 		document.getElementById("target").style.visibility = 'hidden';
 		document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("div_main2").style.display = 'none';
-		document.getElementById("div_main2").style.display = 'block';
+		document.getElementById("div_main3").style.display = 'block';
 		canvas_final = document.getElementById("can_final");
                 context_final = canvas_final.getContext("2d");
                 canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-               // context_final.putImageData(imgData1,0,0,0,0,c_width,c_height);
+               context_final.putImageData(imgData1,0,0,0,0,c_width,c_height);
                 x_co=document.getElementById('x_coor').value;
                 y_co=document.getElementById('y_coor').value;
                 context_final.putImageData(imgData2,x_co,y_co);
