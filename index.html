@@ -93,8 +93,9 @@ canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
  m_height=img.height;
  m_width=img.width;
-  ctx.drawImage(img,0,0,m_width,m_height);  
-imgData1 = ctx.getImageData(0,0,m_width,m_height);
+  ctx.drawImage(img,0,0);  
+//imgData1 = ctx.getImageData(0,0,m_width,m_height);
+imgData1=ctx.getImageData(0,0,m_width, m_height);
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 	 
 }
@@ -197,11 +198,7 @@ function overlay()
    border-style: solid;
    border-color: black;
   }
-  .divStyle3{
-   width: 100%;
-   height: 350px !important;
-   visibility:hidden;
-  }
+ 
   .html {
   height: 100%;
 }
@@ -231,7 +228,7 @@ function overlay()
 <Br><Br>
          <div align='center'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_final" style="border:1px solid black;display: inline;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_final" style="border:1px solid white;display: inline;"></canvas></div>
         
       </div>
       
