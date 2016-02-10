@@ -93,9 +93,7 @@ canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
  m_height=img.height;
  m_width=img.width;
- 
-   
-   ctx.drawImage(img,0,0,m_width,m_height);  
+  ctx.drawImage(img,0,0,m_width,m_height);  
 //   imgData1 = ctx.getImageData(0,0,c_width,c_height);
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 	 
@@ -116,11 +114,7 @@ function release()
  	x_co=document.getElementById("x_coor").value;
  	y_co=document.getElementById("y_coor").value;
  	
- 	 //	alert(c_width);
- //	document.getElementById("div_main2").style.display = 'block';
-    	
-    	  // document.getElementById("crop").disabled = false; 
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
+ 	navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
     
@@ -130,6 +124,7 @@ function release()
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
+	      	 document.getElementById("div_main1").style.visibility = 'visible';
 		img.onload= drawImageScaled_me.bind(null, img, ctx);
 	    }
    
@@ -139,10 +134,8 @@ function release()
 canvas.height = window.innerHeight;
  canvas.width = window.innerWidth;
 ctx.clearRect(0,0,canvas.width, canvas.height);
-   
-    ctx.drawImage(img,0,0);
+   ctx.drawImage(img,0,0);
    imgData2 = ctx.getImageData(0,0,img.width,img.height);
-   
    
 }
 
