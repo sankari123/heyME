@@ -94,7 +94,8 @@ canvas.height = window.innerHeight;
  m_height=img.height;
  m_width=img.width;
  
-   // ctx.drawImage(img,0,0,m_width,m_height);  
+   
+   ctx.drawImage(img,0,0,m_width,m_height);  
 //   imgData1 = ctx.getImageData(0,0,c_width,c_height);
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 	 
@@ -107,17 +108,17 @@ function release()
   
   function getPhoto(source) {
   	release();
+  	document.getElementById("div_main1").style.display = 'none';
+  	document.getElementById("target").style.visibility = 'hidden';
+    	document.getElementById("target").style.display = 'none';
           c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
  	x_co=document.getElementById("x_coor").value;
  	y_co=document.getElementById("y_coor").value;
- 	ctx.drawImage(img,0,0,c_width,c_height);
- 	imgData1=ctx.getImageData(0,0,c_width,c_height);
- 	alert(c_width);
  	
-    	document.getElementById("div_main1").style.display = 'none';
-  	document.getElementById("target").style.visibility = 'hidden';
-    	document.getElementById("target").style.display = 'none';
+ 	 	alert(c_width);
+ 	
+    	
     	  // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
