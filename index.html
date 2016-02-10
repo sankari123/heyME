@@ -86,7 +86,7 @@ function onConfirm(buttonIndex) {
     setCrop();
 	}
 }
-   function drawImageScaled(img, ctx) {
+   function drawImageScaled(img,ctx) {
 	
  var canvas = ctx.canvas ;
 canvas.height = window.innerHeight;
@@ -108,7 +108,7 @@ function release()
   
   function getPhoto(source) {
   	release();
-  	document.getElementById("div_main1").style.display = 'none';
+  //	document.getElementById("div_main1").style.display = 'none';
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
           c_width=document.getElementById("w").value;
@@ -116,8 +116,8 @@ function release()
  	x_co=document.getElementById("x_coor").value;
  	y_co=document.getElementById("y_coor").value;
  	
- 	 	alert(c_width);
- 	
+ 	 //	alert(c_width);
+ //	document.getElementById("div_main2").style.display = 'block';
     	
     	  // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
@@ -126,12 +126,10 @@ function release()
     
     function onPhotoURISuccess(imageURI1) {
     	
-    	var c = document.getElementById("can_me");
+    	var c = document.getElementById("can_model");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		document.getElementById("target").src=imageURI1;
-		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled_me.bind(null, img, ctx);
 	    }
    
@@ -152,10 +150,8 @@ function overlay()
 {
 		release();
 		document.getElementById("target").style.visibility = 'hidden';
-		
 		document.getElementById("div_main1").style.display = 'none';
-		document.getElementById("div_main2").style.display = 'none';
-		document.getElementById("div_main3").style.display = 'block';
+		document.getElementById("div_main2").style.display = 'block';
 	canvas_final = document.getElementById("can_final");
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
@@ -260,10 +256,8 @@ html {
        <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 <Br><Br>
          <div align='center'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-         <div align='center'> <img src="splash.png" class="cropImage" id="target_me" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
-            <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
+            <div class="divStyle2" id="div_main2"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
         
       </div>
       
