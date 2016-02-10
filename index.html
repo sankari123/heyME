@@ -73,7 +73,7 @@ var pictureSource;   // picture source
         	 document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
-        	 document.getElementById("div_main2").style.visibility = 'hidden';
+       
         	 
 	  }
        function onFail(message) {
@@ -127,6 +127,7 @@ function release()
   	document.getElementById("div_main1").style.display = 'none';
   	document.getElementById("target").style.visibility = 'hidden';
     	document.getElementById("target").style.display = 'none';
+    	document.getElementById("div_main2").style.visibility = 'visible';
    // document.getElementById("crop").disabled = false; 
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
