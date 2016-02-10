@@ -121,6 +121,7 @@ function release()
     
     function onPhotoURISuccess(imageURI1) {
     	document.getElementById("div_main2").style.visibility = 'visible';
+    	document.getElementById("div_main2").style.display = 'block';
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
@@ -146,6 +147,7 @@ function overlay()
 		document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("div_main2").style.display = 'none';
 		document.getElementById("div_main3").style.display = 'block';
+		document.getElementById("div_main3").style.visibility = 'visible';
 		canvas_final = document.getElementById("can_final");
                 context_final = canvas_final.getContext("2d");
                 canvas_final.height = window.innerHeight;
@@ -190,14 +192,21 @@ function overlay()
    position:fixed;
    width: auto !important;
    height: 350px !important;
-   border-color:black;
+   border-color:white;
    }
   .divStyle2{
    width: 100%;
    height: 350px !important;
    visibility:hidden;
    border-style: solid;
-   border-color: black;
+   border-color: white;
+  }
+  .divStyle3{
+   width: 100%;
+   height: 350px !important;
+   visibility:hidden;
+   border-style: solid;
+   border-color: white;
   }
  
   .html {
