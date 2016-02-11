@@ -76,11 +76,7 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		 a_height=img.height;
-		 a_width=img.width;
-		 alert('w '+a_width);
-		 alert('h '+a_height);
-		 document.getElementById("target").src=imageURI1;
+	        document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
@@ -95,6 +91,8 @@ function onConfirm(buttonIndex) {
  var canvas = ctx.canvas ;
  m_height=img.height;
  m_width=img.width;
+ alert(m_width);
+ alert(m_height);
   ctx.drawImage(img,0,0);  
 //imgData1 = ctx.getImageData(0,0,m_width,m_height);
 imgData1=ctx.getImageData(0,0,m_width, m_height);
