@@ -42,6 +42,7 @@ var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = true; 
    var c_width,c_height;
+   var m_width,m_height;
     document.addEventListener("deviceready",onDeviceReady,false);
      function onDeviceReady() {
        	pictureSource=navigator.camera.PictureSourceType;
@@ -109,7 +110,7 @@ function release()
     	document.getElementById("target").style.display = 'none';
           c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
- 	alert(c_width);
+ 	//alert(c_width);
  	x_co=document.getElementById("x_coor").value;
  	y_co=document.getElementById("y_coor").value;
  	
@@ -130,10 +131,8 @@ function release()
    function drawImageScaled_me(img,ctx) {
 	
  	var canvas = ctx.canvas ;
-	canvas.height = window.innerHeight;
- 	canvas.width = window.innerWidth;
  	ctx.clearRect(0,0,canvas.width, canvas.height);
-   	ctx.drawImage(img,0,0);
+   	ctx.drawImage(img,0,0,m_width,m_height);
    	imgData2=ctx.getImageData(0,0,m_width, m_height);
  	}
 function overlay()
