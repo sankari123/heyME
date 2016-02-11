@@ -78,8 +78,9 @@ var pictureSource;   // picture source
 		img.src = imageURI1;
 		 a_height=img.height;
 		 a_width=img.width;
-		
-		document.getElementById("target").src=imageURI1;
+		 alert('w '+a_width);
+		 alert('h '+a_height);
+		 document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
