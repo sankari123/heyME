@@ -43,6 +43,8 @@ var pictureSource;   // picture source
    var rotating = true; 
    var c_width,c_height;
    var m_width,m_height;
+   var a_width,a_height;
+   
     document.addEventListener("deviceready",onDeviceReady,false);
      function onDeviceReady() {
        	pictureSource=navigator.camera.PictureSourceType;
@@ -74,6 +76,8 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
+		 a_height=img.height;
+		 a_width=img.height;
 		
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
@@ -132,8 +136,8 @@ function release()
 	
  	var canvas = ctx.canvas ;
  	ctx.clearRect(0,0,canvas.width, canvas.height);
-   	ctx.drawImage(img,0,0,m_width,m_height);
-   	imgData2=ctx.getImageData(0,0,m_width, m_height);
+   	ctx.drawImage(img,0,0,a_width,a_height);
+   	imgData2=ctx.getImageData(0,0,a_width, a_height);
  	}
 function overlay()
 {
