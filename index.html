@@ -37,10 +37,14 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  
+  function initJcrop()
+            {
+                jcrop_api = $.Jcrop('#target1');
+            };
   function setCrop_me()
     {
-        
+        initJcrop();
+            
  jcrop_api = $.Jcrop('#target1', { aspectRatio: 1,
               minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
  }
