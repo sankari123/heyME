@@ -37,6 +37,24 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
+  
+  function setCrop_me()
+    {
+        
+ jcrop_api = $.Jcrop('#target1', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
+ }
+ 
+   function showCoords1(c)
+  {
+      // variables can be accessed here as
+   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
+     $('#w_me').val(c.w);
+    $('#h_me').val(c.h);
+     $('#x_coor_me').val(c.x);
+    $('#y_coor_me').val(c.y);
+  };
+  
  
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
@@ -55,6 +73,7 @@ var pictureSource;   // picture source
       {
         	 document.getElementById("tbl").style.width=window.innerWidth;
         	 document.getElementById("target").style.visibility = 'hidden';
+        	 document.getElementById("target1").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
        
@@ -86,6 +105,13 @@ function onConfirm(buttonIndex) {
     setCrop();
 	}
 }
+function onConfirm_me(buttonIndex) {
+  if(buttonIndex==1)
+  {
+    
+    setCrop1();
+	}
+}
    function drawImageScaled(img,ctx) {
 	
  var canvas = ctx.canvas ;
@@ -96,6 +122,7 @@ function onConfirm(buttonIndex) {
   ctx.drawImage(img,0,0);  
 //imgData1 = ctx.getImageData(0,0,m_width,m_height);
 imgData1=ctx.getImageData(0,0,m_width, m_height);
+
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 	 
 }
@@ -122,40 +149,34 @@ function release()
    
     
     function onPhotoURISuccess(imageURI1) {
-    	document.getElementById("div_main2").style.visibility = 'visible';
-    	document.getElementById("div_main2").style.display = 'block';
+    //	document.getElementById("div_main2").style.visibility = 'visible';
+    //	document.getElementById("div_main2").style.display = 'block';
     	var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
-		img.src = imageURI1;
-	   	img.onload= drawImageScaled_me.bind(null, img, ctx);
+	//	img.src = imageURI1;
+	  // 	img.onload= drawImageScaled_me.bind(null, img, ctx);
+	   	
+	   	img.src = imageURI1;
+	        document.getElementById("target1").src=imageURI1;
+		document.getElementById("target1").style.visibility = 'visible';
+		img.onload= drawImageScaled_me.bind(null, img, ctx);
+		
 	    }
    
    function drawImageScaled_me(img,ctx) {
 	
  	var canvas = ctx.canvas ;
- 	ctx.clearRect(0,0,canvas.width, canvas.height);
-   	ctx.drawImage(img,0,0,c_width,c_height);
-   	imgData2=ctx.getImageData(0,0,c_width, c_height);
+ m_height=img.height;
+ m_width=img.width;
+ alert(m_width);
+ alert(m_height);
+  ctx.drawImage(img,0,0);  
+//imgData1 = ctx.getImageData(0,0,m_width,m_height);
+imgData2=ctx.getImageData(0,0,m_width, m_height);
+setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
  	}
- function overlay()
-{
-		
-		document.getElementById("div_main2").style.display = 'none';
-		document.getElementById("div_main2").style.visibility = 'hidden';
-		document.getElementById("div_main3").style.display = 'block';
-		document.getElementById("div_main3").style.visibility = 'visible';
-		canvas_final = document.getElementById("can_final");
-                context_final = canvas_final.getContext("2d");
-                canvas_final.height = window.innerHeight;
-  		canvas_final.width = window.innerWidth;
-  		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-                context_final.putImageData(imgData1,0,0,c_width,c_height);
-                x_co=document.getElementById('x_coor').value;
-                y_co=document.getElementById('y_coor').value;
-               // context_final.putImageData(imgData2,x_co,y_co);
-           
-}
+ 
 
 
       </script>
@@ -224,7 +245,7 @@ function release()
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-       
+       <tr><td><input type="hidden" size="3" id='w_me'></td><td><input type="hidden" id='h_me' size="3" ></td><td><input type="hidden"  size="3" id='x_coor_me'></td><td><input type="hidden"  size="3" id='y_coor_me'></td><td>&nbsp;</td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load MakeOver Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
@@ -235,6 +256,7 @@ function release()
        <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 <Br><Br>
          <div align='center'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+         <div align='center'> <img src="#" class="cropImage" id="target1" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;display: inline;"></canvas></div>
