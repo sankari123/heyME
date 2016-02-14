@@ -23,16 +23,10 @@
  
 function setCrop()
     {
-        if(flag)
-        {
-        	jcrop_api = $.Jcrop('#target1', { aspectRatio: 1,
-              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
-        }
-        else
-        {
+        
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
-        }
+      
  }
  
    function showCoords(c)
@@ -44,16 +38,7 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-     function showCoords1(c)
-  {
-      // variables can be accessed here as
-   //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     $('#w_me').val(c.w);
-    $('#h_me').val(c.h);
-     $('#x_coor_me').val(c.x);
-    $('#y_coor_me').val(c.y);
-  };
-  
+   
  
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
@@ -244,8 +229,7 @@ setTimeout(function(){navigator.notification.confirm('Get the face Dimensions', 
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-       <tr><td><input type="hidden" size="3" id='w_me'></td><td><input type="hidden" id='h_me' size="3" ></td><td><input type="hidden"  size="3" id='x_coor_me'></td><td><input type="hidden"  size="3" id='y_coor_me'></td><td>&nbsp;</td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
+        <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Your Photo</button></td>
          <td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load MakeOver Photo</button></td>
        <!--  <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>-->
          <td><button onclick="overlay();">Overlay</button></td>
@@ -255,7 +239,6 @@ setTimeout(function(){navigator.notification.confirm('Get the face Dimensions', 
        <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 <Br><Br>
          <div align='center'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-         <div align='center'> <img src="#" class="cropImage" id="target1" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:0px solid white;display: inline;"></canvas></div>
