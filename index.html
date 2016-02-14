@@ -181,7 +181,7 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
-             //  context_final.putImageData(imgData1,x_coor,y_coor,c_width,c_height);
+             context_final.putImageData(imgData1,x_coor,y_coor);
                context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
