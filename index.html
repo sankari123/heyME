@@ -89,22 +89,39 @@ function onConfirm(buttonIndex) {
 
    function drawImageScaled(img, ctx) {
 	
- var canvas = ctx.canvas ;
+	var canvas = ctx.canvas ;
+	canvas.height = canvas.width * (img.height / img.width);
+
+    /// step 1
+    var oc = document.createElement('canvas'),
+        octx = oc.getContext('2d');
+
+    oc.width = img.width * 0.5;
+    oc.height = img.height * 0.5;
+    octx.drawImage(img, 0, 0, oc.width, oc.height);
+
+    /// step 2
+    octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
+
+    ctx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,  0, 0, canvas.width, canvas.height);
+    
+    
+// var canvas = ctx.canvas ;
 //canvas.height = window.innerHeight;
  //canvas.width = window.innerWidth;
 // resize(img);
 
 
- m_height=img.height;
- m_width=img.width;
- alert(m_height+ '  - '+ m_width);
+// m_height=img.height;
+// m_width=img.width;
+// alert(m_height+ '  - '+ m_width);
 // m_height=document.getElementById("target").height;
 // m_width=document.getElementById("target").width;
  //alert("after "+m_height);
-   ctx.clearRect(0,0,canvas.width, canvas.height);
+  // ctx.clearRect(0,0,canvas.width, canvas.height);
    //alert("actual   "+img.height);
-    ctx.drawImage(img,0,0,m_width,m_height);  
-   imgData1 = ctx.getImageData(0,0,m_width,m_height);
+   // ctx.drawImage(img,0,0,m_width,m_height);  
+   imgData1 = ctx.getImageData(0,0);
    //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
  // ctx.drawImage(img, 0,0, i_width, i_height, centerShift_x,centerShift_y,i_width*ratio, i_height*ratio);  
   
