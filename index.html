@@ -157,7 +157,7 @@ function release()
  //alert(m_height);
   ctx.drawImage(img,0,0);  
 //imgData1 = ctx.getImageData(0,0,m_width,m_height);
-imgData2=ctx.getImageData(0,0,img_width,img_height);
+imgData2=ctx.getImageData(0,0,img.width,img.height);
 setTimeout(function(){navigator.notification.confirm('Get the face Dimensions',  onConfirm_me,  'Face Dimensions', ['OK','Cancel'] );},5);
  	}
  
