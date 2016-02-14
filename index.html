@@ -23,9 +23,16 @@
  
 function setCrop()
     {
-        
+        if(flag)
+        {
+        	jcrop_api = $.Jcrop('#target1', { aspectRatio: 1,
+              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
+        }
+        else
+        {
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
+        }
  }
  
    function showCoords(c)
@@ -37,19 +44,7 @@ function setCrop()
      $('#x_coor').val(c.x);
     $('#y_coor').val(c.y);
   };
-  function initJcrop()
-            {
-                jcrop_api = $.Jcrop('#target1');
-            };
-  function setCrop_me()
-    {
-        initJcrop();
-            
- jcrop_api = $.Jcrop('#target1', { aspectRatio: 1,
-              minSize: 50, onChange: showCoords1,    onSelect: showCoords1, bgColor: '#CCC' });
- }
- 
-   function showCoords1(c)
+     function showCoords1(c)
   {
       // variables can be accessed here as
    //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
@@ -113,7 +108,7 @@ function onConfirm_me(buttonIndex) {
   if(buttonIndex==1)
   {
     
-    setCrop1();
+    setCrop();
 	}
 }
    function drawImageScaled(img,ctx) {
