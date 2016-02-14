@@ -101,8 +101,8 @@ function onConfirm_me(buttonIndex) {
  var canvas = ctx.canvas ;
  m_height=img.height;
  m_width=img.width;
- alert(m_width);
- alert(m_height);
+// alert(m_width);
+ //alert(m_height);
   ctx.drawImage(img,0,0);  
 //imgData1 = ctx.getImageData(0,0,m_width,m_height);
 imgData1=ctx.getImageData(0,0,m_width, m_height);
@@ -127,7 +127,7 @@ function release()
  	//alert(c_width);
  	x_co=document.getElementById("x_coor").value;
  	y_co=document.getElementById("y_coor").value;
- 	alert(x_co+' - '+y_co);
+ //	alert(x_co+' - '+y_co);
  	navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
@@ -179,9 +179,10 @@ function overlay()
   		canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
                context_final.putImageData(imgData1,x_coor,y_coor,c_width,c_height);
+               context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-              context_final.putImageData(imgData2,0,0);
+             // context_final.putImageData(imgData2,0,0);
           
 }
 
