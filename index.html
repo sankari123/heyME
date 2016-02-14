@@ -169,11 +169,12 @@ function overlay()
 		document.getElementById("target").style.visibility = 'hidden';
     		document.getElementById("target").style.display = 'none';
 		document.getElementById("div_main3").style.display = 'block';
+		document.getElementById("div_main3").style.visibility = 'visible';
 		
-		crop_width=document.getElementById("w").value;
- 	        crop_height=document.getElementById("h").value;
- 	      x_coor=document.getElementById("x_coor").value;
- 		y_coor=document.getElementById("y_coor").value;
+	//	crop_width=document.getElementById("w").value;
+ 	  //      crop_height=document.getElementById("h").value;
+ 	    //  x_coor=document.getElementById("x_coor").value;
+ 	//	y_coor=document.getElementById("y_coor").value;
  	  // alert(c_width+'  -  '+c_height);
  	  // alert(x_coor+'  -  '+y_coor);
 	canvas_final = document.getElementById("can_final");
@@ -183,8 +184,8 @@ function overlay()
   		context_final.clearRect(0,0,canvas_final.height, canvas_final.height);
            //  context_final.putImageData(imgData1,x_coor,y_coor);
                context_final.putImageData(imgData1,0,0);
-               x_co=document.getElementById('x_coor').value;
-             y_co=document.getElementById('y_coor').value;
+          //     x_co=document.getElementById('x_coor').value;
+            // y_co=document.getElementById('y_coor').value;
              // context_final.putImageData(imgData2,0,0);
           
 }
