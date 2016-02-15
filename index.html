@@ -90,6 +90,8 @@ function onConfirm(buttonIndex) {
    function drawImageScaled(img, ctx) {
 	var canvas = ctx.canvas ;
 //	canvas.height = canvas.width * (img.height / img.width);
+m_height=img.height;
+m_width=img.width;
 ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
@@ -189,11 +191,11 @@ document.getElementById("div_main1").style.display = 'none';
               //  canvas_final.height = window.innerHeight;
   	//	canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
-		context_final.globalCompositeOperation = "destination-atop"; 
+	//	context_final.globalCompositeOperation = "destination-atop"; 
               context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-             context_final.globalCompositeOperation = "xor";
+          //   context_final.globalCompositeOperation = "xor";
              context_final.putImageData(tmp1,x_co,y_co);
            //   overlay_action(context_final);
            //  navigator.notification.confirm('Want to resize the face image!',  onConfirm_resize,  'Resize Face Image', ['75%','50%'] );
@@ -493,7 +495,7 @@ body {
          	
 <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 
-         <div class='dBox'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+         <div align='center' class='dBox'> <img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
