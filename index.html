@@ -89,10 +89,10 @@ function onConfirm(buttonIndex) {
 
    function drawImageScaled(img, ctx) {
 	var canvas = ctx.canvas ;
-	canvas.height = canvas.width * (img.height / img.width);
-     ctx.drawImage(img, 0, 0,img.width,img.height);
+//	canvas.height = canvas.width * (img.height / img.width);
+     ctx.drawImage(img,0,0,img.width,img.height);
     imgData1 = ctx.getImageData(0,0);
-    setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
+    navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
 }
 function release()
   {
