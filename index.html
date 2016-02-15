@@ -132,8 +132,8 @@ function release()
                     	       		img_r1.src = results[0]; 
                     	       		
                     			img_r1.onload = function() {
-                    			 alert(this.width);
-        				alert(this.height);
+                    		//	 alert(this.width);
+        			//			alert(this.height);
     					img_r1.height = c_height;
 					img_r1.width = c_width; 
                     				
@@ -171,7 +171,7 @@ function release()
 
 function overlap()
  {
-//alert("in");
+alert("in");
 document.getElementById("div_main1").style.display = 'none';
 	document.getElementById("can_model").style.visibility = 'hidden';
 		document.getElementById("div_main2").style.display = 'none';
@@ -183,26 +183,16 @@ document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("loadImgDiv").style.display = 'none';	
 		document.getElementById("loadImgDiv").style.display = 'hidden';	
 		}
-	canvas_final = document.getElementById("can_final");
-//	var c = document.getElementById('c');
-
-//	canvas_final.height = m_height;
-//	canvas_final.width = m_width;
-//	alert(canvas_final.height + ' ' + canvas_final.width);
-               context_final = canvas_final.getContext("2d");
+  	      canvas_final = document.getElementById("can_final");
+              context_final = canvas_final.getContext("2d");
                canvas_final.width = window.innerWidth * 0.8;
     		canvas_final.height = window.innerHeight * 0.8;
-              //  canvas_final.height = window.innerHeight;
-  	//	canvas_final.width = window.innerWidth;
-  		context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
-	//	context_final.globalCompositeOperation = "destination-atop"; 
+               context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
               context_final.putImageData(imgData1,0,0);
                x_co=document.getElementById('x_coor').value;
              y_co=document.getElementById('y_coor').value;
-          //   context_final.globalCompositeOperation = "xor";
+
              context_final.putImageData(tmp1,x_co,y_co);
-           //   overlay_action(context_final);
-           //  navigator.notification.confirm('Want to resize the face image!',  onConfirm_resize,  'Resize Face Image', ['75%','50%'] );
 }
 
 function overlay_action()
@@ -300,7 +290,7 @@ function drawLine(ctx,x1,y1) {
 
 function testDiv1()
 {
-//	alert("selected");
+	alert("selected");
 //	alert(img_arr[0]);
     //	document.getElementById("div_main2").style.display = 'block';
     //	document.getElementById("div_main2").style.visibility = 'visible';
@@ -310,6 +300,7 @@ function testDiv1()
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
+    	alert("c_width "+c_width+" c height "+c_height);
     //	ctx.drawImage(img_1,0,0,c_width,m_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height);
     	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
