@@ -91,14 +91,14 @@ function onConfirm(buttonIndex) {
 	var canvas = ctx.canvas ;
 	canvas.height = canvas.width * (img.height / img.width);
     /// step 1
-    var oc = document.createElement('canvas');
-        octx = oc.getContext('2d');
-    oc.width = img.width * 0.5;
-    oc.height = img.height * 0.5;
-    octx.drawImage(img,0,0,oc.width,oc.height);
+  //  var oc = document.createElement('canvas');
+    //    octx = oc.getContext('2d');
+    oWidth = img.width * 0.5;
+    oHeight = img.height * 0.5;
+   // octx.drawImage(img,0,0,oc.width,oc.height);
     /// step 2
-    octx.drawImage(oc, 0, 0,oc.width*0.5, oc.height * 0.5);
-    ctx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,  0, 0, canvas.width, canvas.height);
+   // octx.drawImage(oc, 0, 0,oc.width*0.5, oc.height * 0.5);
+    ctx.drawImage(img, 0, 0, oWidth * 0.5, oHeight * 0.5,  0, 0, canvas.width, canvas.height);
     imgData1 = ctx.getImageData(0,0);
     setTimeout(function(){navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );},5);
 }
