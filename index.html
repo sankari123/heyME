@@ -188,8 +188,10 @@ document.getElementById("div_main1").style.display = 'none';
 
 //	canvas_final.height = m_height;
 //	canvas_final.width = m_width;
-	alert(canvas_final.height + ' ' + canvas_final.width);
+//	alert(canvas_final.height + ' ' + canvas_final.width);
                context_final = canvas_final.getContext("2d");
+               canvas_final.width = window.innerWidth * 0.8;
+    		canvas_final.height = window.innerHeight * 0.8;
               //  canvas_final.height = window.innerHeight;
   	//	canvas_final.width = window.innerWidth;
   		context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
