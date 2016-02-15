@@ -30,7 +30,8 @@ function setCrop()
               minSize: 50, onChange: showCoords,    onSelect: showCoords, bgColor: '#CCC' });
  }
  
-  function showCoords(c)
+ 
+function showCoords(c)
   {
       // variables can be accessed here as
    //  alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
@@ -382,7 +383,25 @@ while (pixels--) {
 }
 image1.data = imageData1;
 context.putImageData(image1, 0, 0); };
+function seePreview()
+{
 
+        var x1 = $('#imgX1').val();
+        var y1 = $('#imgY1').val();
+        var width = $('#imgWidth').val();
+        var height = $('#imgHeight').val();
+        var canvas = $("#canvas")[0];
+        var context = canvas.getContext('2d');
+        var img = new Image();
+        img.onload = function () {
+            canvas.height = height;
+            canvas.width = width;
+            context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
+            $('#imgCropped').val(canvas.toDataURL());
+        };
+        img.src = $('#target').attr("src");
+    
+}
       </script>
 
       <style type="text/css">
@@ -480,11 +499,18 @@ position: absolute;
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+       	
+       	<tr><TD><input type="hidden" name="imgX1" id="imgX1" /></td>
+<td><input type="hidden" name="imgY1" id="imgY1" /></td>
+<td><input type="hidden" name="imgWidth" id="imgWidth" /></td>
+<td><input type="hidden" name="imgHeight" id="imgHeight" /></td>
+<td><input type="hidden" name="imgCropped" id="imgCropped" /></td></tr>
          <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
-         <td><button onclick="saveCanvas();">Touchup</button></td>
+         <td><button onclick="seePreview();">Preview</button></td>
+         <td><button onclick="seePreview();">Dummy</button></td
         </tr></table>
          </div>
          <BR><BR>
