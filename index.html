@@ -97,6 +97,7 @@ canvas.width = window.innerWidth * 0.8;
     canvas.height = window.innerHeight * 0.8;
 ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
    
   //   ctx.drawImage(img,0,0,img.width,img.height);
@@ -116,6 +117,9 @@ function release()
 	alert("Select 3 photos only...");
  	c_width=document.getElementById("w").value;
  	c_height=document.getElementById("h").value;
+ 	x_co=document.getElementById('x_coor').value;
+        y_co=document.getElementById('y_coor').value;
+ 	
  	document.getElementById('loadImgDiv').style.width=c_width;
 	document.getElementById('loadImgDiv').style.height=c_height;
 	
@@ -190,8 +194,7 @@ document.getElementById("div_main1").style.display = 'none';
     		canvas_final.height = window.innerHeight * 0.8;
                context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
               context_final.putImageData(imgData1,0,0);
-               x_co=document.getElementById('x_coor').value;
-             y_co=document.getElementById('y_coor').value;
+            
 
              context_final.putImageData(tmp1,x_co,y_co);
 }
@@ -304,8 +307,9 @@ function testDiv1()
     	alert("c_width "+c_width+" c height "+c_height);
     //	ctx.drawImage(img_1,0,0,c_width,m_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height);
-    	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
-        tmp1=ctx.getImageData(0,0,c_width,c_height);
+        ctx.drawImage(img_1, x_coor, y_coor, c_width, c_height, 0, 0, c_width, c_height);
+    //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
+        tmp1=ctx.getImageData(0,0);
        // hideDiv();
        	overlap();
  }
@@ -321,6 +325,7 @@ function testDiv1()
 	img_1.src = img_arr[1];
 	img_1.x=0;
     	img_1.y=0;
+    //	context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
     	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
         tmp1=ctx.getImageData(0,0,c_width,c_height);
         //hideDiv();
