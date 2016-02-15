@@ -405,6 +405,7 @@ context.putImageData(image1, 0, 0); };
   width:auto !important;
   display: block; 
   margin: 0 auto;
+  vertical-align: middle;
   }
   .btncss
 	{
@@ -461,17 +462,11 @@ body {
   padding: 0;
   height: 100%;
   }
-  .dBox
-  {
-  	position: fixed;
-    	text-align: center; 
-  }
-  .Centerer
-{
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+ #over {
+  text-align: center;
 }
+
+
         </style>
   </head>
   
@@ -502,7 +497,7 @@ body {
          	
 <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 
-         <div id="over" style="position:absolute; width:100%; height:100%;"> <span class="Centerer"></span><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+         <div id='over'> <span class="Centerer"></span><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" style="border:0px solid white;display: inline;"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" style="border:1px solid black;"></canvas></div>
