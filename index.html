@@ -53,7 +53,9 @@ var pictureSource;   // picture source
     
        function start()
       {
-        	 document.getElementById("tbl").style.width=window.innerHeight;
+        	 var newSize = scaleSize(200, 200, 500, 313);
+		alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
+		document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
@@ -76,10 +78,9 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		var newSize = scaleSize(200, 200, 500, 313);
-		alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
+		
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
 function scaleSize(maxW, maxH, currW, currH){
@@ -93,7 +94,6 @@ currH = currW * ratio;
 currH = maxH;
 currW = currH / ratio;
 }
-
 return [currW, currH];
 }
 
