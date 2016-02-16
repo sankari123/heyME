@@ -93,8 +93,9 @@ function onConfirm(buttonIndex) {
 //	canvas.height = canvas.width * (img.height / img.width);
 m_height=img.height;
 m_width=img.width;
-canvas.width = window.innerWidth * 0.8;
+    canvas.width = window.innerWidth * 0.8;
     canvas.height = window.innerHeight * 0.8;
+    
 ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
@@ -420,7 +421,7 @@ function seePreview()
   visibility:hidden;
   height: auto !important;
   width:100% !important;
-  top:-50px; left:-50px; position:absolute; margin:50% 0 0 50%;
+/*  top:-50px; left:-50px; position:absolute; margin:50% 0 0 50%;*/
   }
   .btncss
 	{
