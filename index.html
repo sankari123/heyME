@@ -302,11 +302,11 @@ function testDiv1()
 	img_1.src = img_arr[0];
 	img_1.x=0;
     	img_1.y=0;
-    	alert("c_width "+c_width+" c height "+c_height);
-    	alert("x  "+x_co+" y  "+y_co);
+    //	alert("c_width "+c_width+" c height "+c_height);
+    //	alert("x  "+x_co+" y  "+y_co);
     //	ctx.drawImage(img_1,0,0,c_width,m_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height);
-        ctx.drawImage(img_1, x_co, y_co, img_1.width, img_1.height, 0, 0, c_width, c_height);
+        ctx.drawImage(img_1, 0,0, y_co, img_1.width, img_1.height, 0, 0, c_width, c_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
         tmp1=ctx.getImageData(0,0);
        // hideDiv();
