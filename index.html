@@ -76,11 +76,27 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
-		resize_images(img,window.innerHeight,window.innerWidth,100,100);    
+		var newSize = scaleSize(200, 200, 500, 313);
+		alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
+function scaleSize(maxW, maxH, currW, currH){
+
+var ratio = currH / currW;
+
+if(currW >= maxW && ratio <= 1){
+currW = maxW;
+currH = currW * ratio;
+} else >if(currH >= maxH){
+currH = maxH;
+currW = currH / ratio;
+}
+
+return [currW, currH];
+}
+
 function onConfirm(buttonIndex) {
   if(buttonIndex==1)
   {
@@ -412,37 +428,6 @@ function seePreview()
     
 }
 
-function resize_images(img,maxht, maxwt, minht, minwt) {
- // var imgs = document.getElementsByTagName('img');
-
-  var resize_image = function(img, newht, newwt) {
-    img.height = newht;
-    img.width  = newwt;
-  };
-  for (var i = 0; i < img.length; i++) {
-      if (img.height > maxht || img.width > maxwt) {
-      // Use Ratios to constraint proportions.
-      var old_ratio = img.height / img.width;
-      var min_ratio = minht / minwt;
-      // If it can scale perfectly.
-      if (old_ratio === min_ratio) {
-        resize_image(img, minht, minwt);
-      } 
-      else {
-        var newdim = [img.height, img.width];
-        newdim[0] = minht;  // Sort out the height first
-        // ratio = ht / wt => wt = ht / ratio.
-        newdim[1] = newdim[0] / old_ratio;
-        // Do we still have to sort out the width?
-        if (newdim[1] > maxwt) {
-          newdim[1] = minwt;
-          newdim[0] = newdim[1] * old_ratio;
-        }
-        resize_image(img, newdim[0], newdim[1]);
-      }
-    }
-  }
-}
 
       </script>
 
