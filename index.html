@@ -492,6 +492,13 @@ position: absolute;
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
+       	 <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
+         <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
+         <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
+         <td><button onclick="overlay_action();">Position</button></td>
+         <td><button onclick="seePreview();">Preview</button></td>
+         <td><button onclick="seePreview();">Dummy</button></td
+        </tr>
        	</table>
                <div align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" class="m_canvas"></canvas></div>
