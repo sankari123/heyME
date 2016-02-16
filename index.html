@@ -90,19 +90,19 @@ function onConfirm(buttonIndex) {
 
 
    function drawImageScaled(img, ctx) {
-   	
+   	resize_images(img,window.innerHeight,window.innerWidth, 100,100)
 	var canvas = ctx.canvas ;
 //	canvas.height = canvas.width * (img.height / img.width);
-m_height=img.height;
-m_width=img.width;
+//m_height=img.height;
+//m_width=img.width;
   //  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
     
     
 ctx.clearRect(0,0,canvas.width, canvas.height);
- ctx.drawImage(img,0,0,canvas.width,canvas.height);
+ ctx.drawImage(img,0,0,newwt,newht);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
-   imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+   imgData1=ctx.getImageData(0,0,newwt, newht);
    
   //   ctx.drawImage(img,0,0,img.width,img.height);
     //imgData1 = ctx.getImageData(0,0);
@@ -410,6 +410,39 @@ function seePreview()
         img.src = $('#target').attr("src");
     
 }
+
+function resize_images(img,maxht, maxwt, minht, minwt) {
+ // var imgs = document.getElementsByTagName('img');
+
+  var resize_image = function(img, newht, newwt) {
+    img.height = newht;
+    img.width  = newwt;
+  };
+  for (var i = 0; i < img.length; i++) {
+      if (img.height > maxht || img.width > maxwt) {
+      // Use Ratios to constraint proportions.
+      var old_ratio = img.height / img.width;
+      var min_ratio = minht / minwt;
+      // If it can scale perfectly.
+      if (old_ratio === min_ratio) {
+        resize_image(img, minht, minwt);
+      } 
+      else {
+        var newdim = [img.height, img.width];
+        newdim[0] = minht;  // Sort out the height first
+        // ratio = ht / wt => wt = ht / ratio.
+        newdim[1] = newdim[0] / old_ratio;
+        // Do we still have to sort out the width?
+        if (newdim[1] > maxwt) {
+          newdim[1] = minwt;
+          newdim[0] = newdim[1] * old_ratio;
+        }
+        resize_image(img, newdim[0], newdim[1]);
+      }
+    }
+  }
+}
+
       </script>
 
       <style type="text/css">
@@ -436,23 +469,23 @@ function seePreview()
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
-.divStyle1{
+.divStyle11{
    visibility:hidden;
    position:fixed;
-   width: 100%;
+   width: 75%;
    text-align:center;
   }
   .divStyle2{
-   width: 100%;
+   width: 75%;
    height: 50px !important;
   visibility:hidden;
    overflow-x: scroll;
    border-style: solid;
    border-color: red;
   }
-  .divStyle3{
-   width: 100%;
-   height:100%;
+  .divStyle31{
+   width: 75%;
+   height:75%;
    visibility:hidden;
    position:fixed;
    background:blue;
@@ -510,9 +543,9 @@ position: absolute;
     			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
          	</div>
                <div align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-            <div class="divStyle1" id="div_main1"><canvas id="can_model"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
-            <div class="divStyle3" id="div_main3"><canvas id="can_final"></canvas></div>
+            <div  id="div_main1"><canvas id="can_model"></canvas></div>
+            <div  id="div_main2"><canvas id="can_me"></canvas></div>
+            <div  id="div_main3"><canvas id="can_final"></canvas></div>
         
                  </div>
       
