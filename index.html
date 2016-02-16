@@ -470,18 +470,6 @@ function seePreview()
  /*   border-color:green;*/
    /* background-color: rgba(255, 255, 255, 0.3);*/
 }
-html {
-  height: 100%;
-}
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  }
- #over {
- width:300px; height:300px; position:relative;
- 
-}
 .m_canvas
 {
 position: absolute;
@@ -504,36 +492,10 @@ position: absolute;
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td><td>&nbsp;</td></tr>
-       	
-       	<tr><TD><input type="hidden" name="imgX1" id="imgX1" /></td>
-<td><input type="hidden" name="imgY1" id="imgY1" /></td>
-<td><input type="hidden" name="imgWidth" id="imgWidth" /></td>
-<td><input type="hidden" name="imgHeight" id="imgHeight" /></td>
-<td><input type="hidden" name="imgCropped" id="imgCropped" /></td></tr>
-         <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
-         <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
-         <td><button onclick="overlay_action();">Position</button></td>
-         <td><button onclick="seePreview();">Preview</button></td>
-         <td><button onclick="seePreview();">Dummy</button></td
-        </tr></table>
-         </div>
-         <BR><BR>
-         	<div id='loadImgDiv' class="red">
-         	
-    			<div id='loadImgDiv1' class="blue" onclick="testDiv1();"><img src="#"></div>
-    			<div id='loadImgDiv2' class="blue" onclick="testDiv2();"><img src="#"></div>
-    			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
-         	</div>
-         	
-<!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
-
-         <div id='over'> <span class="Centerer"></span><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+       	</table>
+               <div align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div class="divStyle1" id="div_main1"><canvas id="can_model" class="m_canvas"></canvas></div>
-            <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
-            <div class="divStyle3" id="div_main3"><canvas id="can_final" class="m_canvas"></canvas></div>
-        
-      </div>
+                 </div>
       
   </body>
 </html>
