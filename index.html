@@ -88,27 +88,6 @@ function onConfirm(buttonIndex) {
 	}
 }
 
-function resizeImg(imgId) {
-var img = document.getElementById(target);
-var $img = $(img);
-var maxWidth = 110;
-var maxHeight = 100;
-var width = img.width;
-var height = img.height;
-var aspectW = width / maxWidth;
-var aspectH = height / maxHeight;
-
-if (aspectW > 1 || aspectH > 1) {
-    if (aspectW > aspectH) {
-        $img.width(maxWidth);
-        $img.height(height / aspectW);
-    }
-    else {
-        $img.height(maxHeight);
-        $img.width(width / aspectH);
-    }
-}
-}
 
    function drawImageScaled(img, ctx) {
    	resizeImg(img);
@@ -116,12 +95,12 @@ if (aspectW > 1 || aspectH > 1) {
 //	canvas.height = canvas.width * (img.height / img.width);
 m_height=img.height;
 m_width=img.width;
-    canvas.width = window.innerWidth * 0.8;
-    canvas.height = window.innerHeight * 0.8;
+  //  canvas.width = window.innerWidth * 0.8;
+    //canvas.height = window.innerHeight * 0.8;
     
     
 ctx.clearRect(0,0,canvas.width, canvas.height);
- //  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+ ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
    
