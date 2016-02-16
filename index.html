@@ -90,7 +90,7 @@ function onConfirm(buttonIndex) {
 
 
    function drawImageScaled(img, ctx) {
-   	resize_images(img,window.innerHeight,window.innerWidth, 100,100)
+   	
 	var canvas = ctx.canvas ;
 //	canvas.height = canvas.width * (img.height / img.width);
 //m_height=img.height;
@@ -98,8 +98,9 @@ function onConfirm(buttonIndex) {
   //  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
     
-    
+resize_images(img,window.innerHeight,window.innerWidth,100,100);    
 ctx.clearRect(0,0,canvas.width, canvas.height);
+
  ctx.drawImage(img,0,0,newwt,newht);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0,newwt, newht);
