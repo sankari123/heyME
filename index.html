@@ -53,7 +53,7 @@ var pictureSource;   // picture source
     
        function start()
       {
-      	 var newSize = scaleSize(200, 200, 500, 313);
+      	 //var newSize = scaleSize(200, 200, 500, 313);
 		alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
 		document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
@@ -117,7 +117,7 @@ return [currW, currH];
 
 ctx.clearRect(0,0,canvas.width, canvas.height);
 
- ctx.drawImage(img,0,0,newwt,newht);
+ ctx.drawImage(img,0,0,canvas.width, canvas.height);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0,newwt, newht);
    
