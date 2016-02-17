@@ -53,7 +53,7 @@ var pictureSource;   // picture source
     
        function start()
       {
-       // 	 var newSize = scaleSize(200, 200, 500, 313);
+      	 var newSize = scaleSize(200, 200, 500, 313);
 		alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
 		document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
@@ -91,7 +91,19 @@ function onConfirm(buttonIndex) {
     setCrop();
 	}
 }
+function scaleSize(maxW, maxH, currW, currH){
 
+var ratio = currH / currW;
+
+if(currW >= maxW && ratio <= 1){
+currW = maxW;
+currH = currW * ratio;
+} else >if(currH >= maxH){
+currH = maxH;
+currW = currH / ratio;
+}
+return [currW, currH];
+}
 
    function drawImageScaled(img, ctx) {
    	
