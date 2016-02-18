@@ -13,8 +13,8 @@
   var MAX_HEIGHT = 50;
   var filName;
   var jcrop_api;
- var c_width;
- var c_height;
+ var c_width,act_width;
+ var c_height,act_height;
  var imgData1,imgData2,imgData3;
  var mul_img1,mul_img2,mul_img3;
  var x_co,y_co;
@@ -107,6 +107,8 @@ alert(img.width+'   '+img.height);
 		}
 canvas.width = img.width;
 canvas.height = img.height;
+act_height=img.height;
+act_width=img.width;
 ctx.clearRect(0,0,canvas.width, canvas.height);
   alert(img.width+'   '+img.height);
  ctx.drawImage(img,0,0,img.width, img.height);
@@ -205,8 +207,8 @@ document.getElementById("div_main1").style.display = 'none';
 		}
   	      canvas_final = document.getElementById("can_final");
               context_final = canvas_final.getContext("2d");
-               canvas_final.width = window.innerWidth * 0.8;
-    		canvas_final.height = window.innerHeight * 0.8;
+               canvas_final.width = act_width;
+    		canvas_final.height = act_height;
                context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
               context_final.putImageData(imgData1,0,0);
              context_final.putImageData(tmp1,x_co,y_co);
@@ -506,8 +508,7 @@ position: absolute;
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td></tr>
-       	<tr><td><input type="text" size="3" id='w1'></td><td><input type="text" id='h1' size="3" ></td><td><input type="hidden"  size="3" id='x_coor1'></td><td><input type="hidden"  size="3" id='y_coor1'></td></tr>
-       	 <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
+         	 <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
