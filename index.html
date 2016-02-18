@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
   var tmr=0; 
-  var MAX_HEIGHT = 50;
+  var MAX_HEIGHT = 100;
   var filName;
   var jcrop_api;
  var c_width,act_width;
@@ -79,8 +79,17 @@ var pictureSource;   // picture source
 	    var ctx = c.getContext('2d');
 	 	var img = new Image();
 		img.src = imageURI1;
+		alert(img.width+'   '+img.height);
+  //  canvas.width = window.innerWidth * 0.8;
+    //canvas.height = window.innerHeight * 0.8;
+    		if(img.height > MAX_HEIGHT) {
+		img.width *= MAX_HEIGHT / img.height;
+		img.height = MAX_HEIGHT;
+		}
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
+		document.getElementById("target").style.width=img.width;
+		document.getElementById("target").style.height=img.height;
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
 
@@ -98,13 +107,7 @@ function onConfirm(buttonIndex) {
 //	canvas.height = canvas.width * (img.height / img.width);
 //m_height=img.height;
 //m_width=img.width;
-alert(img.width+'   '+img.height);
-  //  canvas.width = window.innerWidth * 0.8;
-    //canvas.height = window.innerHeight * 0.8;
-    if(img.height > MAX_HEIGHT) {
-	img.width *= MAX_HEIGHT / img.height;
-	img.height = MAX_HEIGHT;
-		}
+
 canvas.width = img.width;
 canvas.height = img.height;
 act_height=img.height;
