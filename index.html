@@ -2,8 +2,7 @@
 <html>
   <head>
     <title>heyME</title>
-	
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
@@ -80,7 +79,9 @@ var pictureSource;   // picture source
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
-		
+		var newSize = scaleSize(200, 200, 500, 313);
+		document.getElementById("w1").value= newSize[0];
+		document.getElementById("h1").value= newSize[1];
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
 
@@ -112,6 +113,21 @@ ctx.clearRect(0,0,canvas.width, canvas.height);
     //imgData1 = ctx.getImageData(0,0);
     navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
 }
+
+function scaleSize(maxW, maxH, currW, currH){
+
+var ratio = currH / currW;
+
+if(currW >= maxW && ratio <= 1){
+currW = maxW;
+currH = currW * ratio;
+} else >if(currH >= maxH){
+currH = maxH;
+currW = currH / ratio;
+}
+return [currW, currH];
+}
+
 function release()
   {
     	jcrop_api.destroy();
@@ -501,6 +517,7 @@ position: absolute;
           <table id="tbl" cellspacing="0" cellpadding="0">
           <!--<tr><td colspan=4>&nbsp;</td></tr>-->
        	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td></tr>
+       	<tr><td><input type="text" size="3" id='w1'></td><td><input type="text" id='h1' size="3" ></td><td><input type="hidden"  size="3" id='x_coor1'></td><td><input type="hidden"  size="3" id='y_coor1'></td></tr>
        	 <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
          <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
          <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
