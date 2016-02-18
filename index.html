@@ -98,7 +98,7 @@ function onConfirm(buttonIndex) {
 //	canvas.height = canvas.width * (img.height / img.width);
 //m_height=img.height;
 //m_width=img.width;
-alert(img_width,img_height);
+alert(img.width,img.height);
   //  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
     if(img.height > MAX_HEIGHT) {
@@ -108,7 +108,7 @@ alert(img_width,img_height);
 canvas.width = img.width;
 canvas.height = img.height;
 ctx.clearRect(0,0,canvas.width, canvas.height);
-  alert(img_width,img_height);
+  alert(img.width,img.height);
  ctx.drawImage(img,0,0,img.width, img.height);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0,img.width, img.height);
