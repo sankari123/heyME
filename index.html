@@ -10,6 +10,7 @@
 
 <script type="text/javascript">
   var tmr=0; 
+  var MAX_HEIGHT = 100;
   var filName;
   var jcrop_api;
  var c_width;
@@ -99,8 +100,12 @@ function onConfirm(buttonIndex) {
 //m_width=img.width;
   //  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
-    
-
+    if(img.height > MAX_HEIGHT) {
+	img.width *= MAX_HEIGHT / img.height;
+	img.height = MAX_HEIGHT;
+		}
+canvas.width = img.width;
+canvas.height = img.height;
 ctx.clearRect(0,0,canvas.width, canvas.height);
 
  ctx.drawImage(img,0,0,img.width, img.height);
