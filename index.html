@@ -70,6 +70,10 @@ var pictureSource;   // picture source
     
     function m_getPhoto(source) {
    // document.getElementById("crop").disabled = false; 
+   		document.getElementById("target").style.visibility = 'hidden';
+        	 document.getElementById("div_main1").style.visibility = 'hidden';
+        	 document.getElementById("div_main2").style.visibility = 'hidden';
+        	 document.getElementById("div_main3").style.visibility = 'hidden';
       navigator.camera.getPicture(m_onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,sourceType: source });
     }
    
