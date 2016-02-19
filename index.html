@@ -435,7 +435,7 @@ function seePreview()
       
   .cropImage{
   visibility:hidden;
-  height:50% !important;
+  height:75% !important;
   width:auto !important;
   /*  top:-50px; left:-50px; position:absolute; margin:50% 0 0 50%;*/
   }
@@ -495,6 +495,15 @@ position: absolute;
     right: 0;
     margin:auto;
     }
+    
+    .load_img_div
+    {
+    	height:75% !important;
+  	width:auto !important;
+  	border-style: solid;
+   	border-color: black;
+   	border:1px solid black;
+     }
         </style>
   </head>
   
@@ -521,7 +530,7 @@ position: absolute;
     			<div id='loadImgDiv2' class="blue" onclick="testDiv2();"><img src="#"></div>
     			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
          	</div>
-               <div align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
+               <div id="load_img_div" align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
             <div  id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
             <div  id="div_main2"><canvas id="can_me" style="border:2px solid black;"></canvas></div>
             <div  id="div_main3"><canvas id="can_final" style="border:2px solid black;"></canvas></div>
