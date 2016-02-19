@@ -71,6 +71,8 @@ var pictureSource;   // picture source
     
     function m_getPhoto(source) {
    // document.getElementById("crop").disabled = false; 
+   		release();
+   		MAX_HEIGHT = 100;
    		document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
@@ -102,15 +104,13 @@ function onConfirm(buttonIndex) {
 }
 
    function drawImageScaled(img, ctx) {
-   	
+   	release();
 	var canvas = ctx.canvas ;
-	i_width=1;
 	//  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
     		if(img.height > MAX_HEIGHT) {
-    			i_width*= MAX_HEIGHT / img.height;
-		img.width = i_width;
-		img.height = MAX_HEIGHT;
+    			img.width=img.width*(MAX_HEIGHT / img.height);
+			img.height = MAX_HEIGHT;
 		}
 canvas.width = img.width;
 canvas.height = img.height;
