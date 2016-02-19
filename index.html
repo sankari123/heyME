@@ -9,23 +9,16 @@
 <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
 
 <script type="text/javascript">
-  var tmr=0; 
-  var MAX_HEIGHT = 100;
-  var i_width=1;
+  
   var filName;
   var jcrop_api;
- var c_width,act_width;
- var c_height,act_height;
+ var c_width
+ var c_height;
  var imgData1,imgData2,imgData3;
- var mul_img1,mul_img2,mul_img3;
  var x_co,y_co;
- var ctr=0;
- var canvas,ctx;
+  var canvas,ctx;
  
- var ip;
- var m_width,m_height;
- 
-function setCrop()
+ function setCrop()
     {
         
  jcrop_api = $.Jcrop('#target', { aspectRatio: 1,
@@ -43,8 +36,7 @@ function showCoords(c)
     $('#y_coor').val(c.y);
   };
   var img_arr = new Array(5);
- var ik=0;
-var pictureSource;   // picture source
+ var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = true; 
     document.addEventListener("deviceready",onDeviceReady,false);
@@ -55,9 +47,7 @@ var pictureSource;   // picture source
     
        function start()
       {
-      	 //var newSize = scaleSize(200, 200, 500, 313);
-	//	alert('New Width: ' + newSize[0] + ', New Height: ' + newSize[1]);
-		document.getElementById("tbl").style.width=window.innerHeight;
+      	 	document.getElementById("tbl").style.width=window.innerHeight;
         	 document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
@@ -70,12 +60,6 @@ var pictureSource;   // picture source
  
     
     function m_getPhoto(source) {
-   // document.getElementById("crop").disabled = false; 
-   		if ( jcrop_api != null) {
-   		release();
-	}
-   		
-   		MAX_HEIGHT = 100;
    		document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
         	 document.getElementById("div_main2").style.visibility = 'hidden';
@@ -93,8 +77,6 @@ var pictureSource;   // picture source
 		img.src = imageURI1;
 		document.getElementById("target").src=imageURI1;
 		document.getElementById("target").style.visibility = 'visible';
-	//	document.getElementById("target").style.width=img.width;
-	//	document.getElementById("target").style.height=img.height;
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
 function onConfirm(buttonIndex) {
@@ -105,12 +87,10 @@ function onConfirm(buttonIndex) {
 }
    function drawImageScaled(img,ctx) {
    	canvas = ctx.canvas ;
-    	
-ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+ 	 ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(img,0,0);
    imgData1=ctx.getImageData(0,0);
-   
-   //navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+    //navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
 }
 function release()
   {
