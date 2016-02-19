@@ -79,8 +79,8 @@ function showCoords(c)
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
-function onConfirm(buttonIndex) {
-  if(buttonIndex==1)
+function onPrompt(results)  {
+  if(results.buttonIndex==1)
   {
     setCrop();
 	}
@@ -90,7 +90,8 @@ function onConfirm(buttonIndex) {
  	 ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.drawImage(img,0,0);
    imgData1=ctx.getImageData(0,0);
-   navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+   navigator.notification.prompt('Select the face part!', onPrompt,  'Face Dimensions',   ['Ok','Cancel'], ' ');
+  // navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
 }
 function release()
   {
