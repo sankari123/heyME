@@ -104,7 +104,8 @@ function onConfirm(buttonIndex) {
    function drawImageScaled(img, ctx) {
    	
 	var canvas = ctx.canvas ;
-//  canvas.width = window.innerWidth * 0.8;
+	i_width=1;
+	//  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
     		if(img.height > MAX_HEIGHT) {
     			i_width*= MAX_HEIGHT / img.height;
