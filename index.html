@@ -87,17 +87,15 @@ function onPrompt(results)  {
 }
    function drawImageScaled(img,ctx) {
    	canvas = ctx.canvas ;
- 	 ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.drawImage(img,0,0);
+ 	 
+ 	 canvas.height = window.innerHeight*0.8;
+  canvas.width = window.innerWidth*0.8;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(img,0,0,img.width,img.height);
    imgData1=ctx.getImageData(0,0);
  //  navigator.notification.prompt('Select the face part!', onPrompt,  'Face Dimensions',   ['Ok','Cancel'], ' ');
-  // navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
-  var r = confirm("Select the face part!");
-if (r == true) {
-    setCrop();//txt = "You pressed OK!";
-} else {
-   // txt = "You pressed Cancel!";
-}
+   navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
+  
 }
 function release()
   {
