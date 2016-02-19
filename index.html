@@ -71,7 +71,10 @@ var pictureSource;   // picture source
     
     function m_getPhoto(source) {
    // document.getElementById("crop").disabled = false; 
+   		if ( jcrop_api != null) {
    		release();
+	}
+   		
    		MAX_HEIGHT = 100;
    		document.getElementById("target").style.visibility = 'hidden';
         	 document.getElementById("div_main1").style.visibility = 'hidden';
@@ -104,7 +107,10 @@ function onConfirm(buttonIndex) {
 }
 
    function drawImageScaled(img, ctx) {
-   	release();
+   	if ( jcrop_api != null) {
+   		release();
+	}
+   	
 	var canvas = ctx.canvas ;
 	//  canvas.width = window.innerWidth * 0.8;
     //canvas.height = window.innerHeight * 0.8;
