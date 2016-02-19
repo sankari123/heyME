@@ -145,7 +145,9 @@ function release()
  	c_height=document.getElementById("h").value;
  	x_co=document.getElementById('x_coor').value;
         y_co=document.getElementById('y_coor').value;
- 	
+ 	document.getElementById("loadImgDiv").style.visibility = 'visible';
+    	document.getElementById("loadImgDiv").style.display = 'block';
+    	
  	document.getElementById('loadImgDiv').style.width=c_width;
 	document.getElementById('loadImgDiv').style.height=c_height;
 	
@@ -159,31 +161,22 @@ function release()
     	window.imagePicker.getPictures(
                 function(results) {
                     for (var i = 0; i < 3; i++) {
-                    	       		img_arr[i]= results[i]; 
                     	       		img_r1.src = results[0]; 
-                    	       		
-                    			img_r1.onload = function() {
-                    		//	 alert(this.width);
-        			//			alert(this.height);
-    					img_r1.height = c_height;
-					img_r1.width = c_width; 
-                    				
-                    			
-                    	       		}
-			img_r2.src = results[1]; 
-                    	img_r2.onload = function() {
+                    	       		img_r1.onload = function() {
+                    			img_r1.height = c_height;
+					img_r1.width = c_width; }
+					img_r2.src = results[1]; 
+                    			img_r2.onload = function() {
     					img_r2.height = c_height;
 					img_r2.width = c_width; }
              		
-             		img_r3.src = results[2]; 
-                    	img_r3.onload = function() {
+             				img_r3.src = results[2]; 
+                    			img_r3.onload = function() {
     					img_r3.height = c_height;
 					img_r3.width = c_width; }
              		
 		window.resolveLocalFileSystemURI(results[i], function(fileEntry){	
         	fileEntry.file(function(fileObj) { document.getElementById('fnam').value=document.getElementById('fnam').value+"#"+fileEntry.name;
-      //alert(document.getElementById('fnam').value);      
-      // alert ('i  '+i); // alert(fileObj.size);          //  alert(fileObj.type);      
             }); 
     }, function (error) {            alert('Error: ' + error);        });
                     }
@@ -191,8 +184,6 @@ function release()
                 }, function (error) {                    alert('Error: ' + error);                }
             );
        setTimeout(function(){ navigator.notification.alert('Select a Photo.. ', alertDismissed, 'meMO', 'OK'); },5);
-//navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
-
      }
  
  function alertDismissed()
@@ -202,15 +193,15 @@ function release()
 
 function overlap()
  {
-alert("in");
-document.getElementById("div_main1").style.display = 'none';
-	document.getElementById("can_model").style.visibility = 'hidden';
+		alert("in");
+		document.getElementById("div_main1").style.display = 'none';
+		document.getElementById("can_model").style.visibility = 'hidden';
 		document.getElementById("div_main2").style.display = 'none';
 		document.getElementById("can_me").style.visibility = 'hidden';
 		document.getElementById("div_main3").style.display = 'block';
 		document.getElementById("can_final").style.visibility = 'visible';
-		  canvas_final = document.getElementById("can_final");
-              context_final = canvas_final.getContext("2d");
+	       canvas_final = document.getElementById("can_final");
+               context_final = canvas_final.getContext("2d");
                canvas_final.width = act_width;
     		canvas_final.height = act_height;
                context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
@@ -509,11 +500,9 @@ position: absolute;
       	
         <div>
           <table id="tbl" cellspacing="0" cellpadding="0">
-          <!--<tr><td colspan=4>&nbsp;</td></tr>-->
-       	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td></tr>
+               	<tr><td><input type="hidden" size="3" id='w'></td><td><input type="hidden" id='h' size="3" ></td><td><input type="hidden"  size="3" id='x_coor'></td><td><input type="hidden"  size="3" id='y_coor'></td></tr>
          	 <tr><td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);">Load Make Over Photo</button></td>
-         <!--<td><button id="me_photo" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Y</button></td>-->
-         <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
+                 <td><button id='placeIt' onclick="disp();">Load Your Photos(Face)</button></td>
          <td><button onclick="overlay_action();">Position</button></td>
          <td><button onclick="seePreview();">Preview</button></td>
          
