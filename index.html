@@ -124,9 +124,9 @@ act_height=img.height;
 act_width=img.width;
 ctx.clearRect(0,0,canvas.width, canvas.height);
   alert(img.width+'   '+img.height);
- ctx.drawImage(img,0,0,img.width, img.height);
+ ctx.drawImage(img,0,0,canvas.width, canvas.height);
    //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
-   imgData1=ctx.getImageData(0,0,img.width, img.height);
+   imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
    
   //   ctx.drawImage(img,0,0,img.width,img.height);
     //imgData1 = ctx.getImageData(0,0);
