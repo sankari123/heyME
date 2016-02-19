@@ -118,8 +118,8 @@ function onConfirm(buttonIndex) {
     	//		img.width=img.width*(MAX_HEIGHT / img.height);
 	//		img.height = MAX_HEIGHT;
 		}
-canvas.width = document.getElementById("target").style.width;
-canvas.height = document.getElementById("target").style.height;
+//canvas.width = document.getElementById("target").style.width;
+//canvas.height = document.getElementById("target").style.height;
 act_height=img.height;
 act_width=img.width;
 ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -505,6 +505,14 @@ position: absolute;
    	border-color: black;
    	border:1px solid black;
      }
+     .can1
+    {
+    	height:75% !important;
+  	width:auto !important;
+  	border-style: solid;
+   	border-color: black;
+   	border:1px solid black;
+     }
         </style>
   </head>
   
@@ -532,7 +540,7 @@ position: absolute;
     			<div id='loadImgDiv3' class="blue" onclick="testDiv3();"><img src="#"></div>	
          	</div>
                <div id="load_img_div" align="center"><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-            <div  id="div_main1"><canvas id="can_model" style="border:2px solid black;"></canvas></div>
+            <div  id="div_main1"><canvas id="can_model" class="can1"></canvas></div>
             <div  id="div_main2"><canvas id="can_me" style="border:2px solid black;"></canvas></div>
             <div  id="div_main3"><canvas id="can_final" style="border:2px solid black;"></canvas></div>
         
