@@ -208,7 +208,7 @@ function overlap()
 	       canvas_final = document.getElementById("can_final");
                context_final = canvas_final.getContext("2d");
                context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
-            //  context_final.putImageData(imgData1,0,0);
+            context_final.putImageData(imgData1,0,0);
              context_final.putImageData(tmp1,x_co,y_co);
 }
 
