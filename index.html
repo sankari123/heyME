@@ -79,9 +79,9 @@ function showCoords(c)
 		document.getElementById("target").style.visibility = 'visible';
 		img.onload= drawImageScaled.bind(null, img, ctx);
 	    }
-function onPrompt(results)  {
-  if(results.buttonIndex==1)
-  {
+function onConfirm(buttonIndex) {
+    if(buttonIndex=='1')
+    {
     setCrop();
 	}
 }
