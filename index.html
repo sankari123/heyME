@@ -111,22 +111,13 @@ function onConfirm(buttonIndex) {
    		release();
 	}
    	
-	var canvas = ctx.canvas ;
-	//  canvas.width = window.innerWidth * 0.8;
-    //canvas.height = window.innerHeight * 0.8;
-    		if(img.height > MAX_HEIGHT) {
-    	//		img.width=img.width*(MAX_HEIGHT / img.height);
-	//		img.height = MAX_HEIGHT;
-		}
-//canvas.width = document.getElementById("target").style.width;
-//canvas.height = document.getElementById("target").style.height;
+	canvas = ctx.canvas ;
+    	
 ctx.clearRect(0,0,canvas.width, canvas.height);
   ctx.drawImage(img,0,0,canvas.width, canvas.height);
-   //context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
    imgData1=ctx.getImageData(0,0);
    
-  //   ctx.drawImage(img,0,0,img.width,img.height);
-    //imgData1 = ctx.getImageData(0,0);
+
     navigator.notification.confirm('Select the face part!',  onConfirm,  'Face Dimensions', ['OK','Cancel'] );
 }
 
