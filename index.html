@@ -188,16 +188,11 @@ document.getElementById("div_main1").style.display = 'none';
 		document.getElementById("can_me").style.visibility = 'hidden';
 		document.getElementById("div_main3").style.display = 'block';
 		document.getElementById("can_final").style.visibility = 'visible';
-		if(c_height>50)
-		{
-		document.getElementById("loadImgDiv").style.display = 'none';	
-		document.getElementById("loadImgDiv").style.display = 'hidden';	
-		}
-  	      canvas_final = document.getElementById("can_final");
+	      canvas_final = document.getElementById("can_final");
               context_final = canvas_final.getContext("2d");
-               canvas_final.width = window.innerWidth * 0.8;
-    		canvas_final.height = window.innerHeight * 0.8;
-               context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
+          //     canvas_final.width = window.innerWidth * 0.8;
+    	//	canvas_final.height = window.innerHeight * 0.8;
+             //  context_final.clearRect(0,0,canvas_final.width, canvas_final.height);
               context_final.putImageData(imgData1,0,0);
              context_final.putImageData(tmp1,x_co,y_co);
 }
