@@ -295,8 +295,8 @@ function testDiv1()
 {
 	alert("selected");
 //	alert(img_arr[0]);
-    //	document.getElementById("div_main2").style.display = 'block';
-    //	document.getElementById("div_main2").style.visibility = 'visible';
+    	document.getElementById("div_main2").style.display = 'block';
+    	document.getElementById("div_main2").style.visibility = 'visible';
     	c = document.getElementById("can_me");
 	ctx = c.getContext('2d');
 	var img_1 = document.createElement('img');
@@ -307,9 +307,9 @@ function testDiv1()
     //	alert("x  "+x_co+" y  "+y_co);
     //	ctx.drawImage(img_1,0,0,c_width,m_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height);
-        ctx.drawImage(img_1, 0,0, img_1.width, img_1.height, 0, 0, c_width, c_height);
+        ctx.drawImage(img_1, 0,0,img_1.width,img_1.height,0,0,c_width,c_height);
     //	ctx.drawImage(img_1,0,0,img_1.width,img_1.height,0,0,c_width,c_height);
-        tmp1=ctx.getImageData(0,0);
+        tmp1=ctx.getImageData(0,0,c_width,c_height);
        // hideDiv();
        	overlap();
  }
@@ -529,9 +529,9 @@ position: absolute;
 <!--<div style="height: 94px; width: 94px; border-radius: 100px; -webkit-border-radius: 100px;overflow: hidden; position: relative; top: 30px; left: 50px; display:table-cell; vertical-align:middle;">-->
 
          <div id='over'> <span class="Centerer"></span><img src="splash.png" class="cropImage" id="target" alt="jCrop Circle Area Example" /></div>
-            <div class="divStyle1" id="div_main1"><canvas id="can_model" class="m_canvas"></canvas></div>
             <div class="divStyle2" id="div_main2"><canvas id="can_me"></canvas></div>
             <div class="divStyle3" id="div_main3"><canvas id="can_final" class="m_canvas"></canvas></div>
+            <div class="divStyle1" id="div_main1"><canvas id="can_model" class="m_canvas"></canvas></div>
         
       </div>
       
